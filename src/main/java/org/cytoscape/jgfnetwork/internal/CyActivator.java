@@ -67,6 +67,7 @@ public class CyActivator extends AbstractCyActivator {
 		super();
 	}
 
+	// comment
 	@Override
 	public void start(BundleContext bc) throws Exception {
 
