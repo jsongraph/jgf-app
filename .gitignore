@@ -1,0 +1,8 @@
+.classpath
+.project
+.settings/
+target/
+.DS_Store
+src/main/java/META-INF/
+
+
