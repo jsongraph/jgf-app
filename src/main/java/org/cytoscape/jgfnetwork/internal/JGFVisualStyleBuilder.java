@@ -21,8 +21,8 @@ import org.cytoscape.view.vizmap.mappings.PassthroughMapping;
 public class JGFVisualStyleBuilder {
 	
 	// Default visual style name
-	public static final String DEF_VS_NAME = "KEGG Style";
-	public static final String GLOBAL_VS_NAME = "KEGG Global Map Style";
+	public static final String DEF_VS_NAME = "JGF Style";
+	public static final String GLOBAL_VS_NAME = "JGF Global Map Style";
 	
 	private final VisualStyleFactory vsFactory;
 	private final VisualMappingFunctionFactory discreteMappingFactory;
@@ -32,20 +32,18 @@ public class JGFVisualStyleBuilder {
 	private static final String JGF_NODE_X = "XLOC";
 	private static final String JGF_NODE_Y = "YLOC";
 	
-	private static final String KEGG_NODE_X = "KEGG_NODE_X";
-	private static final String KEGG_NODE_Y = "KEGG_NODE_Y";
-	private static final String KEGG_NODE_WIDTH = "KEGG_NODE_WIDTH";
-	private static final String KEGG_NODE_HEIGHT = "KEGG_NODE_HEIGHT";
-	private static final String KEGG_NODE_LABEL = "KEGG_NODE_LABEL";
-	private static final String KEGG_NODE_LABEL_COLOR = "KEGG_NODE_LABEL_COLOR";
-	private static final String KEGG_NODE_FILL_COLOR = "KEGG_NODE_FILL_COLOR";
-	private static final String KEGG_NODE_LABEL_LIST_FIRST = "KEGG_NODE_LABEL_LIST_FIRST";
-	private static final String KEGG_NODE_SHAPE = "KEGG_NODE_SHAPE";
+	private static final String JGF_NODE_WIDTH = "JGF_NODE_WIDTH";
+	private static final String JGF_NODE_HEIGHT = "JGF_NODE_HEIGHT";
+	private static final String JGF_NODE_LABEL = "JGF_NODE_LABEL";
+	private static final String JGF_NODE_LABEL_COLOR = "JGF_NODE_LABEL_COLOR";
+	private static final String JGF_NODE_FILL_COLOR = "JGF_NODE_FILL_COLOR";
+	private static final String JGF_NODE_LABEL_LIST_FIRST = "JGF_NODE_LABEL_LIST_FIRST";
+	private static final String JGF_NODE_SHAPE = "JGF_NODE_SHAPE";
 
-	private static final String KEGG_RELATION_TYPE = "KEGG_RELATION_TYPE";
-	private static final String KEGG_NODE_TYPE = "KEGG_NODE_TYPE";
+	private static final String JGF_RELATION_TYPE = "JGF_RELATION_TYPE";
+	private static final String JGF_NODE_TYPE = "JGF_NODE_TYPE";
 
-	private static final String KEGG_EDGE_COLOR = "KEGG_EDGE_COLOR";
+	private static final String JGF_EDGE_COLOR = "JGF_EDGE_COLOR";
 
 	public JGFVisualStyleBuilder(final VisualStyleFactory vsFactory,
 			final LoadVizmapFileTaskFactory loadVizmapFileTaskFactory,
@@ -80,17 +78,17 @@ public class JGFVisualStyleBuilder {
 		final PassthroughMapping<String, Double> nodeyPassthrough = (PassthroughMapping<String, Double>) passthroughMappingFactory
 				.createVisualMappingFunction(JGF_NODE_Y, String.class, BasicVisualLexicon.NODE_Y_LOCATION);
 //		final PassthroughMapping<String, Double> nodewidthPassthrough = (PassthroughMapping<String, Double>) passthroughMappingFactory
-//				.createVisualMappingFunction(KEGG_NODE_WIDTH, String.class, BasicVisualLexicon.NODE_WIDTH);
+//				.createVisualMappingFunction(JGF_NODE_WIDTH, String.class, BasicVisualLexicon.NODE_WIDTH);
 //		final PassthroughMapping<String, Double> nodeheightPassthrough = (PassthroughMapping<String, Double>) passthroughMappingFactory
-//				.createVisualMappingFunction(KEGG_NODE_HEIGHT, String.class, BasicVisualLexicon.NODE_HEIGHT);
+//				.createVisualMappingFunction(JGF_NODE_HEIGHT, String.class, BasicVisualLexicon.NODE_HEIGHT);
 //		final PassthroughMapping<String, String> nodelabelPassthrough = (PassthroughMapping<String, String>) passthroughMappingFactory
-//				.createVisualMappingFunction(KEGG_NODE_LABEL_LIST_FIRST, String.class, BasicVisualLexicon.NODE_LABEL);
+//				.createVisualMappingFunction(JGF_NODE_LABEL_LIST_FIRST, String.class, BasicVisualLexicon.NODE_LABEL);
 //		final PassthroughMapping<String, Paint> nodelabelcolorPassthrough = (PassthroughMapping<String, Paint>) passthroughMappingFactory
-//				.createVisualMappingFunction(KEGG_NODE_LABEL_COLOR, String.class, BasicVisualLexicon.NODE_LABEL_COLOR);
+//				.createVisualMappingFunction(JGF_NODE_LABEL_COLOR, String.class, BasicVisualLexicon.NODE_LABEL_COLOR);
 //		final PassthroughMapping<String, Paint> nodefillcolorPassthrough = (PassthroughMapping<String, Paint>) passthroughMappingFactory
-//				.createVisualMappingFunction(KEGG_NODE_FILL_COLOR, String.class, BasicVisualLexicon.NODE_FILL_COLOR);
+//				.createVisualMappingFunction(JGF_NODE_FILL_COLOR, String.class, BasicVisualLexicon.NODE_FILL_COLOR);
 //		final PassthroughMapping<String, String> nodeTooltipPassthrough = (PassthroughMapping<String, String>) passthroughMappingFactory
-//				.createVisualMappingFunction(KEGG_NODE_LABEL, String.class, BasicVisualLexicon.NODE_TOOLTIP);
+//				.createVisualMappingFunction(JGF_NODE_LABEL, String.class, BasicVisualLexicon.NODE_TOOLTIP);
 //				
 		
 		defStyle.addVisualMappingFunction(nodexPassthrough);
@@ -104,11 +102,11 @@ public class JGFVisualStyleBuilder {
 		
 
 		final DiscreteMapping<String, LineType> edgelinetypeMapping = (DiscreteMapping<String, LineType>) discreteMappingFactory
-				.createVisualMappingFunction(KEGG_RELATION_TYPE, String.class, BasicVisualLexicon.EDGE_LINE_TYPE);
+				.createVisualMappingFunction(JGF_RELATION_TYPE, String.class, BasicVisualLexicon.EDGE_LINE_TYPE);
 		edgelinetypeMapping.putMapValue("maplink", LineTypeVisualProperty.LONG_DASH);
 		
 		final DiscreteMapping<String, NodeShape> nodetypeMapping = (DiscreteMapping<String, NodeShape>) discreteMappingFactory
-				.createVisualMappingFunction(KEGG_NODE_TYPE, String.class, BasicVisualLexicon.NODE_SHAPE);
+				.createVisualMappingFunction(JGF_NODE_TYPE, String.class, BasicVisualLexicon.NODE_SHAPE);
 		nodetypeMapping.putMapValue("ortholog", NodeShapeVisualProperty.RECTANGLE);
 		nodetypeMapping.putMapValue("gene", NodeShapeVisualProperty.RECTANGLE);
 		nodetypeMapping.putMapValue("map", NodeShapeVisualProperty.ROUND_RECTANGLE);
@@ -140,9 +138,9 @@ public class JGFVisualStyleBuilder {
 		originalStyle.setTitle(GLOBAL_VS_NAME);
 
 		final PassthroughMapping<String, Paint> edgeColorPassthrough = (PassthroughMapping<String, Paint>) passthroughMappingFactory
-				.createVisualMappingFunction(KEGG_EDGE_COLOR, String.class, BasicVisualLexicon.EDGE_UNSELECTED_PAINT);
+				.createVisualMappingFunction(JGF_EDGE_COLOR, String.class, BasicVisualLexicon.EDGE_UNSELECTED_PAINT);
 		final PassthroughMapping<String, Paint> edgeStrokeColorPassthrough = (PassthroughMapping<String, Paint>) passthroughMappingFactory
-				.createVisualMappingFunction(KEGG_EDGE_COLOR, String.class, BasicVisualLexicon.EDGE_STROKE_UNSELECTED_PAINT);
+				.createVisualMappingFunction(JGF_EDGE_COLOR, String.class, BasicVisualLexicon.EDGE_STROKE_UNSELECTED_PAINT);
 		originalStyle.addVisualMappingFunction(edgeColorPassthrough);
 		originalStyle.addVisualMappingFunction(edgeStrokeColorPassthrough);
 
