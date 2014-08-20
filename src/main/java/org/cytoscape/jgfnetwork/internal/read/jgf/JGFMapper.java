@@ -198,7 +198,10 @@ public JGFMapper(final Graph graph, final CyNetwork network,CyTableFactory cyTab
 		            	@SuppressWarnings("unchecked")
 						LinkedHashMap<String, Object> bitem = (LinkedHashMap<String, Object>)item.get("biological_context");
 		            	bc.setSpecies_common_name( bitem.get("species_common_name")==null ? "" :bitem.get("species_common_name").toString()); 
-		            	bc.setNcbi_tax_id( bitem.get("ncbi_tax_id")==null ? 0 : (Integer)bitem.get("ncbi_tax_id"));          
+		            	bc.setNcbi_tax_id( bitem.get("ncbi_tax_id")==null ? 0 : (Integer)bitem.get("ncbi_tax_id"));  
+		            	bc.setCell( bitem.get("cell")==null ? "" :bitem.get("cell").toString());
+		            	bc.setTissue( bitem.get("tissue")==null ? "" :bitem.get("tissue").toString());
+		            	bc.setDisease( bitem.get("disease")==null ? "" :bitem.get("disease").toString());
 		            	evi.setBiological_context(bc);;
 		            	allEvis.add(evi);
 		            }				      
@@ -242,6 +245,9 @@ public JGFMapper(final Graph graph, final CyNetwork network,CyTableFactory cyTab
 			row.set("CITATION_NAME", evi.getCitation().getName());
 			row.set("SUMMARY_TEXT", evi.getSummary_text());
 			row.set("SPECIES", evi.getBiological_context().getSpecies_common_name());
+			row.set("CELL", evi.getBiological_context().getCell());
+			row.set("TISSUE", evi.getBiological_context().getTissue());
+			row.set("DISEASE", evi.getBiological_context().getDisease());
 		}		
 	}
 	
@@ -270,6 +276,9 @@ public JGFMapper(final Graph graph, final CyNetwork network,CyTableFactory cyTab
 			evTbl.createColumn("CITATION_NAME", String.class, false);
 			evTbl.createColumn("SUMMARY_TEXT", String.class, false);
 			evTbl.createColumn("SPECIES", String.class, false);	
+			evTbl.createColumn("CELL", String.class, false);	
+			evTbl.createColumn("TISSUE", String.class, false);
+			evTbl.createColumn("DISEASE", String.class, false);	
 			cyTableManager.addTable(evTbl);	
 		}
 		return evTbl;
