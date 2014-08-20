@@ -25,7 +25,7 @@ Goal of this project is the following:
 
 Design
 ====
-* Yes.
+* 
 
 Status
 ====
