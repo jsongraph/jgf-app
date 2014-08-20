@@ -133,13 +133,7 @@
 			<scope>provided</scope>
 		</dependency>
 
-		<!-- 3rd party libraries -->
-		<dependency>
-			<groupId>org.glassfish.jersey.core</groupId>
-			<artifactId>jersey-client</artifactId>
-			<version>2.4.1</version>
-		</dependency>
-
+		<!-- 3rd party libraries -->		
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-core</artifactId>

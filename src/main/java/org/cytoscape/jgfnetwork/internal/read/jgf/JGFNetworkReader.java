@@ -2,9 +2,6 @@ package org.cytoscape.jgfnetwork.internal.read.jgf;
 
 import java.io.InputStream;
 
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.Unmarshaller;
-
 import org.cytoscape.io.read.AbstractCyNetworkReader;
 import org.cytoscape.jgfnetwork.internal.JGFVisualStyleBuilder;
 import org.cytoscape.jgfnetwork.internal.mapperclasses.Graph;
@@ -105,32 +102,9 @@ public class JGFNetworkReader extends AbstractCyNetworkReader {
 //		call applyAll on the network view that contains your nodes and edges.
 //		
 		
-//		final String pathwayID = mapper.getPathwayId();
 //	
-//		VisualStyle keggStyle = null;
-//		String targetStyleName = KGMLVisualStyleBuilder.DEF_VS_NAME;
-//
-//		// Special case: Global Map
-//		if(pathwayID.equals("01100") || pathwayID.equals("01110")) {
-//			targetStyleName = KGMLVisualStyleBuilder.GLOBAL_VS_NAME;
-//		}	
-//		
-//		// Check Visual Style exists or not
-//		for (VisualStyle style : vmm.getAllVisualStyles()) {
-//			if (style.getTitle().equals(targetStyleName)) {
-//				keggStyle = style;
-//				break;
-//			}
-//		}
-//		if (keggStyle == null) {
-//			if(pathwayID.equals("01100") || pathwayID.equals("01110")) {
-//				keggStyle = vsBuilder.getGlobalVisualStyle();
-//			} else {
-//				keggStyle = vsBuilder.getVisualStyle();
-//			}
-//			vmm.addVisualStyle(keggStyle);
-//		}
-//		vmm.setCurrentVisualStyle(keggStyle);
+//		VisualStyle jgfStyle = null;
+//		vmm.setCurrentVisualStyle(jgfStyle);
 	
 	}
 
