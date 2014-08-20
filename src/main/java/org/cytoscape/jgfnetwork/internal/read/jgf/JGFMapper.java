@@ -45,7 +45,7 @@ public class JGFMapper {
 	private static final String JGF_NODE_X = "XLOC";
 	private static final String JGF_NODE_Y = "YLOC";
 	private static final String JGF_NODE_Z = "ZLOC";
-	private static final String JGF_BEL_FUNC = "BELFUNCTION";
+	private static final String JGF_BEL_FUNC = "bel function";
 	
 	private static final String JGF_EDGE_SOURCE = "SOURCE_NODE";
 	private static final String JGF_EDGE_TARGET= "TARGET_NODE";
