@@ -32,6 +32,8 @@ import org.osgi.framework.BundleContext;
 import org.cytoscape.application.swing.events.CytoPanelComponentSelectedListener;
 import org.cytoscape.model.events.RowsSetListener;
 
+import static org.cytoscape.jgfnetwork.internal.Constants.*;
+
 /**
  * {@code CyActivator} is a class that is a starting point for OSGi bundles.
  * 
@@ -89,6 +91,7 @@ public class CyActivator extends AbstractCyActivator {
 		
 		// get a reference to Cytoscape service -- LoadVizmapFileTaskFactory 
 		 final LoadVizmapFileTaskFactory loadVizmapFileTaskFactory =  getService(bc,LoadVizmapFileTaskFactory.class);
+        loadVizmapFileTaskFactory.loadStyles(CyActivator.class.getResourceAsStream(STYLE_RESOURCE_PATH));
 
 		
 		JGFVisualStyleBuilder vsBuilder = new JGFVisualStyleBuilder(vsFactoryServiceRef, loadVizmapFileTaskFactory,
