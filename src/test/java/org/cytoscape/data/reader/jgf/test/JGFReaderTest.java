@@ -35,15 +35,10 @@ public class JGFReaderTest {
 		
 		Graph graph=null;
 		try {
-			
-			InputStream stream  = new FileInputStream ("C:\\Users\\cfletcher\\git\\JGFNetwork\\src\\test\\resources\\testData\\jgf\\Response to DNA Damage1.1 formatted.jgf");
-			// InputStream stream  = new FileInputStream ("\\src\\test\\resources\\testData\\jgf\\Response to DNA Damage1.1 formatted.jgf");
-			//InputStream stream = this.getClass().getClassLoader().getResourceAsStream("Response to DNA Damage1.1 formatted.jgf");
-			
+			//Response to DNA Damage1.1 formatted.jgf
+			InputStream stream = this.getClass().getClassLoader().getResourceAsStream("testData/jgf/Response to DNA Damage1.1 formatted.jgf");			
 			JsonToNetworkConverter converter  = new JsonToNetworkConverter();
-			graph = converter.CreateGraph(stream);
-			
-			
+			graph = converter.CreateGraph(stream);					
 		} catch (Exception e) {
 			
 			e.printStackTrace();
@@ -61,12 +56,10 @@ public class JGFReaderTest {
 		Graph graph=null;
 		try {
 				
-			InputStream stream  = new FileInputStream ("C:\\Users\\cfletcher\\git\\JGFNetwork\\src\\test\\resources\\testData\\jgf\\Xenobiotic Metabolism Response_v1.2 Graphs.json");
-				
+			InputStream stream = this.getClass().getClassLoader().getResourceAsStream("testData/jgf/Xenobiotic Metabolism Response_v1.2 Graphs.json");
 			JsonToNetworkConverter converter  = new JsonToNetworkConverter();
 			graph = converter.CreateGraph(stream);
-			
-			
+						
 		} catch (Exception e) {
 		
 			e.printStackTrace();

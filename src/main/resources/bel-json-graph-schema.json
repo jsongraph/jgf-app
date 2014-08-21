@@ -158,7 +158,7 @@
                                 "evidences": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "#/definitions/bel_evidence"
+                                        "$ref": "#/definitions/evidence"
                                     }
                                 }
                             }
@@ -169,7 +169,7 @@
             }
         }
     },
-    "bel_evidence": {
+    "evidence": {
         "type": "object",
         "required": ["bel_statement", "citation"],
         "properties": {
