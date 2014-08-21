@@ -25,7 +25,8 @@ Goal of this project is the following:
 
 Design
 ====
-* 
+* Though the schema currently support multiple as well as single graph, the current implementation of JGFNetwork only
+  supports a single graph. 
 
 Status
 ====
