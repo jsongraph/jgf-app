@@ -1,4 +1,4 @@
-﻿{
+{
     "$schema": "http://json-schema.org/draft-04/schema",
     "description": "Graph data description. Please note that all field keys are to be lowercase and use snake-case (e.g. words are separated by underscores like ncbi_tax_id). Some of the metadata fields are not required but are included as exemplars for generating interoperable BEL JGF files.  You may need to provide additional validation programmatically to confirm that the metadata you need for your application exists.",
     "oneOf": [{

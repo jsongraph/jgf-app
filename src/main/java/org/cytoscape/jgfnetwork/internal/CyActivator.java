@@ -59,68 +59,68 @@ import static org.cytoscape.jgfnetwork.internal.Constants.*;
  * {@code unget}s any services we fetch using getService().
  */
 public class CyActivator extends AbstractCyActivator {
-	/**
-	 * This is the {@code start} method, which sets up your app. The
-	 * {@code BundleContext} object allows you to communicate with the OSGi
-	 * environment. You use {@code BundleContext} to import services or ask OSGi
-	 * about the status of some service.
-	 */
-	public CyActivator() {
-		super();
-	}
+    /**
+     * This is the {@code start} method, which sets up your app. The
+     * {@code BundleContext} object allows you to communicate with the OSGi
+     * environment. You use {@code BundleContext} to import services or ask OSGi
+     * about the status of some service.
+     */
+    public CyActivator() {
+        super();
+    }
 
-	// comment
-	@Override
-	public void start(BundleContext bc) throws Exception {
+    // comment
+    @Override
+    public void start(BundleContext bc) throws Exception {
 
-		// importing services
-		final StreamUtil streamUtil = getService(bc, StreamUtil.class);
-		final CyNetworkViewFactory cyNetworkViewFactory = getService(bc, CyNetworkViewFactory.class);
-		final CyNetworkFactory cyNetworkFactory = getService(bc, CyNetworkFactory.class);
-		final CyNetworkManager cyNetworkManager = getService(bc, CyNetworkManager.class);
-		final CyRootNetworkManager cyRootNetworkManager = getService(bc, CyRootNetworkManager.class);
-		
-		final CyTableManager cyTableManager = getService(bc, CyTableManager.class);
-		final CyTableFactory cyTableFactory = getService(bc, CyTableFactory.class);
-		
-		VisualStyleFactory vsFactoryServiceRef = getService(bc, VisualStyleFactory.class); 
-		VisualMappingFunctionFactory passthroughMappingFactoryRef = getService(bc, VisualMappingFunctionFactory.class,
-				"(mapping.type=passthrough)");
-		VisualMappingFunctionFactory discreteMappingFactoryRef = getService(bc, VisualMappingFunctionFactory.class,
-				"(mapping.type=discrete)");
-		
-		// get a reference to Cytoscape service -- LoadVizmapFileTaskFactory 
-		 final LoadVizmapFileTaskFactory loadVizmapFileTaskFactory =  getService(bc,LoadVizmapFileTaskFactory.class);
+        // importing services
+        final StreamUtil streamUtil = getService(bc, StreamUtil.class);
+        final CyNetworkViewFactory cyNetworkViewFactory = getService(bc, CyNetworkViewFactory.class);
+        final CyNetworkFactory cyNetworkFactory = getService(bc, CyNetworkFactory.class);
+        final CyNetworkManager cyNetworkManager = getService(bc, CyNetworkManager.class);
+        final CyRootNetworkManager cyRootNetworkManager = getService(bc, CyRootNetworkManager.class);
+        
+        final CyTableManager cyTableManager = getService(bc, CyTableManager.class);
+        final CyTableFactory cyTableFactory = getService(bc, CyTableFactory.class);
+        
+        VisualStyleFactory vsFactoryServiceRef = getService(bc, VisualStyleFactory.class); 
+        VisualMappingFunctionFactory passthroughMappingFactoryRef = getService(bc, VisualMappingFunctionFactory.class,
+                "(mapping.type=passthrough)");
+        VisualMappingFunctionFactory discreteMappingFactoryRef = getService(bc, VisualMappingFunctionFactory.class,
+                "(mapping.type=discrete)");
+        
+        // get a reference to Cytoscape service -- LoadVizmapFileTaskFactory 
+         final LoadVizmapFileTaskFactory loadVizmapFileTaskFactory =  getService(bc,LoadVizmapFileTaskFactory.class);
         loadVizmapFileTaskFactory.loadStyles(CyActivator.class.getResourceAsStream(STYLE_RESOURCE_PATH));
 
-		
-		JGFVisualStyleBuilder vsBuilder = new JGFVisualStyleBuilder(vsFactoryServiceRef, loadVizmapFileTaskFactory,
-				discreteMappingFactoryRef, passthroughMappingFactoryRef);
-		
-		VisualMappingManager vmm = getService(bc, VisualMappingManager.class);
-		
-		// readers
-		final CyFileFilter jgfReaderFilter = new JGFFileFilter(new String[] { "jgf"},
-				new String[] { "application/jgf" }, "JSON JGF Files", DataCategory.NETWORK, streamUtil);
-		final JGFNetworkReaderFactory jgfReaderFactory = new JGFNetworkReaderFactory(
-				jgfReaderFilter, cyNetworkViewFactory, cyNetworkFactory, cyNetworkManager, cyRootNetworkManager,
-				vsBuilder, vmm, cyTableFactory,  cyTableManager );
-		final Properties jgfNetworkReaderFactoryProps = new Properties();
-		jgfNetworkReaderFactoryProps.put(ID, "JGFNetworkReaderFactory");
-		registerService(bc, jgfReaderFactory, InputStreamTaskFactory.class, jgfNetworkReaderFactoryProps);
-		
-		//Listens for change of the selected Edge - for updates to the custom panel in the results view
-		final Properties edgeSelectedListenerProps = new Properties();
-		edgeSelectedListenerProps.put(ID, "EdgeSelectedListener");
-		final EdgeSelectedListener  edgeSelectedListener = new EdgeSelectedListener();
-		registerService(bc, edgeSelectedListener, RowsSetListener.class, edgeSelectedListenerProps);
-		
-		final Properties evidenceFactoryProps = new Properties();
-		evidenceFactoryProps.put(ID, "ShowEvidenceFactory");
-		evidenceFactoryProps.put(PREFERRED_MENU, "Apps.JGF");
-		evidenceFactoryProps.put(MENU_GRAVITY, "14.0");
-		evidenceFactoryProps.put(TITLE, "View Evidence");
-		registerService(bc, new ShowEvidenceFactory( ), EdgeViewTaskFactory.class, evidenceFactoryProps );	
-	}
+        
+        JGFVisualStyleBuilder vsBuilder = new JGFVisualStyleBuilder(vsFactoryServiceRef, loadVizmapFileTaskFactory,
+                discreteMappingFactoryRef, passthroughMappingFactoryRef);
+        
+        VisualMappingManager vmm = getService(bc, VisualMappingManager.class);
+        
+        // readers
+        final CyFileFilter jgfReaderFilter = new JGFFileFilter(new String[] { "jgf"},
+                new String[] { "application/jgf" }, "JSON JGF Files", DataCategory.NETWORK, streamUtil);
+        final JGFNetworkReaderFactory jgfReaderFactory = new JGFNetworkReaderFactory(
+                jgfReaderFilter, cyNetworkViewFactory, cyNetworkFactory, cyNetworkManager, cyRootNetworkManager,
+                vsBuilder, vmm, cyTableFactory,  cyTableManager );
+        final Properties jgfNetworkReaderFactoryProps = new Properties();
+        jgfNetworkReaderFactoryProps.put(ID, "JGFNetworkReaderFactory");
+        registerService(bc, jgfReaderFactory, InputStreamTaskFactory.class, jgfNetworkReaderFactoryProps);
+        
+        //Listens for change of the selected Edge - for updates to the custom panel in the results view
+        final Properties edgeSelectedListenerProps = new Properties();
+        edgeSelectedListenerProps.put(ID, "EdgeSelectedListener");
+        final EdgeSelectedListener  edgeSelectedListener = new EdgeSelectedListener();
+        registerService(bc, edgeSelectedListener, RowsSetListener.class, edgeSelectedListenerProps);
+        
+        final Properties evidenceFactoryProps = new Properties();
+        evidenceFactoryProps.put(ID, "ShowEvidenceFactory");
+        evidenceFactoryProps.put(PREFERRED_MENU, "Apps.JGF");
+        evidenceFactoryProps.put(MENU_GRAVITY, "14.0");
+        evidenceFactoryProps.put(TITLE, "View Evidence");
+        registerService(bc, new ShowEvidenceFactory( ), EdgeViewTaskFactory.class, evidenceFactoryProps );    
+    }
 }
 

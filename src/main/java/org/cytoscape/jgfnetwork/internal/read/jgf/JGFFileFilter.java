@@ -17,34 +17,34 @@ import org.slf4j.LoggerFactory;
  */
 public class JGFFileFilter extends BasicCyFileFilter {
 
-	private static final Logger logger = LoggerFactory.getLogger(JGFFileFilter.class);
+    private static final Logger logger = LoggerFactory.getLogger(JGFFileFilter.class);
 
 
-	public JGFFileFilter(Set<String> extensions, Set<String> contentTypes, String description,
-			DataCategory category, StreamUtil streamUtil) {
-		super(extensions, contentTypes, description, category, streamUtil);
-	}
+    public JGFFileFilter(Set<String> extensions, Set<String> contentTypes, String description,
+            DataCategory category, StreamUtil streamUtil) {
+        super(extensions, contentTypes, description, category, streamUtil);
+    }
 
-	public JGFFileFilter(String[] extensions, String[] contentTypes, String description, DataCategory category,
-			StreamUtil streamUtil) {
-		super(extensions, contentTypes, description, category, streamUtil);
-	}
+    public JGFFileFilter(String[] extensions, String[] contentTypes, String description, DataCategory category,
+            StreamUtil streamUtil) {
+        super(extensions, contentTypes, description, category, streamUtil);
+    }
 
-	@Override
-	public boolean accepts(final InputStream stream, final DataCategory category) {
-		final String header = getHeader(stream, 5);
-		logger.debug("File header: " + header);
-		
-		return true;
-	}
+    @Override
+    public boolean accepts(final InputStream stream, final DataCategory category) {
+        final String header = getHeader(stream, 5);
+        logger.debug("File header: " + header);
+        
+        return true;
+    }
 
-	@Override
-	public boolean accepts(final URI uri, final DataCategory category) {
-		try {
-			return accepts(uri.toURL().openStream(), category);
-		} catch (IOException e) {
-			logger.error("Error while opening stream: " + uri, e);
-			return false;
-		}
-	}
+    @Override
+    public boolean accepts(final URI uri, final DataCategory category) {
+        try {
+            return accepts(uri.toURL().openStream(), category);
+        } catch (IOException e) {
+            logger.error("Error while opening stream: " + uri, e);
+            return false;
+        }
+    }
 }

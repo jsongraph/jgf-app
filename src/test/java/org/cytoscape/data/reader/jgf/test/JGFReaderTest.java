@@ -19,54 +19,54 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class JGFReaderTest {
-	private static Logger userMessages;
-	
-	@Before
-	public void setUp() throws Exception {
-		userMessages = LoggerFactory.getLogger("CyUserMessages");
-	}
+    private static Logger userMessages;
+    
+    @Before
+    public void setUp() throws Exception {
+        userMessages = LoggerFactory.getLogger("CyUserMessages");
+    }
 
-	@After
-	public void tearDown() throws Exception {
-	}
-	
-	@Test
-	public void test() {
-		
-		Graph graph=null;
-		try {
-			//Response to DNA Damage1.1 formatted.jgf
-			InputStream stream = this.getClass().getClassLoader().getResourceAsStream("testData/jgf/Response to DNA Damage1.1 formatted.jgf");			
-			JsonToNetworkConverter converter  = new JsonToNetworkConverter();
-			graph = converter.CreateGraph(stream);					
-		} catch (Exception e) {
-			
-			e.printStackTrace();
-			fail("Exception thrown.");
-		}
-		
-		assertTrue(graph != null);
-		assertTrue(graph.getMetadata().get("description") != null);
-	}
+    @After
+    public void tearDown() throws Exception {
+    }
+    
+    @Test
+    public void test() {
+        
+        Graph graph=null;
+        try {
+            //Response to DNA Damage1.1 formatted.jgf
+            InputStream stream = this.getClass().getClassLoader().getResourceAsStream("testData/jgf/Response to DNA Damage1.1 formatted.jgf");            
+            JsonToNetworkConverter converter  = new JsonToNetworkConverter();
+            graph = converter.CreateGraph(stream);                    
+        } catch (Exception e) {
+            
+            e.printStackTrace();
+            fail("Exception thrown.");
+        }
+        
+        assertTrue(graph != null);
+        assertTrue(graph.getMetadata().get("description") != null);
+    }
 
-	
-	@Test
-	public void testForGraphs() {
-		
-		Graph graph=null;
-		try {
-				
-			InputStream stream = this.getClass().getClassLoader().getResourceAsStream("testData/jgf/Xenobiotic Metabolism Response_v1.2 Graphs.json");
-			JsonToNetworkConverter converter  = new JsonToNetworkConverter();
-			graph = converter.CreateGraph(stream);
-						
-		} catch (Exception e) {
-		
-			e.printStackTrace();
-			fail("Exception thrown.");
-		}
-		
-		assertTrue(graph == null);
-	}
-	
+    
+    @Test
+    public void testForGraphs() {
+        
+        Graph graph=null;
+        try {
+                
+            InputStream stream = this.getClass().getClassLoader().getResourceAsStream("testData/jgf/Xenobiotic Metabolism Response_v1.2 Graphs.json");
+            JsonToNetworkConverter converter  = new JsonToNetworkConverter();
+            graph = converter.CreateGraph(stream);
+                        
+        } catch (Exception e) {
+        
+            e.printStackTrace();
+            fail("Exception thrown.");
+        }
+        
+        assertTrue(graph == null);
+    }
+    
 }
