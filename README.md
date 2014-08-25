@@ -29,3 +29,7 @@ Status
 Requirements
 ============
 - [Cytoscape 3.x](http://www.cytoscape.org/)
+
+Installation
+============
+- See [INSTALL.md](https://github.com/OpenBEL/bel-network-app/blob/master/INSTALL.md).
