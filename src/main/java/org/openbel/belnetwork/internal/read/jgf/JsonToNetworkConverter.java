@@ -1,10 +1,10 @@
-package org.cytoscape.jgfnetwork.internal.read.jgf;
+package org.openbel.belnetwork.internal.read.jgf;
 
 import java.io.InputStream;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.cytoscape.jgfnetwork.internal.mapperclasses.*;
+import org.openbel.belnetwork.internal.mapperclasses.*;
 import org.cytoscape.model.CyNetwork;
 import org.cytoscape.model.CyTableFactory;
 import org.cytoscape.model.CyTableManager;

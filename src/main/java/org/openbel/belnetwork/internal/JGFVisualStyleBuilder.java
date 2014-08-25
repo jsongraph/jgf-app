@@ -1,4 +1,4 @@
-package org.cytoscape.jgfnetwork.internal;
+package org.openbel.belnetwork.internal;
 
 import java.awt.Color;
 import java.awt.Paint;

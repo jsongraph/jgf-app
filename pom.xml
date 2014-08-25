@@ -5,21 +5,61 @@
         <maven-compiler-plugin.version>3.1</maven-compiler-plugin.version>
         <maven-bundle-plugin.version>2.4.0</maven-bundle-plugin.version>
         <osgi.api.version>4.2.0</osgi.api.version>
-        <bundle.symbolicName>org.cytoscape.jgfnetwork</bundle.symbolicName>
-        <bundle.namespaece>org.cytoscape.jgfnetwork</bundle.namespaece>
-        <bundle.name>JGFNetwork</bundle.name>
+        <bundle.symbolicName>org.openbel.belnetwork</bundle.symbolicName>
+        <bundle.namespaece>org.openbel.belnetwork</bundle.namespaece>
+        <bundle.name>bel-network-app</bundle.name>
     </properties>
 
     <modelVersion>4.0.0</modelVersion>
-    <groupId>org.cytoscape</groupId>
-    <artifactId>jgfnetwork</artifactId>
+    <groupId>org.openbel</groupId>
+    <artifactId>bel-network-app</artifactId>
     <version>0.8.0</version>
     <name>${bundle.name}</name>
-
+    <description>A cytoscape 3.x app to import and export BEL networks.</description>
     <packaging>bundle</packaging>
 
+    <organization>
+        <name>OpenBEL</name>
+        <url>http://www.openbel.org/</url>
+    </organization>
+
+    <developers>
+        <developer>
+            <id>cfletcher</id>
+            <name>Charlene Fletcher</name>
+            <email>eredmond@codehaus.org</email>
+            <organization>Applied Dynamic Solutions, LLC.</organization>
+            <organizationUrl>http://ads-llc.com/</organizationUrl>
+            <roles>
+              <role>developer</role>
+            </roles>
+            <timezone>-5</timezone>
+        </developer>
+        <developer>
+            <id>abargnesi</id>
+            <name>Anthony Bargnesi</name>
+            <email>abargnesi@selventa.com</email>
+            <organization>Selventa</organization>
+            <organizationUrl>http://selventa.com/</organizationUrl>
+            <roles>
+              <role>developer</role>
+            </roles>
+            <timezone>-5</timezone>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:git://github.com/OpenBEL/bel-network-app.git</connection>
+        <developerConnection>scm:git:git://github.com/OpenBEL/bel-network-app.git</developerConnection>
+        <url>https://github.com/OpenBEL/bel-network-app/</url>
+    </scm>
+
+    <issueManagement>
+        <url>https://github.com/OpenBEL/bel-network-app/issues/</url>
+    </issueManagement>
+
     <build>
-      <finalName>JGFNetwork</finalName>
+      <finalName>bel-network-app</finalName>
         <plugins>        
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -40,12 +80,11 @@
                 <extensions>true</extensions>
                 <configuration>
                     <instructions>
-                        <!-- TODO: Embed dependencies -->
-                        <Bundle-SymbolicName>org.cytoscape.jgfnetwork</Bundle-SymbolicName>
+                        <Bundle-SymbolicName>org.openbel.belnetwork</Bundle-SymbolicName>
                         <Bundle-Version>${project.version}</Bundle-Version>
                         <!-- This tells the bundle plugin which packages should not be exported. -->
-                        <Private-Package>org.cytoscape.jgfnetwork.internal.*</Private-Package>
-                        <Bundle-Activator>org.cytoscape.jgfnetwork.internal.CyActivator</Bundle-Activator>
+                        <Private-Package>org.openbel.belnetwork.internal.*</Private-Package>
+                        <Bundle-Activator>org.openbel.belnetwork.internal.CyActivator</Bundle-Activator>
                         <Embed-Dependency>*;scope=!provided|test;groupId=!org.cytoscape</Embed-Dependency>
                         <Embed-Transitive>true</Embed-Transitive>
                         <Import-Package>*;resolution:=optional</Import-Package>
@@ -79,17 +118,18 @@
     </repositories>
 
     <dependencies>
-
-        <!-- Cytoscape API dependencies -->
+        <!-- OSGi dependencies -->
         <dependency>
-            <groupId>org.cytoscape</groupId>
-            <artifactId>service-api</artifactId>
-            <version>${cytoscape.api.version}</version>
+            <groupId>org.osgi</groupId>
+            <artifactId>org.osgi.core</artifactId>
+            <version>${osgi.api.version}</version>
             <scope>provided</scope>
         </dependency>
+
+        <!-- Cytoscape dependencies -->
         <dependency>
             <groupId>org.cytoscape</groupId>
-            <artifactId>work-api</artifactId>
+            <artifactId>io-api</artifactId>
             <version>${cytoscape.api.version}</version>
             <scope>provided</scope>
         </dependency>
@@ -101,7 +141,19 @@
         </dependency>
         <dependency>
             <groupId>org.cytoscape</groupId>
-            <artifactId>io-api</artifactId>
+            <artifactId>service-api</artifactId>
+            <version>${cytoscape.api.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.cytoscape</groupId>
+            <artifactId>swing-application-api</artifactId>
+            <version>${cytoscape.api.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.cytoscape</groupId>
+            <artifactId>core-task-api</artifactId>
             <version>${cytoscape.api.version}</version>
             <scope>provided</scope>
         </dependency>
@@ -113,23 +165,14 @@
         </dependency>
         <dependency>
             <groupId>org.cytoscape</groupId>
-            <artifactId>swing-application-api</artifactId>
+            <artifactId>work-api</artifactId>
             <version>${cytoscape.api.version}</version>
             <scope>provided</scope>
         </dependency>
-        
-        <!-- Logger -->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
             <version>1.6.6</version>
-            <scope>provided</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.osgi</groupId>
-            <artifactId>org.osgi.core</artifactId>
-            <version>${osgi.api.version}</version>
             <scope>provided</scope>
         </dependency>
 
@@ -163,19 +206,11 @@
             <version>1.9.5</version>
             <scope>test</scope>
         </dependency>
-
         <dependency>
             <groupId>org.cytoscape</groupId>
             <artifactId>vizmap-impl</artifactId>
             <version>${cytoscape.api.version}</version>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>org.cytoscape</groupId>
-            <artifactId>core-task-api</artifactId>
-            <version>${cytoscape.api.version}</version>
-        </dependency>
-        
     </dependencies>
-    <description>App to import of JGF Files and view associated evidence on edges.</description>
 </project>

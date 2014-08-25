@@ -1,4 +1,4 @@
-package org.cytoscape.jgfnetwork.internal.mapperclasses;
+package org.openbel.belnetwork.internal.mapperclasses;
 
 import java.util.HashMap;
 import java.util.List;

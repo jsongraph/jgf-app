@@ -1,10 +1,10 @@
-package org.cytoscape.jgfnetwork.internal.read.jgf;
+package org.openbel.belnetwork.internal.read.jgf;
 
 import java.io.InputStream;
 
 import org.cytoscape.io.read.AbstractCyNetworkReader;
-import org.cytoscape.jgfnetwork.internal.JGFVisualStyleBuilder;
-import org.cytoscape.jgfnetwork.internal.mapperclasses.Graph;
+import org.openbel.belnetwork.internal.JGFVisualStyleBuilder;
+import org.openbel.belnetwork.internal.mapperclasses.Graph;
 import org.cytoscape.task.read.LoadVizmapFileTaskFactory; //added
 import org.cytoscape.model.CyNetwork;
 import org.cytoscape.model.CyNetworkFactory;

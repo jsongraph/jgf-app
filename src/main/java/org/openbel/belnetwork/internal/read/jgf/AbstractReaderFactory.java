@@ -1,4 +1,4 @@
-package org.cytoscape.jgfnetwork.internal.read.jgf;
+package org.openbel.belnetwork.internal.read.jgf;
 
 import java.io.InputStream;
 

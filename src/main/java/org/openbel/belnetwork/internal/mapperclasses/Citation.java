@@ -1,4 +1,4 @@
-package org.cytoscape.jgfnetwork.internal.mapperclasses;
+package org.openbel.belnetwork.internal.mapperclasses;
 
 public class Citation {
     private String type;

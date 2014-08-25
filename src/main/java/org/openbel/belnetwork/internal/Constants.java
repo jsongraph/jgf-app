@@ -1,4 +1,4 @@
-package org.cytoscape.jgfnetwork.internal;
+package org.openbel.belnetwork.internal;
 
 public class Constants {
 

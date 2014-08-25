@@ -1,4 +1,4 @@
-package org.cytoscape.jgfnetwork.internal.mapperclasses;
+package org.openbel.belnetwork.internal.mapperclasses;
 
 public class BiologicalContext {
     private Integer ncbi_tax_id;

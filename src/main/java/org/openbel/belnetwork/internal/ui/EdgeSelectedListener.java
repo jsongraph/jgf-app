@@ -1,4 +1,4 @@
-package org.cytoscape.jgfnetwork.internal.ui;
+package org.openbel.belnetwork.internal.ui;
 import java.awt.Component;
 
 import javax.swing.Icon;

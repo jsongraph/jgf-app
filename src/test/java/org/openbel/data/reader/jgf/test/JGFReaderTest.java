@@ -1,4 +1,4 @@
-package org.cytoscape.data.reader.jgf.test;
+package org.openbel.data.reader.jgf.test;
 
 import org.cytoscape.model.CyNetwork;
 import org.cytoscape.model.CyNetworkFactory;
@@ -7,8 +7,8 @@ import org.cytoscape.model.CyNetworkManager;
 import java.io.FileInputStream;
 import java.io.InputStream;
 
-import org.cytoscape.jgfnetwork.internal.mapperclasses.Graph;
-import org.cytoscape.jgfnetwork.internal.read.jgf.JsonToNetworkConverter;
+import org.openbel.belnetwork.internal.mapperclasses.Graph;
+import org.openbel.belnetwork.internal.read.jgf.JsonToNetworkConverter;
 
 import static org.junit.Assert.*;
 

@@ -1,4 +1,4 @@
-package org.cytoscape.jgfnetwork.internal;
+package org.openbel.belnetwork.internal;
 
 import java.util.Properties;
 
@@ -17,10 +17,10 @@ import org.cytoscape.io.CyFileFilter;
 import org.cytoscape.io.DataCategory;
 import org.cytoscape.io.read.InputStreamTaskFactory;
 import org.cytoscape.io.util.StreamUtil;
-import org.cytoscape.jgfnetwork.internal.read.jgf.JGFFileFilter;
-import org.cytoscape.jgfnetwork.internal.read.jgf.JGFNetworkReaderFactory;
-import org.cytoscape.jgfnetwork.internal.ui.EdgeSelectedListener;
-import org.cytoscape.jgfnetwork.internal.ui.ShowEvidenceFactory;
+import org.openbel.belnetwork.internal.read.jgf.JGFFileFilter;
+import org.openbel.belnetwork.internal.read.jgf.JGFNetworkReaderFactory;
+import org.openbel.belnetwork.internal.ui.EdgeSelectedListener;
+import org.openbel.belnetwork.internal.ui.ShowEvidenceFactory;
 import org.cytoscape.task.EdgeViewTaskFactory;
 import org.cytoscape.task.read.LoadVizmapFileTaskFactory; 
 import org.cytoscape.model.CyNetworkFactory;
@@ -32,7 +32,7 @@ import org.osgi.framework.BundleContext;
 import org.cytoscape.application.swing.events.CytoPanelComponentSelectedListener;
 import org.cytoscape.model.events.RowsSetListener;
 
-import static org.cytoscape.jgfnetwork.internal.Constants.*;
+import static org.openbel.belnetwork.internal.Constants.*;
 
 /**
  * {@code CyActivator} is a class that is a starting point for OSGi bundles.
