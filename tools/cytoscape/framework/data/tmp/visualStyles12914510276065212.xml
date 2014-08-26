@@ -1,0 +1,646 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<vizmap documentVersion="3.0" id="VizMap-2013_08_19-15_53">
+    <visualStyle name="KAM Visualization">
+        <network>
+            <visualProperty name="NETWORK_CENTER_X_LOCATION" default="0.0"/>
+            <visualProperty name="NETWORK_TITLE" default=""/>
+            <visualProperty name="NETWORK_BACKGROUND_PAINT" default="#ffffff"/>
+            <visualProperty name="NETWORK_WIDTH" default="550.0"/>
+            <visualProperty name="NETWORK_SCALE_FACTOR" default="1.0"/>
+            <visualProperty name="NETWORK_HEIGHT" default="400.0"/>
+            <visualProperty name="NETWORK_EDGE_SELECTION" default="true"/>
+            <visualProperty name="NETWORK_CENTER_Z_LOCATION" default="0.0"/>
+            <visualProperty name="NETWORK_CENTER_Y_LOCATION" default="0.0"/>
+            <visualProperty name="NETWORK_NODE_SELECTION" default="true"/>
+            <visualProperty name="NETWORK_DEPTH" default="0.0"/>
+        </network>
+        <node>
+            <dependency name="nodeSizeLocked" value="false"/>
+            <dependency name="nodeCustomGraphicsSizeSync" value="true"/>
+            <visualProperty name="NODE_CUSTOMGRAPHICS_POSITION_1" default="C,C,c,0.00,0.00"/>
+            <visualProperty name="NODE_LABEL_COLOR" default="#000000"/>
+            <visualProperty name="NODE_CUSTOMGRAPHICS_POSITION_7" default="C,C,c,0.00,0.00"/>
+            <visualProperty name="NODE_CUSTOMGRAPHICS_POSITION_2" default="C,C,c,0.00,0.00"/>
+            <visualProperty name="NODE_BORDER_STROKE" default="SOLID"/>
+            <visualProperty name="NODE_SHAPE" default="RECTANGLE">
+                <discreteMapping attributeType="string" attributeName="bel.function">
+                    <discreteMappingEntry value="PARALLELOGRAM" attributeValue="reaction"/>
+                    <discreteMappingEntry value="ROUND_RECTANGLE" attributeValue="degradation"/>
+                    <discreteMappingEntry value="HEXAGON" attributeValue="transcriptionalActivity"/>
+                    <discreteMappingEntry value="ROUND_RECTANGLE" attributeValue="transportActivity"/>
+                    <discreteMappingEntry value="PARALLELOGRAM" attributeValue="pathology"/>
+                    <discreteMappingEntry value="VEE" attributeValue="cellSurfaceExpression"/>
+                    <discreteMappingEntry value="HEXAGON" attributeValue="catalyticActivity"/>
+                    <discreteMappingEntry value="HEXAGON" attributeValue="gtpBoundActivity"/>
+                    <discreteMappingEntry value="ROUND_RECTANGLE" attributeValue="proteinAbundance"/>
+                    <discreteMappingEntry value="HEXAGON" attributeValue="phosphataseActivity"/>
+                    <discreteMappingEntry value="VEE" attributeValue="cellSecretion"/>
+                    <discreteMappingEntry value="HEXAGON" attributeValue="molecularActivity"/>
+                    <discreteMappingEntry value="HEXAGON" attributeValue="chaperoneActivity"/>
+                    <discreteMappingEntry value="ELLIPSE" attributeValue="microRNAAbundance"/>
+                    <discreteMappingEntry value="ROUND_RECTANGLE" attributeValue="compositeAbundance"/>
+                    <discreteMappingEntry value="ROUND_RECTANGLE" attributeValue="complexAbundance"/>
+                    <discreteMappingEntry value="PARALLELOGRAM" attributeValue="biologicalProcess"/>
+                    <discreteMappingEntry value="HEXAGON" attributeValue="peptidaseActivity"/>
+                    <discreteMappingEntry value="ELLIPSE" attributeValue="geneAbundance"/>
+                    <discreteMappingEntry value="VEE" attributeValue="translocation"/>
+                    <discreteMappingEntry value="HEXAGON" attributeValue="ribosylationActivity"/>
+                    <discreteMappingEntry value="DIAMOND" attributeValue="abundance"/>
+                    <discreteMappingEntry value="ELLIPSE" attributeValue="rnaAbundance"/>
+                    <discreteMappingEntry value="HEXAGON" attributeValue="kinaseActivity"/>
+                </discreteMapping>
+            </visualProperty>
+            <visualProperty name="NODE_LABEL_TRANSPARENCY" default="255">
+                <discreteMapping attributeType="boolean" attributeName="linked">
+                    <discreteMappingEntry value="100" attributeValue="false"/>
+                    <discreteMappingEntry value="255" attributeValue="true"/>
+                </discreteMapping>
+            </visualProperty>
+            <visualProperty name="NODE_CUSTOMGRAPHICS_POSITION_3" default="C,C,c,0.00,0.00"/>
+            <visualProperty name="NODE_Z_LOCATION" default="0.0"/>
+            <visualProperty name="NODE_LABEL_WIDTH" default="100.0"/>
+            <visualProperty name="NODE_CUSTOMGRAPHICS_SIZE_6" default="0.0"/>
+            <visualProperty name="NODE_CUSTOMGRAPHICS_SIZE_1" default="0.0"/>
+            <visualProperty name="NODE_SELECTED_PAINT" default="#ffff00"/>
+            <visualProperty name="NODE_CUSTOMGRAPHICS_POSITION_6" default="C,C,c,0.00,0.00"/>
+            <visualProperty name="NODE_NESTED_NETWORK_IMAGE_VISIBLE" default="true"/>
+            <visualProperty name="NODE_CUSTOMGRAPHICS_9" default="org.cytoscape.ding.customgraphics.NullCustomGraphics,0,[ Remove Graphics ],"/>
+            <visualProperty name="NODE_CUSTOMGRAPHICS_POSITION_9" default="C,C,c,0.00,0.00"/>
+            <visualProperty name="NODE_CUSTOMGRAPHICS_POSITION_8" default="C,C,c,0.00,0.00"/>
+            <visualProperty name="NODE_CUSTOMGRAPHICS_SIZE_2" default="0.0"/>
+            <visualProperty name="NODE_SELECTED" default="false"/>
+            <visualProperty name="NODE_BORDER_WIDTH" default="1.0"/>
+            <visualProperty name="NODE_CUSTOMGRAPHICS_SIZE_3" default="0.0"/>
+            <visualProperty name="NODE_HEIGHT" default="30.0"/>
+            <visualProperty name="NODE_CUSTOMGRAPHICS_8" default="org.cytoscape.ding.customgraphics.NullCustomGraphics,0,[ Remove Graphics ],"/>
+            <visualProperty name="NODE_TRANSPARENCY" default="255">
+                <discreteMapping attributeType="boolean" attributeName="linked">
+                    <discreteMappingEntry value="100" attributeValue="false"/>
+                    <discreteMappingEntry value="255" attributeValue="true"/>
+                </discreteMapping>
+            </visualProperty>
+            <visualProperty name="NODE_LABEL_FONT_FACE" default="Dialog.plain,plain,12"/>
+            <visualProperty name="NODE_BORDER_PAINT" default="#000000"/>
+            <visualProperty name="NODE_VISIBLE" default="true"/>
+            <visualProperty name="NODE_BORDER_TRANSPARENCY" default="255">
+                <discreteMapping attributeType="boolean" attributeName="linked">
+                    <discreteMappingEntry value="100" attributeValue="false"/>
+                    <discreteMappingEntry value="255" attributeValue="true"/>
+                </discreteMapping>
+            </visualProperty>
+            <visualProperty name="NODE_LABEL_POSITION" default="C,C,c,0.00,0.00"/>
+            <visualProperty name="NODE_X_LOCATION" default="0.0"/>
+            <visualProperty name="NODE_Y_LOCATION" default="0.0"/>
+            <visualProperty name="NODE_CUSTOMGRAPHICS_7" default="org.cytoscape.ding.customgraphics.NullCustomGraphics,0,[ Remove Graphics ],"/>
+            <visualProperty name="NODE_CUSTOMGRAPHICS_4" default="org.cytoscape.ding.customgraphics.NullCustomGraphics,0,[ Remove Graphics ],"/>
+            <visualProperty name="NODE_WIDTH" default="70.0">
+                <discreteMapping attributeType="string" attributeName="bel.function">
+                    <discreteMappingEntry value="150.0" attributeValue="reaction"/>
+                    <discreteMappingEntry value="110.0" attributeValue="degradation"/>
+                    <discreteMappingEntry value="110.0" attributeValue="transcriptionalActivity"/>
+                    <discreteMappingEntry value="110.0" attributeValue="transportActivity"/>
+                    <discreteMappingEntry value="125.0" attributeValue="pathology"/>
+                    <discreteMappingEntry value="110.0" attributeValue="cellSurfaceExpression"/>
+                    <discreteMappingEntry value="110.0" attributeValue="catalyticActivity"/>
+                    <discreteMappingEntry value="110.0" attributeValue="gtpBoundActivity"/>
+                    <discreteMappingEntry value="75.0" attributeValue="proteinAbundance"/>
+                    <discreteMappingEntry value="110.0" attributeValue="phosphataseActivity"/>
+                    <discreteMappingEntry value="110.0" attributeValue="cellSecretion"/>
+                    <discreteMappingEntry value="110.0" attributeValue="molecularActivity"/>
+                    <discreteMappingEntry value="110.0" attributeValue="chaperoneActivity"/>
+                    <discreteMappingEntry value="150.0" attributeValue="compositeAbundance"/>
+                    <discreteMappingEntry value="150.0" attributeValue="complexAbundance"/>
+                    <discreteMappingEntry value="75.0" attributeValue="microRNAAbundance"/>
+                    <discreteMappingEntry value="125.0" attributeValue="biologicalProcess"/>
+                    <discreteMappingEntry value="110.0" attributeValue="peptidaseActivity"/>
+                    <discreteMappingEntry value="75.0" attributeValue="geneAbundance"/>
+                    <discreteMappingEntry value="110.0" attributeValue="translocation"/>
+                    <discreteMappingEntry value="110.0" attributeValue="ribosylationActivity"/>
+                    <discreteMappingEntry value="110.0" attributeValue="kinaseActivity"/>
+                    <discreteMappingEntry value="75.0" attributeValue="rnaAbundance"/>
+                    <discreteMappingEntry value="75.0" attributeValue="abundance"/>
+                </discreteMapping>
+            </visualProperty>
+            <visualProperty name="NODE_CUSTOMGRAPHICS_SIZE_8" default="0.0"/>
+            <visualProperty name="NODE_CUSTOMGRAPHICS_6" default="org.cytoscape.ding.customgraphics.NullCustomGraphics,0,[ Remove Graphics ],"/>
+            <visualProperty name="NODE_CUSTOMGRAPHICS_POSITION_5" default="C,C,c,0.00,0.00"/>
+            <visualProperty name="NODE_CUSTOMGRAPHICS_2" default="org.cytoscape.ding.customgraphics.NullCustomGraphics,0,[ Remove Graphics ],"/>
+            <visualProperty name="NODE_SIZE" default="35.0">
+                <discreteMapping attributeType="string" attributeName="bel.function">
+                    <discreteMappingEntry value="100.0" attributeValue="transcriptionalActivity"/>
+                </discreteMapping>
+            </visualProperty>
+            <visualProperty name="NODE_CUSTOMGRAPHICS_1" default="org.cytoscape.ding.customgraphics.NullCustomGraphics,0,[ Remove Graphics ],"/>
+            <visualProperty name="NODE_FILL_COLOR" default="#ffffff">
+                <discreteMapping attributeType="string" attributeName="bel.function">
+                    <discreteMappingEntry value="#9696ff" attributeValue="reaction"/>
+                    <discreteMappingEntry value="#ff3264" attributeValue="degradation"/>
+                    <discreteMappingEntry value="#6464ff" attributeValue="transcriptionalActivity"/>
+                    <discreteMappingEntry value="#6464ff" attributeValue="transportActivity"/>
+                    <discreteMappingEntry value="#ff3264" attributeValue="pathology"/>
+                    <discreteMappingEntry value="#c8c8ff" attributeValue="cellSurfaceExpression"/>
+                    <discreteMappingEntry value="#6464ff" attributeValue="gtpBoundActivity"/>
+                    <discreteMappingEntry value="#6464ff" attributeValue="catalyticActivity"/>
+                    <discreteMappingEntry value="#64ffff" attributeValue="proteinAbundance"/>
+                    <discreteMappingEntry value="#6464ff" attributeValue="phosphataseActivity"/>
+                    <discreteMappingEntry value="#6464ff" attributeValue="molecularActivity"/>
+                    <discreteMappingEntry value="#c8c8ff" attributeValue="cellSecretion"/>
+                    <discreteMappingEntry value="#6464ff" attributeValue="chaperoneActivity"/>
+                    <discreteMappingEntry value="#96ff96" attributeValue="microRNAAbundance"/>
+                    <discreteMappingEntry value="#c8ffff" attributeValue="compositeAbundance"/>
+                    <discreteMappingEntry value="#6496ff" attributeValue="complexAbundance"/>
+                    <discreteMappingEntry value="#ff64ff" attributeValue="biologicalProcess"/>
+                    <discreteMappingEntry value="#6464ff" attributeValue="peptidaseActivity"/>
+                    <discreteMappingEntry value="#c8ffc8" attributeValue="geneAbundance"/>
+                    <discreteMappingEntry value="#c8c8ff" attributeValue="translocation"/>
+                    <discreteMappingEntry value="#6464ff" attributeValue="ribosylationActivity"/>
+                    <discreteMappingEntry value="#6464ff" attributeValue="kinaseActivity"/>
+                    <discreteMappingEntry value="#64c8ff" attributeValue="abundance"/>
+                    <discreteMappingEntry value="#64ff64" attributeValue="rnaAbundance"/>
+                </discreteMapping>
+            </visualProperty>
+            <visualProperty name="NODE_CUSTOMGRAPHICS_SIZE_7" default="0.0"/>
+            <visualProperty name="NODE_DEPTH" default="0.0"/>
+            <visualProperty name="NODE_CUSTOMGRAPHICS_SIZE_5" default="0.0"/>
+            <visualProperty name="NODE_TOOLTIP" default=""/>
+            <visualProperty name="NODE_LABEL_FONT_SIZE" default="12"/>
+            <visualProperty name="NODE_CUSTOMGRAPHICS_POSITION_4" default="C,C,c,0.00,0.00"/>
+            <visualProperty name="NODE_LABEL" default="">
+                <passthroughMapping attributeType="string" attributeName="name"/>
+            </visualProperty>
+            <visualProperty name="NODE_CUSTOMGRAPHICS_SIZE_9" default="0.0"/>
+            <visualProperty name="NODE_CUSTOMGRAPHICS_SIZE_4" default="0.0"/>
+            <visualProperty name="NODE_CUSTOMGRAPHICS_5" default="org.cytoscape.ding.customgraphics.NullCustomGraphics,0,[ Remove Graphics ],"/>
+            <visualProperty name="NODE_CUSTOMGRAPHICS_3" default="org.cytoscape.ding.customgraphics.NullCustomGraphics,0,[ Remove Graphics ],"/>
+        </node>
+        <edge>
+            <dependency name="arrowColorMatchesEdge" value="true"/>
+            <visualProperty name="EDGE_SOURCE_ARROW_UNSELECTED_PAINT" default="#000000"/>
+            <visualProperty name="EDGE_TARGET_ARROW_SELECTED_PAINT" default="#ffff00"/>
+            <visualProperty name="EDGE_BEND"/>
+            <visualProperty name="EDGE_LABEL_FONT_SIZE" default="10"/>
+            <visualProperty name="EDGE_SELECTED" default="false"/>
+            <visualProperty name="EDGE_SOURCE_ARROW_SELECTED_PAINT" default="#ffff00"/>
+            <visualProperty name="EDGE_STROKE_UNSELECTED_PAINT" default="#000000">
+                <discreteMapping attributeType="string" attributeName="interaction">
+                    <discreteMappingEntry value="#999999" attributeValue="translatedTo"/>
+                    <discreteMappingEntry value="#999999" attributeValue="hasModification"/>
+                    <discreteMappingEntry value="#999999" attributeValue="hasProduct"/>
+                    <discreteMappingEntry value="#999999" attributeValue="reactantIn"/>
+                    <discreteMappingEntry value="#999999" attributeValue="hasVariant"/>
+                    <discreteMappingEntry value="#999999" attributeValue="includes"/>
+                    <discreteMappingEntry value="#999999" attributeValue="subProcessOf"/>
+                    <discreteMappingEntry value="#999999" attributeValue="actsIn"/>
+                    <discreteMappingEntry value="#999999" attributeValue="hasMember"/>
+                    <discreteMappingEntry value="#999999" attributeValue="translocates"/>
+                    <discreteMappingEntry value="#999999" attributeValue="subProcess_OF"/>
+                    <discreteMappingEntry value="#999999" attributeValue="isA"/>
+                    <discreteMappingEntry value="#999999" attributeValue="hasComponent"/>
+                    <discreteMappingEntry value="#999999" attributeValue="transcribedTo"/>
+                    <discreteMappingEntry value="#999999" attributeValue="orthologous"/>
+                </discreteMapping>
+            </visualProperty>
+            <visualProperty name="EDGE_LINE_TYPE" default="SOLID">
+                <discreteMapping attributeType="string" attributeName="interaction">
+                    <discreteMappingEntry value="LONG_DASH" attributeValue="translatedTo"/>
+                    <discreteMappingEntry value="EQUAL_DASH" attributeValue="hasModification"/>
+                    <discreteMappingEntry value="EQUAL_DASH" attributeValue="hasProduct"/>
+                    <discreteMappingEntry value="DOT" attributeValue="association"/>
+                    <discreteMappingEntry value="DOT" attributeValue="prognosticBiomarkerFor"/>
+                    <discreteMappingEntry value="SOLID" attributeValue="directlyIncreases"/>
+                    <discreteMappingEntry value="EQUAL_DASH" attributeValue="reactantIn"/>
+                    <discreteMappingEntry value="EQUAL_DASH" attributeValue="hasVariant"/>
+                    <discreteMappingEntry value="EQUAL_DASH" attributeValue="includes"/>
+                    <discreteMappingEntry value="DOT" attributeValue="negativeCorrelation"/>
+                    <discreteMappingEntry value="EQUAL_DASH" attributeValue="subProcessOf"/>
+                    <discreteMappingEntry value="EQUAL_DASH" attributeValue="rateLimitingStepOf"/>
+                    <discreteMappingEntry value="LONG_DASH" attributeValue="actsIn"/>
+                    <discreteMappingEntry value="EQUAL_DASH" attributeValue="hasMember"/>
+                    <discreteMappingEntry value="EQUAL_DASH" attributeValue="translocates"/>
+                    <discreteMappingEntry value="EQUAL_DASH" attributeValue="isA"/>
+                    <discreteMappingEntry value="EQUAL_DASH" attributeValue="subProcess_OF"/>
+                    <discreteMappingEntry value="BACKWARD_SLASH" attributeValue="causesNoChange"/>
+                    <discreteMappingEntry value="EQUAL_DASH" attributeValue="hasComponent"/>
+                    <discreteMappingEntry value="DOT" attributeValue="positiveCorrelation"/>
+                    <discreteMappingEntry value="SOLID" attributeValue="directlyDecreases"/>
+                    <discreteMappingEntry value="DOT" attributeValue="biomarkerFor"/>
+                    <discreteMappingEntry value="LONG_DASH" attributeValue="transcribedTo"/>
+                    <discreteMappingEntry value="EQUAL_DASH" attributeValue="orthologous"/>
+                </discreteMapping>
+            </visualProperty>
+            <visualProperty name="EDGE_SOURCE_ARROW_SHAPE" default="NONE">
+                <discreteMapping attributeType="string" attributeName="interaction">
+                    <discreteMappingEntry value="NONE" attributeValue="association"/>
+                    <discreteMappingEntry value="NONE" attributeValue="hasMember"/>
+                    <discreteMappingEntry value="ARROW" attributeValue="positiveCorrelation"/>
+                    <discreteMappingEntry value="CIRCLE" attributeValue="negativeCorrelation"/>
+                    <discreteMappingEntry value="NONE" attributeValue="orthologous"/>
+                </discreteMapping>
+            </visualProperty>
+            <visualProperty name="EDGE_TOOLTIP" default=""/>
+            <visualProperty name="EDGE_LABEL" default=""/>
+            <visualProperty name="EDGE_UNSELECTED_PAINT" default="#000000">
+                <discreteMapping attributeType="string" attributeName="interaction">
+                    <discreteMappingEntry value="#999999" attributeValue="translatedTo"/>
+                    <discreteMappingEntry value="#999999" attributeValue="hasModification"/>
+                    <discreteMappingEntry value="#999999" attributeValue="hasProduct"/>
+                    <discreteMappingEntry value="#999999" attributeValue="reactantIn"/>
+                    <discreteMappingEntry value="#999999" attributeValue="hasVariant"/>
+                    <discreteMappingEntry value="#999999" attributeValue="includes"/>
+                    <discreteMappingEntry value="#999999" attributeValue="subProcessOf"/>
+                    <discreteMappingEntry value="#999999" attributeValue="actsIn"/>
+                    <discreteMappingEntry value="#999999" attributeValue="hasMember"/>
+                    <discreteMappingEntry value="#999999" attributeValue="translocates"/>
+                    <discreteMappingEntry value="#999999" attributeValue="subProcess_OF"/>
+                    <discreteMappingEntry value="#999999" attributeValue="isA"/>
+                    <discreteMappingEntry value="#999999" attributeValue="hasComponent"/>
+                    <discreteMappingEntry value="#999999" attributeValue="transcribedTo"/>
+                    <discreteMappingEntry value="#999999" attributeValue="orthologous"/>
+                </discreteMapping>
+            </visualProperty>
+            <visualProperty name="EDGE_LABEL_COLOR" default="#000000"/>
+            <visualProperty name="EDGE_TARGET_ARROW_UNSELECTED_PAINT" default="#000000"/>
+            <visualProperty name="EDGE_CURVED" default="true"/>
+            <visualProperty name="EDGE_LABEL_FONT_FACE" default="Dialog.plain,plain,10"/>
+            <visualProperty name="EDGE_TRANSPARENCY" default="255">
+                <discreteMapping attributeType="boolean" attributeName="linked">
+                    <discreteMappingEntry value="50" attributeValue="false"/>
+                    <discreteMappingEntry value="255" attributeValue="true"/>
+                </discreteMapping>
+            </visualProperty>
+            <visualProperty name="EDGE_WIDTH" default="1.0">
+                <discreteMapping attributeType="string" attributeName="interaction">
+                    <discreteMappingEntry value="3.0" attributeValue="hasModification"/>
+                    <discreteMappingEntry value="3.0" attributeValue="directlyIncreases"/>
+                    <discreteMappingEntry value="3.0" attributeValue="includes"/>
+                    <discreteMappingEntry value="3.0" attributeValue="subProcessOf"/>
+                    <discreteMappingEntry value="3.0" attributeValue="rateLimitingStepOf"/>
+                    <discreteMappingEntry value="3.0" attributeValue="actsIn"/>
+                    <discreteMappingEntry value="1.0" attributeValue="increases"/>
+                    <discreteMappingEntry value="3.0" attributeValue="subProcess_OF"/>
+                    <discreteMappingEntry value="3.0" attributeValue="causesNoChange"/>
+                    <discreteMappingEntry value="1.0" attributeValue="positiveCorrelation"/>
+                    <discreteMappingEntry value="1.0" attributeValue="biomarkerFor"/>
+                    <discreteMappingEntry value="3.0" attributeValue="transcribedTo"/>
+                    <discreteMappingEntry value="3.0" attributeValue="translatedTo"/>
+                    <discreteMappingEntry value="3.0" attributeValue="hasProduct"/>
+                    <discreteMappingEntry value="1.0" attributeValue="association"/>
+                    <discreteMappingEntry value="1.0" attributeValue="prognosticBiomarkerFor"/>
+                    <discreteMappingEntry value="3.0" attributeValue="reactantIn"/>
+                    <discreteMappingEntry value="3.0" attributeValue="hasVariant"/>
+                    <discreteMappingEntry value="1.0" attributeValue="negativeCorrelation"/>
+                    <discreteMappingEntry value="1.0" attributeValue="decreases"/>
+                    <discreteMappingEntry value="3.0" attributeValue="hasMember"/>
+                    <discreteMappingEntry value="3.0" attributeValue="translocates"/>
+                    <discreteMappingEntry value="3.0" attributeValue="isA"/>
+                    <discreteMappingEntry value="3.0" attributeValue="hasComponent"/>
+                    <discreteMappingEntry value="3.0" attributeValue="directlyDecreases"/>
+                    <discreteMappingEntry value="3.0" attributeValue="orthologous"/>
+                </discreteMapping>
+            </visualProperty>
+            <visualProperty name="EDGE_LABEL_TRANSPARENCY" default="255"/>
+            <visualProperty name="EDGE_VISIBLE" default="true"/>
+            <visualProperty name="EDGE_TARGET_ARROW_SHAPE" default="NONE">
+                <discreteMapping attributeType="string" attributeName="interaction">
+                    <discreteMappingEntry value="DIAMOND" attributeValue="hasModification"/>
+                    <discreteMappingEntry value="ARROW" attributeValue="directlyIncreases"/>
+                    <discreteMappingEntry value="DIAMOND" attributeValue="includes"/>
+                    <discreteMappingEntry value="DIAMOND" attributeValue="subProcessOf"/>
+                    <discreteMappingEntry value="ARROW" attributeValue="analogous"/>
+                    <discreteMappingEntry value="DIAMOND" attributeValue="actsIn"/>
+                    <discreteMappingEntry value="ARROW" attributeValue="rateLimitingStepOf"/>
+                    <discreteMappingEntry value="ARROW" attributeValue="increases"/>
+                    <discreteMappingEntry value="DIAMOND" attributeValue="subProcess_OF"/>
+                    <discreteMappingEntry value="ARROW" attributeValue="positiveCorrelation"/>
+                    <discreteMappingEntry value="ARROW" attributeValue="biomarkerFor"/>
+                    <discreteMappingEntry value="DIAMOND" attributeValue="transcribedTo"/>
+                    <discreteMappingEntry value="DIAMOND" attributeValue="translatedTo"/>
+                    <discreteMappingEntry value="DIAMOND" attributeValue="hasProduct"/>
+                    <discreteMappingEntry value="NONE" attributeValue="association"/>
+                    <discreteMappingEntry value="ARROW" attributeValue="prognosticBiomarkerFor"/>
+                    <discreteMappingEntry value="ARROW" attributeValue="unknown"/>
+                    <discreteMappingEntry value="DIAMOND" attributeValue="reactantIn"/>
+                    <discreteMappingEntry value="DIAMOND" attributeValue="hasVariant"/>
+                    <discreteMappingEntry value="CIRCLE" attributeValue="negativeCorrelation"/>
+                    <discreteMappingEntry value="DIAMOND" attributeValue="hasMember"/>
+                    <discreteMappingEntry value="CIRCLE" attributeValue="decreases"/>
+                    <discreteMappingEntry value="DIAMOND" attributeValue="translocates"/>
+                    <discreteMappingEntry value="DIAMOND" attributeValue="isA"/>
+                    <discreteMappingEntry value="DIAMOND" attributeValue="hasComponent"/>
+                    <discreteMappingEntry value="CIRCLE" attributeValue="directlyDecreases"/>
+                    <discreteMappingEntry value="NONE" attributeValue="orthologous"/>
+                </discreteMapping>
+            </visualProperty>
+            <visualProperty name="EDGE_STROKE_SELECTED_PAINT" default="#ff0000"/>
+        </edge>
+    </visualStyle>
+    <visualStyle name="KAM Visualization Minimal">
+        <network>
+            <visualProperty name="NETWORK_CENTER_X_LOCATION" default="0.0"/>
+            <visualProperty name="NETWORK_TITLE" default=""/>
+            <visualProperty name="NETWORK_BACKGROUND_PAINT" default="#ffffff"/>
+            <visualProperty name="NETWORK_WIDTH" default="550.0"/>
+            <visualProperty name="NETWORK_SCALE_FACTOR" default="1.0"/>
+            <visualProperty name="NETWORK_HEIGHT" default="400.0"/>
+            <visualProperty name="NETWORK_EDGE_SELECTION" default="true"/>
+            <visualProperty name="NETWORK_CENTER_Z_LOCATION" default="0.0"/>
+            <visualProperty name="NETWORK_CENTER_Y_LOCATION" default="0.0"/>
+            <visualProperty name="NETWORK_NODE_SELECTION" default="true"/>
+            <visualProperty name="NETWORK_DEPTH" default="0.0"/>
+        </network>
+        <node>
+            <dependency name="nodeCustomGraphicsSizeSync" value="true"/>
+            <dependency name="nodeSizeLocked" value="false"/>
+            <visualProperty name="NODE_CUSTOMGRAPHICS_POSITION_1" default="C,C,c,0.00,0.00"/>
+            <visualProperty name="NODE_LABEL_COLOR" default="#000000"/>
+            <visualProperty name="NODE_CUSTOMGRAPHICS_POSITION_7" default="C,C,c,0.00,0.00"/>
+            <visualProperty name="NODE_CUSTOMGRAPHICS_POSITION_2" default="C,C,c,0.00,0.00"/>
+            <visualProperty name="NODE_BORDER_STROKE" default="SOLID"/>
+            <visualProperty name="NODE_SHAPE" default="RECTANGLE">
+                <discreteMapping attributeType="string" attributeName="bel.function">
+                    <discreteMappingEntry value="PARALLELOGRAM" attributeValue="reaction"/>
+                    <discreteMappingEntry value="ROUND_RECTANGLE" attributeValue="degradation"/>
+                    <discreteMappingEntry value="HEXAGON" attributeValue="transcriptionalActivity"/>
+                    <discreteMappingEntry value="ROUND_RECTANGLE" attributeValue="transportActivity"/>
+                    <discreteMappingEntry value="PARALLELOGRAM" attributeValue="pathology"/>
+                    <discreteMappingEntry value="VEE" attributeValue="cellSurfaceExpression"/>
+                    <discreteMappingEntry value="HEXAGON" attributeValue="gtpBoundActivity"/>
+                    <discreteMappingEntry value="HEXAGON" attributeValue="catalyticActivity"/>
+                    <discreteMappingEntry value="ROUND_RECTANGLE" attributeValue="proteinAbundance"/>
+                    <discreteMappingEntry value="HEXAGON" attributeValue="phosphataseActivity"/>
+                    <discreteMappingEntry value="HEXAGON" attributeValue="molecularActivity"/>
+                    <discreteMappingEntry value="VEE" attributeValue="cellSecretion"/>
+                    <discreteMappingEntry value="HEXAGON" attributeValue="chaperoneActivity"/>
+                    <discreteMappingEntry value="ROUND_RECTANGLE" attributeValue="complexAbundance"/>
+                    <discreteMappingEntry value="ELLIPSE" attributeValue="microRNAAbundance"/>
+                    <discreteMappingEntry value="ROUND_RECTANGLE" attributeValue="compositeAbundance"/>
+                    <discreteMappingEntry value="PARALLELOGRAM" attributeValue="biologicalProcess"/>
+                    <discreteMappingEntry value="HEXAGON" attributeValue="peptidaseActivity"/>
+                    <discreteMappingEntry value="ELLIPSE" attributeValue="geneAbundance"/>
+                    <discreteMappingEntry value="VEE" attributeValue="translocation"/>
+                    <discreteMappingEntry value="HEXAGON" attributeValue="ribosylationActivity"/>
+                    <discreteMappingEntry value="ELLIPSE" attributeValue="rnaAbundance"/>
+                    <discreteMappingEntry value="DIAMOND" attributeValue="abundance"/>
+                    <discreteMappingEntry value="HEXAGON" attributeValue="kinaseActivity"/>
+                </discreteMapping>
+            </visualProperty>
+            <visualProperty name="NODE_LABEL_TRANSPARENCY" default="255">
+                <discreteMapping attributeType="boolean" attributeName="linked">
+                    <discreteMappingEntry value="100" attributeValue="false"/>
+                    <discreteMappingEntry value="255" attributeValue="true"/>
+                </discreteMapping>
+            </visualProperty>
+            <visualProperty name="NODE_CUSTOMGRAPHICS_POSITION_3" default="C,C,c,0.00,0.00"/>
+            <visualProperty name="NODE_Z_LOCATION" default="0.0"/>
+            <visualProperty name="NODE_LABEL_WIDTH" default="100.0"/>
+            <visualProperty name="NODE_CUSTOMGRAPHICS_SIZE_6" default="0.0"/>
+            <visualProperty name="NODE_CUSTOMGRAPHICS_SIZE_1" default="0.0"/>
+            <visualProperty name="NODE_SELECTED_PAINT" default="#ffff00"/>
+            <visualProperty name="NODE_CUSTOMGRAPHICS_POSITION_6" default="C,C,c,0.00,0.00"/>
+            <visualProperty name="NODE_NESTED_NETWORK_IMAGE_VISIBLE" default="true"/>
+            <visualProperty name="NODE_CUSTOMGRAPHICS_9" default="org.cytoscape.ding.customgraphics.NullCustomGraphics,0,[ Remove Graphics ],"/>
+            <visualProperty name="NODE_CUSTOMGRAPHICS_POSITION_9" default="C,C,c,0.00,0.00"/>
+            <visualProperty name="NODE_CUSTOMGRAPHICS_POSITION_8" default="C,C,c,0.00,0.00"/>
+            <visualProperty name="NODE_CUSTOMGRAPHICS_SIZE_2" default="0.0"/>
+            <visualProperty name="NODE_SELECTED" default="false"/>
+            <visualProperty name="NODE_BORDER_WIDTH" default="1.0"/>
+            <visualProperty name="NODE_CUSTOMGRAPHICS_SIZE_3" default="0.0"/>
+            <visualProperty name="NODE_HEIGHT" default="30.0"/>
+            <visualProperty name="NODE_CUSTOMGRAPHICS_8" default="org.cytoscape.ding.customgraphics.NullCustomGraphics,0,[ Remove Graphics ],"/>
+            <visualProperty name="NODE_TRANSPARENCY" default="255">
+                <discreteMapping attributeType="boolean" attributeName="linked">
+                    <discreteMappingEntry value="100" attributeValue="false"/>
+                    <discreteMappingEntry value="255" attributeValue="true"/>
+                </discreteMapping>
+            </visualProperty>
+            <visualProperty name="NODE_LABEL_FONT_FACE" default="Dialog.plain,plain,12"/>
+            <visualProperty name="NODE_BORDER_PAINT" default="#000000"/>
+            <visualProperty name="NODE_VISIBLE" default="true"/>
+            <visualProperty name="NODE_BORDER_TRANSPARENCY" default="255">
+                <discreteMapping attributeType="boolean" attributeName="linked">
+                    <discreteMappingEntry value="100" attributeValue="false"/>
+                    <discreteMappingEntry value="255" attributeValue="true"/>
+                </discreteMapping>
+            </visualProperty>
+            <visualProperty name="NODE_LABEL_POSITION" default="C,C,c,0.00,0.00"/>
+            <visualProperty name="NODE_X_LOCATION" default="0.0"/>
+            <visualProperty name="NODE_Y_LOCATION" default="0.0"/>
+            <visualProperty name="NODE_CUSTOMGRAPHICS_7" default="org.cytoscape.ding.customgraphics.NullCustomGraphics,0,[ Remove Graphics ],"/>
+            <visualProperty name="NODE_CUSTOMGRAPHICS_4" default="org.cytoscape.ding.customgraphics.NullCustomGraphics,0,[ Remove Graphics ],"/>
+            <visualProperty name="NODE_WIDTH" default="70.0">
+                <discreteMapping attributeType="string" attributeName="bel.function">
+                    <discreteMappingEntry value="150.0" attributeValue="reaction"/>
+                    <discreteMappingEntry value="110.0" attributeValue="degradation"/>
+                    <discreteMappingEntry value="110.0" attributeValue="transcriptionalActivity"/>
+                    <discreteMappingEntry value="110.0" attributeValue="transportActivity"/>
+                    <discreteMappingEntry value="125.0" attributeValue="pathology"/>
+                    <discreteMappingEntry value="110.0" attributeValue="cellSurfaceExpression"/>
+                    <discreteMappingEntry value="110.0" attributeValue="catalyticActivity"/>
+                    <discreteMappingEntry value="110.0" attributeValue="gtpBoundActivity"/>
+                    <discreteMappingEntry value="75.0" attributeValue="proteinAbundance"/>
+                    <discreteMappingEntry value="110.0" attributeValue="phosphataseActivity"/>
+                    <discreteMappingEntry value="110.0" attributeValue="molecularActivity"/>
+                    <discreteMappingEntry value="110.0" attributeValue="cellSecretion"/>
+                    <discreteMappingEntry value="110.0" attributeValue="chaperoneActivity"/>
+                    <discreteMappingEntry value="150.0" attributeValue="compositeAbundance"/>
+                    <discreteMappingEntry value="150.0" attributeValue="complexAbundance"/>
+                    <discreteMappingEntry value="75.0" attributeValue="microRNAAbundance"/>
+                    <discreteMappingEntry value="125.0" attributeValue="biologicalProcess"/>
+                    <discreteMappingEntry value="110.0" attributeValue="peptidaseActivity"/>
+                    <discreteMappingEntry value="75.0" attributeValue="geneAbundance"/>
+                    <discreteMappingEntry value="110.0" attributeValue="translocation"/>
+                    <discreteMappingEntry value="110.0" attributeValue="ribosylationActivity"/>
+                    <discreteMappingEntry value="75.0" attributeValue="rnaAbundance"/>
+                    <discreteMappingEntry value="110.0" attributeValue="kinaseActivity"/>
+                    <discreteMappingEntry value="75.0" attributeValue="abundance"/>
+                </discreteMapping>
+            </visualProperty>
+            <visualProperty name="NODE_CUSTOMGRAPHICS_SIZE_8" default="0.0"/>
+            <visualProperty name="NODE_CUSTOMGRAPHICS_6" default="org.cytoscape.ding.customgraphics.NullCustomGraphics,0,[ Remove Graphics ],"/>
+            <visualProperty name="NODE_CUSTOMGRAPHICS_POSITION_5" default="C,C,c,0.00,0.00"/>
+            <visualProperty name="NODE_CUSTOMGRAPHICS_2" default="org.cytoscape.ding.customgraphics.NullCustomGraphics,0,[ Remove Graphics ],"/>
+            <visualProperty name="NODE_SIZE" default="35.0">
+                <discreteMapping attributeType="string" attributeName="bel.function">
+                    <discreteMappingEntry value="100.0" attributeValue="transcriptionalActivity"/>
+                </discreteMapping>
+            </visualProperty>
+            <visualProperty name="NODE_CUSTOMGRAPHICS_1" default="org.cytoscape.ding.customgraphics.NullCustomGraphics,0,[ Remove Graphics ],"/>
+            <visualProperty name="NODE_FILL_COLOR" default="#ffffff">
+                <discreteMapping attributeType="string" attributeName="bel.function"/>
+            </visualProperty>
+            <visualProperty name="NODE_CUSTOMGRAPHICS_SIZE_7" default="0.0"/>
+            <visualProperty name="NODE_DEPTH" default="0.0"/>
+            <visualProperty name="NODE_CUSTOMGRAPHICS_SIZE_5" default="0.0"/>
+            <visualProperty name="NODE_TOOLTIP" default=""/>
+            <visualProperty name="NODE_LABEL_FONT_SIZE" default="12"/>
+            <visualProperty name="NODE_CUSTOMGRAPHICS_POSITION_4" default="C,C,c,0.00,0.00"/>
+            <visualProperty name="NODE_LABEL" default="">
+                <passthroughMapping attributeType="string" attributeName="name"/>
+            </visualProperty>
+            <visualProperty name="NODE_CUSTOMGRAPHICS_SIZE_9" default="0.0"/>
+            <visualProperty name="NODE_CUSTOMGRAPHICS_SIZE_4" default="0.0"/>
+            <visualProperty name="NODE_CUSTOMGRAPHICS_5" default="org.cytoscape.ding.customgraphics.NullCustomGraphics,0,[ Remove Graphics ],"/>
+            <visualProperty name="NODE_CUSTOMGRAPHICS_3" default="org.cytoscape.ding.customgraphics.NullCustomGraphics,0,[ Remove Graphics ],"/>
+        </node>
+        <edge>
+            <dependency name="arrowColorMatchesEdge" value="true"/>
+            <visualProperty name="EDGE_SOURCE_ARROW_UNSELECTED_PAINT" default="#000000"/>
+            <visualProperty name="EDGE_TARGET_ARROW_SELECTED_PAINT" default="#ffff00"/>
+            <visualProperty name="EDGE_BEND"/>
+            <visualProperty name="EDGE_LABEL_FONT_SIZE" default="10"/>
+            <visualProperty name="EDGE_SELECTED" default="false"/>
+            <visualProperty name="EDGE_SOURCE_ARROW_SELECTED_PAINT" default="#ffff00"/>
+            <visualProperty name="EDGE_STROKE_UNSELECTED_PAINT" default="#000000">
+                <discreteMapping attributeType="string" attributeName="interaction">
+                    <discreteMappingEntry value="#999999" attributeValue="translatedTo"/>
+                    <discreteMappingEntry value="#999999" attributeValue="hasModification"/>
+                    <discreteMappingEntry value="#999999" attributeValue="hasProduct"/>
+                    <discreteMappingEntry value="#999999" attributeValue="reactantIn"/>
+                    <discreteMappingEntry value="#999999" attributeValue="includes"/>
+                    <discreteMappingEntry value="#999999" attributeValue="hasVariant"/>
+                    <discreteMappingEntry value="#999999" attributeValue="subProcessOf"/>
+                    <discreteMappingEntry value="#999999" attributeValue="actsIn"/>
+                    <discreteMappingEntry value="#999999" attributeValue="hasMember"/>
+                    <discreteMappingEntry value="#999999" attributeValue="translocates"/>
+                    <discreteMappingEntry value="#999999" attributeValue="isA"/>
+                    <discreteMappingEntry value="#999999" attributeValue="subProcess_OF"/>
+                    <discreteMappingEntry value="#999999" attributeValue="hasComponent"/>
+                    <discreteMappingEntry value="#999999" attributeValue="orthologous"/>
+                    <discreteMappingEntry value="#999999" attributeValue="transcribedTo"/>
+                </discreteMapping>
+            </visualProperty>
+            <visualProperty name="EDGE_LINE_TYPE" default="SOLID">
+                <discreteMapping attributeType="string" attributeName="interaction">
+                    <discreteMappingEntry value="LONG_DASH" attributeValue="translatedTo"/>
+                    <discreteMappingEntry value="EQUAL_DASH" attributeValue="hasModification"/>
+                    <discreteMappingEntry value="EQUAL_DASH" attributeValue="hasProduct"/>
+                    <discreteMappingEntry value="DOT" attributeValue="association"/>
+                    <discreteMappingEntry value="DOT" attributeValue="prognosticBiomarkerFor"/>
+                    <discreteMappingEntry value="SOLID" attributeValue="directlyIncreases"/>
+                    <discreteMappingEntry value="EQUAL_DASH" attributeValue="reactantIn"/>
+                    <discreteMappingEntry value="EQUAL_DASH" attributeValue="includes"/>
+                    <discreteMappingEntry value="DOT" attributeValue="negativeCorrelation"/>
+                    <discreteMappingEntry value="EQUAL_DASH" attributeValue="hasVariant"/>
+                    <discreteMappingEntry value="EQUAL_DASH" attributeValue="subProcessOf"/>
+                    <discreteMappingEntry value="EQUAL_DASH" attributeValue="rateLimitingStepOf"/>
+                    <discreteMappingEntry value="LONG_DASH" attributeValue="actsIn"/>
+                    <discreteMappingEntry value="EQUAL_DASH" attributeValue="hasMember"/>
+                    <discreteMappingEntry value="EQUAL_DASH" attributeValue="translocates"/>
+                    <discreteMappingEntry value="EQUAL_DASH" attributeValue="subProcess_OF"/>
+                    <discreteMappingEntry value="EQUAL_DASH" attributeValue="isA"/>
+                    <discreteMappingEntry value="BACKWARD_SLASH" attributeValue="causesNoChange"/>
+                    <discreteMappingEntry value="EQUAL_DASH" attributeValue="hasComponent"/>
+                    <discreteMappingEntry value="SOLID" attributeValue="directlyDecreases"/>
+                    <discreteMappingEntry value="DOT" attributeValue="positiveCorrelation"/>
+                    <discreteMappingEntry value="DOT" attributeValue="biomarkerFor"/>
+                    <discreteMappingEntry value="LONG_DASH" attributeValue="transcribedTo"/>
+                    <discreteMappingEntry value="EQUAL_DASH" attributeValue="orthologous"/>
+                </discreteMapping>
+            </visualProperty>
+            <visualProperty name="EDGE_SOURCE_ARROW_SHAPE" default="NONE">
+                <discreteMapping attributeType="string" attributeName="interaction">
+                    <discreteMappingEntry value="NONE" attributeValue="association"/>
+                    <discreteMappingEntry value="NONE" attributeValue="hasMember"/>
+                    <discreteMappingEntry value="ARROW" attributeValue="positiveCorrelation"/>
+                    <discreteMappingEntry value="CIRCLE" attributeValue="negativeCorrelation"/>
+                    <discreteMappingEntry value="NONE" attributeValue="orthologous"/>
+                </discreteMapping>
+            </visualProperty>
+            <visualProperty name="EDGE_TOOLTIP" default=""/>
+            <visualProperty name="EDGE_LABEL" default=""/>
+            <visualProperty name="EDGE_UNSELECTED_PAINT" default="#000000">
+                <discreteMapping attributeType="string" attributeName="interaction">
+                    <discreteMappingEntry value="#999999" attributeValue="translatedTo"/>
+                    <discreteMappingEntry value="#999999" attributeValue="hasModification"/>
+                    <discreteMappingEntry value="#999999" attributeValue="hasProduct"/>
+                    <discreteMappingEntry value="#999999" attributeValue="reactantIn"/>
+                    <discreteMappingEntry value="#999999" attributeValue="includes"/>
+                    <discreteMappingEntry value="#999999" attributeValue="hasVariant"/>
+                    <discreteMappingEntry value="#999999" attributeValue="subProcessOf"/>
+                    <discreteMappingEntry value="#999999" attributeValue="actsIn"/>
+                    <discreteMappingEntry value="#999999" attributeValue="hasMember"/>
+                    <discreteMappingEntry value="#999999" attributeValue="translocates"/>
+                    <discreteMappingEntry value="#999999" attributeValue="isA"/>
+                    <discreteMappingEntry value="#999999" attributeValue="subProcess_OF"/>
+                    <discreteMappingEntry value="#999999" attributeValue="hasComponent"/>
+                    <discreteMappingEntry value="#999999" attributeValue="orthologous"/>
+                    <discreteMappingEntry value="#999999" attributeValue="transcribedTo"/>
+                </discreteMapping>
+            </visualProperty>
+            <visualProperty name="EDGE_LABEL_COLOR" default="#000000"/>
+            <visualProperty name="EDGE_TARGET_ARROW_UNSELECTED_PAINT" default="#000000"/>
+            <visualProperty name="EDGE_CURVED" default="true"/>
+            <visualProperty name="EDGE_LABEL_FONT_FACE" default="Dialog.plain,plain,10"/>
+            <visualProperty name="EDGE_TRANSPARENCY" default="255">
+                <discreteMapping attributeType="boolean" attributeName="linked">
+                    <discreteMappingEntry value="50" attributeValue="false"/>
+                    <discreteMappingEntry value="255" attributeValue="true"/>
+                </discreteMapping>
+            </visualProperty>
+            <visualProperty name="EDGE_WIDTH" default="1.0">
+                <discreteMapping attributeType="string" attributeName="interaction">
+                    <discreteMappingEntry value="3.0" attributeValue="hasModification"/>
+                    <discreteMappingEntry value="3.0" attributeValue="directlyIncreases"/>
+                    <discreteMappingEntry value="3.0" attributeValue="includes"/>
+                    <discreteMappingEntry value="3.0" attributeValue="subProcessOf"/>
+                    <discreteMappingEntry value="3.0" attributeValue="rateLimitingStepOf"/>
+                    <discreteMappingEntry value="3.0" attributeValue="actsIn"/>
+                    <discreteMappingEntry value="1.0" attributeValue="increases"/>
+                    <discreteMappingEntry value="3.0" attributeValue="causesNoChange"/>
+                    <discreteMappingEntry value="3.0" attributeValue="subProcess_OF"/>
+                    <discreteMappingEntry value="1.0" attributeValue="positiveCorrelation"/>
+                    <discreteMappingEntry value="1.0" attributeValue="biomarkerFor"/>
+                    <discreteMappingEntry value="3.0" attributeValue="transcribedTo"/>
+                    <discreteMappingEntry value="3.0" attributeValue="translatedTo"/>
+                    <discreteMappingEntry value="3.0" attributeValue="hasProduct"/>
+                    <discreteMappingEntry value="1.0" attributeValue="association"/>
+                    <discreteMappingEntry value="1.0" attributeValue="prognosticBiomarkerFor"/>
+                    <discreteMappingEntry value="3.0" attributeValue="reactantIn"/>
+                    <discreteMappingEntry value="3.0" attributeValue="hasVariant"/>
+                    <discreteMappingEntry value="1.0" attributeValue="negativeCorrelation"/>
+                    <discreteMappingEntry value="1.0" attributeValue="decreases"/>
+                    <discreteMappingEntry value="3.0" attributeValue="hasMember"/>
+                    <discreteMappingEntry value="3.0" attributeValue="translocates"/>
+                    <discreteMappingEntry value="3.0" attributeValue="isA"/>
+                    <discreteMappingEntry value="3.0" attributeValue="hasComponent"/>
+                    <discreteMappingEntry value="3.0" attributeValue="directlyDecreases"/>
+                    <discreteMappingEntry value="3.0" attributeValue="orthologous"/>
+                </discreteMapping>
+            </visualProperty>
+            <visualProperty name="EDGE_LABEL_TRANSPARENCY" default="255"/>
+            <visualProperty name="EDGE_VISIBLE" default="true"/>
+            <visualProperty name="EDGE_TARGET_ARROW_SHAPE" default="NONE">
+                <discreteMapping attributeType="string" attributeName="interaction">
+                    <discreteMappingEntry value="DIAMOND" attributeValue="hasModification"/>
+                    <discreteMappingEntry value="ARROW" attributeValue="directlyIncreases"/>
+                    <discreteMappingEntry value="DIAMOND" attributeValue="includes"/>
+                    <discreteMappingEntry value="DIAMOND" attributeValue="subProcessOf"/>
+                    <discreteMappingEntry value="ARROW" attributeValue="analogous"/>
+                    <discreteMappingEntry value="ARROW" attributeValue="rateLimitingStepOf"/>
+                    <discreteMappingEntry value="DIAMOND" attributeValue="actsIn"/>
+                    <discreteMappingEntry value="ARROW" attributeValue="increases"/>
+                    <discreteMappingEntry value="DIAMOND" attributeValue="subProcess_OF"/>
+                    <discreteMappingEntry value="ARROW" attributeValue="positiveCorrelation"/>
+                    <discreteMappingEntry value="ARROW" attributeValue="biomarkerFor"/>
+                    <discreteMappingEntry value="DIAMOND" attributeValue="transcribedTo"/>
+                    <discreteMappingEntry value="DIAMOND" attributeValue="translatedTo"/>
+                    <discreteMappingEntry value="DIAMOND" attributeValue="hasProduct"/>
+                    <discreteMappingEntry value="NONE" attributeValue="association"/>
+                    <discreteMappingEntry value="ARROW" attributeValue="prognosticBiomarkerFor"/>
+                    <discreteMappingEntry value="ARROW" attributeValue="unknown"/>
+                    <discreteMappingEntry value="DIAMOND" attributeValue="reactantIn"/>
+                    <discreteMappingEntry value="CIRCLE" attributeValue="negativeCorrelation"/>
+                    <discreteMappingEntry value="DIAMOND" attributeValue="hasVariant"/>
+                    <discreteMappingEntry value="CIRCLE" attributeValue="decreases"/>
+                    <discreteMappingEntry value="DIAMOND" attributeValue="hasMember"/>
+                    <discreteMappingEntry value="DIAMOND" attributeValue="translocates"/>
+                    <discreteMappingEntry value="DIAMOND" attributeValue="isA"/>
+                    <discreteMappingEntry value="DIAMOND" attributeValue="hasComponent"/>
+                    <discreteMappingEntry value="CIRCLE" attributeValue="directlyDecreases"/>
+                    <discreteMappingEntry value="NONE" attributeValue="orthologous"/>
+                </discreteMapping>
+            </visualProperty>
+            <visualProperty name="EDGE_STROKE_SELECTED_PAINT" default="#ff0000"/>
+        </edge>
+    </visualStyle>
+</vizmap>
