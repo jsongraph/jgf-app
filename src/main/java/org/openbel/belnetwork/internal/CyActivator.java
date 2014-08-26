@@ -1,6 +1,8 @@
 package org.openbel.belnetwork.internal;
 
+import java.util.Iterator;
 import java.util.Properties;
+import java.util.Set;
 
 import static org.cytoscape.work.ServiceProperties.*;
 
@@ -8,6 +10,7 @@ import org.cytoscape.service.util.AbstractCyActivator;
 import org.cytoscape.view.model.CyNetworkViewFactory;
 import org.cytoscape.view.vizmap.VisualMappingFunctionFactory;
 import org.cytoscape.view.vizmap.VisualMappingManager;
+import org.cytoscape.view.vizmap.VisualStyle;
 import org.cytoscape.view.vizmap.VisualStyleFactory;
 import org.cytoscape.work.ServiceProperties;
 import org.cytoscape.work.TaskFactory;
@@ -79,26 +82,31 @@ public class CyActivator extends AbstractCyActivator {
         final CyNetworkFactory cyNetworkFactory = getService(bc, CyNetworkFactory.class);
         final CyNetworkManager cyNetworkManager = getService(bc, CyNetworkManager.class);
         final CyRootNetworkManager cyRootNetworkManager = getService(bc, CyRootNetworkManager.class);
-        
         final CyTableManager cyTableManager = getService(bc, CyTableManager.class);
         final CyTableFactory cyTableFactory = getService(bc, CyTableFactory.class);
-        
-        VisualStyleFactory vsFactoryServiceRef = getService(bc, VisualStyleFactory.class); 
+        final LoadVizmapFileTaskFactory loadVizmapFileTaskFactory =  getService(bc,LoadVizmapFileTaskFactory.class);
+        VisualMappingManager vmm = getService(bc, VisualMappingManager.class);
+        VisualStyleFactory vsFactoryServiceRef = getService(bc, VisualStyleFactory.class);
         VisualMappingFunctionFactory passthroughMappingFactoryRef = getService(bc, VisualMappingFunctionFactory.class,
                 "(mapping.type=passthrough)");
         VisualMappingFunctionFactory discreteMappingFactoryRef = getService(bc, VisualMappingFunctionFactory.class,
                 "(mapping.type=discrete)");
-        
-        // get a reference to Cytoscape service -- LoadVizmapFileTaskFactory 
-         final LoadVizmapFileTaskFactory loadVizmapFileTaskFactory =  getService(bc,LoadVizmapFileTaskFactory.class);
+
+        // remove contributed styles if they exist (important for bundle reload)
+        Iterator<VisualStyle> styleIt = vmm.getAllVisualStyles().iterator();
+        while(styleIt.hasNext()) {
+            VisualStyle style = styleIt.next();
+            if (style.getTitle().equals("BEL Visualization") || style.getTitle().equals("BEL Visualization Minimal")) {
+                styleIt.remove();
+            }
+        }
+
+        // load contributed styles
         loadVizmapFileTaskFactory.loadStyles(CyActivator.class.getResourceAsStream(STYLE_RESOURCE_PATH));
 
-        
         JGFVisualStyleBuilder vsBuilder = new JGFVisualStyleBuilder(vsFactoryServiceRef, loadVizmapFileTaskFactory,
                 discreteMappingFactoryRef, passthroughMappingFactoryRef);
-        
-        VisualMappingManager vmm = getService(bc, VisualMappingManager.class);
-        
+
         // readers
         final CyFileFilter jgfReaderFilter = new JGFFileFilter(new String[] { "jgf"},
                 new String[] { "application/jgf" }, "JSON JGF Files", DataCategory.NETWORK, streamUtil);
