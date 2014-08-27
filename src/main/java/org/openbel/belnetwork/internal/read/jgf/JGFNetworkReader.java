@@ -19,7 +19,7 @@ import org.cytoscape.view.model.CyNetworkViewFactory;
 import org.cytoscape.work.TaskMonitor;
 import org.openbel.belnetwork.internal.util.StyleUtility;
 
-import javax.swing.*;
+import javax.swing.SwingUtilities;
 
 import static org.openbel.belnetwork.internal.Constants.APPLIED_VISUAL_STYLE;
 
@@ -27,25 +27,27 @@ public class JGFNetworkReader extends AbstractCyNetworkReader {
 
     private final InputStream inputStream;
     private final CyApplicationManager appMgr;
-    private final CyNetworkManager cyNetManager;
-    private final CyTableFactory cyTableFactory;
-    private final CyTableManager cyTableManager;
+    private final CyNetworkManager networkMgr;
+    private final CyTableFactory tableFactory;
+    private final CyTableManager tableMgr;
     private final VisualMappingManager visMgr;
     private final CyEventHelper eventHelper;
 
     public JGFNetworkReader(InputStream inputStream, CyApplicationManager appMgr,
-            CyNetworkViewFactory cyNetworkViewFactory, CyNetworkFactory cyNetworkFactory,
-            CyNetworkManager cyNetworkManager, CyRootNetworkManager cyRootNetworkManager,
-            CyTableFactory cyTableFactory, CyTableManager cyTableManager,
+            CyNetworkViewFactory networkVieFactory, CyNetworkFactory networkFactory,
+            CyNetworkManager networkMgr, CyRootNetworkManager rootNetworkMgr,
+            CyTableFactory tableFactory, CyTableManager tableMgr,
             VisualMappingManager visMgr, CyEventHelper eventHelper) {
-        super(inputStream, cyNetworkViewFactory, cyNetworkFactory, cyNetworkManager, cyRootNetworkManager);
+        super(inputStream, networkVieFactory, networkFactory, networkMgr, rootNetworkMgr);
         
-        if (inputStream == null) throw new NullPointerException("inputStream cannot be null.");
+        if (inputStream == null) throw new NullPointerException("inputStream cannot be null");
+        if (appMgr == null) throw new NullPointerException("appMgr cannot be null");
+        if (networkMgr == null) throw new NullPointerException("networkMgr cannot be null");
         this.inputStream = inputStream;
         this.appMgr = appMgr;
-        this.cyNetManager = cyNetworkManager;
-        this.cyTableFactory = cyTableFactory;
-        this.cyTableManager = cyTableManager;
+        this.networkMgr = networkMgr;
+        this.tableFactory = tableFactory;
+        this.tableMgr = tableMgr;
         this.visMgr = visMgr;
         this.eventHelper = eventHelper;
     }
@@ -53,19 +55,25 @@ public class JGFNetworkReader extends AbstractCyNetworkReader {
     @Override
     public CyNetworkView buildCyNetworkView(CyNetwork network) {
         final CyNetworkView view = cyNetworkViewFactory.createNetworkView(network);
+
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
+                // find the style we would like to apply...
+                VisualStyle style = StyleUtility.findVisualStyleByTitle(APPLIED_VISUAL_STYLE, visMgr);
+
+                // ...return if view or style do not exist
+                if (view == null || style == null) return;
+
+                // ...wait for view to be active before setting visual style
                 while (view != appMgr.getCurrentNetworkView()) {
                     try {
                         Thread.sleep(10);
-                    } catch (InterruptedException e) {}
-                }
-                VisualStyle style = StyleUtility.findVisualStyleByTitle(APPLIED_VISUAL_STYLE, visMgr);
-                if (view == null || style == null) {
-                    return;
+                    } catch (InterruptedException e) {
+                    }
                 }
 
+                // ...then set visual style and fit network content in window
                 eventHelper.flushPayloadEvents();
                 visMgr.setVisualStyle(style, view);
                 style.apply(view);
@@ -85,9 +93,9 @@ public class JGFNetworkReader extends AbstractCyNetworkReader {
         //Why the collection of networks?  Why are we only updating networks[0]?
         
         try {
-            Graph graph =  converter.CreateGraph(inputStream);
-            this.networks[0] = converter.CreateNetwork(graph, network, cyTableFactory, cyTableManager);    
-            cyNetManager.addNetwork(network);
+            Graph graph =  converter.createGraph(inputStream);
+            this.networks[0] = converter.createNetwork(graph, network, tableFactory, tableMgr);
+            networkMgr.addNetwork(network);
             
         } catch (Exception e) {
             // TODO Auto-generated catch block
