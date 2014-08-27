@@ -63,6 +63,4 @@ public class Graph {
     public void setEdges(List<Edge> edges) {
         this.edges = edges;
     }
-
-    
 }

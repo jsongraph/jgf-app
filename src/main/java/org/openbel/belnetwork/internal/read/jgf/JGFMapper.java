@@ -29,10 +29,6 @@ public class JGFMapper {
     private final CyTableManager cyTableManager;
     final Map<String, CyNode> nodeMap = new HashMap<String, CyNode>();
     
-    // Default values
-    private static final String MAP_COLOR = "#6999AE";
-    private static final String TITLE_COLOR = "#32CCB6";
-    
     private static final String JGF_ID = "id";
     private static final String JGF_TYPE = "type";
     private static final String JGF_LABEL = "label";
@@ -59,21 +55,28 @@ public class JGFMapper {
         mapGraphMetadata(graph, network);
     }
 
-    private final void mapGraphMetadata(final Graph graph,
+    public void doMapping() throws IOException {
+        createJGFNodeTable();
+        createJGFEdgeTable();
+        mapNodes();
+        mapEdges();
+    }
+
+    private void mapGraphMetadata(final Graph graph,
         final CyNetwork network) {
     
         HashMap<String, Object> graphMetadata = graph.getMetadata();
 
         String version = "1.0";
-        if( graphMetadata.containsKey("version"))
+        if (graphMetadata.containsKey("version"))
             version = graphMetadata.get("version").toString();
 
         String description = "";
-        if( graphMetadata.containsKey("description"))
+        if (graphMetadata.containsKey("description"))
             description = graphMetadata.get("description").toString();
 
         String species = "";
-        if( graphMetadata.containsKey("species_common_name"))
+        if (graphMetadata.containsKey("species_common_name"))
             species = graphMetadata.get("species_common_name").toString();
 
         final String graphName = graph.getLabel();
@@ -100,13 +103,6 @@ public class JGFMapper {
         networkRow.set(JGF_DIRECTED, graph.getDirected());
     }
 
-    public void doMapping() throws IOException {
-        createJGFNodeTable();
-        createJGFEdgeTable();
-        mapNodes();
-        mapEdges();
-    }
-    
     private void mapNodes() {
         nodeMap.clear();
         for (Node n : graph.getNodes()) {
@@ -118,9 +114,9 @@ public class JGFMapper {
                 // FIXME Check type
                 @SuppressWarnings("unchecked")
                 ArrayList<Double> loc = (ArrayList<Double>)n.getMetadata().get("coordinate");
-                if(loc.size() >= 1) row.set(JGF_NODE_X, loc.get(0) * COORDINATE_TRANSLATION);
-                if(loc.size() >= 2) row.set(JGF_NODE_Y, loc.get(1) * COORDINATE_TRANSLATION);
-                if(loc.size() >= 3) row.set(JGF_NODE_Z, loc.get(2) * COORDINATE_TRANSLATION);
+                if (loc.size() >= 1) row.set(JGF_NODE_X, loc.get(0) * COORDINATE_TRANSLATION);
+                if (loc.size() >= 2) row.set(JGF_NODE_Y, loc.get(1) * COORDINATE_TRANSLATION);
+                if (loc.size() >= 3) row.set(JGF_NODE_Z, loc.get(2) * COORDINATE_TRANSLATION);
             }
             if (n.getMetadata().containsKey("bel_function_type")) {
                 row.set(JGF_BEL_FUNC, n.getMetadata().get("bel_function_type"));    

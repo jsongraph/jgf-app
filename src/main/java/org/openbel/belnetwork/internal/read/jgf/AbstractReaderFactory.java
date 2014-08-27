@@ -26,10 +26,8 @@ public abstract class AbstractReaderFactory implements InputStreamTaskFactory {
         return this.fileFilter;
     }
 
-
     @Override
     public boolean isReady(final InputStream is, final String inputName) {
         return true;
     }
-
 }

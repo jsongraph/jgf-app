@@ -20,29 +20,19 @@ public class JsonToNetworkConverter {
     
     private static final Logger userMessages = LoggerFactory.getLogger("CyUserMessages");
     
-    public JsonToNetworkConverter()
-    {        
-        
-    }
-    
     //Take the Graph Object model for our JGF Json and convert it into an instance of a CyNetwork
-    public CyNetwork CreateNetwork(Graph graph, CyNetwork network, CyTableFactory cyTableFactory, CyTableManager cyTableManager) throws Exception 
-    {        
+    public CyNetwork createNetwork(Graph graph, CyNetwork network, CyTableFactory cyTableFactory, CyTableManager cyTableManager) throws Exception {
         try {        
             JGFMapper mapper = new JGFMapper(graph, network, cyTableFactory, cyTableManager);
             mapper.doMapping();                    
         } catch (Exception e) {
             userMessages.error("Some mapping error has occurred.");
             e.printStackTrace();            
-        } finally {
-            
-        }        
+        }
         return network;
     }
-    
-    
-    public Graph CreateGraph(InputStream is) throws Exception 
-    {
+
+    public Graph createGraph(InputStream is) throws Exception {
         Graph graph = null;
                 
         try {        
@@ -51,11 +41,11 @@ public class JsonToNetworkConverter {
             JsonNode graphTree = objectMapper.readTree(is);
             //graphTree   get graphs element out to see if it is null
             JsonNode rootNode = graphTree.findValue("graphs");
-            if (rootNode != null)
-            {
+            if (rootNode != null) {
                 userMessages.error("Import does not support multiple networks in one json file." );
                 return graph;
-            }            
+            }
+
             //Validate against Bel JSON Schema
             final JsonNode belSchema = JsonLoader.fromResource("/bel-json-graph-schema.json");        
             final JsonSchemaFactory factory = JsonSchemaFactory.byDefault();

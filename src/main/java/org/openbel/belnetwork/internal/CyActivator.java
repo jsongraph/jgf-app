@@ -86,8 +86,7 @@ public class CyActivator extends AbstractCyActivator {
         CyActivator.contributeStyles(visMgr, vizmapReaderMgr);
 
         // readers
-        final CyFileFilter jgfReaderFilter = new JGFFileFilter(new String[] { "jgf"},
-                new String[] { "application/jgf" }, "JSON JGF Files", DataCategory.NETWORK, streamUtil);
+        final CyFileFilter jgfReaderFilter = new JGFFileFilter(streamUtil);
         final JGFNetworkReaderFactory jgfReaderFactory = new JGFNetworkReaderFactory(
                 jgfReaderFilter, appMgr, cyNetworkViewFactory, cyNetworkFactory,
                 cyNetworkManager, cyRootNetworkManager, cyTableFactory,
