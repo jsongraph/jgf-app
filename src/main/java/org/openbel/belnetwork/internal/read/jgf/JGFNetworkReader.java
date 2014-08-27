@@ -39,7 +39,7 @@ public class JGFNetworkReader extends AbstractCyNetworkReader {
             CyTableFactory tableFactory, CyTableManager tableMgr,
             VisualMappingManager visMgr, CyEventHelper eventHelper) {
         super(inputStream, networkVieFactory, networkFactory, networkMgr, rootNetworkMgr);
-        
+
         if (inputStream == null) throw new NullPointerException("inputStream cannot be null");
         if (appMgr == null) throw new NullPointerException("appMgr cannot be null");
         if (networkMgr == null) throw new NullPointerException("networkMgr cannot be null");
@@ -99,11 +99,11 @@ public class JGFNetworkReader extends AbstractCyNetworkReader {
             e.printStackTrace();
         }
 //        While building your network, create instances of DelayedVizProp and store them in a List.
-//        After calling org.cytoscape.event.CyEventHelper.flushPayloadEvents(), 
+//        After calling org.cytoscape.event.CyEventHelper.flushPayloadEvents(),
 //        call applyAll on the network view that contains your nodes and edges.
-//        
-        
-//    
+//
+
+//
 //        VisualStyle jgfStyle = null;
 //        vmm.setCurrentVisualStyle(jgfStyle);
     }

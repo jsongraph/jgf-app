@@ -27,24 +27,24 @@ public class JGFMapper {
     private final CyTableFactory cyTableFactory;
     private final CyTableManager cyTableManager;
     final Map<String, CyNode> nodeMap = new HashMap<String, CyNode>();
-    
+
     private static final String JGF_ID = "id";
     private static final String JGF_TYPE = "type";
     private static final String JGF_DIRECTED = "directed";
-    
+
     private static final String JGF_GRAPH_DESCRIPTION = "description";
     private static final String JGF_GRAPH_SPECIES = "species";
     private static final String JGF_GRAPH_VERSION = "version";
-    
+
     private static final String JGF_NODE_X = "x coordinate";
     private static final String JGF_NODE_Y = "y coordinate";
     private static final String JGF_NODE_Z = "z coordinate";
     private static final String JGF_BEL_FUNC = "bel function";
-    
+
     private static final String JGF_EDGE_SOURCE = "source node";
     private static final String JGF_EDGE_TARGET= "target node";
     private static final String JGF_EDGE_CAUSAL = "causal";
-    
+
     public JGFMapper(final Graph graph, final CyNetwork network, CyTableFactory cyTableFactory, CyTableManager cyTableManager) {
         this.graph = graph;
         this.network = network;
@@ -61,7 +61,7 @@ public class JGFMapper {
     }
 
     private void mapGraphMetadata(final Graph graph, final CyNetwork network) {
-    
+
         HashMap<String, Object> graphMetadata = graph.metadata;
 
         String version = "1.0";
@@ -127,7 +127,7 @@ public class JGFMapper {
         network.getDefaultNodeTable().createColumn(JGF_NODE_Z, Double.class, true);
         network.getDefaultNodeTable().createColumn(JGF_BEL_FUNC, String.class, true);
     }
-    
+
     private void mapEdges() {
         //edges do not have an ID from the JSon - but each added CyEdge has its own SUID
         for (Edge edge : graph.edges) {
@@ -139,11 +139,11 @@ public class JGFMapper {
             final CyRow row = network.getRow(newEdge);
             row.set(CyNetwork.NAME, edge.label);
             row.set(CyEdge.INTERACTION, edge.relation);
-            
+
             final CyRow srow = network.getRow(sourceNode);
             final CyRow trow = network.getRow(targetNode);
             row.set(JGF_EDGE_SOURCE, srow.get(CyNetwork.NAME,String.class));
-            row.set(JGF_EDGE_TARGET, trow.get(CyNetwork.NAME,String.class));                
+            row.set(JGF_EDGE_TARGET, trow.get(CyNetwork.NAME,String.class));
             //if( n.getMetadata().containsKey("Evidences"))
             // Create an unassigned Table "JGF.Evidence" create columns for all properties and 2 List Columns for the Biological Context.
             if (edge.metadata != null) {
@@ -167,7 +167,7 @@ public class JGFMapper {
                             citation.name = getOrEmptyString("name", citationMap);
                         }
                         ev.citation = citation;
-                   
+
                         BiologicalContext context = new BiologicalContext();
                         @SuppressWarnings("unchecked")
                         LinkedHashMap<String, Object> contextMap = (LinkedHashMap<String, Object>)item.get("biological_context");
@@ -184,16 +184,16 @@ public class JGFMapper {
                         }
 
                         evidences.add(ev);
-                    }                      
+                    }
                     processEvidences(newEdge, evidences);
                 }
                 if (mdata.containsKey("casual")) {
                     row.set(JGF_EDGE_CAUSAL, mdata.get("casual"));
-                }                
+                }
             }
         }
     }
-    
+
     private void createJGFEdgeTable() {
         network.getDefaultEdgeTable().createColumn(JGF_EDGE_SOURCE, String.class, true);
         network.getDefaultEdgeTable().createColumn(JGF_EDGE_TARGET, String.class, true);

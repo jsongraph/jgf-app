@@ -29,7 +29,7 @@ public class JGFFileFilter extends BasicCyFileFilter {
     public boolean accepts(final InputStream stream, final DataCategory category) {
         final String header = getHeader(stream, 5);
         logger.debug("File header: " + header);
-        
+
         return true;
     }
 

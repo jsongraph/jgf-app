@@ -15,7 +15,7 @@ public class JGFReaderTest {
     @After
     public void tearDown() throws Exception {
     }
-    
+
     @Test
     public void test() {
         Graph[] graphs = null;
@@ -44,7 +44,7 @@ public class JGFReaderTest {
             e.printStackTrace();
             fail("Exception thrown.");
         }
-        
+
         assertTrue(graphs != null);
         assertEquals(2, graphs.length);
     }
