@@ -1,4 +1,5 @@
 package org.openbel.belnetwork.internal.read.jgf;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -112,6 +113,7 @@ public class JGFMapper {
             row.set(CyNetwork.NAME, n.getLabel());
             row.set(JGF_LABEL, n.getLabel());            
             if( n.getMetadata().containsKey("coordinate")) {
+                // FIXME Check type
                 @SuppressWarnings("unchecked")
                 ArrayList<Double> loc = (ArrayList<Double>)n.getMetadata().get("coordinate");
                 if( loc.size() >= 1) row.set(JGF_NODE_X, loc.get(0));

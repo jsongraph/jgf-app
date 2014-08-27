@@ -1,40 +1,34 @@
 package org.openbel.belnetwork.internal;
 
-import java.util.Iterator;
+import java.io.InputStream;
 import java.util.Properties;
-import java.util.Set;
 
-import static org.cytoscape.work.ServiceProperties.*;
-
+import org.cytoscape.application.CyApplicationManager;
+import org.cytoscape.event.CyEventHelper;
+import org.cytoscape.io.read.VizmapReaderManager;
 import org.cytoscape.service.util.AbstractCyActivator;
 import org.cytoscape.view.model.CyNetworkViewFactory;
-import org.cytoscape.view.vizmap.VisualMappingFunctionFactory;
 import org.cytoscape.view.vizmap.VisualMappingManager;
-import org.cytoscape.view.vizmap.VisualStyle;
-import org.cytoscape.view.vizmap.VisualStyleFactory;
-import org.cytoscape.work.ServiceProperties;
-import org.cytoscape.work.TaskFactory;
-import org.cytoscape.application.swing.CyAction;
-import org.cytoscape.io.BasicCyFileFilter;
 import org.cytoscape.io.CyFileFilter;
 import org.cytoscape.io.DataCategory;
 import org.cytoscape.io.read.InputStreamTaskFactory;
 import org.cytoscape.io.util.StreamUtil;
+import org.openbel.belnetwork.internal.listeners.SessionListener;
 import org.openbel.belnetwork.internal.read.jgf.JGFFileFilter;
 import org.openbel.belnetwork.internal.read.jgf.JGFNetworkReaderFactory;
 import org.openbel.belnetwork.internal.ui.EdgeSelectedListener;
 import org.openbel.belnetwork.internal.ui.ShowEvidenceFactory;
 import org.cytoscape.task.EdgeViewTaskFactory;
-import org.cytoscape.task.read.LoadVizmapFileTaskFactory; 
 import org.cytoscape.model.CyNetworkFactory;
 import org.cytoscape.model.CyNetworkManager;
 import org.cytoscape.model.CyTableFactory;
 import org.cytoscape.model.CyTableManager;
 import org.cytoscape.model.subnetwork.CyRootNetworkManager;
+import org.openbel.belnetwork.internal.util.StyleUtility;
 import org.osgi.framework.BundleContext;
-import org.cytoscape.application.swing.events.CytoPanelComponentSelectedListener;
 import org.cytoscape.model.events.RowsSetListener;
 
+import static org.cytoscape.work.ServiceProperties.*;
 import static org.openbel.belnetwork.internal.Constants.*;
 
 /**
@@ -42,16 +36,16 @@ import static org.openbel.belnetwork.internal.Constants.*;
  * 
  * A quick overview of OSGi: The common currency of OSGi is the <i>service</i>.
  * A service is merely a Java interface, along with objects that implement the
- * interface. OSGi establishes a system of <i>bundles</i>. Most bundles import
- * services. Some bundles export services. Some do both. When a bundle exports a
+ * interface. OSGi establishes a system of <i>bundles</i>. Most bundles reference
+ * services. Some bundles register services. Some do both. When a bundle registers a
  * service, it provides an implementation to the service's interface. Bundles
- * import a service by asking OSGi for an implementation. The implementation is
+ * reference a service by asking OSGi for an implementation. The implementation is
  * provided by some other bundle.
  * 
- * When OSGi starts your bundle, it will invoke {@CyActivator}'s
- * {@code start} method. So, the {@code start} method is where
- * you put in all your code that sets up your app. This is where you import and
- * export services.
+ * When OSGi starts your bundle, it will invoke
+ * {@link CyActivator#start(org.osgi.framework.BundleContext)} method. So, the
+ * {@code start} method is where you put in all your code that sets up your app.
+ * This is where you reference and register services.
  * 
  * Your bundle's {@code Bundle-Activator} manifest entry has a fully-qualified
  * path to this class. It's not necessary to inherit from
@@ -65,7 +59,7 @@ public class CyActivator extends AbstractCyActivator {
     /**
      * This is the {@code start} method, which sets up your app. The
      * {@code BundleContext} object allows you to communicate with the OSGi
-     * environment. You use {@code BundleContext} to import services or ask OSGi
+     * environment. You use {@code BundleContext} to reference services or ask OSGi
      * about the status of some service.
      */
     public CyActivator() {
@@ -76,59 +70,52 @@ public class CyActivator extends AbstractCyActivator {
     @Override
     public void start(BundleContext bc) throws Exception {
 
-        // importing services
+        // reference services
         final StreamUtil streamUtil = getService(bc, StreamUtil.class);
+        final CyApplicationManager appMgr = getService(bc, CyApplicationManager.class);
         final CyNetworkViewFactory cyNetworkViewFactory = getService(bc, CyNetworkViewFactory.class);
         final CyNetworkFactory cyNetworkFactory = getService(bc, CyNetworkFactory.class);
         final CyNetworkManager cyNetworkManager = getService(bc, CyNetworkManager.class);
         final CyRootNetworkManager cyRootNetworkManager = getService(bc, CyRootNetworkManager.class);
         final CyTableManager cyTableManager = getService(bc, CyTableManager.class);
         final CyTableFactory cyTableFactory = getService(bc, CyTableFactory.class);
-        final LoadVizmapFileTaskFactory loadVizmapFileTaskFactory =  getService(bc,LoadVizmapFileTaskFactory.class);
-        VisualMappingManager vmm = getService(bc, VisualMappingManager.class);
-        VisualStyleFactory vsFactoryServiceRef = getService(bc, VisualStyleFactory.class);
-        VisualMappingFunctionFactory passthroughMappingFactoryRef = getService(bc, VisualMappingFunctionFactory.class,
-                "(mapping.type=passthrough)");
-        VisualMappingFunctionFactory discreteMappingFactoryRef = getService(bc, VisualMappingFunctionFactory.class,
-                "(mapping.type=discrete)");
+        final VisualMappingManager visMgr = getService(bc, VisualMappingManager.class);
+        final VizmapReaderManager vizmapReaderMgr = getService(bc, VizmapReaderManager.class);
+        final CyEventHelper eventHelper = getService(bc, CyEventHelper.class);
 
-        // remove contributed styles if they exist (important for bundle reload)
-        Iterator<VisualStyle> styleIt = vmm.getAllVisualStyles().iterator();
-        while(styleIt.hasNext()) {
-            VisualStyle style = styleIt.next();
-            if (style.getTitle().equals("BEL Visualization") || style.getTitle().equals("BEL Visualization Minimal")) {
-                styleIt.remove();
-            }
-        }
-
-        // load contributed styles
-        loadVizmapFileTaskFactory.loadStyles(CyActivator.class.getResourceAsStream(STYLE_RESOURCE_PATH));
-
-        JGFVisualStyleBuilder vsBuilder = new JGFVisualStyleBuilder(vsFactoryServiceRef, loadVizmapFileTaskFactory,
-                discreteMappingFactoryRef, passthroughMappingFactoryRef);
+        CyActivator.contributeStyles(visMgr, vizmapReaderMgr);
 
         // readers
         final CyFileFilter jgfReaderFilter = new JGFFileFilter(new String[] { "jgf"},
                 new String[] { "application/jgf" }, "JSON JGF Files", DataCategory.NETWORK, streamUtil);
         final JGFNetworkReaderFactory jgfReaderFactory = new JGFNetworkReaderFactory(
-                jgfReaderFilter, cyNetworkViewFactory, cyNetworkFactory, cyNetworkManager, cyRootNetworkManager,
-                vsBuilder, vmm, cyTableFactory,  cyTableManager );
+                jgfReaderFilter, appMgr, cyNetworkViewFactory, cyNetworkFactory,
+                cyNetworkManager, cyRootNetworkManager, cyTableFactory,
+                cyTableManager, visMgr, eventHelper);
         final Properties jgfNetworkReaderFactoryProps = new Properties();
         jgfNetworkReaderFactoryProps.put(ID, "JGFNetworkReaderFactory");
         registerService(bc, jgfReaderFactory, InputStreamTaskFactory.class, jgfNetworkReaderFactoryProps);
         
-        //Listens for change of the selected Edge - for updates to the custom panel in the results view
+        // listeners
         final Properties edgeSelectedListenerProps = new Properties();
         edgeSelectedListenerProps.put(ID, "EdgeSelectedListener");
         final EdgeSelectedListener  edgeSelectedListener = new EdgeSelectedListener();
         registerService(bc, edgeSelectedListener, RowsSetListener.class, edgeSelectedListenerProps);
+        registerAllServices(bc, new SessionListener(visMgr, vizmapReaderMgr), new Properties());
         
         final Properties evidenceFactoryProps = new Properties();
         evidenceFactoryProps.put(ID, "ShowEvidenceFactory");
         evidenceFactoryProps.put(PREFERRED_MENU, "Apps.JGF");
         evidenceFactoryProps.put(MENU_GRAVITY, "14.0");
         evidenceFactoryProps.put(TITLE, "View Evidence");
-        registerService(bc, new ShowEvidenceFactory( ), EdgeViewTaskFactory.class, evidenceFactoryProps );    
+        registerService(bc, new ShowEvidenceFactory( ), EdgeViewTaskFactory.class, evidenceFactoryProps);
+    }
+
+    public static void contributeStyles(VisualMappingManager visMgr, VizmapReaderManager vizmapReaderMgr) {
+        if (visMgr == null) throw new NullPointerException("visMgr cannot be null");
+        if (vizmapReaderMgr == null) throw new NullPointerException("vizmapReaderMgr cannot be null");
+
+        InputStream styleResource = CyActivator.class.getResourceAsStream(STYLE_RESOURCE_PATH);
+        StyleUtility.contributeStylesIdempotently(styleResource, STYLE_RESOURCE_PATH, visMgr, vizmapReaderMgr);
     }
 }
-
