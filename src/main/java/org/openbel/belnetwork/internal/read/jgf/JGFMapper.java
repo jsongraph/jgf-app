@@ -19,6 +19,8 @@ import org.cytoscape.model.CyTableManager;
 import org.cytoscape.model.SUIDFactory;
 import org.cytoscape.model.SavePolicy;
 
+import static org.openbel.belnetwork.internal.Constants.COORDINATE_TRANSLATION;
+
 public class JGFMapper {
 
     private final Graph graph;
@@ -107,20 +109,20 @@ public class JGFMapper {
     
     private void mapNodes() {
         nodeMap.clear();
-        for(Node n : graph.getNodes()) {
+        for (Node n : graph.getNodes()) {
             final CyNode cyNode = network.addNode();
             final CyRow row = network.getRow(cyNode);
             row.set(CyNetwork.NAME, n.getLabel());
             row.set(JGF_LABEL, n.getLabel());            
-            if( n.getMetadata().containsKey("coordinate")) {
+            if (n.getMetadata().containsKey("coordinate")) {
                 // FIXME Check type
                 @SuppressWarnings("unchecked")
                 ArrayList<Double> loc = (ArrayList<Double>)n.getMetadata().get("coordinate");
-                if( loc.size() >= 1) row.set(JGF_NODE_X, loc.get(0));
-                if( loc.size() >= 2) row.set(JGF_NODE_Y, loc.get(1));
-                if( loc.size() >= 3) row.set(JGF_NODE_Z, loc.get(2));
+                if(loc.size() >= 1) row.set(JGF_NODE_X, loc.get(0) * COORDINATE_TRANSLATION);
+                if(loc.size() >= 2) row.set(JGF_NODE_Y, loc.get(1) * COORDINATE_TRANSLATION);
+                if(loc.size() >= 3) row.set(JGF_NODE_Z, loc.get(2) * COORDINATE_TRANSLATION);
             }
-            if( n.getMetadata().containsKey("bel_function_type")) {
+            if (n.getMetadata().containsKey("bel_function_type")) {
                 row.set(JGF_BEL_FUNC, n.getMetadata().get("bel_function_type"));    
             }
             //parse the label or bel_function for apply visual styles?
@@ -138,7 +140,7 @@ public class JGFMapper {
     
     private void mapEdges() {
         //edges do not have an ID from the JSon - but each added CyEdge has its own SUID
-        for(Edge edge : graph.getEdges()) {
+        for (Edge edge : graph.getEdges()) {
         // need to find the source and target by NodeID in the nodemap
             CyNode sourceNode = nodeMap.get(edge.getSource());
             CyNode targetNode = nodeMap.get(edge.getTarget());
@@ -156,12 +158,12 @@ public class JGFMapper {
             // Create an unassigned Table "JGF.Evidence" create columns for all properties and 2 List Columns for the Biological Context.
             if (edge.getMetadata()!= null) {
                 HashMap<String, Object> mdata = edge.getMetadata();        
-                if(mdata.containsKey("evidences")) {
+                if (mdata.containsKey("evidences")) {
                     String rawEvis = mdata.get("evidences").toString();    
                     @SuppressWarnings("unchecked")
                     List<LinkedHashMap<String, Object>> eviMap = (List<LinkedHashMap<String,Object>>)mdata.get("evidences");
                     List<Evidence> allEvis = new ArrayList<Evidence>();
-                    for(HashMap<String,Object> item : eviMap) {
+                    for (HashMap<String,Object> item : eviMap) {
                         Evidence evi = new Evidence();
                         evi.setBel_statement( item.get("bel_statement")==null ? "" :item.get("bel_statement").toString());
                         evi.setSummary_text( item.get("summary_text")==null ? "" :item.get("summary_text").toString());
@@ -186,7 +188,7 @@ public class JGFMapper {
                     }                      
                     processEvidences(newEdge, allEvis);            
                 }
-                if(mdata.containsKey("casual")) {
+                if (mdata.containsKey("casual")) {
                     row.set(JGF_EDGE_CAUSAL, mdata.get("casual"));
                 }                
             }
@@ -206,7 +208,7 @@ public class JGFMapper {
         Long netSUID = network.getSUID();
         Long edgeSUID = edge.getSUID();
         //put the evidence into the table.
-        for( Evidence evi: evis) {
+        for (Evidence evi: evis) {
             CyRow row = eviTable.getRow(SUIDFactory.getNextSUID());
             row.set("NETWORK_SUID", netSUID);
             row.set("NETWORK_NAME", graphTitle);
@@ -232,7 +234,7 @@ public class JGFMapper {
                 break;
             }
         }
-        if( evTbl== null) {
+        if (evTbl == null) {
             evTbl = cyTableFactory.createTable("JGF.Evidence", "SUID", Long.class, true, false);
             evTbl.setSavePolicy(SavePolicy.DO_NOT_SAVE);
             //Add all the columns

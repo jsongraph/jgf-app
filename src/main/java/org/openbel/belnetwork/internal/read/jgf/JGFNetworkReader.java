@@ -57,7 +57,6 @@ public class JGFNetworkReader extends AbstractCyNetworkReader {
             @Override
             public void run() {
                 while (view != appMgr.getCurrentNetworkView()) {
-                    System.out.println("Nope!");
                     try {
                         Thread.sleep(10);
                     } catch (InterruptedException e) {}
