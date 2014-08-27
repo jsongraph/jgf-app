@@ -18,6 +18,7 @@ import org.openbel.belnetwork.model.*;
 import static org.openbel.belnetwork.internal.Constants.COORDINATE_TRANSLATION;
 import static org.openbel.belnetwork.internal.util.FormatUtility.getOrEmptyString;
 import static org.openbel.belnetwork.internal.util.FormatUtility.getOrZero;
+import static org.openbel.belnetwork.internal.util.TableUtility.getOrCreateColumn;
 
 public class JGFMapper {
 
@@ -44,15 +45,15 @@ public class JGFMapper {
     private static final String JGF_EDGE_TARGET= "target node";
     private static final String JGF_EDGE_CAUSAL = "causal";
     
-    public JGFMapper(final Graph graph, final CyNetwork network,CyTableFactory cyTableFactory, CyTableManager cyTableManager) {
+    public JGFMapper(final Graph graph, final CyNetwork network, CyTableFactory cyTableFactory, CyTableManager cyTableManager) {
         this.graph = graph;
         this.network = network;
         this.cyTableFactory = cyTableFactory;
         this.cyTableManager = cyTableManager;
-        mapGraphMetadata(graph, network);
     }
 
     public void doMapping() throws IOException {
+        mapGraphMetadata(graph, network);
         createJGFNodeTable();
         createJGFEdgeTable();
         mapNodes();
@@ -160,23 +161,28 @@ public class JGFMapper {
                         Citation citation = new Citation();
                         @SuppressWarnings("unchecked")
                         LinkedHashMap<String, Object> citationMap = (LinkedHashMap<String, Object>)item.get("citation");
-                        citation.id = getOrEmptyString("id", citationMap);
-                        citation.type = getOrEmptyString("type", citationMap);
-                        citation.name = getOrEmptyString("name", citationMap);
+                        if (citationMap != null) {
+                            citation.id = getOrEmptyString("id", citationMap);
+                            citation.type = getOrEmptyString("type", citationMap);
+                            citation.name = getOrEmptyString("name", citationMap);
+                        }
                         ev.citation = citation;
                    
                         BiologicalContext context = new BiologicalContext();
                         @SuppressWarnings("unchecked")
                         LinkedHashMap<String, Object> contextMap = (LinkedHashMap<String, Object>)item.get("biological_context");
-                        context.speciesCommonName = getOrEmptyString("species_common_name", contextMap);
-                        context.ncbiTaxId = getOrZero("ncbi_tax_id", contextMap);
-                        Set<String> varying = new HashSet<String>(contextMap.keySet());
-                        varying.removeAll(Arrays.asList("species_common_name", "ncbi_tax_id"));
+                        if (contextMap != null) {
+                            context.speciesCommonName = getOrEmptyString("species_common_name", contextMap);
+                            context.ncbiTaxId = getOrZero("ncbi_tax_id", contextMap);
+                            Set<String> varying = new HashSet<String>(contextMap.keySet());
+                            varying.removeAll(Arrays.asList("species_common_name", "ncbi_tax_id"));
 
-                        for (String key : varying) {
-                            context.variedAnnotations.put(key, contextMap.get(key));
+                            for (String key : varying) {
+                                context.variedAnnotations.put(key, contextMap.get(key));
+                            }
+                            ev.biologicalContext = context;
                         }
-                        ev.biologicalContext = context;
+
                         evidences.add(ev);
                     }                      
                     processEvidences(newEdge, evidences);
@@ -195,7 +201,7 @@ public class JGFMapper {
     }
 
     private void processEvidences(CyEdge edge, List<Evidence> evidences) {
-        CyTable eviTable = getOrCreateEvidenceTable(evidences, cyTableManager, cyTableFactory);
+        CyTable eviTable = createOrExtendEvidenceTable(evidences, cyTableManager, cyTableFactory);
         CyRow networkRow = network.getRow(network);
         String graphTitle = networkRow.get(CyNetwork.NAME, String.class);
         Long netSUID = network.getSUID();
@@ -207,20 +213,26 @@ public class JGFMapper {
             row.set("network name", graphTitle);
             row.set("edge suid", edgeSUID);
             row.set("bel statement", ev.belStatement);
-            row.set("citation type", ev.citation.type);
-            row.set("citation id", ev.citation.id);
-            row.set("citation name", ev.citation.name);
             row.set("summary text", ev.summaryText);
-            row.set("species", ev.biologicalContext.speciesCommonName);
 
-            Map<String, Object> varying = ev.biologicalContext.variedAnnotations;
-            for (Entry<String, Object> entry : varying.entrySet()) {
-                row.set(entry.getKey(), getOrEmptyString(entry.getKey(), varying));
+            if (ev.citation != null) {
+                row.set("citation type", ev.citation.type);
+                row.set("citation id", ev.citation.id);
+                row.set("citation name", ev.citation.name);
+            }
+
+            if (ev.biologicalContext != null) {
+                row.set("species", ev.biologicalContext.speciesCommonName);
+
+                Map<String, Object> varying = ev.biologicalContext.variedAnnotations;
+                for (Entry<String, Object> entry : varying.entrySet()) {
+                    row.set(entry.getKey(), getOrEmptyString(entry.getKey(), varying));
+                }
             }
         }
     }
 
-    private CyTable getOrCreateEvidenceTable(List<Evidence> evidences, CyTableManager tableMgr, CyTableFactory tableFactory) {
+    private CyTable createOrExtendEvidenceTable(List<Evidence> evidences, CyTableManager tableMgr, CyTableFactory tableFactory) {
         CyTable tbl = null;
         Set<CyTable> allTables =tableMgr.getAllTables(true);
         for (CyTable table : allTables) {
@@ -232,7 +244,8 @@ public class JGFMapper {
         if (tbl == null) {
             tbl = tableFactory.createTable("JGF.Evidence", "SUID", Long.class, true, false);
             tbl.setSavePolicy(SavePolicy.DO_NOT_SAVE);
-            //Add all the columns
+
+            //Add basic columns
             tbl.createColumn("network suid", Long.class, true, null);
             tbl.createColumn("network name", String.class, true);
             tbl.createColumn("edge suid", Long.class, true, null);
@@ -242,17 +255,19 @@ public class JGFMapper {
             tbl.createColumn("citation name", String.class, false);
             tbl.createColumn("summary text", String.class, false);
             tbl.createColumn("species", String.class, false);
+        }
 
-            Set<String> union = new HashSet<String>();
-            for (Evidence ev : evidences) {
+        Set<String> union = new HashSet<String>();
+        for (Evidence ev : evidences) {
+            if (ev.biologicalContext != null) {
                 union.addAll(ev.biologicalContext.variedAnnotations.keySet());
             }
-
-            for (String varyingKey : union) {
-                tbl.createColumn(varyingKey, String.class, false);
-            }
-            tableMgr.addTable(tbl);
         }
+
+        for (String varyingKey : union) {
+            getOrCreateColumn(varyingKey, String.class, false, tbl);
+        }
+        tableMgr.addTable(tbl);
         return tbl;
     }
 }

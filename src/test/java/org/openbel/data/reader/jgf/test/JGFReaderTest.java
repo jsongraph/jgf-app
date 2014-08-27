@@ -18,34 +18,34 @@ public class JGFReaderTest {
     
     @Test
     public void test() {
-        Graph graph=null;
+        Graph[] graphs = null;
         try {
-            //Response to DNA Damage1.1 formatted.jgf
-            InputStream stream = this.getClass().getClassLoader().getResourceAsStream("testData/jgf/Response to DNA Damage1.1 formatted.jgf");            
+            InputStream stream = this.getClass().getClassLoader().getResourceAsStream("testData/jgf/single_graph.json");
             JsonToNetworkConverter converter  = new JsonToNetworkConverter();
-            graph = converter.createGraph(stream);
+            graphs = converter.createGraphs(stream);
         } catch (Exception e) {
             e.printStackTrace();
             fail("Exception thrown.");
         }
-        
-        assertTrue(graph != null);
-        assertTrue(graph.metadata.get("description") != null);
+
+        assertEquals(1, graphs.length);
+        assertTrue(graphs[0] != null);
+        assertTrue(graphs[0].metadata.get("description") != null);
     }
 
     @Test
     public void testForGraphs() {
-        Graph graph=null;
+        Graph[] graphs = null;
         try {
-                
-            InputStream stream = this.getClass().getClassLoader().getResourceAsStream("testData/jgf/Xenobiotic Metabolism Response_v1.2 Graphs.json");
+            InputStream stream = this.getClass().getClassLoader().getResourceAsStream("testData/jgf/multiple_graphs.json");
             JsonToNetworkConverter converter  = new JsonToNetworkConverter();
-            graph = converter.createGraph(stream);
+            graphs = converter.createGraphs(stream);
         } catch (Exception e) {
             e.printStackTrace();
             fail("Exception thrown.");
         }
         
-        assertTrue(graph == null);
+        assertTrue(graphs != null);
+        assertEquals(2, graphs.length);
     }
 }

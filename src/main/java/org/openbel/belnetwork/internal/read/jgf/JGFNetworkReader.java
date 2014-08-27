@@ -87,16 +87,13 @@ public class JGFNetworkReader extends AbstractCyNetworkReader {
 
     @Override
     public void run(TaskMonitor taskMonitor) throws Exception {
-        final CyNetwork network = cyNetworkFactory.createNetwork();
         JsonToNetworkConverter converter = new JsonToNetworkConverter();
-        this.networks = new CyNetwork[1];
-        //Why the collection of networks?  Why are we only updating networks[0]?
-        
+
         try {
-            Graph graph =  converter.createGraph(inputStream);
-            this.networks[0] = converter.createNetwork(graph, network, tableFactory, tableMgr);
-            networkMgr.addNetwork(network);
-            
+            Graph[] graphs = converter.createGraphs(inputStream);
+            this.networks = converter.createNetworks(graphs, cyNetworkFactory, tableFactory, tableMgr);
+            for (CyNetwork n : networks)
+                networkMgr.addNetwork(n);
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
