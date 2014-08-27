@@ -10,7 +10,7 @@ public class Constants {
 
     public static final String[] JGF_EXT = new String[] {"jgf", "json"};
 
-    public static final String[] JGF_MIME = new String[] {"application/json+jgf", "application/json"};
+    public static final String[] JGF_MIME = new String[] {"application/jgf+json", "application/json"};
 
     public static final String JGF_DESC = "JSON Graph Format";
 

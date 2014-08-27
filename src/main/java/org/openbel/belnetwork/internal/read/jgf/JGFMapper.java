@@ -19,6 +19,7 @@ import static org.openbel.belnetwork.internal.Constants.COORDINATE_TRANSLATION;
 import static org.openbel.belnetwork.internal.util.FormatUtility.getOrEmptyString;
 import static org.openbel.belnetwork.internal.util.FormatUtility.getOrZero;
 import static org.openbel.belnetwork.internal.util.TableUtility.getOrCreateColumn;
+import static org.openbel.belnetwork.internal.util.TableUtility.getTable;
 
 public class JGFMapper {
 
@@ -144,8 +145,7 @@ public class JGFMapper {
             final CyRow trow = network.getRow(targetNode);
             row.set(JGF_EDGE_SOURCE, srow.get(CyNetwork.NAME,String.class));
             row.set(JGF_EDGE_TARGET, trow.get(CyNetwork.NAME,String.class));
-            //if( n.getMetadata().containsKey("Evidences"))
-            // Create an unassigned Table "JGF.Evidence" create columns for all properties and 2 List Columns for the Biological Context.
+
             if (edge.metadata != null) {
                 HashMap<String, Object> mdata = edge.metadata;
 
@@ -209,9 +209,9 @@ public class JGFMapper {
         //put the evidence into the table.
         for (Evidence ev: evidences) {
             CyRow row = eviTable.getRow(SUIDFactory.getNextSUID());
-            row.set("network suid", netSUID);
+            row.set("network.SUID", netSUID);
             row.set("network name", graphTitle);
-            row.set("edge suid", edgeSUID);
+            row.set("edge.SUID", edgeSUID);
             row.set("bel statement", ev.belStatement);
             row.set("summary text", ev.summaryText);
 
@@ -233,30 +233,30 @@ public class JGFMapper {
     }
 
     private CyTable createOrExtendEvidenceTable(List<Evidence> evidences, CyTableManager tableMgr, CyTableFactory tableFactory) {
-        CyTable tbl = null;
-        Set<CyTable> allTables =tableMgr.getAllTables(true);
-        for (CyTable table : allTables) {
-            if (table.getTitle().equals("JGF.Evidence")) {
-                tbl = table;
-                break;
-            }
-        }
-        if (tbl == null) {
-            tbl = tableFactory.createTable("JGF.Evidence", "SUID", Long.class, true, false);
-            tbl.setSavePolicy(SavePolicy.DO_NOT_SAVE);
+        CyTable evTable = getTable("BEL.Evidence", tableMgr);
 
-            //Add basic columns
-            tbl.createColumn("network suid", Long.class, true, null);
-            tbl.createColumn("network name", String.class, true);
-            tbl.createColumn("edge suid", Long.class, true, null);
-            tbl.createColumn("bel statement", String.class, false);
-            tbl.createColumn("citation type", String.class, false);
-            tbl.createColumn("citation id", String.class, false);
-            tbl.createColumn("citation name", String.class, false);
-            tbl.createColumn("summary text", String.class, false);
-            tbl.createColumn("species", String.class, false);
+        if (evTable == null) {
+            // Create the table...
+            evTable = tableFactory.createTable("BEL.Evidence", "SUID", Long.class, true, false);
+            // ...allow save to Cytoscape session files (*.cys)
+            evTable.setSavePolicy(SavePolicy.SESSION_FILE);
+
+            // ...create basic, one-time columns
+            evTable.createColumn("network.SUID", Long.class, true, null);
+            evTable.createColumn("network name", String.class, true);
+            evTable.createColumn("edge.SUID", Long.class, true, null);
+            evTable.createColumn("bel statement", String.class, false);
+            evTable.createColumn("citation type", String.class, false);
+            evTable.createColumn("citation id", String.class, false);
+            evTable.createColumn("citation name", String.class, false);
+            evTable.createColumn("summary text", String.class, false);
+            evTable.createColumn("species", String.class, false);
+
+            // ...add table to Cytoscape table manager
+            tableMgr.addTable(evTable);
         }
 
+        // ...determine set of biological context annotation keys
         Set<String> union = new HashSet<String>();
         for (Evidence ev : evidences) {
             if (ev.biologicalContext != null) {
@@ -264,10 +264,11 @@ public class JGFMapper {
             }
         }
 
+        /// ...add string columns for keys if they do not already exist
         for (String varyingKey : union) {
-            getOrCreateColumn(varyingKey, String.class, false, tbl);
+            getOrCreateColumn(varyingKey, String.class, false, evTable);
         }
-        tableMgr.addTable(tbl);
-        return tbl;
+
+        return evTable;
     }
 }

@@ -98,13 +98,5 @@ public class JGFNetworkReader extends AbstractCyNetworkReader {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-//        While building your network, create instances of DelayedVizProp and store them in a List.
-//        After calling org.cytoscape.event.CyEventHelper.flushPayloadEvents(),
-//        call applyAll on the network view that contains your nodes and edges.
-//
-
-//
-//        VisualStyle jgfStyle = null;
-//        vmm.setCurrentVisualStyle(jgfStyle);
     }
 }

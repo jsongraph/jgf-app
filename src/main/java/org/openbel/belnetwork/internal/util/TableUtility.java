@@ -1,7 +1,8 @@
 package org.openbel.belnetwork.internal.util;
 
-import org.cytoscape.model.CyColumn;
-import org.cytoscape.model.CyTable;
+import org.cytoscape.model.*;
+
+import java.util.Set;
 
 /**
  * {@link TableUtility} provides convenience methods for working with Cytoscape
@@ -37,6 +38,31 @@ public class TableUtility {
             column = table.getColumn(name);
         }
         return column;
+    }
+
+    /**
+     * Returns the {@link CyTable table} associated with {@code name} or {@code null}
+     * if it does not exist.
+     *
+     * @param name the {@link String name}; cannot be {@code null}
+     * @param tableMgr the {@link CyTableManager} Cytoscape service;
+     * cannot be {@code null}
+     * @return the {@link CyTable} or {@code null} if it does not exist
+     * @throws java.lang.NullPointerException if {@code name} or {@code tableMgr} is
+     * {@code null}
+     */
+    public static CyTable getTable(String name, CyTableManager tableMgr) {
+        if (name == null) throw new NullPointerException("name cannot be null");
+        if (tableMgr == null) throw new NullPointerException("tableMgr cannot be null");
+
+        // find table by name and return it if exists...
+        Set<CyTable> allTables = tableMgr.getAllTables(true);
+        for (CyTable table : allTables) {
+            if (table.getTitle().equals(name)) {
+                return table;
+            }
+        }
+        return null;
     }
 
     private TableUtility() {

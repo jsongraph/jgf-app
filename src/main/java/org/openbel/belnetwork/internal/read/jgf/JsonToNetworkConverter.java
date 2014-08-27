@@ -4,14 +4,11 @@ import java.io.InputStream;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.github.fge.jsonschema.core.report.ProcessingMessage;
-import org.cytoscape.model.CyNetworkFactory;
+import org.cytoscape.model.*;
 import org.openbel.belnetwork.model.Graph;
 import org.openbel.belnetwork.model.Root;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.cytoscape.model.CyNetwork;
-import org.cytoscape.model.CyTableFactory;
-import org.cytoscape.model.CyTableManager;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -61,8 +58,8 @@ public class JsonToNetworkConverter {
             final JsonSchemaFactory factory = JsonSchemaFactory.byDefault();
             final JsonSchema schema = factory.getJsonSchema(belSchema);
             ProcessingReport report = schema.validate(graphTree);
-            for (ProcessingMessage err : report)
-                System.out.println(err.getMessage());
+//            for (ProcessingMessage err : report)
+//                System.out.println(err.getMessage());
 
             Root root = objectMapper.readValue(graphTree.toString(), Root.class);
             return determineGraphs(root);
