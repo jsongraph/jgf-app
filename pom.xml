@@ -18,6 +18,13 @@
     <description>A cytoscape 3.x app to import and export BEL networks.</description>
     <packaging>bundle</packaging>
 
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+
     <organization>
         <name>OpenBEL</name>
         <url>http://www.openbel.org/</url>
