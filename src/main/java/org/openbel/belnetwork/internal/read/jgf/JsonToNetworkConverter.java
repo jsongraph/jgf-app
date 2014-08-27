@@ -2,9 +2,10 @@ package org.openbel.belnetwork.internal.read.jgf;
 
 import java.io.InputStream;
 
+import org.openbel.belnetwork.model.Graph;
+import org.openbel.belnetwork.model.Root;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.openbel.belnetwork.internal.mapperclasses.*;
 import org.cytoscape.model.CyNetwork;
 import org.cytoscape.model.CyTableFactory;
 import org.cytoscape.model.CyTableManager;
@@ -43,7 +44,7 @@ public class JsonToNetworkConverter {
             JsonNode rootNode = graphTree.findValue("graphs");
             if (rootNode != null) {
                 userMessages.error("Import does not support multiple networks in one json file." );
-                return graph;
+                return null;
             }
 
             //Validate against Bel JSON Schema
@@ -54,8 +55,8 @@ public class JsonToNetworkConverter {
             //if(report.isSuccess()) // can not figure out why validation is failing for unexpected elements
             {    
                 //convert json string to object
-                 RootObject ro  = objectMapper.readValue(graphTree.toString(), RootObject.class);
-                 graph = ro.getGraph();
+                 Root ro  = objectMapper.readValue(graphTree.toString(), Root.class);
+                 graph = ro.graph;
             }
            // else
            // {

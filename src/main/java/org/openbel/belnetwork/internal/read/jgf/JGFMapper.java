@@ -1,14 +1,9 @@
 package org.openbel.belnetwork.internal.read.jgf;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
+import java.util.Map.Entry;
 
-import org.openbel.belnetwork.internal.mapperclasses.*;
 import org.cytoscape.model.CyEdge;
 import org.cytoscape.model.CyNetwork;
 import org.cytoscape.model.CyNode;
@@ -18,8 +13,11 @@ import org.cytoscape.model.CyTableFactory;
 import org.cytoscape.model.CyTableManager;
 import org.cytoscape.model.SUIDFactory;
 import org.cytoscape.model.SavePolicy;
+import org.openbel.belnetwork.model.*;
 
 import static org.openbel.belnetwork.internal.Constants.COORDINATE_TRANSLATION;
+import static org.openbel.belnetwork.internal.util.FormatUtility.getOrEmptyString;
+import static org.openbel.belnetwork.internal.util.FormatUtility.getOrZero;
 
 public class JGFMapper {
 
@@ -31,7 +29,6 @@ public class JGFMapper {
     
     private static final String JGF_ID = "id";
     private static final String JGF_TYPE = "type";
-    private static final String JGF_LABEL = "label";
     private static final String JGF_DIRECTED = "directed";
     
     private static final String JGF_GRAPH_DESCRIPTION = "description";
@@ -62,10 +59,9 @@ public class JGFMapper {
         mapEdges();
     }
 
-    private void mapGraphMetadata(final Graph graph,
-        final CyNetwork network) {
+    private void mapGraphMetadata(final Graph graph, final CyNetwork network) {
     
-        HashMap<String, Object> graphMetadata = graph.getMetadata();
+        HashMap<String, Object> graphMetadata = graph.metadata;
 
         String version = "1.0";
         if (graphMetadata.containsKey("version"))
@@ -79,8 +75,7 @@ public class JGFMapper {
         if (graphMetadata.containsKey("species_common_name"))
             species = graphMetadata.get("species_common_name").toString();
 
-        final String graphName = graph.getLabel();
-        final String graphTitle = graphName + " ver: " + version;
+        final String graphTitle = graph.label + " ver: " + version;
 
         final CyRow networkRow = network.getRow(network);
         networkRow.set(CyNetwork.NAME, graphTitle);
@@ -99,30 +94,29 @@ public class JGFMapper {
         networkRow.set(JGF_GRAPH_VERSION, version );
         networkRow.set(JGF_GRAPH_DESCRIPTION, description);
         networkRow.set(JGF_GRAPH_SPECIES, species);
-        networkRow.set(JGF_TYPE, graph.getType());
-        networkRow.set(JGF_DIRECTED, graph.getDirected());
+        networkRow.set(JGF_TYPE, graph.type);
+        networkRow.set(JGF_DIRECTED, graph.directed);
     }
 
     private void mapNodes() {
         nodeMap.clear();
-        for (Node n : graph.getNodes()) {
+        for (Node n : graph.nodes) {
             final CyNode cyNode = network.addNode();
             final CyRow row = network.getRow(cyNode);
-            row.set(CyNetwork.NAME, n.getLabel());
-            row.set(JGF_LABEL, n.getLabel());            
-            if (n.getMetadata().containsKey("coordinate")) {
+            row.set(CyNetwork.NAME, n.label);
+            if (n.metadata.containsKey("coordinate")) {
                 // FIXME Check type
                 @SuppressWarnings("unchecked")
-                ArrayList<Double> loc = (ArrayList<Double>)n.getMetadata().get("coordinate");
+                ArrayList<Double> loc = (ArrayList<Double>)n.metadata.get("coordinate");
                 if (loc.size() >= 1) row.set(JGF_NODE_X, loc.get(0) * COORDINATE_TRANSLATION);
                 if (loc.size() >= 2) row.set(JGF_NODE_Y, loc.get(1) * COORDINATE_TRANSLATION);
                 if (loc.size() >= 3) row.set(JGF_NODE_Z, loc.get(2) * COORDINATE_TRANSLATION);
             }
-            if (n.getMetadata().containsKey("bel_function_type")) {
-                row.set(JGF_BEL_FUNC, n.getMetadata().get("bel_function_type"));    
+            if (n.metadata.containsKey("bel_function_type")) {
+                row.set(JGF_BEL_FUNC, n.metadata.get("bel_function_type"));
             }
             //parse the label or bel_function for apply visual styles?
-            nodeMap.put(n.getId(), cyNode); // for edges to use later for source and target mapping
+            nodeMap.put(n.id, cyNode); // for edges to use later for source and target mapping
         }
     }
 
@@ -130,21 +124,20 @@ public class JGFMapper {
         network.getDefaultNodeTable().createColumn(JGF_NODE_X, Double.class, true);
         network.getDefaultNodeTable().createColumn(JGF_NODE_Y, Double.class, true);
         network.getDefaultNodeTable().createColumn(JGF_NODE_Z, Double.class, true);
-        network.getDefaultNodeTable().createColumn(JGF_LABEL, String.class, true);
         network.getDefaultNodeTable().createColumn(JGF_BEL_FUNC, String.class, true);
     }
     
     private void mapEdges() {
         //edges do not have an ID from the JSon - but each added CyEdge has its own SUID
-        for (Edge edge : graph.getEdges()) {
+        for (Edge edge : graph.edges) {
         // need to find the source and target by NodeID in the nodemap
-            CyNode sourceNode = nodeMap.get(edge.getSource());
-            CyNode targetNode = nodeMap.get(edge.getTarget());
+            CyNode sourceNode = nodeMap.get(edge.source);
+            CyNode targetNode = nodeMap.get(edge.target);
             final CyEdge newEdge = network.addEdge(sourceNode,
-                    targetNode, edge.getDirected());
+                    targetNode, edge.directed);
             final CyRow row = network.getRow(newEdge);
-            row.set(CyNetwork.NAME, edge.getLabel());            
-            row.set(CyEdge.INTERACTION, edge.getRelation());
+            row.set(CyNetwork.NAME, edge.label);
+            row.set(CyEdge.INTERACTION, edge.relation);
             
             final CyRow srow = network.getRow(sourceNode);
             final CyRow trow = network.getRow(targetNode);
@@ -152,37 +145,41 @@ public class JGFMapper {
             row.set(JGF_EDGE_TARGET, trow.get(CyNetwork.NAME,String.class));                
             //if( n.getMetadata().containsKey("Evidences"))
             // Create an unassigned Table "JGF.Evidence" create columns for all properties and 2 List Columns for the Biological Context.
-            if (edge.getMetadata()!= null) {
-                HashMap<String, Object> mdata = edge.getMetadata();        
+            if (edge.metadata != null) {
+                HashMap<String, Object> mdata = edge.metadata;
+
                 if (mdata.containsKey("evidences")) {
-                    String rawEvis = mdata.get("evidences").toString();    
                     @SuppressWarnings("unchecked")
-                    List<LinkedHashMap<String, Object>> eviMap = (List<LinkedHashMap<String,Object>>)mdata.get("evidences");
-                    List<Evidence> allEvis = new ArrayList<Evidence>();
-                    for (HashMap<String,Object> item : eviMap) {
-                        Evidence evi = new Evidence();
-                        evi.setBel_statement( item.get("bel_statement")==null ? "" :item.get("bel_statement").toString());
-                        evi.setSummary_text( item.get("summary_text")==null ? "" :item.get("summary_text").toString());
-                        Citation cit = new Citation();
+                    List<LinkedHashMap<String, Object>> evidenceMap = (List<LinkedHashMap<String,Object>>)mdata.get("evidences");
+                    List<Evidence> evidences = new ArrayList<Evidence>();
+                    for (HashMap<String,Object> item : evidenceMap) {
+                        Evidence ev = new Evidence();
+                        ev.belStatement = getOrEmptyString("bel_statement", item);
+                        ev.summaryText = getOrEmptyString("summary_text", item);
+
+                        Citation citation = new Citation();
                         @SuppressWarnings("unchecked")
-                        LinkedHashMap<String, Object> citem = (LinkedHashMap<String, Object>)item.get("citation");
-                        cit.setId(citem.get("id")==null ? "" :citem.get("id").toString()); 
-                        cit.setType(citem.get("type")==null ? "" :citem.get("type").toString());
-                        cit.setName(citem.get("name")==null ? "" :citem.get("name").toString());                  
-                        evi.setCitation(cit);
+                        LinkedHashMap<String, Object> citationMap = (LinkedHashMap<String, Object>)item.get("citation");
+                        citation.id = getOrEmptyString("id", citationMap);
+                        citation.type = getOrEmptyString("type", citationMap);
+                        citation.name = getOrEmptyString("name", citationMap);
+                        ev.citation = citation;
                    
-                        BiologicalContext bc = new BiologicalContext();
+                        BiologicalContext context = new BiologicalContext();
                         @SuppressWarnings("unchecked")
-                        LinkedHashMap<String, Object> bitem = (LinkedHashMap<String, Object>)item.get("biological_context");
-                        bc.setSpecies_common_name( bitem.get("species_common_name")==null ? "" :bitem.get("species_common_name").toString()); 
-                        bc.setNcbi_tax_id( bitem.get("ncbi_tax_id")==null ? 0 : (Integer)bitem.get("ncbi_tax_id"));  
-                        bc.setCell( bitem.get("cell")==null ? "" :bitem.get("cell").toString());
-                        bc.setTissue( bitem.get("tissue")==null ? "" :bitem.get("tissue").toString());
-                        bc.setDisease( bitem.get("disease")==null ? "" :bitem.get("disease").toString());
-                        evi.setBiological_context(bc);;
-                        allEvis.add(evi);
+                        LinkedHashMap<String, Object> contextMap = (LinkedHashMap<String, Object>)item.get("biological_context");
+                        context.speciesCommonName = getOrEmptyString("species_common_name", contextMap);
+                        context.ncbiTaxId = getOrZero("ncbi_tax_id", contextMap);
+                        Set<String> varying = new HashSet<String>(contextMap.keySet());
+                        varying.removeAll(Arrays.asList("species_common_name", "ncbi_tax_id"));
+
+                        for (String key : varying) {
+                            context.variedAnnotations.put(key, contextMap.get(key));
+                        }
+                        ev.biologicalContext = context;
+                        evidences.add(ev);
                     }                      
-                    processEvidences(newEdge, allEvis);            
+                    processEvidences(newEdge, evidences);
                 }
                 if (mdata.containsKey("casual")) {
                     row.set(JGF_EDGE_CAUSAL, mdata.get("casual"));
@@ -197,57 +194,65 @@ public class JGFMapper {
         network.getDefaultEdgeTable().createColumn(JGF_EDGE_CAUSAL, Boolean.class, true);
     }
 
-    private void processEvidences(CyEdge edge, List<Evidence> evis) {
-        CyTable eviTable = getOrCreateEvidenceTable(cyTableManager, cyTableFactory);
+    private void processEvidences(CyEdge edge, List<Evidence> evidences) {
+        CyTable eviTable = getOrCreateEvidenceTable(evidences, cyTableManager, cyTableFactory);
         CyRow networkRow = network.getRow(network);
         String graphTitle = networkRow.get(CyNetwork.NAME, String.class);
         Long netSUID = network.getSUID();
         Long edgeSUID = edge.getSUID();
         //put the evidence into the table.
-        for (Evidence evi: evis) {
+        for (Evidence ev: evidences) {
             CyRow row = eviTable.getRow(SUIDFactory.getNextSUID());
-            row.set("NETWORK_SUID", netSUID);
-            row.set("NETWORK_NAME", graphTitle);
-            row.set("EDGE_SUID", edgeSUID);
-            row.set("BEL_STATEMENT", evi.getBel_statement());
-            row.set("CITATION_TYPE", evi.getCitation().getType());
-            row.set("CITATION_ID", evi.getCitation().getId());
-            row.set("CITATION_NAME", evi.getCitation().getName());
-            row.set("SUMMARY_TEXT", evi.getSummary_text());
-            row.set("SPECIES", evi.getBiological_context().getSpecies_common_name());
-            row.set("CELL", evi.getBiological_context().getCell());
-            row.set("TISSUE", evi.getBiological_context().getTissue());
-            row.set("DISEASE", evi.getBiological_context().getDisease());
-        }        
+            row.set("network suid", netSUID);
+            row.set("network name", graphTitle);
+            row.set("edge suid", edgeSUID);
+            row.set("bel statement", ev.belStatement);
+            row.set("citation type", ev.citation.type);
+            row.set("citation id", ev.citation.id);
+            row.set("citation name", ev.citation.name);
+            row.set("summary text", ev.summaryText);
+            row.set("species", ev.biologicalContext.speciesCommonName);
+
+            Map<String, Object> varying = ev.biologicalContext.variedAnnotations;
+            for (Entry<String, Object> entry : varying.entrySet()) {
+                row.set(entry.getKey(), getOrEmptyString(entry.getKey(), varying));
+            }
+        }
     }
 
-    private CyTable getOrCreateEvidenceTable(CyTableManager cyTableManager, CyTableFactory cyTableFactory) {
-        CyTable evTbl = null;        
-        Set<CyTable> allTables =cyTableManager.getAllTables(true);
+    private CyTable getOrCreateEvidenceTable(List<Evidence> evidences, CyTableManager tableMgr, CyTableFactory tableFactory) {
+        CyTable tbl = null;
+        Set<CyTable> allTables =tableMgr.getAllTables(true);
         for (CyTable table : allTables) {
             if (table.getTitle().equals("JGF.Evidence")) {
-                evTbl = table;
+                tbl = table;
                 break;
             }
         }
-        if (evTbl == null) {
-            evTbl = cyTableFactory.createTable("JGF.Evidence", "SUID", Long.class, true, false);
-            evTbl.setSavePolicy(SavePolicy.DO_NOT_SAVE);
+        if (tbl == null) {
+            tbl = tableFactory.createTable("JGF.Evidence", "SUID", Long.class, true, false);
+            tbl.setSavePolicy(SavePolicy.DO_NOT_SAVE);
             //Add all the columns
-            evTbl.createColumn("NETWORK_SUID", Long.class, true, null);
-            evTbl.createColumn("NETWORK_NAME", String.class, true);
-            evTbl.createColumn("EDGE_SUID", Long.class, true, null);
-            evTbl.createColumn("BEL_STATEMENT", String.class, false);
-            evTbl.createColumn("CITATION_TYPE", String.class, false);
-            evTbl.createColumn("CITATION_ID", String.class, false);
-            evTbl.createColumn("CITATION_NAME", String.class, false);
-            evTbl.createColumn("SUMMARY_TEXT", String.class, false);
-            evTbl.createColumn("SPECIES", String.class, false);    
-            evTbl.createColumn("CELL", String.class, false);    
-            evTbl.createColumn("TISSUE", String.class, false);
-            evTbl.createColumn("DISEASE", String.class, false);    
-            cyTableManager.addTable(evTbl);    
+            tbl.createColumn("network suid", Long.class, true, null);
+            tbl.createColumn("network name", String.class, true);
+            tbl.createColumn("edge suid", Long.class, true, null);
+            tbl.createColumn("bel statement", String.class, false);
+            tbl.createColumn("citation type", String.class, false);
+            tbl.createColumn("citation id", String.class, false);
+            tbl.createColumn("citation name", String.class, false);
+            tbl.createColumn("summary text", String.class, false);
+            tbl.createColumn("species", String.class, false);
+
+            Set<String> union = new HashSet<String>();
+            for (Evidence ev : evidences) {
+                union.addAll(ev.biologicalContext.variedAnnotations.keySet());
+            }
+
+            for (String varyingKey : union) {
+                tbl.createColumn(varyingKey, String.class, false);
+            }
+            tableMgr.addTable(tbl);
         }
-        return evTbl;
+        return tbl;
     }
 }

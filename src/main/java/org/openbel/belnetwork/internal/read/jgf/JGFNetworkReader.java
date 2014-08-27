@@ -7,7 +7,6 @@ import org.cytoscape.event.CyEventHelper;
 import org.cytoscape.io.read.AbstractCyNetworkReader;
 import org.cytoscape.view.vizmap.VisualMappingManager;
 import org.cytoscape.view.vizmap.VisualStyle;
-import org.openbel.belnetwork.internal.mapperclasses.Graph;
 import org.cytoscape.model.CyNetwork;
 import org.cytoscape.model.CyNetworkFactory;
 import org.cytoscape.model.CyNetworkManager;
@@ -18,6 +17,7 @@ import org.cytoscape.view.model.CyNetworkView;
 import org.cytoscape.view.model.CyNetworkViewFactory;
 import org.cytoscape.work.TaskMonitor;
 import org.openbel.belnetwork.internal.util.StyleUtility;
+import org.openbel.belnetwork.model.Graph;
 
 import javax.swing.SwingUtilities;
 
