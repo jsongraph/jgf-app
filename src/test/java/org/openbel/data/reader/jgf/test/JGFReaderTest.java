@@ -2,13 +2,13 @@ package org.openbel.data.reader.jgf.test;
 
 import java.io.InputStream;
 
-import org.openbel.belnetwork.internal.mapperclasses.Graph;
 import org.openbel.belnetwork.internal.read.jgf.JsonToNetworkConverter;
 
 import static org.junit.Assert.*;
 
 import org.junit.After;
 import org.junit.Test;
+import org.openbel.belnetwork.model.Graph;
 
 public class JGFReaderTest {
 
@@ -30,7 +30,7 @@ public class JGFReaderTest {
         }
         
         assertTrue(graph != null);
-        assertTrue(graph.getMetadata().get("description") != null);
+        assertTrue(graph.metadata.get("description") != null);
     }
 
     @Test
