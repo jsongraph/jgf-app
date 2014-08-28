@@ -2799,7 +2799,7 @@
                 "source": "-879250633",
                 "relation": "increases",
                 "target": "996855453",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:SP1,pmod(P,S,101)) increases bp(GO:\"double-strand break repair\")",
                 "metadata": {
                     "casual": true,
@@ -2826,7 +2826,7 @@
                 "source": "-1519615263",
                 "relation": "hasModification",
                 "target": "559316198",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:RASSF1) hasModification p(HGNC:RASSF1,pmod(P,S,131))",
                 "metadata": {
                     "casual": false,
@@ -2853,7 +2853,7 @@
                 "source": "559316198",
                 "relation": "increases",
                 "target": "1534479797",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:RASSF1,pmod(P,S,131)) increases p(HGNC:TP73)",
                 "metadata": {
                     "casual": true,
@@ -2880,7 +2880,7 @@
                 "source": "1575839123",
                 "relation": "decreases",
                 "target": "216147431",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:NET1,pmod(P,S,152)) decreases cat(p(HGNC:NET1))",
                 "metadata": {
                     "casual": true,
@@ -2907,7 +2907,7 @@
                 "source": "358017290",
                 "relation": "increases",
                 "target": "-193190559",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:EP300,pmod(P,S,106)) increases p(HGNC:NBN)",
                 "metadata": {
                     "casual": true,
@@ -2934,7 +2934,7 @@
                 "source": "590960200",
                 "relation": "directlyIncreases",
                 "target": "361427690",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:TOPBP1) directlyIncreases kin(p(HGNC:ATR))",
                 "metadata": {
                     "casual": true,
@@ -2976,7 +2976,7 @@
                 "source": "1203910359",
                 "relation": "actsIn",
                 "target": "83240394",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:DDB1) actsIn cat(p(HGNC:DDB1))",
                 "metadata": {
                     "casual": false,
@@ -3003,7 +3003,7 @@
                 "source": "83240394",
                 "relation": "increases",
                 "target": "1509626304",
-                "directed": "false",
+                "directed": false,
                 "label": "cat(p(HGNC:DDB1)) increases bp(GO:\"nucleotide-excision repair, DNA damage recognition\")",
                 "metadata": {
                     "casual": true,
@@ -3030,7 +3030,7 @@
                 "source": "2064822291",
                 "relation": "directlyIncreases",
                 "target": "881687669",
-                "directed": "false",
+                "directed": false,
                 "label": "kin(p(HGNC:PLK1)) directlyIncreases p(HGNC:TP73,pmod(P,T,27))",
                 "metadata": {
                     "casual": true,
@@ -3072,7 +3072,7 @@
                 "source": "881687669",
                 "relation": "directlyDecreases",
                 "target": "-1389955533",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:TP73,pmod(P,T,27)) directlyDecreases tscript(p(HGNC:TP73))",
                 "metadata": {
                     "casual": true,
@@ -3099,7 +3099,7 @@
                 "source": "1448720678",
                 "relation": "directlyIncreases",
                 "target": "-1389955533",
-                "directed": "false",
+                "directed": false,
                 "label": "phos(p(HGNC:PPP1R13B)) directlyIncreases tscript(p(HGNC:TP73))",
                 "metadata": {
                     "casual": true,
@@ -3126,7 +3126,7 @@
                 "source": "1279927658",
                 "relation": "actsIn",
                 "target": "850755240",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:YY1) actsIn tscript(p(HGNC:YY1))",
                 "metadata": {
                     "casual": false,
@@ -3933,7 +3933,7 @@
                 "source": "850755240",
                 "relation": "directlyDecreases",
                 "target": "-1385630157",
-                "directed": "false",
+                "directed": false,
                 "label": "tscript(p(HGNC:YY1)) directlyDecreases tscript(p(HGNC:TP53))",
                 "metadata": {
                     "casual": true,
@@ -3960,7 +3960,7 @@
                 "source": "-1965562296",
                 "relation": "actsIn",
                 "target": "770565189",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:POLE) actsIn cat(p(HGNC:POLE))",
                 "metadata": {
                     "casual": false,
@@ -4017,7 +4017,7 @@
                 "source": "770565189",
                 "relation": "increases",
                 "target": "1998674498",
-                "directed": "false",
+                "directed": false,
                 "label": "cat(p(HGNC:POLE)) increases bp(GO:\"nucleotide-excision repair, DNA gap filling\")",
                 "metadata": {
                     "casual": true,
@@ -4044,7 +4044,7 @@
                 "source": "770565189",
                 "relation": "increases",
                 "target": "1843298942",
-                "directed": "false",
+                "directed": false,
                 "label": "cat(p(HGNC:POLE)) increases bp(GO:\"single strand break repair\")",
                 "metadata": {
                     "casual": true,
@@ -4071,7 +4071,7 @@
                 "source": "595625581",
                 "relation": "actsIn",
                 "target": "-1272454075",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:POLE2) actsIn cat(p(HGNC:POLE2))",
                 "metadata": {
                     "casual": false,
@@ -4098,7 +4098,7 @@
                 "source": "-1272454075",
                 "relation": "increases",
                 "target": "1998674498",
-                "directed": "false",
+                "directed": false,
                 "label": "cat(p(HGNC:POLE2)) increases bp(GO:\"nucleotide-excision repair, DNA gap filling\")",
                 "metadata": {
                     "casual": true,
@@ -4125,7 +4125,7 @@
                 "source": "1877849485",
                 "relation": "increases",
                 "target": "1843298942",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:CCNA2) increases bp(GO:\"single strand break repair\")",
                 "metadata": {
                     "casual": true,
@@ -4152,7 +4152,7 @@
                 "source": "-1409276587",
                 "relation": "actsIn",
                 "target": "-1935973850",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:UNG) actsIn cat(p(HGNC:UNG))",
                 "metadata": {
                     "casual": false,
@@ -4194,7 +4194,7 @@
                 "source": "-1935973850",
                 "relation": "increases",
                 "target": "1843298942",
-                "directed": "false",
+                "directed": false,
                 "label": "cat(p(HGNC:UNG)) increases bp(GO:\"single strand break repair\")",
                 "metadata": {
                     "casual": true,
@@ -4221,7 +4221,7 @@
                 "source": "-1810903418",
                 "relation": "actsIn",
                 "target": "-345333666",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:ERCC6) actsIn cat(p(HGNC:ERCC6))",
                 "metadata": {
                     "casual": false,
@@ -4278,7 +4278,7 @@
                 "source": "-345333666",
                 "relation": "increases",
                 "target": "1364616799",
-                "directed": "false",
+                "directed": false,
                 "label": "cat(p(HGNC:ERCC6)) increases bp(GO:\"nucleotide-excision repair\")",
                 "metadata": {
                     "casual": true,
@@ -4305,7 +4305,7 @@
                 "source": "-345333666",
                 "relation": "increases",
                 "target": "2081340962",
-                "directed": "false",
+                "directed": false,
                 "label": "cat(p(HGNC:ERCC6)) increases bp(GO:\"base-excision repair\")",
                 "metadata": {
                     "casual": true,
@@ -4332,7 +4332,7 @@
                 "source": "-1525629997",
                 "relation": "decreases",
                 "target": "1364616799",
-                "directed": "false",
+                "directed": false,
                 "label": "a(SCHEM:Nickel) decreases bp(GO:\"nucleotide-excision repair\")",
                 "metadata": {
                     "casual": true,
@@ -4359,7 +4359,7 @@
                 "source": "-155995135",
                 "relation": "actsIn",
                 "target": "-903170383",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:POLA1) actsIn cat(p(HGNC:POLA1))",
                 "metadata": {
                     "casual": false,
@@ -4401,7 +4401,7 @@
                 "source": "-903170383",
                 "relation": "increases",
                 "target": "1843298942",
-                "directed": "false",
+                "directed": false,
                 "label": "cat(p(HGNC:POLA1)) increases bp(GO:\"single strand break repair\")",
                 "metadata": {
                     "casual": true,
@@ -4428,7 +4428,7 @@
                 "source": "-559279662",
                 "relation": "actsIn",
                 "target": "-499885856",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:POLD1) actsIn cat(p(HGNC:POLD1))",
                 "metadata": {
                     "casual": false,
@@ -4485,7 +4485,7 @@
                 "source": "-499885856",
                 "relation": "increases",
                 "target": "2081340962",
-                "directed": "false",
+                "directed": false,
                 "label": "cat(p(HGNC:POLD1)) increases bp(GO:\"base-excision repair\")",
                 "metadata": {
                     "casual": true,
@@ -4527,7 +4527,7 @@
                 "source": "-499885856",
                 "relation": "increases",
                 "target": "1998674498",
-                "directed": "false",
+                "directed": false,
                 "label": "cat(p(HGNC:POLD1)) increases bp(GO:\"nucleotide-excision repair, DNA gap filling\")",
                 "metadata": {
                     "casual": true,
@@ -4554,7 +4554,7 @@
                 "source": "399914710",
                 "relation": "actsIn",
                 "target": "216147431",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:NET1) actsIn cat(p(HGNC:NET1))",
                 "metadata": {
                     "casual": false,
@@ -4641,7 +4641,7 @@
                 "source": "-2137850445",
                 "relation": "decreases",
                 "target": "1153977475",
-                "directed": "false",
+                "directed": false,
                 "label": "bp(GO:\"response to hypoxia\") decreases bp(GO:\"DNA repair\")",
                 "metadata": {
                     "casual": true,
@@ -4683,7 +4683,7 @@
                 "source": "-1565019860",
                 "relation": "directlyIncreases",
                 "target": "1186086199",
-                "directed": "false",
+                "directed": false,
                 "label": "kin(p(HGNC:WEE1)) directlyIncreases p(EGID:5424,pmod(P,Y,15))",
                 "metadata": {
                     "casual": true,
@@ -4785,7 +4785,7 @@
                 "source": "148706722",
                 "relation": "decreases",
                 "target": "1153977475",
-                "directed": "false",
+                "directed": false,
                 "label": "a(CHEBI:\"3-aminobenzoic acid\") decreases bp(GO:\"DNA repair\")",
                 "metadata": {
                     "casual": true,
@@ -4812,7 +4812,7 @@
                 "source": "-23017367",
                 "relation": "directlyDecreases",
                 "target": "-1385630157",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:DNMT3A) directlyDecreases tscript(p(HGNC:TP53))",
                 "metadata": {
                     "casual": true,
@@ -4839,7 +4839,7 @@
                 "source": "1366325899",
                 "relation": "increases",
                 "target": "-2036580780",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:UBE2N) increases bp(GO:\"double-strand break repair via homologous recombination\")",
                 "metadata": {
                     "casual": true,
@@ -4866,7 +4866,7 @@
                 "source": "1369257682",
                 "relation": "actsIn",
                 "target": "-92723605",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:LIG1) actsIn cat(p(HGNC:LIG1))",
                 "metadata": {
                     "casual": false,
@@ -4953,7 +4953,7 @@
                 "source": "-92723605",
                 "relation": "increases",
                 "target": "1998674498",
-                "directed": "false",
+                "directed": false,
                 "label": "cat(p(HGNC:LIG1)) increases bp(GO:\"nucleotide-excision repair, DNA gap filling\")",
                 "metadata": {
                     "casual": true,
@@ -4980,7 +4980,7 @@
                 "source": "-92723605",
                 "relation": "increases",
                 "target": "2081340962",
-                "directed": "false",
+                "directed": false,
                 "label": "cat(p(HGNC:LIG1)) increases bp(GO:\"base-excision repair\")",
                 "metadata": {
                     "casual": true,
@@ -5007,7 +5007,7 @@
                 "source": "488670901",
                 "relation": "hasComponent",
                 "target": "795659406",
-                "directed": "false",
+                "directed": false,
                 "label": "complex(p(HGNC:BRCA2),p(HGNC:FANCD2)) hasComponent p(HGNC:FANCD2)",
                 "metadata": {
                     "casual": false,
@@ -5034,7 +5034,7 @@
                 "source": "488670901",
                 "relation": "hasComponent",
                 "target": "-1929005124",
-                "directed": "false",
+                "directed": false,
                 "label": "complex(p(HGNC:BRCA2),p(HGNC:FANCD2)) hasComponent p(HGNC:BRCA2)",
                 "metadata": {
                     "casual": false,
@@ -5061,7 +5061,7 @@
                 "source": "-1929005124",
                 "relation": "increases",
                 "target": "1133830030",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:BRCA2) increases cat(p(HGNC:PARP1))",
                 "metadata": {
                     "casual": true,
@@ -5088,7 +5088,7 @@
                 "source": "1015935302",
                 "relation": "directlyIncreases",
                 "target": "-1385630157",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:TP53,pmod(P,S,46)) directlyIncreases tscript(p(HGNC:TP53))",
                 "metadata": {
                     "casual": true,
@@ -5205,7 +5205,7 @@
                 "source": "160104378",
                 "relation": "directlyIncreases",
                 "target": "1015935302",
-                "directed": "false",
+                "directed": false,
                 "label": "kin(p(HGNC:HIPK2)) directlyIncreases p(HGNC:TP53,pmod(P,S,46))",
                 "metadata": {
                     "casual": true,
@@ -5262,7 +5262,7 @@
                 "source": "957051001",
                 "relation": "actsIn",
                 "target": "160104378",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:HIPK2) actsIn kin(p(HGNC:HIPK2))",
                 "metadata": {
                     "casual": false,
@@ -5439,7 +5439,7 @@
                 "source": "24469113",
                 "relation": "decreases",
                 "target": "1364616799",
-                "directed": "false",
+                "directed": false,
                 "label": "a(SCHEM:Arsenic) decreases bp(GO:\"nucleotide-excision repair\")",
                 "metadata": {
                     "casual": true,
@@ -5466,7 +5466,7 @@
                 "source": "-1234442261",
                 "relation": "hasComponent",
                 "target": "409647036",
-                "directed": "false",
+                "directed": false,
                 "label": "complex(p(HGNC:BRCA1),p(HGNC:TP53)) hasComponent p(HGNC:BRCA1)",
                 "metadata": {
                     "casual": false,
@@ -5553,7 +5553,7 @@
                 "source": "-1234442261",
                 "relation": "hasComponent",
                 "target": "1534610869",
-                "directed": "false",
+                "directed": false,
                 "label": "complex(p(HGNC:BRCA1),p(HGNC:TP53)) hasComponent p(HGNC:TP53)",
                 "metadata": {
                     "casual": false,
@@ -5640,7 +5640,7 @@
                 "source": "-1234442261",
                 "relation": "increases",
                 "target": "-915157371",
-                "directed": "false",
+                "directed": false,
                 "label": "complex(p(HGNC:BRCA1),p(HGNC:TP53)) increases p(HGNC:CDKN1A)",
                 "metadata": {
                     "casual": true,
@@ -5667,7 +5667,7 @@
                 "source": "1056141400",
                 "relation": "actsIn",
                 "target": "-936706151",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:CHEK2) actsIn kin(p(HGNC:CHEK2))",
                 "metadata": {
                     "casual": false,
@@ -6249,7 +6249,7 @@
                 "source": "206644591",
                 "relation": "actsIn",
                 "target": "361427690",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:ATR) actsIn kin(p(HGNC:ATR))",
                 "metadata": {
                     "casual": false,
@@ -7101,7 +7101,7 @@
                 "source": "407090699",
                 "relation": "actsIn",
                 "target": "-1602087806",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:POLB) actsIn cat(p(HGNC:POLB))",
                 "metadata": {
                     "casual": false,
@@ -7158,7 +7158,7 @@
                 "source": "-1602087806",
                 "relation": "increases",
                 "target": "2081340962",
-                "directed": "false",
+                "directed": false,
                 "label": "cat(p(HGNC:POLB)) increases bp(GO:\"base-excision repair\")",
                 "metadata": {
                     "casual": true,
@@ -7200,7 +7200,7 @@
                 "source": "-1602087806",
                 "relation": "increases",
                 "target": "1843298942",
-                "directed": "false",
+                "directed": false,
                 "label": "cat(p(HGNC:POLB)) increases bp(GO:\"single strand break repair\")",
                 "metadata": {
                     "casual": true,
@@ -7227,7 +7227,7 @@
                 "source": "1910349733",
                 "relation": "increases",
                 "target": "-71117848",
-                "directed": "false",
+                "directed": false,
                 "label": "complex(p(HGNC:XRCC5),p(HGNC:XRCC6)) increases kin(p(HGNC:PRKDC))",
                 "metadata": {
                     "casual": true,
@@ -7254,7 +7254,7 @@
                 "source": "1910349733",
                 "relation": "hasComponent",
                 "target": "1107938950",
-                "directed": "false",
+                "directed": false,
                 "label": "complex(p(HGNC:XRCC5),p(HGNC:XRCC6)) hasComponent p(HGNC:XRCC5)",
                 "metadata": {
                     "casual": false,
@@ -7386,7 +7386,7 @@
                 "source": "1910349733",
                 "relation": "hasComponent",
                 "target": "-466039162",
-                "directed": "false",
+                "directed": false,
                 "label": "complex(p(HGNC:XRCC5),p(HGNC:XRCC6)) hasComponent p(HGNC:XRCC6)",
                 "metadata": {
                     "casual": false,
@@ -7518,7 +7518,7 @@
                 "source": "1502016255",
                 "relation": "directlyIncreases",
                 "target": "598114078",
-                "directed": "false",
+                "directed": false,
                 "label": "kin(p(HGNC:HCK)) directlyIncreases p(HGNC:TP73,pmod(P,Y,28))",
                 "metadata": {
                     "casual": true,
@@ -7545,7 +7545,7 @@
                 "source": "-725767314",
                 "relation": "decreases",
                 "target": "1425707893",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:SMARCB1) decreases p(HGNC:TP53,pmod(P,S,15))",
                 "metadata": {
                     "casual": true,
@@ -7572,7 +7572,7 @@
                 "source": "394073485",
                 "relation": "hasModification",
                 "target": "-135291638",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:PRKDC) hasModification p(HGNC:PRKDC,pmod(P,T,2638))",
                 "metadata": {
                     "casual": false,
@@ -7599,7 +7599,7 @@
                 "source": "409647036",
                 "relation": "hasModification",
                 "target": "-1929520271",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:BRCA1) hasModification p(HGNC:BRCA1,pmod(P,S,1524))",
                 "metadata": {
                     "casual": false,
@@ -7626,7 +7626,7 @@
                 "source": "409647036",
                 "relation": "hasModification",
                 "target": "1963645805",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:BRCA1) hasModification p(HGNC:BRCA1,pmod(P,S,1466))",
                 "metadata": {
                     "casual": false,
@@ -7653,7 +7653,7 @@
                 "source": "-1140906639",
                 "relation": "hasModification",
                 "target": "-488276310",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:WRN) hasModification p(HGNC:WRN,pmod(P,S,1292))",
                 "metadata": {
                     "casual": false,
@@ -7680,7 +7680,7 @@
                 "source": "938006806",
                 "relation": "hasModification",
                 "target": "297315825",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:ATF2) hasModification p(HGNC:ATF2,pmod(P,S,498))",
                 "metadata": {
                     "casual": false,
@@ -7707,7 +7707,7 @@
                 "source": "938006806",
                 "relation": "increases",
                 "target": "361362154",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:ATF2) increases kin(p(HGNC:ATM))",
                 "metadata": {
                     "casual": true,
@@ -7734,7 +7734,7 @@
                 "source": "938006806",
                 "relation": "actsIn",
                 "target": "-1818334630",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:ATF2) actsIn tscript(p(HGNC:ATF2))",
                 "metadata": {
                     "casual": false,
@@ -8616,7 +8616,7 @@
                 "source": "938006806",
                 "relation": "hasModification",
                 "target": "1826663921",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:ATF2) hasModification p(HGNC:ATF2,pmod(P,S,490))",
                 "metadata": {
                     "casual": false,
@@ -8643,7 +8643,7 @@
                 "source": "632747908",
                 "relation": "actsIn",
                 "target": "1133830030",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:PARP1) actsIn cat(p(HGNC:PARP1))",
                 "metadata": {
                     "casual": false,
@@ -9435,7 +9435,7 @@
                 "source": "-517836712",
                 "relation": "actsIn",
                 "target": "1019608985",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:CHEK1) actsIn kin(p(HGNC:CHEK1))",
                 "metadata": {
                     "casual": false,
@@ -10092,7 +10092,7 @@
                 "source": "491477962",
                 "relation": "hasComponent",
                 "target": "409647036",
-                "directed": "false",
+                "directed": false,
                 "label": "complex(p(HGNC:BRCA1),p(HGNC:FANCD2)) hasComponent p(HGNC:BRCA1)",
                 "metadata": {
                     "casual": false,
@@ -10149,7 +10149,7 @@
                 "source": "491477962",
                 "relation": "hasComponent",
                 "target": "795659406",
-                "directed": "false",
+                "directed": false,
                 "label": "complex(p(HGNC:BRCA1),p(HGNC:FANCD2)) hasComponent p(HGNC:FANCD2)",
                 "metadata": {
                     "casual": false,
@@ -10206,7 +10206,7 @@
                 "source": "-1387792845",
                 "relation": "isA",
                 "target": "-1387792845",
-                "directed": "false",
+                "directed": false,
                 "label": "tscript(p(HGNC:TP63)) isA tscript(p(HGNC:TP63))",
                 "metadata": {
                     "casual": false,
@@ -10233,7 +10233,7 @@
                 "source": "1534545333",
                 "relation": "actsIn",
                 "target": "-1387792845",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:TP63) actsIn tscript(p(HGNC:TP63))",
                 "metadata": {
                     "casual": false,
@@ -11235,7 +11235,7 @@
                 "source": "394073485",
                 "relation": "hasModification",
                 "target": "-1103651567",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:PRKDC) hasModification p(HGNC:PRKDC,pmod(P,S,2056))",
                 "metadata": {
                     "casual": false,
@@ -11262,7 +11262,7 @@
                 "source": "-533997345",
                 "relation": "decreases",
                 "target": "1364616799",
-                "directed": "false",
+                "directed": false,
                 "label": "a(SCHEM:Cadmium) decreases bp(GO:\"nucleotide-excision repair\")",
                 "metadata": {
                     "casual": true,
@@ -11289,7 +11289,7 @@
                 "source": "-1866647829",
                 "relation": "increases",
                 "target": "361427690",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:RPA1) increases kin(p(HGNC:ATR))",
                 "metadata": {
                     "casual": true,
@@ -11316,7 +11316,7 @@
                 "source": "1963157075",
                 "relation": "actsIn",
                 "target": "-63071263",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:EP300) actsIn cat(p(HGNC:EP300))",
                 "metadata": {
                     "casual": false,
@@ -12168,7 +12168,7 @@
                 "source": "1534479797",
                 "relation": "hasModification",
                 "target": "-1793005689",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:TP73) hasModification TP73 A@K",
                 "metadata": {
                     "casual": false,
@@ -12181,7 +12181,7 @@
                 "source": "795659406",
                 "relation": "hasModification",
                 "target": "-1220937762",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:FANCD2) hasModification p(HGNC:FANCD2,pmod(P,S,1257))",
                 "metadata": {
                     "casual": false,
@@ -12208,7 +12208,7 @@
                 "source": "206458268",
                 "relation": "actsIn",
                 "target": "1070075809",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:LIG3) actsIn cat(p(HGNC:LIG3))",
                 "metadata": {
                     "casual": false,
@@ -12235,7 +12235,7 @@
                 "source": "1070075809",
                 "relation": "increases",
                 "target": "2081340962",
-                "directed": "false",
+                "directed": false,
                 "label": "cat(p(HGNC:LIG3)) increases bp(GO:\"base-excision repair\")",
                 "metadata": {
                     "casual": true,
@@ -12262,7 +12262,7 @@
                 "source": "409647036",
                 "relation": "hasModification",
                 "target": "1397218160",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:BRCA1) hasModification p(HGNC:BRCA1,pmod(P,S,1330))",
                 "metadata": {
                     "casual": false,
@@ -12289,7 +12289,7 @@
                 "source": "795659406",
                 "relation": "hasModification",
                 "target": "2124244963",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:FANCD2) hasModification p(HGNC:FANCD2,pmod(P,S,222))",
                 "metadata": {
                     "casual": false,
@@ -12316,7 +12316,7 @@
                 "source": "124451457",
                 "relation": "directlyDecreases",
                 "target": "-1389955533",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:WWOX) directlyDecreases tscript(p(HGNC:TP73))",
                 "metadata": {
                     "casual": true,
@@ -12343,7 +12343,7 @@
                 "source": "372464305",
                 "relation": "decreases",
                 "target": "1575839123",
-                "directed": "false",
+                "directed": false,
                 "label": "bp(GO:\"response to ionizing radiation\") decreases p(HGNC:NET1,pmod(P,S,152))",
                 "metadata": {
                     "casual": true,
@@ -12370,7 +12370,7 @@
                 "source": "372464305",
                 "relation": "increases",
                 "target": "-1071740875",
-                "directed": "false",
+                "directed": false,
                 "label": "bp(GO:\"response to ionizing radiation\") increases bp(GO:\"response to DNA damage stimulus\")",
                 "metadata": {
                     "casual": true,
@@ -12397,7 +12397,7 @@
                 "source": "372464305",
                 "relation": "increases",
                 "target": "372464305",
-                "directed": "false",
+                "directed": false,
                 "label": "bp(GO:\"response to ionizing radiation\") increases bp(GO:\"response to ionizing radiation\")",
                 "metadata": {
                     "casual": true,
@@ -12424,7 +12424,7 @@
                 "source": "372464305",
                 "relation": "increases",
                 "target": "-1819353714",
-                "directed": "false",
+                "directed": false,
                 "label": "bp(GO:\"response to ionizing radiation\") increases a(SCHEM:\"double-stranded DNA break\")",
                 "metadata": {
                     "casual": true,
@@ -12451,7 +12451,7 @@
                 "source": "216147431",
                 "relation": "increases",
                 "target": "-735568640",
-                "directed": "false",
+                "directed": false,
                 "label": "cat(p(HGNC:NET1)) increases gtp(p(HGNC:RHOA))",
                 "metadata": {
                     "casual": true,
@@ -12508,7 +12508,7 @@
                 "source": "-63071263",
                 "relation": "increases",
                 "target": "-1793005689",
-                "directed": "false",
+                "directed": false,
                 "label": "cat(p(HGNC:EP300)) increases TP73 A@K",
                 "metadata": {
                     "casual": true,
@@ -12521,7 +12521,7 @@
                 "source": "-63071263",
                 "relation": "directlyIncreases",
                 "target": "-1385630157",
-                "directed": "false",
+                "directed": false,
                 "label": "cat(p(HGNC:EP300)) directlyIncreases tscript(p(HGNC:TP53))",
                 "metadata": {
                     "casual": true,
@@ -12563,7 +12563,7 @@
                 "source": "372464305",
                 "relation": "increases",
                 "target": "683506079",
-                "directed": "false",
+                "directed": false,
                 "label": "bp(GO:\"response to ionizing radiation\") increases complex(p(HGNC:CCND1),p(HGNC:RAD51))",
                 "metadata": {
                     "casual": true,
@@ -12590,7 +12590,7 @@
                 "source": "372464305",
                 "relation": "increases",
                 "target": "361362154",
-                "directed": "false",
+                "directed": false,
                 "label": "bp(GO:\"response to ionizing radiation\") increases kin(p(HGNC:ATM))",
                 "metadata": {
                     "casual": true,
@@ -12632,7 +12632,7 @@
                 "source": "372464305",
                 "relation": "increases",
                 "target": "-1138853167",
-                "directed": "false",
+                "directed": false,
                 "label": "bp(GO:\"response to ionizing radiation\") increases gtp(p(HGNC:RHOB))",
                 "metadata": {
                     "casual": true,
@@ -12659,7 +12659,7 @@
                 "source": "-71117848",
                 "relation": "directlyIncreases",
                 "target": "-135226105",
-                "directed": "false",
+                "directed": false,
                 "label": "kin(p(HGNC:PRKDC)) directlyIncreases p(HGNC:PRKDC,pmod(P,T,2647))",
                 "metadata": {
                     "casual": true,
@@ -12701,7 +12701,7 @@
                 "source": "-71117848",
                 "relation": "increases",
                 "target": "996855453",
-                "directed": "false",
+                "directed": false,
                 "label": "kin(p(HGNC:PRKDC)) increases bp(GO:\"double-strand break repair\")",
                 "metadata": {
                     "casual": true,
@@ -12728,7 +12728,7 @@
                 "source": "-71117848",
                 "relation": "directlyIncreases",
                 "target": "1425707893",
-                "directed": "false",
+                "directed": false,
                 "label": "kin(p(HGNC:PRKDC)) directlyIncreases p(HGNC:TP53,pmod(P,S,15))",
                 "metadata": {
                     "casual": true,
@@ -12770,7 +12770,7 @@
                 "source": "-71117848",
                 "relation": "directlyIncreases",
                 "target": "-135291638",
-                "directed": "false",
+                "directed": false,
                 "label": "kin(p(HGNC:PRKDC)) directlyIncreases p(HGNC:PRKDC,pmod(P,T,2638))",
                 "metadata": {
                     "casual": true,
@@ -12812,7 +12812,7 @@
                 "source": "-71117848",
                 "relation": "directlyIncreases",
                 "target": "-1103651567",
-                "directed": "false",
+                "directed": false,
                 "label": "kin(p(HGNC:PRKDC)) directlyIncreases p(HGNC:PRKDC,pmod(P,S,2056))",
                 "metadata": {
                     "casual": true,
@@ -12839,7 +12839,7 @@
                 "source": "-71117848",
                 "relation": "directlyIncreases",
                 "target": "151249023",
-                "directed": "false",
+                "directed": false,
                 "label": "kin(p(HGNC:PRKDC)) directlyIncreases p(HGNC:H2AFX,pmod(P,S,140))",
                 "metadata": {
                     "casual": true,
@@ -12866,7 +12866,7 @@
                 "source": "-71117848",
                 "relation": "directlyIncreases",
                 "target": "-135357173",
-                "directed": "false",
+                "directed": false,
                 "label": "kin(p(HGNC:PRKDC)) directlyIncreases p(HGNC:PRKDC,pmod(P,T,2609))",
                 "metadata": {
                     "casual": true,
@@ -12908,7 +12908,7 @@
                 "source": "-71117848",
                 "relation": "directlyIncreases",
                 "target": "-1710785365",
-                "directed": "false",
+                "directed": false,
                 "label": "kin(p(HGNC:PRKDC)) directlyIncreases p(HGNC:TP53,pmod(P,S,37))",
                 "metadata": {
                     "casual": true,
@@ -12950,7 +12950,7 @@
                 "source": "-71117848",
                 "relation": "directlyIncreases",
                 "target": "-134898419",
-                "directed": "false",
+                "directed": false,
                 "label": "kin(p(HGNC:PRKDC)) directlyIncreases p(HGNC:PRKDC,pmod(P,S,2612))",
                 "metadata": {
                     "casual": true,
@@ -12992,7 +12992,7 @@
                 "source": "394073485",
                 "relation": "hasModification",
                 "target": "-135226105",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:PRKDC) hasModification p(HGNC:PRKDC,pmod(P,T,2647))",
                 "metadata": {
                     "casual": false,
@@ -13019,7 +13019,7 @@
                 "source": "-509396873",
                 "relation": "hasModification",
                 "target": "151249023",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:H2AFX) hasModification p(HGNC:H2AFX,pmod(P,S,140))",
                 "metadata": {
                     "casual": false,
@@ -13046,7 +13046,7 @@
                 "source": "151249023",
                 "relation": "increases",
                 "target": "996855453",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:H2AFX,pmod(P,S,140)) increases bp(GO:\"double-strand break repair\")",
                 "metadata": {
                     "casual": true,
@@ -13073,7 +13073,7 @@
                 "source": "151249023",
                 "relation": "increases",
                 "target": "437950827",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:H2AFX,pmod(P,S,140)) increases complex(p(HGNC:MRE11A),p(HGNC:RAD50),p(HGNC:NBN))",
                 "metadata": {
                     "casual": true,
@@ -13100,7 +13100,7 @@
                 "source": "394073485",
                 "relation": "hasModification",
                 "target": "-135357173",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:PRKDC) hasModification p(HGNC:PRKDC,pmod(P,T,2609))",
                 "metadata": {
                     "casual": false,
@@ -13127,7 +13127,7 @@
                 "source": "394073485",
                 "relation": "actsIn",
                 "target": "-71117848",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:PRKDC) actsIn kin(p(HGNC:PRKDC))",
                 "metadata": {
                     "casual": false,
@@ -13634,7 +13634,7 @@
                 "source": "394073485",
                 "relation": "hasModification",
                 "target": "-134898419",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:PRKDC) hasModification p(HGNC:PRKDC,pmod(P,S,2612))",
                 "metadata": {
                     "casual": false,
@@ -13661,7 +13661,7 @@
                 "source": "-1771501287",
                 "relation": "directlyIncreases",
                 "target": "-1818334630",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:ATF2,pmod(P,T,71)) directlyIncreases tscript(p(HGNC:ATF2))",
                 "metadata": {
                     "casual": true,
@@ -13763,7 +13763,7 @@
                 "source": "-1417433615",
                 "relation": "directlyIncreases",
                 "target": "-1818334630",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:ATF2,pmod(P,T,69)) directlyIncreases tscript(p(HGNC:ATF2))",
                 "metadata": {
                     "casual": true,
@@ -13835,7 +13835,7 @@
                 "source": "139422897",
                 "relation": "directlyIncreases",
                 "target": "-1771501287",
-                "directed": "false",
+                "directed": false,
                 "label": "kin(p(PFH:\"MAPK p38 Family\")) directlyIncreases p(HGNC:ATF2,pmod(P,T,71))",
                 "metadata": {
                     "casual": true,
@@ -13907,7 +13907,7 @@
                 "source": "139422897",
                 "relation": "directlyIncreases",
                 "target": "-1417433615",
-                "directed": "false",
+                "directed": false,
                 "label": "kin(p(PFH:\"MAPK p38 Family\")) directlyIncreases p(HGNC:ATF2,pmod(P,T,69))",
                 "metadata": {
                     "casual": true,
@@ -13979,7 +13979,7 @@
                 "source": "1186086199",
                 "relation": "directlyDecreases",
                 "target": "-2090609523",
-                "directed": "false",
+                "directed": false,
                 "label": "p(EGID:5424,pmod(P,Y,15)) directlyDecreases kin(p(HGNC:POLD1))",
                 "metadata": {
                     "casual": true,
@@ -14006,7 +14006,7 @@
                 "source": "888383167",
                 "relation": "directlyIncreases",
                 "target": "1186086199",
-                "directed": "false",
+                "directed": false,
                 "label": "kin(p(HGNC:PKMYT1)) directlyIncreases p(EGID:5424,pmod(P,Y,15))",
                 "metadata": {
                     "casual": true,
@@ -14063,7 +14063,7 @@
                 "source": "2058630870",
                 "relation": "actsIn",
                 "target": "359671271",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:FEN1) actsIn cat(p(HGNC:FEN1))",
                 "metadata": {
                     "casual": false,
@@ -14135,7 +14135,7 @@
                 "source": "359671271",
                 "relation": "increases",
                 "target": "2081340962",
-                "directed": "false",
+                "directed": false,
                 "label": "cat(p(HGNC:FEN1)) increases bp(GO:\"base-excision repair\")",
                 "metadata": {
                     "casual": true,
@@ -14162,7 +14162,7 @@
                 "source": "-803916070",
                 "relation": "directlyIncreases",
                 "target": "-1389955533",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:YAP1) directlyIncreases tscript(p(HGNC:TP73))",
                 "metadata": {
                     "casual": true,
@@ -14189,7 +14189,7 @@
                 "source": "938598478",
                 "relation": "directlyIncreases",
                 "target": "1019608985",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:CHEK1,pmod(P,S,317)) directlyIncreases kin(p(HGNC:CHEK1))",
                 "metadata": {
                     "casual": true,
@@ -14231,7 +14231,7 @@
                 "source": "-1214896124",
                 "relation": "decreases",
                 "target": "361427690",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:FHIT) decreases kin(p(HGNC:ATR))",
                 "metadata": {
                     "casual": true,
@@ -14273,7 +14273,7 @@
                 "source": "-1214896124",
                 "relation": "increases",
                 "target": "938598478",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:FHIT) increases p(HGNC:CHEK1,pmod(P,S,317))",
                 "metadata": {
                     "casual": true,
@@ -14300,7 +14300,7 @@
                 "source": "535377625",
                 "relation": "hasModification",
                 "target": "993194611",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:ABL1) hasModification p(HGNC:ABL1,pmod(P,S,446))",
                 "metadata": {
                     "casual": false,
@@ -14327,7 +14327,7 @@
                 "source": "-1809541620",
                 "relation": "decreases",
                 "target": "-229991518",
-                "directed": "false",
+                "directed": false,
                 "label": "tscript(p(MGI:Trp63)) decreases bp(MESHPP:Apoptosis)",
                 "metadata": {
                     "casual": true,
@@ -14354,7 +14354,7 @@
                 "source": "-232507450",
                 "relation": "directlyDecreases",
                 "target": "2059429205",
-                "directed": "false",
+                "directed": false,
                 "label": "kin(p(HGNC:RPS6KB1)) directlyDecreases p(MGI:Trp63)",
                 "metadata": {
                     "casual": true,
@@ -14381,7 +14381,7 @@
                 "source": "1480212647",
                 "relation": "actsIn",
                 "target": "-232507450",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:RPS6KB1) actsIn kin(p(HGNC:RPS6KB1))",
                 "metadata": {
                     "casual": false,
@@ -16253,7 +16253,7 @@
                 "source": "1133830030",
                 "relation": "increases",
                 "target": "2081340962",
-                "directed": "false",
+                "directed": false,
                 "label": "cat(p(HGNC:PARP1)) increases bp(GO:\"base-excision repair\")",
                 "metadata": {
                     "casual": true,
@@ -16295,7 +16295,7 @@
                 "source": "1133830030",
                 "relation": "increases",
                 "target": "1843298942",
-                "directed": "false",
+                "directed": false,
                 "label": "cat(p(HGNC:PARP1)) increases bp(GO:\"single strand break repair\")",
                 "metadata": {
                     "casual": true,
@@ -16337,7 +16337,7 @@
                 "source": "1843298942",
                 "relation": "increases",
                 "target": "1133830030",
-                "directed": "false",
+                "directed": false,
                 "label": "bp(GO:\"single strand break repair\") increases cat(p(HGNC:PARP1))",
                 "metadata": {
                     "casual": true,
@@ -16364,7 +16364,7 @@
                 "source": "1843298942",
                 "relation": "increases",
                 "target": "361427690",
-                "directed": "false",
+                "directed": false,
                 "label": "bp(GO:\"single strand break repair\") increases kin(p(HGNC:ATR))",
                 "metadata": {
                     "casual": true,
@@ -16391,7 +16391,7 @@
                 "source": "409647036",
                 "relation": "hasModification",
                 "target": "1963842417",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:BRCA1) hasModification p(HGNC:BRCA1,pmod(P,S,1423))",
                 "metadata": {
                     "casual": false,
@@ -16418,7 +16418,7 @@
                 "source": "-1140906639",
                 "relation": "increases",
                 "target": "996855453",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:WRN) increases bp(GO:\"double-strand break repair\")",
                 "metadata": {
                     "casual": true,
@@ -16445,7 +16445,7 @@
                 "source": "-1140906639",
                 "relation": "hasModification",
                 "target": "-1677408847",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:WRN) hasModification p(HGNC:WRN,pmod(P,S,1141))",
                 "metadata": {
                     "casual": false,
@@ -16472,7 +16472,7 @@
                 "source": "-1387792845",
                 "relation": "increases",
                 "target": "-229991518",
-                "directed": "false",
+                "directed": false,
                 "label": "tscript(p(HGNC:TP63)) increases bp(MESHPP:Apoptosis)",
                 "metadata": {
                     "casual": true,
@@ -16544,7 +16544,7 @@
                 "source": "1534545333",
                 "relation": "actsIn",
                 "target": "-1387792845",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:TP63) actsIn tscript(p(HGNC:TP63))",
                 "metadata": {
                     "casual": false,
@@ -17546,7 +17546,7 @@
                 "source": "-1236064199",
                 "relation": "directlyDecreases",
                 "target": "2059429205",
-                "directed": "false",
+                "directed": false,
                 "label": "cat(p(HGNC:WWP1)) directlyDecreases p(MGI:Trp63)",
                 "metadata": {
                     "casual": true,
@@ -17573,7 +17573,7 @@
                 "source": "-1236064199",
                 "relation": "directlyDecreases",
                 "target": "1534545333",
-                "directed": "false",
+                "directed": false,
                 "label": "cat(p(HGNC:WWP1)) directlyDecreases p(HGNC:TP63)",
                 "metadata": {
                     "casual": true,
@@ -17600,7 +17600,7 @@
                 "source": "1070544612",
                 "relation": "actsIn",
                 "target": "-1236064199",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:WWP1) actsIn cat(p(HGNC:WWP1))",
                 "metadata": {
                     "casual": false,
@@ -17642,7 +17642,7 @@
                 "source": "437950827",
                 "relation": "directlyIncreases",
                 "target": "361362154",
-                "directed": "false",
+                "directed": false,
                 "label": "complex(p(HGNC:MRE11A),p(HGNC:RAD50),p(HGNC:NBN)) directlyIncreases kin(p(HGNC:ATM))",
                 "metadata": {
                     "casual": true,
@@ -17669,7 +17669,7 @@
                 "source": "437950827",
                 "relation": "hasComponent",
                 "target": "-193190559",
-                "directed": "false",
+                "directed": false,
                 "label": "complex(p(HGNC:MRE11A),p(HGNC:RAD50),p(HGNC:NBN)) hasComponent p(HGNC:NBN)",
                 "metadata": {
                     "casual": false,
@@ -17786,7 +17786,7 @@
                 "source": "437950827",
                 "relation": "hasComponent",
                 "target": "-1673614549",
-                "directed": "false",
+                "directed": false,
                 "label": "complex(p(HGNC:MRE11A),p(HGNC:RAD50),p(HGNC:NBN)) hasComponent p(HGNC:RAD50)",
                 "metadata": {
                     "casual": false,
@@ -17903,7 +17903,7 @@
                 "source": "437950827",
                 "relation": "hasComponent",
                 "target": "1644616276",
-                "directed": "false",
+                "directed": false,
                 "label": "complex(p(HGNC:MRE11A),p(HGNC:RAD50),p(HGNC:NBN)) hasComponent p(HGNC:MRE11A)",
                 "metadata": {
                     "casual": false,
@@ -18020,7 +18020,7 @@
                 "source": "437950827",
                 "relation": "increases",
                 "target": "996855453",
-                "directed": "false",
+                "directed": false,
                 "label": "complex(p(HGNC:MRE11A),p(HGNC:RAD50),p(HGNC:NBN)) increases bp(GO:\"double-strand break repair\")",
                 "metadata": {
                     "casual": true,
@@ -18047,7 +18047,7 @@
                 "source": "-1373351257",
                 "relation": "increases",
                 "target": "996855453",
-                "directed": "false",
+                "directed": false,
                 "label": "cat(p(HGNC:RAD50)) increases bp(GO:\"double-strand break repair\")",
                 "metadata": {
                     "casual": true,
@@ -18074,7 +18074,7 @@
                 "source": "-1673614549",
                 "relation": "actsIn",
                 "target": "-1373351257",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:RAD50) actsIn cat(p(HGNC:RAD50))",
                 "metadata": {
                     "casual": false,
@@ -18101,7 +18101,7 @@
                 "source": "-193190559",
                 "relation": "increases",
                 "target": "996855453",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:NBN) increases bp(GO:\"double-strand break repair\")",
                 "metadata": {
                     "casual": true,
@@ -18128,7 +18128,7 @@
                 "source": "-327932566",
                 "relation": "increases",
                 "target": "361362154",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:MYC) increases kin(p(HGNC:ATM))",
                 "metadata": {
                     "casual": true,
@@ -18155,7 +18155,7 @@
                 "source": "-327932566",
                 "relation": "increases",
                 "target": "-193190559",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:MYC) increases p(HGNC:NBN)",
                 "metadata": {
                     "casual": true,
@@ -18182,7 +18182,7 @@
                 "source": "-1017413320",
                 "relation": "decreases",
                 "target": "996855453",
-                "directed": "false",
+                "directed": false,
                 "label": "cat(p(HGNC:TRIM28)) decreases bp(GO:\"double-strand break repair\")",
                 "metadata": {
                     "casual": true,
@@ -18209,7 +18209,7 @@
                 "source": "-1464417479",
                 "relation": "decreases",
                 "target": "-1017413320",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:TRIM28,pmod(P,S,824)) decreases cat(p(HGNC:TRIM28))",
                 "metadata": {
                     "casual": true,
@@ -18236,7 +18236,7 @@
                 "source": "1478242065",
                 "relation": "hasModification",
                 "target": "-1464417479",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:TRIM28) hasModification p(HGNC:TRIM28,pmod(P,S,824))",
                 "metadata": {
                     "casual": false,
@@ -18263,7 +18263,7 @@
                 "source": "2059429205",
                 "relation": "decreases",
                 "target": "-1387792845",
-                "directed": "false",
+                "directed": false,
                 "label": "p(MGI:Trp63) decreases tscript(p(HGNC:TP63))",
                 "metadata": {
                     "casual": true,
@@ -18290,7 +18290,7 @@
                 "source": "2059429205",
                 "relation": "actsIn",
                 "target": "-1809541620",
-                "directed": "false",
+                "directed": false,
                 "label": "p(MGI:Trp63) actsIn tscript(p(MGI:Trp63))",
                 "metadata": {
                     "casual": false,
@@ -18317,7 +18317,7 @@
                 "source": "-2032780176",
                 "relation": "directlyDecreases",
                 "target": "2059429205",
-                "directed": "false",
+                "directed": false,
                 "label": "kin(p(HGNC:CDK2)) directlyDecreases p(MGI:Trp63)",
                 "metadata": {
                     "casual": true,
@@ -18344,7 +18344,7 @@
                 "source": "1205983494",
                 "relation": "actsIn",
                 "target": "-2032780176",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:CDK2) actsIn kin(p(HGNC:CDK2))",
                 "metadata": {
                     "casual": false,
@@ -20486,7 +20486,7 @@
                 "source": "1719389830",
                 "relation": "actsIn",
                 "target": "-1110007714",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:ERCC2) actsIn cat(p(HGNC:ERCC2))",
                 "metadata": {
                     "casual": false,
@@ -20528,7 +20528,7 @@
                 "source": "-1110007714",
                 "relation": "increases",
                 "target": "1364616799",
-                "directed": "false",
+                "directed": false,
                 "label": "cat(p(HGNC:ERCC2)) increases bp(GO:\"nucleotide-excision repair\")",
                 "metadata": {
                     "casual": true,
@@ -20555,7 +20555,7 @@
                 "source": "-1110007714",
                 "relation": "increases",
                 "target": "-1935276296",
-                "directed": "false",
+                "directed": false,
                 "label": "cat(p(HGNC:ERCC2)) increases bp(GO:\"nucleotide-excision repair, DNA duplex unwinding\")",
                 "metadata": {
                     "casual": true,
@@ -20582,7 +20582,7 @@
                 "source": "-1110007714",
                 "relation": "increases",
                 "target": "1999979637",
-                "directed": "false",
+                "directed": false,
                 "label": "cat(p(HGNC:ERCC2)) increases tscript(p(PFH:\"GTF2H Family\"))",
                 "metadata": {
                     "casual": true,
@@ -20609,7 +20609,7 @@
                 "source": "795659406",
                 "relation": "hasModification",
                 "target": "-1637521446",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:FANCD2) hasModification p(HGNC:FANCD2,pmod(P,T,691))",
                 "metadata": {
                     "casual": false,
@@ -20636,7 +20636,7 @@
                 "source": "-2111907204",
                 "relation": "directlyIncreases",
                 "target": "-1385630157",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:TP53,pmod(P,S,20)) directlyIncreases tscript(p(HGNC:TP53))",
                 "metadata": {
                     "casual": true,
@@ -20678,7 +20678,7 @@
                 "source": "734821493",
                 "relation": "directlyIncreases",
                 "target": "-1389955533",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:TP73,pmod(P,S,47)) directlyIncreases tscript(p(HGNC:TP73))",
                 "metadata": {
                     "casual": true,
@@ -20705,7 +20705,7 @@
                 "source": "-1499287149",
                 "relation": "directlyDecreases",
                 "target": "-690980303",
-                "directed": "false",
+                "directed": false,
                 "label": "deg(p(HGNC:CDC25A)) directlyDecreases p(HGNC:CDC25A)",
                 "metadata": {
                     "casual": true,
@@ -20852,7 +20852,7 @@
                 "source": "1019608985",
                 "relation": "directlyIncreases",
                 "target": "-2111907204",
-                "directed": "false",
+                "directed": false,
                 "label": "kin(p(HGNC:CHEK1)) directlyIncreases p(HGNC:TP53,pmod(P,S,20))",
                 "metadata": {
                     "casual": true,
@@ -20879,7 +20879,7 @@
                 "source": "1019608985",
                 "relation": "increases",
                 "target": "-1385630157",
-                "directed": "false",
+                "directed": false,
                 "label": "kin(p(HGNC:CHEK1)) increases tscript(p(HGNC:TP53))",
                 "metadata": {
                     "casual": true,
@@ -20906,7 +20906,7 @@
                 "source": "1019608985",
                 "relation": "directlyIncreases",
                 "target": "734821493",
-                "directed": "false",
+                "directed": false,
                 "label": "kin(p(HGNC:CHEK1)) directlyIncreases p(HGNC:TP73,pmod(P,S,47))",
                 "metadata": {
                     "casual": true,
@@ -20933,7 +20933,7 @@
                 "source": "1019608985",
                 "relation": "increases",
                 "target": "-1499287149",
-                "directed": "false",
+                "directed": false,
                 "label": "kin(p(HGNC:CHEK1)) increases deg(p(HGNC:CDC25A))",
                 "metadata": {
                     "casual": true,
@@ -20990,7 +20990,7 @@
                 "source": "1608048720",
                 "relation": "directlyIncreases",
                 "target": "1019608985",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:CHEK1,pmod(P,S,345)) directlyIncreases kin(p(HGNC:CHEK1))",
                 "metadata": {
                     "casual": true,
@@ -21062,7 +21062,7 @@
                 "source": "1721614992",
                 "relation": "actsIn",
                 "target": "-237482028",
-                "directed": "false",
+                "directed": false,
                 "label": "p(PFH:\"PPP1R Family\") actsIn phos(p(PFH:\"PPP1R Family\"))",
                 "metadata": {
                     "casual": false,
@@ -21479,7 +21479,7 @@
                 "source": "1425707893",
                 "relation": "directlyIncreases",
                 "target": "-1385630157",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:TP53,pmod(P,S,15)) directlyIncreases tscript(p(HGNC:TP53))",
                 "metadata": {
                     "casual": true,
@@ -21596,7 +21596,7 @@
                 "source": "-1710785365",
                 "relation": "directlyIncreases",
                 "target": "-1385630157",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:TP53,pmod(P,S,37)) directlyIncreases tscript(p(HGNC:TP53))",
                 "metadata": {
                     "casual": true,
@@ -21638,7 +21638,7 @@
                 "source": "-237482028",
                 "relation": "decreases",
                 "target": "1425707893",
-                "directed": "false",
+                "directed": false,
                 "label": "phos(p(PFH:\"PPP1R Family\")) decreases p(HGNC:TP53,pmod(P,S,15))",
                 "metadata": {
                     "casual": true,
@@ -21680,7 +21680,7 @@
                 "source": "-237482028",
                 "relation": "decreases",
                 "target": "-1710785365",
-                "directed": "false",
+                "directed": false,
                 "label": "phos(p(PFH:\"PPP1R Family\")) decreases p(HGNC:TP53,pmod(P,S,37))",
                 "metadata": {
                     "casual": true,
@@ -21707,7 +21707,7 @@
                 "source": "409647036",
                 "relation": "hasModification",
                 "target": "1396759403",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:BRCA1) hasModification p(HGNC:BRCA1,pmod(P,S,1387))",
                 "metadata": {
                     "casual": false,
@@ -21734,7 +21734,7 @@
                 "source": "535377625",
                 "relation": "actsIn",
                 "target": "439136737",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:ABL1) actsIn kin(p(HGNC:ABL1))",
                 "metadata": {
                     "casual": false,
@@ -23021,7 +23021,7 @@
                 "source": "439136737",
                 "relation": "directlyIncreases",
                 "target": "-579919242",
-                "directed": "false",
+                "directed": false,
                 "label": "kin(p(HGNC:ABL1)) directlyIncreases p(HGNC:RAD51,pmod(P,Y,54))",
                 "metadata": {
                     "casual": true,
@@ -23048,7 +23048,7 @@
                 "source": "439136737",
                 "relation": "directlyIncreases",
                 "target": "-308992583",
-                "directed": "false",
+                "directed": false,
                 "label": "kin(p(HGNC:ABL1)) directlyIncreases p(HGNC:RAD52,pmod(P,Y,104))",
                 "metadata": {
                     "casual": true,
@@ -23075,7 +23075,7 @@
                 "source": "439136737",
                 "relation": "directlyIncreases",
                 "target": "1412873541",
-                "directed": "false",
+                "directed": false,
                 "label": "kin(p(HGNC:ABL1)) directlyIncreases p(HGNC:RAD51,pmod(P,Y,315))",
                 "metadata": {
                     "casual": true,
@@ -23117,7 +23117,7 @@
                 "source": "535377625",
                 "relation": "hasModification",
                 "target": "-564995159",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:ABL1) hasModification p(HGNC:ABL1,pmod(P,S,465))",
                 "metadata": {
                     "casual": false,
@@ -23144,7 +23144,7 @@
                 "source": "-564995159",
                 "relation": "directlyIncreases",
                 "target": "439136737",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:ABL1,pmod(P,S,465)) directlyIncreases kin(p(HGNC:ABL1))",
                 "metadata": {
                     "casual": true,
@@ -23186,7 +23186,7 @@
                 "source": "-2055951573",
                 "relation": "increases",
                 "target": "996855453",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:RAD52) increases bp(GO:\"double-strand break repair\")",
                 "metadata": {
                     "casual": true,
@@ -23213,7 +23213,7 @@
                 "source": "-2055951573",
                 "relation": "hasModification",
                 "target": "-308992583",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:RAD52) hasModification p(HGNC:RAD52,pmod(P,Y,104))",
                 "metadata": {
                     "casual": false,
@@ -23240,7 +23240,7 @@
                 "source": "282700587",
                 "relation": "hasModification",
                 "target": "1412873541",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:RAD51) hasModification p(HGNC:RAD51,pmod(P,Y,315))",
                 "metadata": {
                     "casual": false,
@@ -23267,7 +23267,7 @@
                 "source": "282700587",
                 "relation": "hasComponent",
                 "target": "683506079",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:RAD51) hasComponent complex(p(HGNC:CCND1),p(HGNC:RAD51))",
                 "metadata": {
                     "casual": false,
@@ -23294,7 +23294,7 @@
                 "source": "282700587",
                 "relation": "increases",
                 "target": "996855453",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:RAD51) increases bp(GO:\"double-strand break repair\")",
                 "metadata": {
                     "casual": true,
@@ -23321,7 +23321,7 @@
                 "source": "282700587",
                 "relation": "increases",
                 "target": "-2036580780",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:RAD51) increases bp(GO:\"double-strand break repair via homologous recombination\")",
                 "metadata": {
                     "casual": true,
@@ -23363,7 +23363,7 @@
                 "source": "282700587",
                 "relation": "hasModification",
                 "target": "-579919242",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:RAD51) hasModification p(HGNC:RAD51,pmod(P,Y,54))",
                 "metadata": {
                     "casual": false,
@@ -23390,7 +23390,7 @@
                 "source": "598114078",
                 "relation": "directlyDecreases",
                 "target": "-1389955533",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:TP73,pmod(P,Y,28)) directlyDecreases tscript(p(HGNC:TP73))",
                 "metadata": {
                     "casual": true,
@@ -23417,7 +23417,7 @@
                 "source": "2130834160",
                 "relation": "directlyIncreases",
                 "target": "598114078",
-                "directed": "false",
+                "directed": false,
                 "label": "kin(p(HGNC:SRC)) directlyIncreases p(HGNC:TP73,pmod(P,Y,28))",
                 "metadata": {
                     "casual": true,
@@ -23444,7 +23444,7 @@
                 "source": "1178610630",
                 "relation": "increases",
                 "target": "1843298942",
-                "directed": "false",
+                "directed": false,
                 "label": "phos(p(HGNC:PNKP)) increases bp(GO:\"single strand break repair\")",
                 "metadata": {
                     "casual": true,
@@ -23471,7 +23471,7 @@
                 "source": "1178610630",
                 "relation": "increases",
                 "target": "2081340962",
-                "directed": "false",
+                "directed": false,
                 "label": "phos(p(HGNC:PNKP)) increases bp(GO:\"base-excision repair\")",
                 "metadata": {
                     "casual": true,
@@ -23498,7 +23498,7 @@
                 "source": "856970642",
                 "relation": "actsIn",
                 "target": "1178610630",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:PNKP) actsIn phos(p(HGNC:PNKP))",
                 "metadata": {
                     "casual": false,
@@ -23525,7 +23525,7 @@
                 "source": "977166872",
                 "relation": "actsIn",
                 "target": "-2090609523",
-                "directed": "false",
+                "directed": false,
                 "label": "p(EGID:5424) actsIn kin(p(HGNC:POLD1))",
                 "metadata": {
                     "casual": false,
@@ -23552,7 +23552,7 @@
                 "source": "977166872",
                 "relation": "hasModification",
                 "target": "-598970105",
-                "directed": "false",
+                "directed": false,
                 "label": "p(EGID:5424) hasModification p(EGID:983,pmod(P,T,161))",
                 "metadata": {
                     "casual": false,
@@ -23579,7 +23579,7 @@
                 "source": "-598970105",
                 "relation": "directlyIncreases",
                 "target": "-2090609523",
-                "directed": "false",
+                "directed": false,
                 "label": "p(EGID:983,pmod(P,T,161)) directlyIncreases kin(p(HGNC:POLD1))",
                 "metadata": {
                     "casual": true,
@@ -23606,7 +23606,7 @@
                 "source": "1446110103",
                 "relation": "directlyIncreases",
                 "target": "208545135",
-                "directed": "false",
+                "directed": false,
                 "label": "tscript(p(HGNC:E2F1)) directlyIncreases p(HGNC:ATM)",
                 "metadata": {
                     "casual": true,
@@ -23633,7 +23633,7 @@
                 "source": "832738472",
                 "relation": "directlyDecreases",
                 "target": "-1385630157",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:MDM4) directlyDecreases tscript(p(HGNC:TP53))",
                 "metadata": {
                     "casual": true,
@@ -23675,7 +23675,7 @@
                 "source": "-735568640",
                 "relation": "increases",
                 "target": "139422897",
-                "directed": "false",
+                "directed": false,
                 "label": "gtp(p(HGNC:RHOA)) increases kin(p(PFH:\"MAPK p38 Family\"))",
                 "metadata": {
                     "casual": true,
@@ -23702,7 +23702,7 @@
                 "source": "271389667",
                 "relation": "actsIn",
                 "target": "-735568640",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:RHOA) actsIn gtp(p(HGNC:RHOA))",
                 "metadata": {
                     "casual": false,
@@ -26639,7 +26639,7 @@
                 "source": "-1138853167",
                 "relation": "increases",
                 "target": "-99413154",
-                "directed": "false",
+                "directed": false,
                 "label": "gtp(p(HGNC:RHOB)) increases p(HGNC:CCND1)",
                 "metadata": {
                     "casual": true,
@@ -26666,7 +26666,7 @@
                 "source": "-1138853167",
                 "relation": "increases",
                 "target": "282700587",
-                "directed": "false",
+                "directed": false,
                 "label": "gtp(p(HGNC:RHOB)) increases p(HGNC:RAD51)",
                 "metadata": {
                     "casual": true,
@@ -26693,7 +26693,7 @@
                 "source": "674674194",
                 "relation": "actsIn",
                 "target": "-1138853167",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:RHOB) actsIn gtp(p(HGNC:RHOB))",
                 "metadata": {
                     "casual": false,
@@ -27215,7 +27215,7 @@
                 "source": "1418748344",
                 "relation": "decreases",
                 "target": "1153977475",
-                "directed": "false",
+                "directed": false,
                 "label": "a(SCHEM:\"Benzo(a)pyrene diolepoxide I\") decreases bp(GO:\"DNA repair\")",
                 "metadata": {
                     "casual": true,
@@ -27242,7 +27242,7 @@
                 "source": "-1057878406",
                 "relation": "decreases",
                 "target": "-1389955533",
-                "directed": "false",
+                "directed": false,
                 "label": "cat(p(HGNC:SIRT1)) decreases tscript(p(HGNC:TP73))",
                 "metadata": {
                     "casual": true,
@@ -27269,7 +27269,7 @@
                 "source": "774294867",
                 "relation": "directlyDecreases",
                 "target": "-2090609523",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:GADD45A) directlyDecreases kin(p(HGNC:POLD1))",
                 "metadata": {
                     "casual": true,
@@ -27296,7 +27296,7 @@
                 "source": "1230806667",
                 "relation": "actsIn",
                 "target": "1568488681",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:APEX1) actsIn cat(p(HGNC:APEX1))",
                 "metadata": {
                     "casual": false,
@@ -27803,7 +27803,7 @@
                 "source": "1568488681",
                 "relation": "increases",
                 "target": "1843298942",
-                "directed": "false",
+                "directed": false,
                 "label": "cat(p(HGNC:APEX1)) increases bp(GO:\"single strand break repair\")",
                 "metadata": {
                     "casual": true,
@@ -27830,7 +27830,7 @@
                 "source": "1941962877",
                 "relation": "decreases",
                 "target": "1153977475",
-                "directed": "false",
+                "directed": false,
                 "label": "bp(GO:\"response to oxidative stress\") decreases bp(GO:\"DNA repair\")",
                 "metadata": {
                     "casual": true,
@@ -27857,7 +27857,7 @@
                 "source": "1792565800",
                 "relation": "increases",
                 "target": "1509626304",
-                "directed": "false",
+                "directed": false,
                 "label": "cat(p(HGNC:XPA)) increases bp(GO:\"nucleotide-excision repair, DNA damage recognition\")",
                 "metadata": {
                     "casual": true,
@@ -27884,7 +27884,7 @@
                 "source": "1144989043",
                 "relation": "actsIn",
                 "target": "1792565800",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:XPA) actsIn cat(p(HGNC:XPA))",
                 "metadata": {
                     "casual": false,
@@ -27941,7 +27941,7 @@
                 "source": "-1521575838",
                 "relation": "directlyIncreases",
                 "target": "-936706151",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:CHEK2,pmod(P,S,19)) directlyIncreases kin(p(HGNC:CHEK2))",
                 "metadata": {
                     "casual": true,
@@ -27968,7 +27968,7 @@
                 "source": "-1676466851",
                 "relation": "decreases",
                 "target": "1639307526",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:SFN) decreases p(HGNC:MDM2)",
                 "metadata": {
                     "casual": true,
@@ -27995,7 +27995,7 @@
                 "source": "-1676466851",
                 "relation": "increases",
                 "target": "1534610869",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:SFN) increases p(HGNC:TP53)",
                 "metadata": {
                     "casual": true,
@@ -28022,7 +28022,7 @@
                 "source": "421340757",
                 "relation": "directlyDecreases",
                 "target": "1534610869",
-                "directed": "false",
+                "directed": false,
                 "label": "deg(p(HGNC:TP53)) directlyDecreases p(HGNC:TP53)",
                 "metadata": {
                     "casual": true,
@@ -28904,7 +28904,7 @@
                 "source": "-236925306",
                 "relation": "actsIn",
                 "target": "1228644446",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:ERCC3) actsIn cat(p(HGNC:ERCC3))",
                 "metadata": {
                     "casual": false,
@@ -28946,7 +28946,7 @@
                 "source": "1228644446",
                 "relation": "increases",
                 "target": "1999979637",
-                "directed": "false",
+                "directed": false,
                 "label": "cat(p(HGNC:ERCC3)) increases tscript(p(PFH:\"GTF2H Family\"))",
                 "metadata": {
                     "casual": true,
@@ -28973,7 +28973,7 @@
                 "source": "1228644446",
                 "relation": "increases",
                 "target": "-1935276296",
-                "directed": "false",
+                "directed": false,
                 "label": "cat(p(HGNC:ERCC3)) increases bp(GO:\"nucleotide-excision repair, DNA duplex unwinding\")",
                 "metadata": {
                     "casual": true,
@@ -29000,7 +29000,7 @@
                 "source": "1228644446",
                 "relation": "increases",
                 "target": "1364616799",
-                "directed": "false",
+                "directed": false,
                 "label": "cat(p(HGNC:ERCC3)) increases bp(GO:\"nucleotide-excision repair\")",
                 "metadata": {
                     "casual": true,
@@ -29027,7 +29027,7 @@
                 "source": "70299886",
                 "relation": "hasComponent",
                 "target": "832386790",
-                "directed": "false",
+                "directed": false,
                 "label": "complex(p(HGNC:RAD9A),p(HGNC:RAD1),p(HGNC:HUS1)) hasComponent p(HGNC:HUS1)",
                 "metadata": {
                     "casual": false,
@@ -29069,7 +29069,7 @@
                 "source": "70299886",
                 "relation": "hasComponent",
                 "target": "-1866320166",
-                "directed": "false",
+                "directed": false,
                 "label": "complex(p(HGNC:RAD9A),p(HGNC:RAD1),p(HGNC:HUS1)) hasComponent p(HGNC:RAD1)",
                 "metadata": {
                     "casual": false,
@@ -29111,7 +29111,7 @@
                 "source": "70299886",
                 "relation": "increases",
                 "target": "2081340962",
-                "directed": "false",
+                "directed": false,
                 "label": "complex(p(HGNC:RAD9A),p(HGNC:RAD1),p(HGNC:HUS1)) increases bp(GO:\"base-excision repair\")",
                 "metadata": {
                     "casual": true,
@@ -29138,7 +29138,7 @@
                 "source": "70299886",
                 "relation": "hasComponent",
                 "target": "199720343",
-                "directed": "false",
+                "directed": false,
                 "label": "complex(p(HGNC:RAD9A),p(HGNC:RAD1),p(HGNC:HUS1)) hasComponent p(HGNC:RAD9A)",
                 "metadata": {
                     "casual": false,
@@ -29180,7 +29180,7 @@
                 "source": "70299886",
                 "relation": "increases",
                 "target": "361427690",
-                "directed": "false",
+                "directed": false,
                 "label": "complex(p(HGNC:RAD9A),p(HGNC:RAD1),p(HGNC:HUS1)) increases kin(p(HGNC:ATR))",
                 "metadata": {
                     "casual": true,
@@ -29207,7 +29207,7 @@
                 "source": "145411718",
                 "relation": "actsIn",
                 "target": "-1919311778",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:ERCC5) actsIn cat(p(HGNC:ERCC5))",
                 "metadata": {
                     "casual": false,
@@ -29264,7 +29264,7 @@
                 "source": "-1919311778",
                 "relation": "increases",
                 "target": "-1734763324",
-                "directed": "false",
+                "directed": false,
                 "label": "cat(p(HGNC:ERCC5)) increases bp(GO:\"nucleotide-excision repair, DNA incision, 3'-to lesion\")",
                 "metadata": {
                     "casual": true,
@@ -29291,7 +29291,7 @@
                 "source": "3675112",
                 "relation": "increases",
                 "target": "1364616799",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:PCNA) increases bp(GO:\"nucleotide-excision repair\")",
                 "metadata": {
                     "casual": true,
@@ -29318,7 +29318,7 @@
                 "source": "742981323",
                 "relation": "decreases",
                 "target": "1364616799",
-                "directed": "false",
+                "directed": false,
                 "label": "a(CHEBI:\"nitric oxide\") decreases bp(GO:\"nucleotide-excision repair\")",
                 "metadata": {
                     "casual": true,
@@ -29345,7 +29345,7 @@
                 "source": "-99413154",
                 "relation": "hasComponent",
                 "target": "683506079",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:CCND1) hasComponent complex(p(HGNC:CCND1),p(HGNC:RAD51))",
                 "metadata": {
                     "casual": false,
@@ -29372,7 +29372,7 @@
                 "source": "-99413154",
                 "relation": "increases",
                 "target": "-595822504",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:CCND1) increases bp(GO:\"G1/S transition of mitotic cell cycle\")",
                 "metadata": {
                     "casual": true,
@@ -29399,7 +29399,7 @@
                 "source": "1639307526",
                 "relation": "directlyIncreases",
                 "target": "421340757",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:MDM2) directlyIncreases deg(p(HGNC:TP53))",
                 "metadata": {
                     "casual": true,
@@ -29456,7 +29456,7 @@
                 "source": "1534479797",
                 "relation": "actsIn",
                 "target": "-1389955533",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:TP73) actsIn tscript(p(HGNC:TP73))",
                 "metadata": {
                     "casual": false,
@@ -30293,7 +30293,7 @@
                 "source": "-1519615263",
                 "relation": "decreases",
                 "target": "-1818334630",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:RASSF1) decreases tscript(p(HGNC:ATF2))",
                 "metadata": {
                     "casual": true,
@@ -30320,7 +30320,7 @@
                 "source": "-1519615263",
                 "relation": "decreases",
                 "target": "-99413154",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:RASSF1) decreases p(HGNC:CCND1)",
                 "metadata": {
                     "casual": true,
@@ -30377,7 +30377,7 @@
                 "source": "-1519615263",
                 "relation": "decreases",
                 "target": "1639307526",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:RASSF1) decreases p(HGNC:MDM2)",
                 "metadata": {
                     "casual": true,
@@ -30404,7 +30404,7 @@
                 "source": "-1935276296",
                 "relation": "isA",
                 "target": "1364616799",
-                "directed": "false",
+                "directed": false,
                 "label": "bp(GO:\"nucleotide-excision repair, DNA duplex unwinding\") isA bp(GO:\"nucleotide-excision repair\")",
                 "metadata": {
                     "casual": false,
@@ -30431,7 +30431,7 @@
                 "source": "1998674498",
                 "relation": "isA",
                 "target": "1364616799",
-                "directed": "false",
+                "directed": false,
                 "label": "bp(GO:\"nucleotide-excision repair, DNA gap filling\") isA bp(GO:\"nucleotide-excision repair\")",
                 "metadata": {
                     "casual": false,
@@ -30458,7 +30458,7 @@
                 "source": "1509626304",
                 "relation": "isA",
                 "target": "1364616799",
-                "directed": "false",
+                "directed": false,
                 "label": "bp(GO:\"nucleotide-excision repair, DNA damage recognition\") isA bp(GO:\"nucleotide-excision repair\")",
                 "metadata": {
                     "casual": false,
@@ -30485,7 +30485,7 @@
                 "source": "-1734763324",
                 "relation": "isA",
                 "target": "1364616799",
-                "directed": "false",
+                "directed": false,
                 "label": "bp(GO:\"nucleotide-excision repair, DNA incision, 3'-to lesion\") isA bp(GO:\"nucleotide-excision repair\")",
                 "metadata": {
                     "casual": false,
@@ -30512,7 +30512,7 @@
                 "source": "-1327784763",
                 "relation": "isA",
                 "target": "1364616799",
-                "directed": "false",
+                "directed": false,
                 "label": "bp(GO:\"nucleotide-excision repair, DNA incision, 5'-to lesion\") isA bp(GO:\"nucleotide-excision repair\")",
                 "metadata": {
                     "casual": false,
@@ -30539,7 +30539,7 @@
                 "source": "2037948510",
                 "relation": "increases",
                 "target": "1364616799",
-                "directed": "false",
+                "directed": false,
                 "label": "cat(p(HGNC:ERCC8)) increases bp(GO:\"nucleotide-excision repair\")",
                 "metadata": {
                     "casual": true,
@@ -30566,7 +30566,7 @@
                 "source": "-1428566394",
                 "relation": "actsIn",
                 "target": "2037948510",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:ERCC8) actsIn cat(p(HGNC:ERCC8))",
                 "metadata": {
                     "casual": false,
@@ -30608,7 +30608,7 @@
                 "source": "-2036580780",
                 "relation": "isA",
                 "target": "996855453",
-                "directed": "false",
+                "directed": false,
                 "label": "bp(GO:\"double-strand break repair via homologous recombination\") isA bp(GO:\"double-strand break repair\")",
                 "metadata": {
                     "casual": false,
@@ -30635,7 +30635,7 @@
                 "source": "-2044604638",
                 "relation": "increases",
                 "target": "996855453",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:TP53BP1) increases bp(GO:\"double-strand break repair\")",
                 "metadata": {
                     "casual": true,
@@ -30662,7 +30662,7 @@
                 "source": "-1021404865",
                 "relation": "hasComponent",
                 "target": "1235105495",
-                "directed": "false",
+                "directed": false,
                 "label": "complex(p(HGNC:RNF8),p(HGNC:MDC1)) hasComponent p(HGNC:MDC1)",
                 "metadata": {
                     "casual": false,
@@ -30704,7 +30704,7 @@
                 "source": "-1021404865",
                 "relation": "increases",
                 "target": "-2044604638",
-                "directed": "false",
+                "directed": false,
                 "label": "complex(p(HGNC:RNF8),p(HGNC:MDC1)) increases p(HGNC:TP53BP1)",
                 "metadata": {
                     "casual": true,
@@ -30731,7 +30731,7 @@
                 "source": "-1021404865",
                 "relation": "increases",
                 "target": "409647036",
-                "directed": "false",
+                "directed": false,
                 "label": "complex(p(HGNC:RNF8),p(HGNC:MDC1)) increases p(HGNC:BRCA1)",
                 "metadata": {
                     "casual": true,
@@ -30773,7 +30773,7 @@
                 "source": "-1021404865",
                 "relation": "hasComponent",
                 "target": "55863050",
-                "directed": "false",
+                "directed": false,
                 "label": "complex(p(HGNC:RNF8),p(HGNC:MDC1)) hasComponent p(HGNC:RNF8)",
                 "metadata": {
                     "casual": false,
@@ -30815,7 +30815,7 @@
                 "source": "405897624",
                 "relation": "directlyIncreases",
                 "target": "-936706151",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:CHEK2,pmod(P,S,35)) directlyIncreases kin(p(HGNC:CHEK2))",
                 "metadata": {
                     "casual": true,
@@ -30842,7 +30842,7 @@
                 "source": "-690980303",
                 "relation": "decreases",
                 "target": "1153977475",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:CDC25A) decreases bp(GO:\"DNA repair\")",
                 "metadata": {
                     "casual": true,
@@ -30869,7 +30869,7 @@
                 "source": "-690980303",
                 "relation": "actsIn",
                 "target": "-1237789675",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:CDC25A) actsIn phos(p(HGNC:CDC25A))",
                 "metadata": {
                     "casual": false,
@@ -31076,7 +31076,7 @@
                 "source": "-643899869",
                 "relation": "increases",
                 "target": "-1327784763",
-                "directed": "false",
+                "directed": false,
                 "label": "complex(p(HGNC:ERCC4),p(HGNC:ERCC1)) increases bp(GO:\"nucleotide-excision repair, DNA incision, 5'-to lesion\")",
                 "metadata": {
                     "casual": true,
@@ -31103,7 +31103,7 @@
                 "source": "-643899869",
                 "relation": "hasComponent",
                 "target": "-619262330",
-                "directed": "false",
+                "directed": false,
                 "label": "complex(p(HGNC:ERCC4),p(HGNC:ERCC1)) hasComponent p(HGNC:ERCC1)",
                 "metadata": {
                     "casual": false,
@@ -31190,7 +31190,7 @@
                 "source": "-643899869",
                 "relation": "hasComponent",
                 "target": "2101726854",
-                "directed": "false",
+                "directed": false,
                 "label": "complex(p(HGNC:ERCC4),p(HGNC:ERCC1)) hasComponent p(HGNC:ERCC4)",
                 "metadata": {
                     "casual": false,
@@ -31277,7 +31277,7 @@
                 "source": "1989987481",
                 "relation": "hasModification",
                 "target": "499785874",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:FANCI) hasModification p(HGNC:FANCI,pmod(P))",
                 "metadata": {
                     "casual": false,
@@ -31304,7 +31304,7 @@
                 "source": "409647036",
                 "relation": "increases",
                 "target": "-2036580780",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:BRCA1) increases bp(GO:\"double-strand break repair via homologous recombination\")",
                 "metadata": {
                     "casual": true,
@@ -31331,7 +31331,7 @@
                 "source": "409647036",
                 "relation": "directlyIncreases",
                 "target": "-1385630157",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:BRCA1) directlyIncreases tscript(p(HGNC:TP53))",
                 "metadata": {
                     "casual": true,
@@ -31358,7 +31358,7 @@
                 "source": "409647036",
                 "relation": "increases",
                 "target": "1133830030",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:BRCA1) increases cat(p(HGNC:PARP1))",
                 "metadata": {
                     "casual": true,
@@ -31415,7 +31415,7 @@
                 "source": "409647036",
                 "relation": "increases",
                 "target": "996855453",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:BRCA1) increases bp(GO:\"double-strand break repair\")",
                 "metadata": {
                     "casual": true,
@@ -31472,7 +31472,7 @@
                 "source": "409647036",
                 "relation": "hasModification",
                 "target": "1963580270",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:BRCA1) hasModification p(HGNC:BRCA1,pmod(P,S,1457))",
                 "metadata": {
                     "casual": false,
@@ -31499,7 +31499,7 @@
                 "source": "795659406",
                 "relation": "increases",
                 "target": "-2036580780",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:FANCD2) increases bp(GO:\"double-strand break repair via homologous recombination\")",
                 "metadata": {
                     "casual": true,
@@ -31526,7 +31526,7 @@
                 "source": "795659406",
                 "relation": "hasModification",
                 "target": "-1769379870",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:FANCD2) hasModification p(HGNC:FANCD2,pmod(P,S,717))",
                 "metadata": {
                     "casual": false,
@@ -31553,7 +31553,7 @@
                 "source": "361427690",
                 "relation": "directlyIncreases",
                 "target": "-1637521446",
-                "directed": "false",
+                "directed": false,
                 "label": "kin(p(HGNC:ATR)) directlyIncreases p(HGNC:FANCD2,pmod(P,T,691))",
                 "metadata": {
                     "casual": true,
@@ -31580,7 +31580,7 @@
                 "source": "361427690",
                 "relation": "directlyIncreases",
                 "target": "-1929520271",
-                "directed": "false",
+                "directed": false,
                 "label": "kin(p(HGNC:ATR)) directlyIncreases p(HGNC:BRCA1,pmod(P,S,1524))",
                 "metadata": {
                     "casual": true,
@@ -31607,7 +31607,7 @@
                 "source": "361427690",
                 "relation": "directlyIncreases",
                 "target": "1963580270",
-                "directed": "false",
+                "directed": false,
                 "label": "kin(p(HGNC:ATR)) directlyIncreases p(HGNC:BRCA1,pmod(P,S,1457))",
                 "metadata": {
                     "casual": true,
@@ -31634,7 +31634,7 @@
                 "source": "361427690",
                 "relation": "directlyIncreases",
                 "target": "1425707893",
-                "directed": "false",
+                "directed": false,
                 "label": "kin(p(HGNC:ATR)) directlyIncreases p(HGNC:TP53,pmod(P,S,15))",
                 "metadata": {
                     "casual": true,
@@ -31706,7 +31706,7 @@
                 "source": "361427690",
                 "relation": "directlyIncreases",
                 "target": "1963842417",
-                "directed": "false",
+                "directed": false,
                 "label": "kin(p(HGNC:ATR)) directlyIncreases p(HGNC:BRCA1,pmod(P,S,1423))",
                 "metadata": {
                     "casual": true,
@@ -31748,7 +31748,7 @@
                 "source": "361427690",
                 "relation": "directlyIncreases",
                 "target": "1608048720",
-                "directed": "false",
+                "directed": false,
                 "label": "kin(p(HGNC:ATR)) directlyIncreases p(HGNC:CHEK1,pmod(P,S,345))",
                 "metadata": {
                     "casual": true,
@@ -31880,7 +31880,7 @@
                 "source": "361427690",
                 "relation": "directlyIncreases",
                 "target": "-1385630157",
-                "directed": "false",
+                "directed": false,
                 "label": "kin(p(HGNC:ATR)) directlyIncreases tscript(p(HGNC:TP53))",
                 "metadata": {
                     "casual": true,
@@ -31907,7 +31907,7 @@
                 "source": "361427690",
                 "relation": "directlyIncreases",
                 "target": "499785874",
-                "directed": "false",
+                "directed": false,
                 "label": "kin(p(HGNC:ATR)) directlyIncreases p(HGNC:FANCI,pmod(P))",
                 "metadata": {
                     "casual": true,
@@ -31934,7 +31934,7 @@
                 "source": "361427690",
                 "relation": "directlyIncreases",
                 "target": "-1769379870",
-                "directed": "false",
+                "directed": false,
                 "label": "kin(p(HGNC:ATR)) directlyIncreases p(HGNC:FANCD2,pmod(P,S,717))",
                 "metadata": {
                     "casual": true,
@@ -31961,7 +31961,7 @@
                 "source": "-184460190",
                 "relation": "directlyIncreases",
                 "target": "361427690",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:ATRIP) directlyIncreases kin(p(HGNC:ATR))",
                 "metadata": {
                     "casual": true,
@@ -31988,7 +31988,7 @@
                 "source": "-1204822130",
                 "relation": "increases",
                 "target": "2081340962",
-                "directed": "false",
+                "directed": false,
                 "label": "cat(p(HGNC:PARP2)) increases bp(GO:\"base-excision repair\")",
                 "metadata": {
                     "casual": true,
@@ -32015,7 +32015,7 @@
                 "source": "-941230204",
                 "relation": "actsIn",
                 "target": "-1204822130",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:PARP2) actsIn cat(p(HGNC:PARP2))",
                 "metadata": {
                     "casual": false,
@@ -32057,7 +32057,7 @@
                 "source": "-523879358",
                 "relation": "directlyIncreases",
                 "target": "315011400",
-                "directed": "false",
+                "directed": false,
                 "label": "kin(p(PFH:\"AKT Family\")) directlyIncreases p(HGNC:CDKN1A,pmod(P,T,145))",
                 "metadata": {
                     "casual": true,
@@ -32084,7 +32084,7 @@
                 "source": "315011400",
                 "relation": "directlyDecreases",
                 "target": "-1613138913",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:CDKN1A,pmod(P,T,145)) directlyDecreases deg(p(HGNC:CDKN1A))",
                 "metadata": {
                     "casual": true,
@@ -32141,7 +32141,7 @@
                 "source": "-915157371",
                 "relation": "hasModification",
                 "target": "315011400",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:CDKN1A) hasModification p(HGNC:CDKN1A,pmod(P,T,145))",
                 "metadata": {
                     "casual": false,
@@ -32168,7 +32168,7 @@
                 "source": "-915157371",
                 "relation": "decreases",
                 "target": "-595822504",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:CDKN1A) decreases bp(GO:\"G1/S transition of mitotic cell cycle\")",
                 "metadata": {
                     "casual": true,
@@ -32195,7 +32195,7 @@
                 "source": "-1613138913",
                 "relation": "directlyDecreases",
                 "target": "-915157371",
-                "directed": "false",
+                "directed": false,
                 "label": "deg(p(HGNC:CDKN1A)) directlyDecreases p(HGNC:CDKN1A)",
                 "metadata": {
                     "casual": true,
@@ -32462,7 +32462,7 @@
                 "source": "774688083",
                 "relation": "directlyDecreases",
                 "target": "-2090609523",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:GADD45G) directlyDecreases kin(p(HGNC:POLD1))",
                 "metadata": {
                     "casual": true,
@@ -32489,7 +32489,7 @@
                 "source": "774491475",
                 "relation": "directlyDecreases",
                 "target": "-2090609523",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:GADD45B) directlyDecreases kin(p(HGNC:POLD1))",
                 "metadata": {
                     "casual": true,
@@ -32516,7 +32516,7 @@
                 "source": "1364616799",
                 "relation": "isA",
                 "target": "1153977475",
-                "directed": "false",
+                "directed": false,
                 "label": "bp(GO:\"nucleotide-excision repair\") isA bp(GO:\"DNA repair\")",
                 "metadata": {
                     "casual": false,
@@ -32543,7 +32543,7 @@
                 "source": "-1369954527",
                 "relation": "increases",
                 "target": "1153977475",
-                "directed": "false",
+                "directed": false,
                 "label": "cat(p(HGNC:TOP1)) increases bp(GO:\"DNA repair\")",
                 "metadata": {
                     "casual": true,
@@ -32585,7 +32585,7 @@
                 "source": "1102018412",
                 "relation": "directlyDecreases",
                 "target": "-1369954527",
-                "directed": "false",
+                "directed": false,
                 "label": "a(CHEBI:camptothecin) directlyDecreases cat(p(HGNC:TOP1))",
                 "metadata": {
                     "casual": true,
@@ -32612,7 +32612,7 @@
                 "source": "1310498910",
                 "relation": "increases",
                 "target": "1843298942",
-                "directed": "false",
+                "directed": false,
                 "label": "cat(p(HGNC:XRCC1)) increases bp(GO:\"single strand break repair\")",
                 "metadata": {
                     "casual": true,
@@ -32654,7 +32654,7 @@
                 "source": "1872612998",
                 "relation": "actsIn",
                 "target": "1310498910",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:XRCC1) actsIn cat(p(HGNC:XRCC1))",
                 "metadata": {
                     "casual": false,
@@ -32711,7 +32711,7 @@
                 "source": "2081340962",
                 "relation": "isA",
                 "target": "1843298942",
-                "directed": "false",
+                "directed": false,
                 "label": "bp(GO:\"base-excision repair\") isA bp(GO:\"single strand break repair\")",
                 "metadata": {
                     "casual": false,
@@ -32738,7 +32738,7 @@
                 "source": "2020534862",
                 "relation": "hasComponent",
                 "target": "1872612998",
-                "directed": "false",
+                "directed": false,
                 "label": "complex(p(HGNC:XRCC1),p(HGNC:APTX)) hasComponent p(HGNC:XRCC1)",
                 "metadata": {
                     "casual": false,
@@ -32795,7 +32795,7 @@
                 "source": "2020534862",
                 "relation": "hasComponent",
                 "target": "-413926776",
-                "directed": "false",
+                "directed": false,
                 "label": "complex(p(HGNC:XRCC1),p(HGNC:APTX)) hasComponent p(HGNC:APTX)",
                 "metadata": {
                     "casual": false,
@@ -32852,7 +32852,7 @@
                 "source": "2020534862",
                 "relation": "increases",
                 "target": "1843298942",
-                "directed": "false",
+                "directed": false,
                 "label": "complex(p(HGNC:XRCC1),p(HGNC:APTX)) increases bp(GO:\"single strand break repair\")",
                 "metadata": {
                     "casual": true,
@@ -32879,7 +32879,7 @@
                 "source": "-1071740875",
                 "relation": "increases",
                 "target": "774688083",
-                "directed": "false",
+                "directed": false,
                 "label": "bp(GO:\"response to DNA damage stimulus\") increases p(HGNC:GADD45G)",
                 "metadata": {
                     "casual": true,
@@ -32906,7 +32906,7 @@
                 "source": "-1071740875",
                 "relation": "decreases",
                 "target": "-99413154",
-                "directed": "false",
+                "directed": false,
                 "label": "bp(GO:\"response to DNA damage stimulus\") decreases p(HGNC:CCND1)",
                 "metadata": {
                     "casual": true,
@@ -32933,7 +32933,7 @@
                 "source": "-1071740875",
                 "relation": "increases",
                 "target": "658820741",
-                "directed": "false",
+                "directed": false,
                 "label": "bp(GO:\"response to DNA damage stimulus\") increases p(HGNC:CDKN2A)",
                 "metadata": {
                     "casual": true,
@@ -32975,7 +32975,7 @@
                 "source": "-1071740875",
                 "relation": "increases",
                 "target": "361427690",
-                "directed": "false",
+                "directed": false,
                 "label": "bp(GO:\"response to DNA damage stimulus\") increases kin(p(HGNC:ATR))",
                 "metadata": {
                     "casual": true,
@@ -33047,7 +33047,7 @@
                 "source": "-1071740875",
                 "relation": "increases",
                 "target": "-1389955533",
-                "directed": "false",
+                "directed": false,
                 "label": "bp(GO:\"response to DNA damage stimulus\") increases tscript(p(HGNC:TP73))",
                 "metadata": {
                     "casual": true,
@@ -33104,7 +33104,7 @@
                 "source": "-1071740875",
                 "relation": "increases",
                 "target": "361362154",
-                "directed": "false",
+                "directed": false,
                 "label": "bp(GO:\"response to DNA damage stimulus\") increases kin(p(HGNC:ATM))",
                 "metadata": {
                     "casual": true,
@@ -33206,7 +33206,7 @@
                 "source": "-1071740875",
                 "relation": "increases",
                 "target": "1019608985",
-                "directed": "false",
+                "directed": false,
                 "label": "bp(GO:\"response to DNA damage stimulus\") increases kin(p(HGNC:CHEK1))",
                 "metadata": {
                     "casual": true,
@@ -33233,7 +33233,7 @@
                 "source": "-1071740875",
                 "relation": "increases",
                 "target": "-63071263",
-                "directed": "false",
+                "directed": false,
                 "label": "bp(GO:\"response to DNA damage stimulus\") increases cat(p(HGNC:EP300))",
                 "metadata": {
                     "casual": true,
@@ -33260,7 +33260,7 @@
                 "source": "-992002544",
                 "relation": "isA",
                 "target": "-1987295546",
-                "directed": "false",
+                "directed": false,
                 "label": "bp(GO:\"response to UV-C\") isA bp(GO:\"response to UV\")",
                 "metadata": {
                     "casual": false,
@@ -33287,7 +33287,7 @@
                 "source": "-1987295546",
                 "relation": "increases",
                 "target": "-1819353714",
-                "directed": "false",
+                "directed": false,
                 "label": "bp(GO:\"response to UV\") increases a(SCHEM:\"double-stranded DNA break\")",
                 "metadata": {
                     "casual": true,
@@ -33314,7 +33314,7 @@
                 "source": "-1987295546",
                 "relation": "increases",
                 "target": "-1071740875",
-                "directed": "false",
+                "directed": false,
                 "label": "bp(GO:\"response to UV\") increases bp(GO:\"response to DNA damage stimulus\")",
                 "metadata": {
                     "casual": true,
@@ -33386,7 +33386,7 @@
                 "source": "2140165338",
                 "relation": "isA",
                 "target": "-1987295546",
-                "directed": "false",
+                "directed": false,
                 "label": "bp(GO:\"response to UV-A\") isA bp(GO:\"response to UV\")",
                 "metadata": {
                     "casual": false,
@@ -33413,7 +33413,7 @@
                 "source": "574081397",
                 "relation": "isA",
                 "target": "-1987295546",
-                "directed": "false",
+                "directed": false,
                 "label": "bp(GO:\"response to UV-B\") isA bp(GO:\"response to UV\")",
                 "metadata": {
                     "casual": false,
@@ -33440,7 +33440,7 @@
                 "source": "-1237789675",
                 "relation": "increases",
                 "target": "-595822504",
-                "directed": "false",
+                "directed": false,
                 "label": "phos(p(HGNC:CDC25A)) increases bp(GO:\"G1/S transition of mitotic cell cycle\")",
                 "metadata": {
                     "casual": true,
@@ -33467,7 +33467,7 @@
                 "source": "-1389955533",
                 "relation": "directlyIncreases",
                 "target": "-915157371",
-                "directed": "false",
+                "directed": false,
                 "label": "tscript(p(HGNC:TP73)) directlyIncreases p(HGNC:CDKN1A)",
                 "metadata": {
                     "casual": true,
@@ -33494,7 +33494,7 @@
                 "source": "-1389955533",
                 "relation": "directlyIncreases",
                 "target": "1639307526",
-                "directed": "false",
+                "directed": false,
                 "label": "tscript(p(HGNC:TP73)) directlyIncreases p(HGNC:MDM2)",
                 "metadata": {
                     "casual": true,
@@ -33521,7 +33521,7 @@
                 "source": "-2044539102",
                 "relation": "directlyIncreases",
                 "target": "-1389955533",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:TP53BP2) directlyIncreases tscript(p(HGNC:TP73))",
                 "metadata": {
                     "casual": true,
@@ -33548,7 +33548,7 @@
                 "source": "-474129005",
                 "relation": "hasComponent",
                 "target": "-1863234152",
-                "directed": "false",
+                "directed": false,
                 "label": "complex(p(HGNC:SMC1A),p(HGNC:SMC3)) hasComponent p(HGNC:SMC3)",
                 "metadata": {
                     "casual": false,
@@ -33590,7 +33590,7 @@
                 "source": "-474129005",
                 "relation": "hasComponent",
                 "target": "-955656397",
-                "directed": "false",
+                "directed": false,
                 "label": "complex(p(HGNC:SMC1A),p(HGNC:SMC3)) hasComponent p(HGNC:SMC1A)",
                 "metadata": {
                     "casual": false,
@@ -33632,7 +33632,7 @@
                 "source": "-474129005",
                 "relation": "increases",
                 "target": "-2036580780",
-                "directed": "false",
+                "directed": false,
                 "label": "complex(p(HGNC:SMC1A),p(HGNC:SMC3)) increases bp(GO:\"double-strand break repair via homologous recombination\")",
                 "metadata": {
                     "casual": true,
@@ -33659,7 +33659,7 @@
                 "source": "1999979637",
                 "relation": "increases",
                 "target": "1364616799",
-                "directed": "false",
+                "directed": false,
                 "label": "tscript(p(PFH:\"GTF2H Family\")) increases bp(GO:\"nucleotide-excision repair\")",
                 "metadata": {
                     "casual": true,
@@ -33686,7 +33686,7 @@
                 "source": "-642985838",
                 "relation": "actsIn",
                 "target": "1999979637",
-                "directed": "false",
+                "directed": false,
                 "label": "complex(NCH:\"TFIIH Complex\") actsIn tscript(p(PFH:\"GTF2H Family\"))",
                 "metadata": {
                     "casual": false,
@@ -33713,7 +33713,7 @@
                 "source": "-707069395",
                 "relation": "hasComponent",
                 "target": "-2024637805",
-                "directed": "false",
+                "directed": false,
                 "label": "complex(p(HGNC:XPC),p(HGNC:RAD23B)) hasComponent p(HGNC:RAD23B)",
                 "metadata": {
                     "casual": false,
@@ -33800,7 +33800,7 @@
                 "source": "-707069395",
                 "relation": "increases",
                 "target": "1509626304",
-                "directed": "false",
+                "directed": false,
                 "label": "complex(p(HGNC:XPC),p(HGNC:RAD23B)) increases bp(GO:\"nucleotide-excision repair, DNA damage recognition\")",
                 "metadata": {
                     "casual": true,
@@ -33827,7 +33827,7 @@
                 "source": "-707069395",
                 "relation": "hasComponent",
                 "target": "1144857971",
-                "directed": "false",
+                "directed": false,
                 "label": "complex(p(HGNC:XPC),p(HGNC:RAD23B)) hasComponent p(HGNC:XPC)",
                 "metadata": {
                     "casual": false,
@@ -33914,7 +33914,7 @@
                 "source": "-1343517889",
                 "relation": "decreases",
                 "target": "-2090609523",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:RPRM) decreases kin(p(HGNC:POLD1))",
                 "metadata": {
                     "casual": true,
@@ -33941,7 +33941,7 @@
                 "source": "-1385630157",
                 "relation": "directlyIncreases",
                 "target": "774294867",
-                "directed": "false",
+                "directed": false,
                 "label": "tscript(p(HGNC:TP53)) directlyIncreases p(HGNC:GADD45A)",
                 "metadata": {
                     "casual": true,
@@ -33968,7 +33968,7 @@
                 "source": "-1385630157",
                 "relation": "directlyIncreases",
                 "target": "774491475",
-                "directed": "false",
+                "directed": false,
                 "label": "tscript(p(HGNC:TP53)) directlyIncreases p(HGNC:GADD45B)",
                 "metadata": {
                     "casual": true,
@@ -33995,7 +33995,7 @@
                 "source": "-1385630157",
                 "relation": "directlyDecreases",
                 "target": "-828933856",
-                "directed": "false",
+                "directed": false,
                 "label": "tscript(p(HGNC:TP53)) directlyDecreases p(HGNC:TOP2A)",
                 "metadata": {
                     "casual": true,
@@ -34022,7 +34022,7 @@
                 "source": "-1385630157",
                 "relation": "directlyDecreases",
                 "target": "409647036",
-                "directed": "false",
+                "directed": false,
                 "label": "tscript(p(HGNC:TP53)) directlyDecreases p(HGNC:BRCA1)",
                 "metadata": {
                     "casual": true,
@@ -34049,7 +34049,7 @@
                 "source": "-1385630157",
                 "relation": "directlyIncreases",
                 "target": "-915157371",
-                "directed": "false",
+                "directed": false,
                 "label": "tscript(p(HGNC:TP53)) directlyIncreases p(HGNC:CDKN1A)",
                 "metadata": {
                     "casual": true,
@@ -34076,7 +34076,7 @@
                 "source": "-1385630157",
                 "relation": "directlyIncreases",
                 "target": "-1676466851",
-                "directed": "false",
+                "directed": false,
                 "label": "tscript(p(HGNC:TP53)) directlyIncreases p(HGNC:SFN)",
                 "metadata": {
                     "casual": true,
@@ -34103,7 +34103,7 @@
                 "source": "-1385630157",
                 "relation": "decreases",
                 "target": "1892055328",
-                "directed": "false",
+                "directed": false,
                 "label": "tscript(p(HGNC:TP53)) decreases p(HGNC:TOP2B)",
                 "metadata": {
                     "casual": true,
@@ -34130,7 +34130,7 @@
                 "source": "-1385630157",
                 "relation": "directlyIncreases",
                 "target": "3675112",
-                "directed": "false",
+                "directed": false,
                 "label": "tscript(p(HGNC:TP53)) directlyIncreases p(HGNC:PCNA)",
                 "metadata": {
                     "casual": true,
@@ -34157,7 +34157,7 @@
                 "source": "-1385630157",
                 "relation": "directlyIncreases",
                 "target": "1639307526",
-                "directed": "false",
+                "directed": false,
                 "label": "tscript(p(HGNC:TP53)) directlyIncreases p(HGNC:MDM2)",
                 "metadata": {
                     "casual": true,
@@ -34184,7 +34184,7 @@
                 "source": "-1385630157",
                 "relation": "increases",
                 "target": "-1343517889",
-                "directed": "false",
+                "directed": false,
                 "label": "tscript(p(HGNC:TP53)) increases p(HGNC:RPRM)",
                 "metadata": {
                     "casual": true,
@@ -34211,7 +34211,7 @@
                 "source": "-1619624108",
                 "relation": "directlyIncreases",
                 "target": "-1385630157",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:TP53,pmod(P,T,18)) directlyIncreases tscript(p(HGNC:TP53))",
                 "metadata": {
                     "casual": true,
@@ -34253,7 +34253,7 @@
                 "source": "-936706151",
                 "relation": "directlyIncreases",
                 "target": "-1555576624",
-                "directed": "false",
+                "directed": false,
                 "label": "kin(p(HGNC:CHEK2)) directlyIncreases p(HGNC:CHEK2,pmod(P,T,68))",
                 "metadata": {
                     "casual": true,
@@ -34280,7 +34280,7 @@
                 "source": "-936706151",
                 "relation": "increases",
                 "target": "1425707893",
-                "directed": "false",
+                "directed": false,
                 "label": "kin(p(HGNC:CHEK2)) increases p(HGNC:TP53,pmod(P,S,15))",
                 "metadata": {
                     "casual": true,
@@ -34307,7 +34307,7 @@
                 "source": "-936706151",
                 "relation": "directlyIncreases",
                 "target": "-2111907204",
-                "directed": "false",
+                "directed": false,
                 "label": "kin(p(HGNC:CHEK2)) directlyIncreases p(HGNC:TP53,pmod(P,S,20))",
                 "metadata": {
                     "casual": true,
@@ -34349,7 +34349,7 @@
                 "source": "-936706151",
                 "relation": "directlyIncreases",
                 "target": "-1619624108",
-                "directed": "false",
+                "directed": false,
                 "label": "kin(p(HGNC:CHEK2)) directlyIncreases p(HGNC:TP53,pmod(P,T,18))",
                 "metadata": {
                     "casual": true,
@@ -34376,7 +34376,7 @@
                 "source": "-936706151",
                 "relation": "increases",
                 "target": "-1385630157",
-                "directed": "false",
+                "directed": false,
                 "label": "kin(p(HGNC:CHEK2)) increases tscript(p(HGNC:TP53))",
                 "metadata": {
                     "casual": true,
@@ -34418,7 +34418,7 @@
                 "source": "788234648",
                 "relation": "directlyIncreases",
                 "target": "-936706151",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:CHEK2,pmod(P,S,33)) directlyIncreases kin(p(HGNC:CHEK2))",
                 "metadata": {
                     "casual": true,
@@ -34445,7 +34445,7 @@
                 "source": "208545135",
                 "relation": "actsIn",
                 "target": "361362154",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:ATM) actsIn kin(p(HGNC:ATM))",
                 "metadata": {
                     "casual": false,
@@ -36257,7 +36257,7 @@
                 "source": "361362154",
                 "relation": "directlyIncreases",
                 "target": "559316198",
-                "directed": "false",
+                "directed": false,
                 "label": "kin(p(HGNC:ATM)) directlyIncreases p(HGNC:RASSF1,pmod(P,S,131))",
                 "metadata": {
                     "casual": true,
@@ -36284,7 +36284,7 @@
                 "source": "361362154",
                 "relation": "directlyIncreases",
                 "target": "358017290",
-                "directed": "false",
+                "directed": false,
                 "label": "kin(p(HGNC:ATM)) directlyIncreases p(HGNC:EP300,pmod(P,S,106))",
                 "metadata": {
                     "casual": true,
@@ -36311,7 +36311,7 @@
                 "source": "361362154",
                 "relation": "increases",
                 "target": "-879250633",
-                "directed": "false",
+                "directed": false,
                 "label": "kin(p(HGNC:ATM)) increases p(HGNC:SP1,pmod(P,S,101))",
                 "metadata": {
                     "casual": true,
@@ -36338,7 +36338,7 @@
                 "source": "361362154",
                 "relation": "directlyIncreases",
                 "target": "1963842417",
-                "directed": "false",
+                "directed": false,
                 "label": "kin(p(HGNC:ATM)) directlyIncreases p(HGNC:BRCA1,pmod(P,S,1423))",
                 "metadata": {
                     "casual": true,
@@ -36380,7 +36380,7 @@
                 "source": "361362154",
                 "relation": "increases",
                 "target": "-1385630157",
-                "directed": "false",
+                "directed": false,
                 "label": "kin(p(HGNC:ATM)) increases tscript(p(HGNC:TP53))",
                 "metadata": {
                     "casual": true,
@@ -36452,7 +36452,7 @@
                 "source": "361362154",
                 "relation": "directlyIncreases",
                 "target": "-1929520271",
-                "directed": "false",
+                "directed": false,
                 "label": "kin(p(HGNC:ATM)) directlyIncreases p(HGNC:BRCA1,pmod(P,S,1524))",
                 "metadata": {
                     "casual": true,
@@ -36479,7 +36479,7 @@
                 "source": "361362154",
                 "relation": "directlyIncreases",
                 "target": "1963645805",
-                "directed": "false",
+                "directed": false,
                 "label": "kin(p(HGNC:ATM)) directlyIncreases p(HGNC:BRCA1,pmod(P,S,1466))",
                 "metadata": {
                     "casual": true,
@@ -36506,7 +36506,7 @@
                 "source": "361362154",
                 "relation": "directlyIncreases",
                 "target": "-488276310",
-                "directed": "false",
+                "directed": false,
                 "label": "kin(p(HGNC:ATM)) directlyIncreases p(HGNC:WRN,pmod(P,S,1292))",
                 "metadata": {
                     "casual": true,
@@ -36533,7 +36533,7 @@
                 "source": "361362154",
                 "relation": "directlyIncreases",
                 "target": "938598478",
-                "directed": "false",
+                "directed": false,
                 "label": "kin(p(HGNC:ATM)) directlyIncreases p(HGNC:CHEK1,pmod(P,S,317))",
                 "metadata": {
                     "casual": true,
@@ -36590,7 +36590,7 @@
                 "source": "361362154",
                 "relation": "directlyIncreases",
                 "target": "297315825",
-                "directed": "false",
+                "directed": false,
                 "label": "kin(p(HGNC:ATM)) directlyIncreases p(HGNC:ATF2,pmod(P,S,498))",
                 "metadata": {
                     "casual": true,
@@ -36632,7 +36632,7 @@
                 "source": "361362154",
                 "relation": "directlyIncreases",
                 "target": "-1677408847",
-                "directed": "false",
+                "directed": false,
                 "label": "kin(p(HGNC:ATM)) directlyIncreases p(HGNC:WRN,pmod(P,S,1141))",
                 "metadata": {
                     "casual": true,
@@ -36659,7 +36659,7 @@
                 "source": "361362154",
                 "relation": "directlyIncreases",
                 "target": "1826663921",
-                "directed": "false",
+                "directed": false,
                 "label": "kin(p(HGNC:ATM)) directlyIncreases p(HGNC:ATF2,pmod(P,S,490))",
                 "metadata": {
                     "casual": true,
@@ -36701,7 +36701,7 @@
                 "source": "361362154",
                 "relation": "directlyIncreases",
                 "target": "151249023",
-                "directed": "false",
+                "directed": false,
                 "label": "kin(p(HGNC:ATM)) directlyIncreases p(HGNC:H2AFX,pmod(P,S,140))",
                 "metadata": {
                     "casual": true,
@@ -36773,7 +36773,7 @@
                 "source": "361362154",
                 "relation": "directlyIncreases",
                 "target": "788234648",
-                "directed": "false",
+                "directed": false,
                 "label": "kin(p(HGNC:ATM)) directlyIncreases p(HGNC:CHEK2,pmod(P,S,33))",
                 "metadata": {
                     "casual": true,
@@ -36815,7 +36815,7 @@
                 "source": "361362154",
                 "relation": "directlyIncreases",
                 "target": "-1220937762",
-                "directed": "false",
+                "directed": false,
                 "label": "kin(p(HGNC:ATM)) directlyIncreases p(HGNC:FANCD2,pmod(P,S,1257))",
                 "metadata": {
                     "casual": true,
@@ -36842,7 +36842,7 @@
                 "source": "361362154",
                 "relation": "directlyIncreases",
                 "target": "1397218160",
-                "directed": "false",
+                "directed": false,
                 "label": "kin(p(HGNC:ATM)) directlyIncreases p(HGNC:BRCA1,pmod(P,S,1330))",
                 "metadata": {
                     "casual": true,
@@ -36869,7 +36869,7 @@
                 "source": "361362154",
                 "relation": "directlyIncreases",
                 "target": "2124244963",
-                "directed": "false",
+                "directed": false,
                 "label": "kin(p(HGNC:ATM)) directlyIncreases p(HGNC:FANCD2,pmod(P,S,222))",
                 "metadata": {
                     "casual": true,
@@ -36911,7 +36911,7 @@
                 "source": "361362154",
                 "relation": "directlyIncreases",
                 "target": "-1555576624",
-                "directed": "false",
+                "directed": false,
                 "label": "kin(p(HGNC:ATM)) directlyIncreases p(HGNC:CHEK2,pmod(P,T,68))",
                 "metadata": {
                     "casual": true,
@@ -37013,7 +37013,7 @@
                 "source": "361362154",
                 "relation": "directlyIncreases",
                 "target": "993194611",
-                "directed": "false",
+                "directed": false,
                 "label": "kin(p(HGNC:ATM)) directlyIncreases p(HGNC:ABL1,pmod(P,S,446))",
                 "metadata": {
                     "casual": true,
@@ -37040,7 +37040,7 @@
                 "source": "361362154",
                 "relation": "directlyIncreases",
                 "target": "1608048720",
-                "directed": "false",
+                "directed": false,
                 "label": "kin(p(HGNC:ATM)) directlyIncreases p(HGNC:CHEK1,pmod(P,S,345))",
                 "metadata": {
                     "casual": true,
@@ -37112,7 +37112,7 @@
                 "source": "361362154",
                 "relation": "increases",
                 "target": "-1464417479",
-                "directed": "false",
+                "directed": false,
                 "label": "kin(p(HGNC:ATM)) increases p(HGNC:TRIM28,pmod(P,S,824))",
                 "metadata": {
                     "casual": true,
@@ -37139,7 +37139,7 @@
                 "source": "361362154",
                 "relation": "directlyIncreases",
                 "target": "1396759403",
-                "directed": "false",
+                "directed": false,
                 "label": "kin(p(HGNC:ATM)) directlyIncreases p(HGNC:BRCA1,pmod(P,S,1387))",
                 "metadata": {
                     "casual": true,
@@ -37181,7 +37181,7 @@
                 "source": "361362154",
                 "relation": "directlyIncreases",
                 "target": "-564995159",
-                "directed": "false",
+                "directed": false,
                 "label": "kin(p(HGNC:ATM)) directlyIncreases p(HGNC:ABL1,pmod(P,S,465))",
                 "metadata": {
                     "casual": true,
@@ -37223,7 +37223,7 @@
                 "source": "361362154",
                 "relation": "directlyDecreases",
                 "target": "2059429205",
-                "directed": "false",
+                "directed": false,
                 "label": "kin(p(HGNC:ATM)) directlyDecreases p(MGI:Trp63)",
                 "metadata": {
                     "casual": true,
@@ -37250,7 +37250,7 @@
                 "source": "361362154",
                 "relation": "directlyIncreases",
                 "target": "1963580270",
-                "directed": "false",
+                "directed": false,
                 "label": "kin(p(HGNC:ATM)) directlyIncreases p(HGNC:BRCA1,pmod(P,S,1457))",
                 "metadata": {
                     "casual": true,
@@ -37292,7 +37292,7 @@
                 "source": "361362154",
                 "relation": "directlyIncreases",
                 "target": "-1521575838",
-                "directed": "false",
+                "directed": false,
                 "label": "kin(p(HGNC:ATM)) directlyIncreases p(HGNC:CHEK2,pmod(P,S,19))",
                 "metadata": {
                     "casual": true,
@@ -37319,7 +37319,7 @@
                 "source": "361362154",
                 "relation": "directlyIncreases",
                 "target": "1425707893",
-                "directed": "false",
+                "directed": false,
                 "label": "kin(p(HGNC:ATM)) directlyIncreases p(HGNC:TP53,pmod(P,S,15))",
                 "metadata": {
                     "casual": true,
@@ -37451,7 +37451,7 @@
                 "source": "361362154",
                 "relation": "directlyIncreases",
                 "target": "405897624",
-                "directed": "false",
+                "directed": false,
                 "label": "kin(p(HGNC:ATM)) directlyIncreases p(HGNC:CHEK2,pmod(P,S,35))",
                 "metadata": {
                     "casual": true,
@@ -37493,7 +37493,7 @@
                 "source": "208545135",
                 "relation": "hasModification",
                 "target": "-1278979162",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:ATM) hasModification p(HGNC:ATM,pmod(P,S,1981))",
                 "metadata": {
                     "casual": false,
@@ -37520,7 +37520,7 @@
                 "source": "-1278979162",
                 "relation": "directlyIncreases",
                 "target": "361362154",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:ATM,pmod(P,S,1981)) directlyIncreases kin(p(HGNC:ATM))",
                 "metadata": {
                     "casual": true,
@@ -37562,7 +37562,7 @@
                 "source": "1534610869",
                 "relation": "actsIn",
                 "target": "-1385630157",
-                "directed": "false",
+                "directed": false,
                 "label": "p(HGNC:TP53) actsIn tscript(p(HGNC:TP53))",
                 "metadata": {
                     "casual": false,
@@ -45524,7 +45524,7 @@
                 "source": "-1819353714",
                 "relation": "increases",
                 "target": "-71117848",
-                "directed": "false",
+                "directed": false,
                 "label": "a(SCHEM:\"double-stranded DNA break\") increases kin(p(HGNC:PRKDC))",
                 "metadata": {
                     "casual": true,
@@ -45581,7 +45581,7 @@
                 "source": "-1819353714",
                 "relation": "increases",
                 "target": "151249023",
-                "directed": "false",
+                "directed": false,
                 "label": "a(SCHEM:\"double-stranded DNA break\") increases p(HGNC:H2AFX,pmod(P,S,140))",
                 "metadata": {
                     "casual": true,
@@ -45608,7 +45608,7 @@
                 "source": "-1819353714",
                 "relation": "increases",
                 "target": "361362154",
-                "directed": "false",
+                "directed": false,
                 "label": "a(SCHEM:\"double-stranded DNA break\") increases kin(p(HGNC:ATM))",
                 "metadata": {
                     "casual": true,
@@ -45650,7 +45650,7 @@
                 "source": "789961163",
                 "relation": "increases",
                 "target": "1534610869",
-                "directed": "false",
+                "directed": false,
                 "label": "a(CHEBI:cisplatin) increases p(HGNC:TP53)",
                 "metadata": {
                     "casual": true,
@@ -45677,7 +45677,7 @@
                 "source": "789961163",
                 "relation": "directlyIncreases",
                 "target": "-1819353714",
-                "directed": "false",
+                "directed": false,
                 "label": "a(CHEBI:cisplatin) directlyIncreases a(SCHEM:\"double-stranded DNA break\")",
                 "metadata": {
                     "casual": true,

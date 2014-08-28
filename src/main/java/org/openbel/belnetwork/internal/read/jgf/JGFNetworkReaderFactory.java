@@ -13,6 +13,7 @@ import org.cytoscape.model.subnetwork.CyRootNetworkManager;
 import org.cytoscape.view.model.CyNetworkViewFactory;
 import org.cytoscape.view.vizmap.VisualMappingManager;
 import org.cytoscape.work.TaskIterator;
+import org.openbel.belnetwork.api.BELGraphReader;
 
 public class JGFNetworkReaderFactory extends AbstractReaderFactory {
 
@@ -23,12 +24,13 @@ public class JGFNetworkReaderFactory extends AbstractReaderFactory {
     private final CyTableManager cyTableManager;
     private final VisualMappingManager visMgr;
     private final CyEventHelper eventHelper;
+    private final BELGraphReader belGraphReader;
 
     public JGFNetworkReaderFactory(final CyFileFilter filter, final CyApplicationManager appMgr,
             final CyNetworkViewFactory cyNetworkViewFactory, final CyNetworkFactory cyNetworkFactory,
             final CyNetworkManager cyNetworkManager, final CyRootNetworkManager cyRootNetworkManager,
             CyTableFactory cyTableFactory, CyTableManager cyTableManager, VisualMappingManager visMgr,
-            CyEventHelper eventHelper) {
+            CyEventHelper eventHelper, BELGraphReader belGraphReader) {
         super(filter, cyNetworkViewFactory, cyNetworkFactory);
 
         this.appMgr = appMgr;
@@ -38,13 +40,14 @@ public class JGFNetworkReaderFactory extends AbstractReaderFactory {
         this.cyTableManager = cyTableManager;
         this.visMgr = visMgr;
         this.eventHelper = eventHelper;
+        this.belGraphReader = belGraphReader;
     }
 
     @Override
     public TaskIterator createTaskIterator(InputStream is, String inputName) {
         return new TaskIterator(
-                new JGFNetworkReader(is, appMgr, cyNetworkViewFactory, cyNetworkFactory,
-                                     cyNetworkManager, cyRootNetworkManager, cyTableFactory,
-                                     cyTableManager, visMgr, eventHelper));
+                new JGFNetworkReader(is, inputName, belGraphReader, appMgr, cyNetworkViewFactory,
+                                     cyNetworkFactory, cyNetworkManager, cyRootNetworkManager,
+                                     cyTableFactory, cyTableManager, visMgr, eventHelper));
     }
 }

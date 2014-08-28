@@ -567,7 +567,7 @@
                     "source": "p(HGNC:BRCA1)",
                     "relation": "increases",
                     "target": "tscript(p(HGNC:NFE2L2))",
-                    "directed": "false",
+                    "directed": false,
                     "label": "p(HGNC:BRCA1) increases tscript(p(HGNC:NFE2L2))",
                     "metadata": {
                         "casual": true,
@@ -594,7 +594,7 @@
                     "source": "p(HGNC:BRCA1)",
                     "relation": "directlyDecreases",
                     "target": "tscript(p(HGNC:ESR1))",
-                    "directed": "false",
+                    "directed": false,
                     "label": "p(HGNC:BRCA1) directlyDecreases tscript(p(HGNC:ESR1))",
                     "metadata": {
                         "casual": true,
@@ -651,7 +651,7 @@
                     "source": "p(HGNC:AHR)",
                     "relation": "actsIn",
                     "target": "tscript(p(HGNC:AHR))",
-                    "directed": "false",
+                    "directed": false,
                     "label": "p(HGNC:AHR) actsIn tscript(p(HGNC:AHR))",
                     "metadata": {
                         "casual": false,
@@ -2118,7 +2118,7 @@
                     "source": "p(HGNC:NR1I2)",
                     "relation": "actsIn",
                     "target": "tscript(p(HGNC:NR1I2))",
-                    "directed": "false",
+                    "directed": false,
                     "label": "p(HGNC:NR1I2) actsIn tscript(p(HGNC:NR1I2))",
                     "metadata": {
                         "casual": false,
@@ -2760,7 +2760,7 @@
                     "source": "tscript(p(HGNC:NR1I2))",
                     "relation": "increases",
                     "target": "p(HGNC:CYP1A1)",
-                    "directed": "false",
+                    "directed": false,
                     "label": "tscript(p(HGNC:NR1I2)) increases p(HGNC:CYP1A1)",
                     "metadata": {
                         "casual": true,
@@ -2787,7 +2787,7 @@
                     "source": "tscript(p(HGNC:NR1I2))",
                     "relation": "increases",
                     "target": "p(HGNC:CYP1A2)",
-                    "directed": "false",
+                    "directed": false,
                     "label": "tscript(p(HGNC:NR1I2)) increases p(HGNC:CYP1A2)",
                     "metadata": {
                         "casual": true,
@@ -2814,7 +2814,7 @@
                     "source": "a(SCHEM:Indirubin)",
                     "relation": "increases",
                     "target": "tscript(p(HGNC:AHR))",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(SCHEM:Indirubin) increases tscript(p(HGNC:AHR))",
                     "metadata": {
                         "casual": true,
@@ -2841,7 +2841,7 @@
                     "source": "a(CHEBI:phenobarbital)",
                     "relation": "increases",
                     "target": "p(HGNC:CYP2B6)",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(CHEBI:phenobarbital) increases p(HGNC:CYP2B6)",
                     "metadata": {
                         "casual": true,
@@ -2868,7 +2868,7 @@
                     "source": "a(CHEBI:phenobarbital)",
                     "relation": "increases",
                     "target": "cat(p(HGNC:CYP2B6))",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(CHEBI:phenobarbital) increases cat(p(HGNC:CYP2B6))",
                     "metadata": {
                         "casual": true,
@@ -2895,7 +2895,7 @@
                     "source": "p(HGNC:CYP2B6)",
                     "relation": "actsIn",
                     "target": "cat(p(HGNC:CYP2B6))",
-                    "directed": "false",
+                    "directed": false,
                     "label": "p(HGNC:CYP2B6) actsIn cat(p(HGNC:CYP2B6))",
                     "metadata": {
                         "casual": false,
@@ -2952,7 +2952,7 @@
                     "source": "p(HGNC:CYP1A2)",
                     "relation": "actsIn",
                     "target": "cat(p(HGNC:CYP1A2))",
-                    "directed": "false",
+                    "directed": false,
                     "label": "p(HGNC:CYP1A2) actsIn cat(p(HGNC:CYP1A2))",
                     "metadata": {
                         "casual": false,
@@ -3099,7 +3099,7 @@
                     "source": "p(HGNC:ESR1)",
                     "relation": "actsIn",
                     "target": "tscript(p(HGNC:ESR1))",
-                    "directed": "false",
+                    "directed": false,
                     "label": "p(HGNC:ESR1) actsIn tscript(p(HGNC:ESR1))",
                     "metadata": {
                         "casual": false,
@@ -6786,7 +6786,7 @@
                     "source": "cat(p(HGNC:GSTP1))",
                     "relation": "decreases",
                     "target": "a(SCHEM:\"4-Hydroxy-2-nonenal\")",
-                    "directed": "false",
+                    "directed": false,
                     "label": "cat(p(HGNC:GSTP1)) decreases a(SCHEM:\"4-Hydroxy-2-nonenal\")",
                     "metadata": {
                         "casual": true,
@@ -6813,7 +6813,7 @@
                     "source": "a(CHEBI:dexamethasone)",
                     "relation": "increases",
                     "target": "p(HGNC:CYP3A5)",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(CHEBI:dexamethasone) increases p(HGNC:CYP3A5)",
                     "metadata": {
                         "casual": true,
@@ -6840,7 +6840,7 @@
                     "source": "a(CHEBI:dexamethasone)",
                     "relation": "increases",
                     "target": "tscript(p(HGNC:NR3C1))",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(CHEBI:dexamethasone) increases tscript(p(HGNC:NR3C1))",
                     "metadata": {
                         "casual": true,
@@ -7017,7 +7017,7 @@
                     "source": "tscript(p(HGNC:NR3C1))",
                     "relation": "increases",
                     "target": "p(HGNC:CYP3A5)",
-                    "directed": "false",
+                    "directed": false,
                     "label": "tscript(p(HGNC:NR3C1)) increases p(HGNC:CYP3A5)",
                     "metadata": {
                         "casual": true,
@@ -7044,7 +7044,7 @@
                     "source": "cat(p(HGNC:ALDH3A1))",
                     "relation": "decreases",
                     "target": "a(SCHEM:\"4-Hydroxy-2-nonenal\")",
-                    "directed": "false",
+                    "directed": false,
                     "label": "cat(p(HGNC:ALDH3A1)) decreases a(SCHEM:\"4-Hydroxy-2-nonenal\")",
                     "metadata": {
                         "casual": true,
@@ -7086,7 +7086,7 @@
                     "source": "p(HGNC:ALDH3A1)",
                     "relation": "actsIn",
                     "target": "cat(p(HGNC:ALDH3A1))",
-                    "directed": "false",
+                    "directed": false,
                     "label": "p(HGNC:ALDH3A1) actsIn cat(p(HGNC:ALDH3A1))",
                     "metadata": {
                         "casual": false,
@@ -7128,7 +7128,7 @@
                     "source": "tscript(p(HGNC:NR1I3))",
                     "relation": "increases",
                     "target": "p(HGNC:CYP1A1)",
-                    "directed": "false",
+                    "directed": false,
                     "label": "tscript(p(HGNC:NR1I3)) increases p(HGNC:CYP1A1)",
                     "metadata": {
                         "casual": true,
@@ -7155,7 +7155,7 @@
                     "source": "p(HGNC:NR1I3)",
                     "relation": "actsIn",
                     "target": "tscript(p(HGNC:NR1I3))",
-                    "directed": "false",
+                    "directed": false,
                     "label": "p(HGNC:NR1I3) actsIn tscript(p(HGNC:NR1I3))",
                     "metadata": {
                         "casual": false,
@@ -7632,7 +7632,7 @@
                     "source": "p(HGNC:NFE2L2)",
                     "relation": "actsIn",
                     "target": "tscript(p(HGNC:NFE2L2))",
-                    "directed": "false",
+                    "directed": false,
                     "label": "p(HGNC:NFE2L2) actsIn tscript(p(HGNC:NFE2L2))",
                     "metadata": {
                         "casual": false,
@@ -9999,7 +9999,7 @@
                     "source": "cat(p(HGNC:NQO1))",
                     "relation": "decreases",
                     "target": "a(CHEBI:\"reactive oxygen species\")",
-                    "directed": "false",
+                    "directed": false,
                     "label": "cat(p(HGNC:NQO1)) decreases a(CHEBI:\"reactive oxygen species\")",
                     "metadata": {
                         "casual": true,
@@ -10071,7 +10071,7 @@
                     "source": "a(SCHEM:Cotinine)",
                     "relation": "increases",
                     "target": "p(HGNC:AKT1,pmod(P))",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(SCHEM:Cotinine) increases p(HGNC:AKT1,pmod(P))",
                     "metadata": {
                         "casual": true,
@@ -10098,7 +10098,7 @@
                     "source": "cat(p(HGNC:CYP2E1))",
                     "relation": "increases",
                     "target": "a(CHEBI:\"reactive oxygen species\")",
-                    "directed": "false",
+                    "directed": false,
                     "label": "cat(p(HGNC:CYP2E1)) increases a(CHEBI:\"reactive oxygen species\")",
                     "metadata": {
                         "casual": true,
@@ -10140,7 +10140,7 @@
                     "source": "p(HGNC:CYP1B1)",
                     "relation": "actsIn",
                     "target": "cat(p(HGNC:CYP1B1))",
-                    "directed": "false",
+                    "directed": false,
                     "label": "p(HGNC:CYP1B1) actsIn cat(p(HGNC:CYP1B1))",
                     "metadata": {
                         "casual": false,
@@ -10332,7 +10332,7 @@
                     "source": "a(SCHEM:Tetrachlorodibenzodioxin)",
                     "relation": "increases",
                     "target": "p(HGNC:CYP1A1)",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(SCHEM:Tetrachlorodibenzodioxin) increases p(HGNC:CYP1A1)",
                     "metadata": {
                         "casual": true,
@@ -10359,7 +10359,7 @@
                     "source": "a(SCHEM:Tetrachlorodibenzodioxin)",
                     "relation": "increases",
                     "target": "cat(p(HGNC:CYP1B1))",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(SCHEM:Tetrachlorodibenzodioxin) increases cat(p(HGNC:CYP1B1))",
                     "metadata": {
                         "casual": true,
@@ -10386,7 +10386,7 @@
                     "source": "a(SCHEM:Tetrachlorodibenzodioxin)",
                     "relation": "increases",
                     "target": "p(HGNC:CYP1B1)",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(SCHEM:Tetrachlorodibenzodioxin) increases p(HGNC:CYP1B1)",
                     "metadata": {
                         "casual": true,
@@ -10413,7 +10413,7 @@
                     "source": "a(SCHEM:Tetrachlorodibenzodioxin)",
                     "relation": "increases",
                     "target": "cat(p(HGNC:CYP1A1))",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(SCHEM:Tetrachlorodibenzodioxin) increases cat(p(HGNC:CYP1A1))",
                     "metadata": {
                         "casual": true,
@@ -10440,7 +10440,7 @@
                     "source": "a(CHEBI:nicotine)",
                     "relation": "increases",
                     "target": "p(HGNC:CYP1A1)",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(CHEBI:nicotine) increases p(HGNC:CYP1A1)",
                     "metadata": {
                         "casual": true,
@@ -10467,7 +10467,7 @@
                     "source": "a(CHEBI:nicotine)",
                     "relation": "increases",
                     "target": "p(HGNC:CYP3A5)",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(CHEBI:nicotine) increases p(HGNC:CYP3A5)",
                     "metadata": {
                         "casual": true,
@@ -10494,7 +10494,7 @@
                     "source": "a(CHEBI:nicotine)",
                     "relation": "increases",
                     "target": "p(HGNC:AKT1,pmod(P))",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(CHEBI:nicotine) increases p(HGNC:AKT1,pmod(P))",
                     "metadata": {
                         "casual": true,
@@ -10521,7 +10521,7 @@
                     "source": "a(SCHEM:\"Smoke condensate, cigarette\")",
                     "relation": "increases",
                     "target": "cat(p(HGNC:CYP1B1))",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(SCHEM:\"Smoke condensate, cigarette\") increases cat(p(HGNC:CYP1B1))",
                     "metadata": {
                         "casual": true,
@@ -10548,7 +10548,7 @@
                     "source": "a(CHEBI:nicotine)",
                     "relation": "isA",
                     "target": "a(SCHEM:\"Smoke condensate, cigarette\")",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(CHEBI:nicotine) isA a(SCHEM:\"Smoke condensate, cigarette\")",
                     "metadata": {
                         "casual": false,
@@ -10575,7 +10575,7 @@
                     "source": "a(SCHEM:\"Smoke condensate, cigarette\")",
                     "relation": "increases",
                     "target": "cat(p(HGNC:CYP1A1))",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(SCHEM:\"Smoke condensate, cigarette\") increases cat(p(HGNC:CYP1A1))",
                     "metadata": {
                         "casual": true,
@@ -10602,7 +10602,7 @@
                     "source": "tscript(p(HGNC:ESR1))",
                     "relation": "directlyIncreases",
                     "target": "p(HGNC:CYP1B1)",
-                    "directed": "false",
+                    "directed": false,
                     "label": "tscript(p(HGNC:ESR1)) directlyIncreases p(HGNC:CYP1B1)",
                     "metadata": {
                         "casual": true,
@@ -10629,7 +10629,7 @@
                     "source": "tscript(p(HGNC:ESR1))",
                     "relation": "increases",
                     "target": "p(HGNC:CYP1A1)",
-                    "directed": "false",
+                    "directed": false,
                     "label": "tscript(p(HGNC:ESR1)) increases p(HGNC:CYP1A1)",
                     "metadata": {
                         "casual": true,
@@ -10656,7 +10656,7 @@
                     "source": "p(HGNC:AHRR)",
                     "relation": "decreases",
                     "target": "tscript(p(HGNC:AHR))",
-                    "directed": "false",
+                    "directed": false,
                     "label": "p(HGNC:AHRR) decreases tscript(p(HGNC:AHR))",
                     "metadata": {
                         "casual": true,
@@ -10698,7 +10698,7 @@
                     "source": "p(HGNC:AHRR)",
                     "relation": "directlyDecreases",
                     "target": "tscript(p(HGNC:ESR1))",
-                    "directed": "false",
+                    "directed": false,
                     "label": "p(HGNC:AHRR) directlyDecreases tscript(p(HGNC:ESR1))",
                     "metadata": {
                         "casual": true,
@@ -10725,7 +10725,7 @@
                     "source": "a(CHEBI:curcumin)",
                     "relation": "decreases",
                     "target": "cat(p(HGNC:CYP1A2))",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(CHEBI:curcumin) decreases cat(p(HGNC:CYP1A2))",
                     "metadata": {
                         "casual": true,
@@ -10752,7 +10752,7 @@
                     "source": "a(CHEBI:curcumin)",
                     "relation": "decreases",
                     "target": "cat(p(HGNC:CYP1A1))",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(CHEBI:curcumin) decreases cat(p(HGNC:CYP1A1))",
                     "metadata": {
                         "casual": true,
@@ -10779,7 +10779,7 @@
                     "source": "a(CHEBI:curcumin)",
                     "relation": "decreases",
                     "target": "cat(p(HGNC:CYP2B6))",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(CHEBI:curcumin) decreases cat(p(HGNC:CYP2B6))",
                     "metadata": {
                         "casual": true,
@@ -10806,7 +10806,7 @@
                     "source": "cat(p(HGNC:CYP1A2))",
                     "relation": "increases",
                     "target": "a(CHEBI:\"reactive oxygen species\")",
-                    "directed": "false",
+                    "directed": false,
                     "label": "cat(p(HGNC:CYP1A2)) increases a(CHEBI:\"reactive oxygen species\")",
                     "metadata": {
                         "casual": true,
@@ -10833,7 +10833,7 @@
                     "source": "a(CHEBI:\"reactive oxygen species\")",
                     "relation": "increases",
                     "target": "a(SCHEM:\"4-Hydroxy-2-nonenal\")",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(CHEBI:\"reactive oxygen species\") increases a(SCHEM:\"4-Hydroxy-2-nonenal\")",
                     "metadata": {
                         "casual": true,
@@ -10860,7 +10860,7 @@
                     "source": "tscript(p(HGNC:NFE2L2))",
                     "relation": "increases",
                     "target": "p(HGNC:ALDH3A1)",
-                    "directed": "false",
+                    "directed": false,
                     "label": "tscript(p(HGNC:NFE2L2)) increases p(HGNC:ALDH3A1)",
                     "metadata": {
                         "casual": true,
@@ -10887,7 +10887,7 @@
                     "source": "tscript(p(HGNC:NFE2L2))",
                     "relation": "increases",
                     "target": "p(HGNC:NQO1)",
-                    "directed": "false",
+                    "directed": false,
                     "label": "tscript(p(HGNC:NFE2L2)) increases p(HGNC:NQO1)",
                     "metadata": {
                         "casual": true,
@@ -10914,7 +10914,7 @@
                     "source": "a(SCHEM:\"Diesel exhaust particles\")",
                     "relation": "increases",
                     "target": "tscript(p(HGNC:AHR))",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(SCHEM:\"Diesel exhaust particles\") increases tscript(p(HGNC:AHR))",
                     "metadata": {
                         "casual": true,
@@ -10956,7 +10956,7 @@
                     "source": "a(SCHEM:\"Diesel exhaust particles\")",
                     "relation": "increases",
                     "target": "cat(p(HGNC:CYP1A2))",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(SCHEM:\"Diesel exhaust particles\") increases cat(p(HGNC:CYP1A2))",
                     "metadata": {
                         "casual": true,
@@ -10983,7 +10983,7 @@
                     "source": "a(SCHEM:\"Diesel exhaust particles\")",
                     "relation": "increases",
                     "target": "a(CHEBI:\"reactive oxygen species\")",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(SCHEM:\"Diesel exhaust particles\") increases a(CHEBI:\"reactive oxygen species\")",
                     "metadata": {
                         "casual": true,
@@ -11040,7 +11040,7 @@
                     "source": "a(SCHEM:\"Diesel exhaust particles\")",
                     "relation": "increases",
                     "target": "cat(p(HGNC:CYP1A1))",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(SCHEM:\"Diesel exhaust particles\") increases cat(p(HGNC:CYP1A1))",
                     "metadata": {
                         "casual": true,
@@ -11067,7 +11067,7 @@
                     "source": "a(SCHEM:\"Diesel exhaust particles\")",
                     "relation": "increases",
                     "target": "tscript(p(HGNC:NFE2L2))",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(SCHEM:\"Diesel exhaust particles\") increases tscript(p(HGNC:NFE2L2))",
                     "metadata": {
                         "casual": true,
@@ -11109,7 +11109,7 @@
                     "source": "a(SCHEM:\"Diesel exhaust particles\")",
                     "relation": "increases",
                     "target": "cat(p(HGNC:CYP1B1))",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(SCHEM:\"Diesel exhaust particles\") increases cat(p(HGNC:CYP1B1))",
                     "metadata": {
                         "casual": true,
@@ -11136,7 +11136,7 @@
                     "source": "a(SCHEM:\"8-Methyl-IQX\")",
                     "relation": "increases",
                     "target": "tscript(p(HGNC:AHR))",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(SCHEM:\"8-Methyl-IQX\") increases tscript(p(HGNC:AHR))",
                     "metadata": {
                         "casual": true,
@@ -11163,7 +11163,7 @@
                     "source": "a(SCHEM:\"Benzo(a)pyrene\")",
                     "relation": "increases",
                     "target": "p(HGNC:NQO1)",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(SCHEM:\"Benzo(a)pyrene\") increases p(HGNC:NQO1)",
                     "metadata": {
                         "casual": true,
@@ -11190,7 +11190,7 @@
                     "source": "a(SCHEM:\"Benzo(a)pyrene\")",
                     "relation": "directlyIncreases",
                     "target": "tscript(p(HGNC:AHR))",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(SCHEM:\"Benzo(a)pyrene\") directlyIncreases tscript(p(HGNC:AHR))",
                     "metadata": {
                         "casual": true,
@@ -11217,7 +11217,7 @@
                     "source": "a(SCHEM:\"Benzo(a)pyrene\")",
                     "relation": "increases",
                     "target": "p(HGNC:TP53)",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(SCHEM:\"Benzo(a)pyrene\") increases p(HGNC:TP53)",
                     "metadata": {
                         "casual": true,
@@ -11244,7 +11244,7 @@
                     "source": "cat(p(HGNC:CYP1B1))",
                     "relation": "increases",
                     "target": "a(CHEBI:\"reactive oxygen species\")",
-                    "directed": "false",
+                    "directed": false,
                     "label": "cat(p(HGNC:CYP1B1)) increases a(CHEBI:\"reactive oxygen species\")",
                     "metadata": {
                         "casual": true,
@@ -11271,7 +11271,7 @@
                     "source": "cat(p(HGNC:CYP1A1))",
                     "relation": "increases",
                     "target": "a(CHEBI:\"reactive oxygen species\")",
-                    "directed": "false",
+                    "directed": false,
                     "label": "cat(p(HGNC:CYP1A1)) increases a(CHEBI:\"reactive oxygen species\")",
                     "metadata": {
                         "casual": true,
@@ -11298,7 +11298,7 @@
                     "source": "p(HGNC:NQO1)",
                     "relation": "actsIn",
                     "target": "cat(p(HGNC:NQO1))",
-                    "directed": "false",
+                    "directed": false,
                     "label": "p(HGNC:NQO1) actsIn cat(p(HGNC:NQO1))",
                     "metadata": {
                         "casual": false,
@@ -11565,7 +11565,7 @@
                     "source": "p(HGNC:NQO1)",
                     "relation": "increases",
                     "target": "p(HGNC:GSTP1)",
-                    "directed": "false",
+                    "directed": false,
                     "label": "p(HGNC:NQO1) increases p(HGNC:GSTP1)",
                     "metadata": {
                         "casual": true,
@@ -11592,7 +11592,7 @@
                     "source": "p(HGNC:CYP1A1)",
                     "relation": "actsIn",
                     "target": "cat(p(HGNC:CYP1A1))",
-                    "directed": "false",
+                    "directed": false,
                     "label": "p(HGNC:CYP1A1) actsIn cat(p(HGNC:CYP1A1))",
                     "metadata": {
                         "casual": false,
@@ -11949,7 +11949,7 @@
                     "source": "p(HGNC:GSTP1)",
                     "relation": "actsIn",
                     "target": "cat(p(HGNC:GSTP1))",
-                    "directed": "false",
+                    "directed": false,
                     "label": "p(HGNC:GSTP1) actsIn cat(p(HGNC:GSTP1))",
                     "metadata": {
                         "casual": false,
@@ -12096,7 +12096,7 @@
                     "source": "a(SCHEM:Soot)",
                     "relation": "increases",
                     "target": "tscript(p(HGNC:AHR))",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(SCHEM:Soot) increases tscript(p(HGNC:AHR))",
                     "metadata": {
                         "casual": true,
@@ -12123,7 +12123,7 @@
                     "source": "p(HGNC:CYP2E1)",
                     "relation": "actsIn",
                     "target": "cat(p(HGNC:CYP2E1))",
-                    "directed": "false",
+                    "directed": false,
                     "label": "p(HGNC:CYP2E1) actsIn cat(p(HGNC:CYP2E1))",
                     "metadata": {
                         "casual": false,
@@ -12420,7 +12420,7 @@
                     "source": "tscript(p(HGNC:AHR))",
                     "relation": "directlyIncreases",
                     "target": "p(HGNC:CYP1A2)",
-                    "directed": "false",
+                    "directed": false,
                     "label": "tscript(p(HGNC:AHR)) directlyIncreases p(HGNC:CYP1A2)",
                     "metadata": {
                         "casual": true,
@@ -12447,7 +12447,7 @@
                     "source": "tscript(p(HGNC:AHR))",
                     "relation": "increases",
                     "target": "p(HGNC:AHRR)",
-                    "directed": "false",
+                    "directed": false,
                     "label": "tscript(p(HGNC:AHR)) increases p(HGNC:AHRR)",
                     "metadata": {
                         "casual": true,
@@ -12474,7 +12474,7 @@
                     "source": "tscript(p(HGNC:AHR))",
                     "relation": "increases",
                     "target": "p(HGNC:ALDH3A1)",
-                    "directed": "false",
+                    "directed": false,
                     "label": "tscript(p(HGNC:AHR)) increases p(HGNC:ALDH3A1)",
                     "metadata": {
                         "casual": true,
@@ -12501,7 +12501,7 @@
                     "source": "tscript(p(HGNC:AHR))",
                     "relation": "increases",
                     "target": "p(HGNC:NFE2L2)",
-                    "directed": "false",
+                    "directed": false,
                     "label": "tscript(p(HGNC:AHR)) increases p(HGNC:NFE2L2)",
                     "metadata": {
                         "casual": true,
@@ -12528,7 +12528,7 @@
                     "source": "tscript(p(HGNC:AHR))",
                     "relation": "increases",
                     "target": "p(HGNC:NQO1)",
-                    "directed": "false",
+                    "directed": false,
                     "label": "tscript(p(HGNC:AHR)) increases p(HGNC:NQO1)",
                     "metadata": {
                         "casual": true,
@@ -12555,7 +12555,7 @@
                     "source": "tscript(p(HGNC:AHR))",
                     "relation": "increases",
                     "target": "p(HGNC:CYP1B1)",
-                    "directed": "false",
+                    "directed": false,
                     "label": "tscript(p(HGNC:AHR)) increases p(HGNC:CYP1B1)",
                     "metadata": {
                         "casual": true,
@@ -12582,7 +12582,7 @@
                     "source": "tscript(p(HGNC:AHR))",
                     "relation": "directlyIncreases",
                     "target": "p(HGNC:CYP1A1)",
-                    "directed": "false",
+                    "directed": false,
                     "label": "tscript(p(HGNC:AHR)) directlyIncreases p(HGNC:CYP1A1)",
                     "metadata": {
                         "casual": true,
@@ -12609,7 +12609,7 @@
                     "source": "a(SCHEM:\"Polycyclic Aromatic Hydrocarbons\")",
                     "relation": "increases",
                     "target": "tscript(p(HGNC:AHR))",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(SCHEM:\"Polycyclic Aromatic Hydrocarbons\") increases tscript(p(HGNC:AHR))",
                     "metadata": {
                         "casual": true,
@@ -12651,7 +12651,7 @@
                     "source": "a(SCHEM:\"Benzo(a)pyrene\")",
                     "relation": "isA",
                     "target": "a(SCHEM:\"Polycyclic Aromatic Hydrocarbons\")",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(SCHEM:\"Benzo(a)pyrene\") isA a(SCHEM:\"Polycyclic Aromatic Hydrocarbons\")",
                     "metadata": {
                         "casual": false,
@@ -12678,7 +12678,7 @@
                     "source": "a(SCHEM:\"Polycyclic Aromatic Hydrocarbons\")",
                     "relation": "increases",
                     "target": "cat(p(HGNC:CYP1B1))",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(SCHEM:\"Polycyclic Aromatic Hydrocarbons\") increases cat(p(HGNC:CYP1B1))",
                     "metadata": {
                         "casual": true,
@@ -12720,7 +12720,7 @@
                     "source": "a(SCHEM:\"Polycyclic Aromatic Hydrocarbons\")",
                     "relation": "increases",
                     "target": "cat(p(HGNC:CYP1A1))",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(SCHEM:\"Polycyclic Aromatic Hydrocarbons\") increases cat(p(HGNC:CYP1A1))",
                     "metadata": {
                         "casual": true,
@@ -12762,7 +12762,7 @@
                     "source": "a(SCHEM:\"Particulate Matter\")",
                     "relation": "increases",
                     "target": "p(HGNC:NQO1)",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(SCHEM:\"Particulate Matter\") increases p(HGNC:NQO1)",
                     "metadata": {
                         "casual": true,
@@ -12789,7 +12789,7 @@
                     "source": "a(SCHEM:\"Particulate Matter\")",
                     "relation": "increases",
                     "target": "p(HGNC:CYP1A1)",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(SCHEM:\"Particulate Matter\") increases p(HGNC:CYP1A1)",
                     "metadata": {
                         "casual": true,
@@ -12816,7 +12816,7 @@
                     "source": "a(SCHEM:\"Particulate Matter\")",
                     "relation": "increases",
                     "target": "p(HGNC:GSTP1)",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(SCHEM:\"Particulate Matter\") increases p(HGNC:GSTP1)",
                     "metadata": {
                         "casual": true,
@@ -12843,7 +12843,7 @@
                     "source": "a(SCHEM:Soot)",
                     "relation": "isA",
                     "target": "a(SCHEM:\"Particulate Matter\")",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(SCHEM:Soot) isA a(SCHEM:\"Particulate Matter\")",
                     "metadata": {
                         "casual": false,
@@ -12870,7 +12870,7 @@
                     "source": "a(SCHEM:\"Particulate Matter\")",
                     "relation": "increases",
                     "target": "p(HGNC:GSTM3)",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(SCHEM:\"Particulate Matter\") increases p(HGNC:GSTM3)",
                     "metadata": {
                         "casual": true,
@@ -12897,7 +12897,7 @@
                     "source": "a(SCHEM:\"Particulate Matter\")",
                     "relation": "increases",
                     "target": "p(HGNC:CYP2E1)",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(SCHEM:\"Particulate Matter\") increases p(HGNC:CYP2E1)",
                     "metadata": {
                         "casual": true,
@@ -12924,7 +12924,7 @@
                     "source": "a(SCHEM:\"Particulate Matter\")",
                     "relation": "increases",
                     "target": "tscript(p(HGNC:AHR))",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(SCHEM:\"Particulate Matter\") increases tscript(p(HGNC:AHR))",
                     "metadata": {
                         "casual": true,
@@ -12951,7 +12951,7 @@
                     "source": "a(SCHEM:\"Particulate Matter\")",
                     "relation": "increases",
                     "target": "p(HGNC:CYP2F1)",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(SCHEM:\"Particulate Matter\") increases p(HGNC:CYP2F1)",
                     "metadata": {
                         "casual": true,
@@ -12978,7 +12978,7 @@
                     "source": "a(SCHEM:\"Polycyclic Aromatic Hydrocarbons\")",
                     "relation": "isA",
                     "target": "a(SCHEM:\"Particulate Matter\")",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(SCHEM:\"Polycyclic Aromatic Hydrocarbons\") isA a(SCHEM:\"Particulate Matter\")",
                     "metadata": {
                         "casual": false,
@@ -13801,7 +13801,7 @@
                     "source": "-2146876317",
                     "relation": "increases",
                     "target": "401290986",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(SCHEM:\"Benzo(a)pyrene\") increases p(HGNC:NQO1)",
                     "metadata": {
                         "casual": true,
@@ -13828,7 +13828,7 @@
                     "source": "-2146876317",
                     "relation": "directlyIncreases",
                     "target": "48004791",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(SCHEM:\"Benzo(a)pyrene\") directlyIncreases tscript(p(HGNC:AHR))",
                     "metadata": {
                         "casual": true,
@@ -13855,7 +13855,7 @@
                     "source": "-2146876317",
                     "relation": "increases",
                     "target": "1004415003",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(SCHEM:\"Benzo(a)pyrene\") increases p(HGNC:SULT1A1)",
                     "metadata": {
                         "casual": true,
@@ -13868,7 +13868,7 @@
                     "source": "384357397",
                     "relation": "increases",
                     "target": "-1038512723",
-                    "directed": "false",
+                    "directed": false,
                     "label": "tscript(p(HGNC:NFE2L2)) increases p(HGNC:ALDH3A1)",
                     "metadata": {
                         "casual": true,
@@ -13895,7 +13895,7 @@
                     "source": "384357397",
                     "relation": "increases",
                     "target": "401290986",
-                    "directed": "false",
+                    "directed": false,
                     "label": "tscript(p(HGNC:NFE2L2)) increases p(HGNC:NQO1)",
                     "metadata": {
                         "casual": true,
@@ -13922,7 +13922,7 @@
                     "source": "384357397",
                     "relation": "increases",
                     "target": "-1154823114",
-                    "directed": "false",
+                    "directed": false,
                     "label": "tscript(p(HGNC:NFE2L2)) increases p(HGNC:ABCC1)",
                     "metadata": {
                         "casual": true,
@@ -13949,7 +13949,7 @@
                     "source": "947095304",
                     "relation": "increases",
                     "target": "428310206",
-                    "directed": "false",
+                    "directed": false,
                     "label": "cat(p(HGNC:CYP1B1)) increases a(CHEBI:\"reactive oxygen species\")",
                     "metadata": {
                         "casual": true,
@@ -13976,7 +13976,7 @@
                     "source": "1823544027",
                     "relation": "isA",
                     "target": "2137315075",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(CHEBI:nicotine) isA a(SCHEM:\"Smoke condensate, cigarette\")",
                     "metadata": {
                         "casual": false,
@@ -14003,7 +14003,7 @@
                     "source": "2137315075",
                     "relation": "increases",
                     "target": "947095304",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(SCHEM:\"Smoke condensate, cigarette\") increases cat(p(HGNC:CYP1B1))",
                     "metadata": {
                         "casual": true,
@@ -14030,7 +14030,7 @@
                     "source": "2137315075",
                     "relation": "increases",
                     "target": "1080985352",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(SCHEM:\"Smoke condensate, cigarette\") increases cat(p(HGNC:CYP1A1))",
                     "metadata": {
                         "casual": true,
@@ -14057,7 +14057,7 @@
                     "source": "2137315075",
                     "relation": "increases",
                     "target": "-2137382405",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(SCHEM:\"Smoke condensate, cigarette\") increases tport(p(HGNC:ABCG2))",
                     "metadata": {
                         "casual": true,
@@ -14070,7 +14070,7 @@
                     "source": "-113091436",
                     "relation": "actsIn",
                     "target": "-1907212753",
-                    "directed": "false",
+                    "directed": false,
                     "label": "p(HGNC:NR1I3) actsIn tscript(p(HGNC:NR1I3))",
                     "metadata": {
                         "casual": false,
@@ -14547,7 +14547,7 @@
                     "source": "1959197137",
                     "relation": "increases",
                     "target": "1308946541",
-                    "directed": "false",
+                    "directed": false,
                     "label": "tscript(p(HGNC:NR3C1)) increases p(HGNC:CYP3A5)",
                     "metadata": {
                         "casual": true,
@@ -14574,7 +14574,7 @@
                     "source": "-249243233",
                     "relation": "actsIn",
                     "target": "947095304",
-                    "directed": "false",
+                    "directed": false,
                     "label": "p(HGNC:CYP1B1) actsIn cat(p(HGNC:CYP1B1))",
                     "metadata": {
                         "casual": false,
@@ -14766,7 +14766,7 @@
                     "source": "-1526078944",
                     "relation": "decreases",
                     "target": "-303688504",
-                    "directed": "false",
+                    "directed": false,
                     "label": "cat(p(HGNC:GSTP1)) decreases a(SCHEM:\"4-Hydroxy-2-nonenal\")",
                     "metadata": {
                         "casual": true,
@@ -14793,7 +14793,7 @@
                     "source": "1068971752",
                     "relation": "actsIn",
                     "target": "1472061322",
-                    "directed": "false",
+                    "directed": false,
                     "label": "p(HGNC:ESR1) actsIn tscript(p(HGNC:ESR1))",
                     "metadata": {
                         "casual": false,
@@ -18480,7 +18480,7 @@
                     "source": "-603507126",
                     "relation": "increases",
                     "target": "1080985352",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(SCHEM:\"Diesel exhaust particles\") increases cat(p(HGNC:CYP1A1))",
                     "metadata": {
                         "casual": true,
@@ -18507,7 +18507,7 @@
                     "source": "-603507126",
                     "relation": "increases",
                     "target": "428310206",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(SCHEM:\"Diesel exhaust particles\") increases a(CHEBI:\"reactive oxygen species\")",
                     "metadata": {
                         "casual": true,
@@ -18564,7 +18564,7 @@
                     "source": "-603507126",
                     "relation": "increases",
                     "target": "384357397",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(SCHEM:\"Diesel exhaust particles\") increases tscript(p(HGNC:NFE2L2))",
                     "metadata": {
                         "casual": true,
@@ -18606,7 +18606,7 @@
                     "source": "-603507126",
                     "relation": "increases",
                     "target": "947095304",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(SCHEM:\"Diesel exhaust particles\") increases cat(p(HGNC:CYP1B1))",
                     "metadata": {
                         "casual": true,
@@ -18633,7 +18633,7 @@
                     "source": "-603507126",
                     "relation": "increases",
                     "target": "1080985355",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(SCHEM:\"Diesel exhaust particles\") increases cat(p(HGNC:CYP1A2))",
                     "metadata": {
                         "casual": true,
@@ -18660,7 +18660,7 @@
                     "source": "-603507126",
                     "relation": "increases",
                     "target": "48004791",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(SCHEM:\"Diesel exhaust particles\") increases tscript(p(HGNC:AHR))",
                     "metadata": {
                         "casual": true,
@@ -18702,7 +18702,7 @@
                     "source": "-1907212753",
                     "relation": "increases",
                     "target": "-1823221345",
-                    "directed": "false",
+                    "directed": false,
                     "label": "tscript(p(HGNC:NR1I3)) increases p(HGNC:CYP1A1)",
                     "metadata": {
                         "casual": true,
@@ -18729,7 +18729,7 @@
                     "source": "473168146",
                     "relation": "actsIn",
                     "target": "-1526078944",
-                    "directed": "false",
+                    "directed": false,
                     "label": "p(HGNC:GSTP1) actsIn cat(p(HGNC:GSTP1))",
                     "metadata": {
                         "casual": false,
@@ -18876,7 +18876,7 @@
                     "source": "671775234",
                     "relation": "actsIn",
                     "target": "384357397",
-                    "directed": "false",
+                    "directed": false,
                     "label": "p(HGNC:NFE2L2) actsIn tscript(p(HGNC:NFE2L2))",
                     "metadata": {
                         "casual": false,
@@ -21243,7 +21243,7 @@
                     "source": "-1099503563",
                     "relation": "increases",
                     "target": "-2102549872",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(SCHEM:Cotinine) increases p(HGNC:AKT1,pmod(P))",
                     "metadata": {
                         "casual": true,
@@ -21270,7 +21270,7 @@
                     "source": "-1099503563",
                     "relation": "increases",
                     "target": "1825074583",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(SCHEM:Cotinine) increases bp(GO:\"xenobiotic metabolic process\")",
                     "metadata": {
                         "casual": true,
@@ -21283,7 +21283,7 @@
                     "source": "-1823221348",
                     "relation": "actsIn",
                     "target": "1080985355",
-                    "directed": "false",
+                    "directed": false,
                     "label": "p(HGNC:CYP1A2) actsIn cat(p(HGNC:CYP1A2))",
                     "metadata": {
                         "casual": false,
@@ -21430,7 +21430,7 @@
                     "source": "154041295",
                     "relation": "actsIn",
                     "target": "805932802",
-                    "directed": "false",
+                    "directed": false,
                     "label": "p(HGNC:CYP2B6) actsIn cat(p(HGNC:CYP2B6))",
                     "metadata": {
                         "casual": false,
@@ -21487,7 +21487,7 @@
                     "source": "1080985352",
                     "relation": "increases",
                     "target": "428310206",
-                    "directed": "false",
+                    "directed": false,
                     "label": "cat(p(HGNC:CYP1A1)) increases a(CHEBI:\"reactive oxygen species\")",
                     "metadata": {
                         "casual": true,
@@ -21514,7 +21514,7 @@
                     "source": "-655262770",
                     "relation": "actsIn",
                     "target": "1475383043",
-                    "directed": "false",
+                    "directed": false,
                     "label": "p(HGNC:CYP2E1) actsIn cat(p(HGNC:CYP2E1))",
                     "metadata": {
                         "casual": false,
@@ -21811,7 +21811,7 @@
                     "source": "409647036",
                     "relation": "directlyDecreases",
                     "target": "1472061322",
-                    "directed": "false",
+                    "directed": false,
                     "label": "p(HGNC:BRCA1) directlyDecreases tscript(p(HGNC:ESR1))",
                     "metadata": {
                         "casual": true,
@@ -21868,7 +21868,7 @@
                     "source": "409647036",
                     "relation": "increases",
                     "target": "384357397",
-                    "directed": "false",
+                    "directed": false,
                     "label": "p(HGNC:BRCA1) increases tscript(p(HGNC:NFE2L2))",
                     "metadata": {
                         "casual": true,
@@ -21895,7 +21895,7 @@
                     "source": "409647036",
                     "relation": "increases",
                     "target": "1556883482",
-                    "directed": "false",
+                    "directed": false,
                     "label": "p(HGNC:BRCA1) increases p(HGNC:ARNT)",
                     "metadata": {
                         "casual": true,
@@ -21922,7 +21922,7 @@
                     "source": "1265233227",
                     "relation": "increases",
                     "target": "-655262770",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(SCHEM:\"Particulate Matter\") increases p(HGNC:CYP2E1)",
                     "metadata": {
                         "casual": true,
@@ -21949,7 +21949,7 @@
                     "source": "1265233227",
                     "relation": "increases",
                     "target": "401290986",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(SCHEM:\"Particulate Matter\") increases p(HGNC:NQO1)",
                     "metadata": {
                         "casual": true,
@@ -21976,7 +21976,7 @@
                     "source": "1265233227",
                     "relation": "increases",
                     "target": "48004791",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(SCHEM:\"Particulate Matter\") increases tscript(p(HGNC:AHR))",
                     "metadata": {
                         "casual": true,
@@ -22003,7 +22003,7 @@
                     "source": "-554351521",
                     "relation": "isA",
                     "target": "1265233227",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(SCHEM:\"Polycyclic Aromatic Hydrocarbons\") isA a(SCHEM:\"Particulate Matter\")",
                     "metadata": {
                         "casual": false,
@@ -22030,7 +22030,7 @@
                     "source": "496202232",
                     "relation": "isA",
                     "target": "1265233227",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(SCHEM:Soot) isA a(SCHEM:\"Particulate Matter\")",
                     "metadata": {
                         "casual": false,
@@ -22057,7 +22057,7 @@
                     "source": "1265233227",
                     "relation": "increases",
                     "target": "-1823221345",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(SCHEM:\"Particulate Matter\") increases p(HGNC:CYP1A1)",
                     "metadata": {
                         "casual": true,
@@ -22084,7 +22084,7 @@
                     "source": "1265233227",
                     "relation": "increases",
                     "target": "473168146",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(SCHEM:\"Particulate Matter\") increases p(HGNC:GSTP1)",
                     "metadata": {
                         "casual": true,
@@ -22111,7 +22111,7 @@
                     "source": "1265233227",
                     "relation": "increases",
                     "target": "918715342",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(SCHEM:\"Particulate Matter\") increases p(HGNC:CYP2F1)",
                     "metadata": {
                         "casual": true,
@@ -22138,7 +22138,7 @@
                     "source": "1265233227",
                     "relation": "increases",
                     "target": "1919037089",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(SCHEM:\"Particulate Matter\") increases p(HGNC:GSTM3)",
                     "metadata": {
                         "casual": true,
@@ -22165,7 +22165,7 @@
                     "source": "1265233227",
                     "relation": "increases",
                     "target": "409202241",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(SCHEM:\"Particulate Matter\") increases p(HGNC:HSP90AA1)",
                     "metadata": {
                         "casual": true,
@@ -22178,7 +22178,7 @@
                     "source": "1265233227",
                     "relation": "increases",
                     "target": "428310206",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(SCHEM:\"Particulate Matter\") increases a(CHEBI:\"reactive oxygen species\")",
                     "metadata": {
                         "casual": true,
@@ -22191,7 +22191,7 @@
                     "source": "401290986",
                     "relation": "increases",
                     "target": "473168146",
-                    "directed": "false",
+                    "directed": false,
                     "label": "p(HGNC:NQO1) increases p(HGNC:GSTP1)",
                     "metadata": {
                         "casual": true,
@@ -22218,7 +22218,7 @@
                     "source": "401290986",
                     "relation": "actsIn",
                     "target": "192358243",
-                    "directed": "false",
+                    "directed": false,
                     "label": "p(HGNC:NQO1) actsIn cat(p(HGNC:NQO1))",
                     "metadata": {
                         "casual": false,
@@ -22485,7 +22485,7 @@
                     "source": "-65629821",
                     "relation": "increases",
                     "target": "48004791",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(SCHEM:\"8-Methyl-IQX\") increases tscript(p(HGNC:AHR))",
                     "metadata": {
                         "casual": true,
@@ -22512,7 +22512,7 @@
                     "source": "1475383043",
                     "relation": "increases",
                     "target": "428310206",
-                    "directed": "false",
+                    "directed": false,
                     "label": "cat(p(HGNC:CYP2E1)) increases a(CHEBI:\"reactive oxygen species\")",
                     "metadata": {
                         "casual": true,
@@ -22554,7 +22554,7 @@
                     "source": "-1823221345",
                     "relation": "actsIn",
                     "target": "1080985352",
-                    "directed": "false",
+                    "directed": false,
                     "label": "p(HGNC:CYP1A1) actsIn cat(p(HGNC:CYP1A1))",
                     "metadata": {
                         "casual": false,
@@ -22911,7 +22911,7 @@
                     "source": "49102383",
                     "relation": "increases",
                     "target": "-1823221348",
-                    "directed": "false",
+                    "directed": false,
                     "label": "tscript(p(HGNC:NR1I2)) increases p(HGNC:CYP1A2)",
                     "metadata": {
                         "casual": true,
@@ -22938,7 +22938,7 @@
                     "source": "49102383",
                     "relation": "increases",
                     "target": "-1823221345",
-                    "directed": "false",
+                    "directed": false,
                     "label": "tscript(p(HGNC:NR1I2)) increases p(HGNC:CYP1A1)",
                     "metadata": {
                         "casual": true,
@@ -22968,7 +22968,7 @@
                                     "tissue": "hepatocyte"
                                 },
                                 "citation": {
-                                    "type": null,
+                                    "type": "PUBMED",
                                     "name": "",
                                     "id": "12181440"
                                 }
@@ -22980,7 +22980,7 @@
                     "source": "428310206",
                     "relation": "increases",
                     "target": "-303688504",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(CHEBI:\"reactive oxygen species\") increases a(SCHEM:\"4-Hydroxy-2-nonenal\")",
                     "metadata": {
                         "casual": true,
@@ -23007,7 +23007,7 @@
                     "source": "794809233",
                     "relation": "increases",
                     "target": "1308946541",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(CHEBI:dexamethasone) increases p(HGNC:CYP3A5)",
                     "metadata": {
                         "casual": true,
@@ -23034,7 +23034,7 @@
                     "source": "794809233",
                     "relation": "increases",
                     "target": "1959197137",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(CHEBI:dexamethasone) increases tscript(p(HGNC:NR3C1))",
                     "metadata": {
                         "casual": true,
@@ -23211,7 +23211,7 @@
                     "source": "1472061322",
                     "relation": "increases",
                     "target": "-1823221345",
-                    "directed": "false",
+                    "directed": false,
                     "label": "tscript(p(HGNC:ESR1)) increases p(HGNC:CYP1A1)",
                     "metadata": {
                         "casual": true,
@@ -23238,7 +23238,7 @@
                     "source": "1472061322",
                     "relation": "directlyIncreases",
                     "target": "-249243233",
-                    "directed": "false",
+                    "directed": false,
                     "label": "tscript(p(HGNC:ESR1)) directlyIncreases p(HGNC:CYP1B1)",
                     "metadata": {
                         "casual": true,
@@ -23265,7 +23265,7 @@
                     "source": "-703423460",
                     "relation": "decreases",
                     "target": "-303688504",
-                    "directed": "false",
+                    "directed": false,
                     "label": "cat(p(HGNC:ALDH3A1)) decreases a(SCHEM:\"4-Hydroxy-2-nonenal\")",
                     "metadata": {
                         "casual": true,
@@ -23307,7 +23307,7 @@
                     "source": "159540969",
                     "relation": "increases",
                     "target": "154041295",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(CHEBI:phenobarbital) increases p(HGNC:CYP2B6)",
                     "metadata": {
                         "casual": true,
@@ -23334,7 +23334,7 @@
                     "source": "159540969",
                     "relation": "increases",
                     "target": "805932802",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(CHEBI:phenobarbital) increases cat(p(HGNC:CYP2B6))",
                     "metadata": {
                         "casual": true,
@@ -23361,7 +23361,7 @@
                     "source": "192358243",
                     "relation": "decreases",
                     "target": "428310206",
-                    "directed": "false",
+                    "directed": false,
                     "label": "cat(p(HGNC:NQO1)) decreases a(CHEBI:\"reactive oxygen species\")",
                     "metadata": {
                         "casual": true,
@@ -23433,7 +23433,7 @@
                     "source": "-1416998089",
                     "relation": "decreases",
                     "target": "1080985352",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(CHEBI:curcumin) decreases cat(p(HGNC:CYP1A1))",
                     "metadata": {
                         "casual": true,
@@ -23460,7 +23460,7 @@
                     "source": "-1416998089",
                     "relation": "decreases",
                     "target": "805932802",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(CHEBI:curcumin) decreases cat(p(HGNC:CYP2B6))",
                     "metadata": {
                         "casual": true,
@@ -23487,7 +23487,7 @@
                     "source": "-1416998089",
                     "relation": "decreases",
                     "target": "1080985355",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(CHEBI:curcumin) decreases cat(p(HGNC:CYP1A2))",
                     "metadata": {
                         "casual": true,
@@ -23514,7 +23514,7 @@
                     "source": "850645917",
                     "relation": "increases",
                     "target": "-1823221345",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(SCHEM:Tetrachlorodibenzodioxin) increases p(HGNC:CYP1A1)",
                     "metadata": {
                         "casual": true,
@@ -23541,7 +23541,7 @@
                     "source": "850645917",
                     "relation": "increases",
                     "target": "-249243233",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(SCHEM:Tetrachlorodibenzodioxin) increases p(HGNC:CYP1B1)",
                     "metadata": {
                         "casual": true,
@@ -23568,7 +23568,7 @@
                     "source": "850645917",
                     "relation": "increases",
                     "target": "947095304",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(SCHEM:Tetrachlorodibenzodioxin) increases cat(p(HGNC:CYP1B1))",
                     "metadata": {
                         "casual": true,
@@ -23595,7 +23595,7 @@
                     "source": "850645917",
                     "relation": "increases",
                     "target": "1080985352",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(SCHEM:Tetrachlorodibenzodioxin) increases cat(p(HGNC:CYP1A1))",
                     "metadata": {
                         "casual": true,
@@ -23622,7 +23622,7 @@
                     "source": "-1038512723",
                     "relation": "actsIn",
                     "target": "-703423460",
-                    "directed": "false",
+                    "directed": false,
                     "label": "p(HGNC:ALDH3A1) actsIn cat(p(HGNC:ALDH3A1))",
                     "metadata": {
                         "casual": false,
@@ -23664,7 +23664,7 @@
                     "source": "48004791",
                     "relation": "increases",
                     "target": "-249243233",
-                    "directed": "false",
+                    "directed": false,
                     "label": "tscript(p(HGNC:AHR)) increases p(HGNC:CYP1B1)",
                     "metadata": {
                         "casual": true,
@@ -23691,7 +23691,7 @@
                     "source": "48004791",
                     "relation": "increases",
                     "target": "-1933349790",
-                    "directed": "false",
+                    "directed": false,
                     "label": "tscript(p(HGNC:AHR)) increases p(HGNC:AHRR)",
                     "metadata": {
                         "casual": true,
@@ -23718,7 +23718,7 @@
                     "source": "48004791",
                     "relation": "increases",
                     "target": "671775234",
-                    "directed": "false",
+                    "directed": false,
                     "label": "tscript(p(HGNC:AHR)) increases p(HGNC:NFE2L2)",
                     "metadata": {
                         "casual": true,
@@ -23745,7 +23745,7 @@
                     "source": "48004791",
                     "relation": "directlyIncreases",
                     "target": "-1823221345",
-                    "directed": "false",
+                    "directed": false,
                     "label": "tscript(p(HGNC:AHR)) directlyIncreases p(HGNC:CYP1A1)",
                     "metadata": {
                         "casual": true,
@@ -23772,7 +23772,7 @@
                     "source": "48004791",
                     "relation": "directlyIncreases",
                     "target": "-1823221348",
-                    "directed": "false",
+                    "directed": false,
                     "label": "tscript(p(HGNC:AHR)) directlyIncreases p(HGNC:CYP1A2)",
                     "metadata": {
                         "casual": true,
@@ -23799,7 +23799,7 @@
                     "source": "48004791",
                     "relation": "increases",
                     "target": "401290986",
-                    "directed": "false",
+                    "directed": false,
                     "label": "tscript(p(HGNC:AHR)) increases p(HGNC:NQO1)",
                     "metadata": {
                         "casual": true,
@@ -23826,7 +23826,7 @@
                     "source": "48004791",
                     "relation": "increases",
                     "target": "-1038512723",
-                    "directed": "false",
+                    "directed": false,
                     "label": "tscript(p(HGNC:AHR)) increases p(HGNC:ALDH3A1)",
                     "metadata": {
                         "casual": true,
@@ -23856,7 +23856,7 @@
                                     "tissue": "bronchial epithelial"
                                 },
                                 "citation": {
-                                    "type": null,
+                                    "type": "PUBMED",
                                     "name": "",
                                     "id": "19410595"
                                 }
@@ -23868,7 +23868,7 @@
                     "source": "48004791",
                     "relation": "directlyIncreases",
                     "target": "1193523037",
-                    "directed": "false",
+                    "directed": false,
                     "label": "tscript(p(HGNC:AHR)) directlyIncreases p(HGNC:GSTA2)",
                     "metadata": {
                         "casual": true,
@@ -23895,7 +23895,7 @@
                     "source": "48004791",
                     "relation": "directlyIncreases",
                     "target": "594401262",
-                    "directed": "false",
+                    "directed": false,
                     "label": "tscript(p(HGNC:AHR)) directlyIncreases p(HGNC:UGT1A6)",
                     "metadata": {
                         "casual": true,
@@ -23922,7 +23922,7 @@
                     "source": "48004791",
                     "relation": "directlyIncreases",
                     "target": "594401265",
-                    "directed": "false",
+                    "directed": false,
                     "label": "tscript(p(HGNC:AHR)) directlyIncreases p(HGNC:UGT1A1)",
                     "metadata": {
                         "casual": true,
@@ -23949,7 +23949,7 @@
                     "source": "48004791",
                     "relation": "increases",
                     "target": "1667162206",
-                    "directed": "false",
+                    "directed": false,
                     "label": "tscript(p(HGNC:AHR)) increases tscript(p(HGNC:ARNT))",
                     "metadata": {
                         "casual": true,
@@ -23976,7 +23976,7 @@
                     "source": "-554351521",
                     "relation": "increases",
                     "target": "1080985352",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(SCHEM:\"Polycyclic Aromatic Hydrocarbons\") increases cat(p(HGNC:CYP1A1))",
                     "metadata": {
                         "casual": true,
@@ -24018,7 +24018,7 @@
                     "source": "-554351521",
                     "relation": "increases",
                     "target": "947095304",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(SCHEM:\"Polycyclic Aromatic Hydrocarbons\") increases cat(p(HGNC:CYP1B1))",
                     "metadata": {
                         "casual": true,
@@ -24060,7 +24060,7 @@
                     "source": "-2146876317",
                     "relation": "isA",
                     "target": "-554351521",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(SCHEM:\"Benzo(a)pyrene\") isA a(SCHEM:\"Polycyclic Aromatic Hydrocarbons\")",
                     "metadata": {
                         "casual": false,
@@ -24087,7 +24087,7 @@
                     "source": "-554351521",
                     "relation": "increases",
                     "target": "48004791",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(SCHEM:\"Polycyclic Aromatic Hydrocarbons\") increases tscript(p(HGNC:AHR))",
                     "metadata": {
                         "casual": true,
@@ -24129,7 +24129,7 @@
                     "source": "-1933349790",
                     "relation": "decreases",
                     "target": "48004791",
-                    "directed": "false",
+                    "directed": false,
                     "label": "p(HGNC:AHRR) decreases tscript(p(HGNC:AHR))",
                     "metadata": {
                         "casual": true,
@@ -24171,7 +24171,7 @@
                     "source": "-1933349790",
                     "relation": "directlyDecreases",
                     "target": "1472061322",
-                    "directed": "false",
+                    "directed": false,
                     "label": "p(HGNC:AHRR) directlyDecreases tscript(p(HGNC:ESR1))",
                     "metadata": {
                         "casual": true,
@@ -24198,7 +24198,7 @@
                     "source": "1823544027",
                     "relation": "increases",
                     "target": "-1823221345",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(CHEBI:nicotine) increases p(HGNC:CYP1A1)",
                     "metadata": {
                         "casual": true,
@@ -24225,7 +24225,7 @@
                     "source": "1823544027",
                     "relation": "increases",
                     "target": "1308946541",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(CHEBI:nicotine) increases p(HGNC:CYP3A5)",
                     "metadata": {
                         "casual": true,
@@ -24252,7 +24252,7 @@
                     "source": "1106725932",
                     "relation": "increases",
                     "target": "48004791",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(SCHEM:Indirubin) increases tscript(p(HGNC:AHR))",
                     "metadata": {
                         "casual": true,
@@ -24279,7 +24279,7 @@
                     "source": "1080985355",
                     "relation": "increases",
                     "target": "428310206",
-                    "directed": "false",
+                    "directed": false,
                     "label": "cat(p(HGNC:CYP1A2)) increases a(CHEBI:\"reactive oxygen species\")",
                     "metadata": {
                         "casual": true,
@@ -24306,7 +24306,7 @@
                     "source": "496202232",
                     "relation": "increases",
                     "target": "48004791",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(SCHEM:Soot) increases tscript(p(HGNC:AHR))",
                     "metadata": {
                         "casual": true,
@@ -24333,7 +24333,7 @@
                     "source": "206644571",
                     "relation": "actsIn",
                     "target": "48004791",
-                    "directed": "false",
+                    "directed": false,
                     "label": "p(HGNC:AHR) actsIn tscript(p(HGNC:AHR))",
                     "metadata": {
                         "casual": false,
@@ -25800,7 +25800,7 @@
                     "source": "1193523037",
                     "relation": "actsIn",
                     "target": "1825074583",
-                    "directed": "false",
+                    "directed": false,
                     "label": "p(HGNC:GSTA2) actsIn bp(GO:\"xenobiotic metabolic process\")",
                     "metadata": {
                         "casual": false,
@@ -25813,7 +25813,7 @@
                     "source": "594401265",
                     "relation": "actsIn",
                     "target": "1825074583",
-                    "directed": "false",
+                    "directed": false,
                     "label": "p(HGNC:UGT1A1) actsIn bp(GO:\"xenobiotic metabolic process\")",
                     "metadata": {
                         "casual": false,
@@ -25826,7 +25826,7 @@
                     "source": "594401262",
                     "relation": "actsIn",
                     "target": "1825074583",
-                    "directed": "false",
+                    "directed": false,
                     "label": "p(HGNC:UGT1A6) actsIn bp(GO:\"xenobiotic metabolic process\")",
                     "metadata": {
                         "casual": false,
@@ -25839,7 +25839,7 @@
                     "source": "1045030422",
                     "relation": "directlyIncreases",
                     "target": "48004791",
-                    "directed": "false",
+                    "directed": false,
                     "label": "complex(p(HGNC:ARNT),p(HGNC:AHR)) directlyIncreases tscript(p(HGNC:AHR))",
                     "metadata": {
                         "casual": true,
@@ -25866,7 +25866,7 @@
                     "source": "1045030422",
                     "relation": "hasComponent",
                     "target": "206644571",
-                    "directed": "false",
+                    "directed": false,
                     "label": "complex(p(HGNC:ARNT),p(HGNC:AHR)) hasComponent p(HGNC:AHR)",
                     "metadata": {
                         "casual": false,
@@ -25879,7 +25879,7 @@
                     "source": "1045030422",
                     "relation": "hasComponent",
                     "target": "1556883482",
-                    "directed": "false",
+                    "directed": false,
                     "label": "complex(p(HGNC:ARNT),p(HGNC:AHR)) hasComponent p(HGNC:ARNT)",
                     "metadata": {
                         "casual": false,
@@ -25892,7 +25892,7 @@
                     "source": "1045030422",
                     "relation": "actsIn",
                     "target": "1739006081",
-                    "directed": "false",
+                    "directed": false,
                     "label": "complex(p(HGNC:ARNT),p(HGNC:AHR)) actsIn tscript(complex(p(HGNC:ARNT),p(HGNC:AHR)))",
                     "metadata": {
                         "casual": false,
@@ -25905,7 +25905,7 @@
                     "source": "-1814002353",
                     "relation": "hasComponent",
                     "target": "1556883482",
-                    "directed": "false",
+                    "directed": false,
                     "label": "complex(p(HGNC:ARNT),g(HGNC:CYP1A1)) hasComponent p(HGNC:ARNT)",
                     "metadata": {
                         "casual": false,
@@ -25918,7 +25918,7 @@
                     "source": "1556883482",
                     "relation": "increases",
                     "target": "48004791",
-                    "directed": "false",
+                    "directed": false,
                     "label": "p(HGNC:ARNT) increases tscript(p(HGNC:AHR))",
                     "metadata": {
                         "casual": true,
@@ -25945,7 +25945,7 @@
                     "source": "1556883482",
                     "relation": "directlyIncreases",
                     "target": "1472061322",
-                    "directed": "false",
+                    "directed": false,
                     "label": "p(HGNC:ARNT) directlyIncreases tscript(p(HGNC:ESR1))",
                     "metadata": {
                         "casual": true,
@@ -25972,7 +25972,7 @@
                     "source": "1556883482",
                     "relation": "increases",
                     "target": "1472061322",
-                    "directed": "false",
+                    "directed": false,
                     "label": "p(HGNC:ARNT) increases tscript(p(HGNC:ESR1))",
                     "metadata": {
                         "casual": true,
@@ -25999,7 +25999,7 @@
                     "source": "1556883482",
                     "relation": "actsIn",
                     "target": "1667162206",
-                    "directed": "false",
+                    "directed": false,
                     "label": "p(HGNC:ARNT) actsIn tscript(p(HGNC:ARNT))",
                     "metadata": {
                         "casual": false,
@@ -26012,7 +26012,7 @@
                     "source": "1556883482",
                     "relation": "increases",
                     "target": "401290986",
-                    "directed": "false",
+                    "directed": false,
                     "label": "p(HGNC:ARNT) increases p(HGNC:NQO1)",
                     "metadata": {
                         "casual": true,
@@ -26039,7 +26039,7 @@
                     "source": "1739006081",
                     "relation": "increases",
                     "target": "-1823221345",
-                    "directed": "false",
+                    "directed": false,
                     "label": "tscript(complex(p(HGNC:ARNT),p(HGNC:AHR))) increases p(HGNC:CYP1A1)",
                     "metadata": {
                         "casual": true,
@@ -26066,7 +26066,7 @@
                     "source": "1739006081",
                     "relation": "increases",
                     "target": "-249243233",
-                    "directed": "false",
+                    "directed": false,
                     "label": "tscript(complex(p(HGNC:ARNT),p(HGNC:AHR))) increases p(HGNC:CYP1B1)",
                     "metadata": {
                         "casual": true,
@@ -26093,7 +26093,7 @@
                     "source": "1739006081",
                     "relation": "increases",
                     "target": "947095304",
-                    "directed": "false",
+                    "directed": false,
                     "label": "tscript(complex(p(HGNC:ARNT),p(HGNC:AHR))) increases cat(p(HGNC:CYP1B1))",
                     "metadata": {
                         "casual": true,
@@ -26120,7 +26120,7 @@
                     "source": "1739006081",
                     "relation": "increases",
                     "target": "1080985352",
-                    "directed": "false",
+                    "directed": false,
                     "label": "tscript(complex(p(HGNC:ARNT),p(HGNC:AHR))) increases cat(p(HGNC:CYP1A1))",
                     "metadata": {
                         "casual": true,
@@ -26147,7 +26147,7 @@
                     "source": "803199241",
                     "relation": "actsIn",
                     "target": "1825074583",
-                    "directed": "false",
+                    "directed": false,
                     "label": "p(HGNC:NAT2) actsIn bp(GO:\"xenobiotic metabolic process\")",
                     "metadata": {
                         "casual": false,
@@ -26160,7 +26160,7 @@
                     "source": "2137275625",
                     "relation": "actsIn",
                     "target": "1825074583",
-                    "directed": "false",
+                    "directed": false,
                     "label": "cat(p(HGNC:EPHX1)) actsIn bp(GO:\"xenobiotic metabolic process\")",
                     "metadata": {
                         "casual": false,
@@ -26173,7 +26173,7 @@
                     "source": "1777180299",
                     "relation": "actsIn",
                     "target": "2137275625",
-                    "directed": "false",
+                    "directed": false,
                     "label": "p(HGNC:EPHX1) actsIn cat(p(HGNC:EPHX1))",
                     "metadata": {
                         "casual": false,
@@ -26186,7 +26186,7 @@
                     "source": "1004415003",
                     "relation": "actsIn",
                     "target": "-163244419",
-                    "directed": "false",
+                    "directed": false,
                     "label": "p(HGNC:SULT1A1) actsIn cat(p(HGNC:SULT1A1))",
                     "metadata": {
                         "casual": false,
@@ -26199,7 +26199,7 @@
                     "source": "1004415003",
                     "relation": "actsIn",
                     "target": "1825074583",
-                    "directed": "false",
+                    "directed": false,
                     "label": "p(HGNC:SULT1A1) actsIn bp(GO:\"xenobiotic metabolic process\")",
                     "metadata": {
                         "casual": false,
@@ -26212,7 +26212,7 @@
                     "source": "409202241",
                     "relation": "actsIn",
                     "target": "-816911556",
-                    "directed": "false",
+                    "directed": false,
                     "label": "p(HGNC:HSP90AA1) actsIn cat(p(HGNC:HSP90AA1))",
                     "metadata": {
                         "casual": false,
@@ -26225,7 +26225,7 @@
                     "source": "858251174",
                     "relation": "hasComponent",
                     "target": "206644571",
-                    "directed": "false",
+                    "directed": false,
                     "label": "complex(p(HGNC:AHR),p(HGNC:HSP90AA1)) hasComponent p(HGNC:AHR)",
                     "metadata": {
                         "casual": false,
@@ -26238,7 +26238,7 @@
                     "source": "858251174",
                     "relation": "hasComponent",
                     "target": "409202241",
-                    "directed": "false",
+                    "directed": false,
                     "label": "complex(p(HGNC:AHR),p(HGNC:HSP90AA1)) hasComponent p(HGNC:HSP90AA1)",
                     "metadata": {
                         "casual": false,
@@ -26251,7 +26251,7 @@
                     "source": "-332077188",
                     "relation": "increases",
                     "target": "401290986",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(SCHEM:Methylcholanthrene) increases p(HGNC:NQO1)",
                     "metadata": {
                         "casual": true,
@@ -26278,7 +26278,7 @@
                     "source": "-332077188",
                     "relation": "increases",
                     "target": "594401265",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(SCHEM:Methylcholanthrene) increases p(HGNC:UGT1A1)",
                     "metadata": {
                         "casual": true,
@@ -26305,7 +26305,7 @@
                     "source": "1855884565",
                     "relation": "increases",
                     "target": "428310206",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(CHEBI:\"hydrogen peroxide\") increases a(CHEBI:\"reactive oxygen species\")",
                     "metadata": {
                         "casual": true,
@@ -26318,7 +26318,7 @@
                     "source": "1855884565",
                     "relation": "increases",
                     "target": "192358243",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(CHEBI:\"hydrogen peroxide\") increases cat(p(HGNC:NQO1))",
                     "metadata": {
                         "casual": true,
@@ -26331,7 +26331,7 @@
                     "source": "1855884565",
                     "relation": "decreases",
                     "target": "803199241",
-                    "directed": "false",
+                    "directed": false,
                     "label": "a(CHEBI:\"hydrogen peroxide\") decreases p(HGNC:NAT2)",
                     "metadata": {
                         "casual": true,
@@ -26344,7 +26344,7 @@
                     "source": "-1154823114",
                     "relation": "actsIn",
                     "target": "-2137185793",
-                    "directed": "false",
+                    "directed": false,
                     "label": "p(HGNC:ABCC1) actsIn tport(p(HGNC:ABCC1))",
                     "metadata": {
                         "casual": false,
@@ -26357,7 +26357,7 @@
                     "source": "-2137185793",
                     "relation": "actsIn",
                     "target": "1825074583",
-                    "directed": "false",
+                    "directed": false,
                     "label": "tport(p(HGNC:ABCC1)) actsIn bp(GO:\"xenobiotic metabolic process\")",
                     "metadata": {
                         "casual": false,
@@ -26370,7 +26370,7 @@
                     "source": "-785539422",
                     "relation": "actsIn",
                     "target": "-2137382405",
-                    "directed": "false",
+                    "directed": false,
                     "label": "p(HGNC:ABCG2) actsIn tport(p(HGNC:ABCG2))",
                     "metadata": {
                         "casual": false,
@@ -26383,7 +26383,7 @@
                     "source": "-2137382405",
                     "relation": "actsIn",
                     "target": "1825074583",
-                    "directed": "false",
+                    "directed": false,
                     "label": "tport(p(HGNC:ABCG2)) actsIn bp(GO:\"xenobiotic metabolic process\")",
                     "metadata": {
                         "casual": false,

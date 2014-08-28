@@ -23,7 +23,7 @@ public class BELGraphReaderImplTest {
 
     @Test
     public void testReadSingleGraph() throws IOException {
-        InputStream stream = this.getClass().getClassLoader().getResourceAsStream("testData/jgf/single_graph.json");
+        InputStream stream = this.getClass().getClassLoader().getResourceAsStream("testData/jgf/single_graph.jgf");
         BELGraphReader reader = new BELGraphReaderImpl();
         Graph[] graphs = reader.read(stream);
 
@@ -33,7 +33,7 @@ public class BELGraphReaderImplTest {
 
     @Test
     public void testReadSingleGraphWithValidation() throws IOException {
-        InputStream stream = this.getClass().getClassLoader().getResourceAsStream("testData/jgf/single_graph.json");
+        InputStream stream = this.getClass().getClassLoader().getResourceAsStream("testData/jgf/single_graph.jgf");
         BELGraphReader reader = new BELGraphReaderImpl();
         GraphsWithValidation gv = reader.validatingRead(stream);
 
@@ -52,7 +52,7 @@ public class BELGraphReaderImplTest {
 
     @Test
     public void testReadMultipleGraphs() throws IOException {
-        InputStream stream = this.getClass().getClassLoader().getResourceAsStream("testData/jgf/multiple_graphs.json");
+        InputStream stream = this.getClass().getClassLoader().getResourceAsStream("testData/jgf/multiple_graphs.jgf");
         BELGraphReader reader = new BELGraphReaderImpl();
         Graph[] graphs = reader.read(stream);
 
@@ -62,7 +62,7 @@ public class BELGraphReaderImplTest {
 
     @Test
     public void testReadMultipleGraphsWithValidation() throws IOException {
-        InputStream stream = this.getClass().getClassLoader().getResourceAsStream("testData/jgf/multiple_graphs.json");
+        InputStream stream = this.getClass().getClassLoader().getResourceAsStream("testData/jgf/multiple_graphs.jgf");
         BELGraphReader reader = new BELGraphReaderImpl();
         GraphsWithValidation gv = reader.validatingRead(stream);
 
@@ -80,7 +80,7 @@ public class BELGraphReaderImplTest {
 
     @Test
     public void testEmptyGraphs() throws IOException {
-        InputStream stream = this.getClass().getClassLoader().getResourceAsStream("testData/jgf/empty_graphs.json");
+        InputStream stream = this.getClass().getClassLoader().getResourceAsStream("testData/jgf/empty_graphs.jgf");
         BELGraphReader reader = new BELGraphReaderImpl();
         Graph[] graphs = reader.read(stream);
 
@@ -90,7 +90,7 @@ public class BELGraphReaderImplTest {
 
     @Test
     public void testValidationErrorForGraphId() throws IOException {
-        ProcessingReport validation = expectValidationError("testData/jgf/malformed_graph_has_id.json");
+        ProcessingReport validation = expectValidationError("testData/jgf/malformed_graph_has_id.jgf");
         ProcessingMessage[] messages = Iterators.toArray(validation.iterator(), ProcessingMessage.class);
 
         assertThat(messages, arrayWithSize(1));
@@ -102,7 +102,7 @@ public class BELGraphReaderImplTest {
 
     @Test
     public void testValidationErrorForInvalidEvidence() throws IOException {
-        ProcessingReport validation = expectValidationError("testData/jgf/malformed_graph_invalid_evidence.json");
+        ProcessingReport validation = expectValidationError("testData/jgf/malformed_graph_invalid_evidence.jgf");
         ProcessingMessage[] messages = Iterators.toArray(validation.iterator(), ProcessingMessage.class);
 
         assertThat(messages, arrayWithSize(1));

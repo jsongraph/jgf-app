@@ -1,6 +1,5 @@
 package org.openbel.belnetwork.internal.read.jgf;
 
-import java.io.IOException;
 import java.util.*;
 import java.util.Map.Entry;
 
@@ -53,7 +52,7 @@ public class JGFMapper {
         this.cyTableManager = cyTableManager;
     }
 
-    public void doMapping() throws IOException {
+    public void doMapping() {
         mapGraphMetadata(graph, network);
         createJGFNodeTable();
         createJGFEdgeTable();

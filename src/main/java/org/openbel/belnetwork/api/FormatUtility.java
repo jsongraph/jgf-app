@@ -1,5 +1,8 @@
 package org.openbel.belnetwork.api;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.github.fge.jsonschema.core.report.ProcessingMessage;
+import com.github.fge.jsonschema.core.report.ProcessingReport;
 import org.openbel.belnetwork.model.Graph;
 import org.openbel.belnetwork.model.Root;
 
@@ -62,6 +65,25 @@ public class FormatUtility {
             return root.graphs.toArray(new Graph[root.graphs.size()]);
 
         return null;
+    }
+
+    /**
+     * Return a {@link String} representing all schema validation messages.
+     *
+     * @param report the {@link ProcessingReport}; cannot be {@code null}
+     * @return the {@link String} including all schema errors
+     * @throws java.lang.NullPointerException when {@code report} is {@code null}
+     */
+    public static String getSchemaMessages(ProcessingReport report) {
+        final StringBuilder b = new StringBuilder();
+
+        for (ProcessingMessage m : report) {
+            JsonNode data = m.asJson();
+            for (JsonNode n : data.findValues("message")) {
+                b.append(n.textValue()).append("\n");
+            }
+        }
+        return b.toString();
     }
 
     private FormatUtility() {

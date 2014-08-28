@@ -1,7 +1,9 @@
 package org.openbel.belnetwork.internal.read.jgf;
 
+import java.io.IOException;
 import java.io.InputStream;
 
+import com.github.fge.jsonschema.core.report.ProcessingReport;
 import org.cytoscape.application.CyApplicationManager;
 import org.cytoscape.event.CyEventHelper;
 import org.cytoscape.io.read.AbstractCyNetworkReader;
@@ -16,24 +18,31 @@ import org.cytoscape.model.subnetwork.CyRootNetworkManager;
 import org.cytoscape.view.model.CyNetworkView;
 import org.cytoscape.view.model.CyNetworkViewFactory;
 import org.cytoscape.work.TaskMonitor;
+import org.openbel.belnetwork.api.BELGraphReader;
+import org.openbel.belnetwork.api.GraphsWithValidation;
 import org.openbel.belnetwork.internal.util.StyleUtility;
 import org.openbel.belnetwork.model.Graph;
 
-import javax.swing.SwingUtilities;
+import javax.swing.*;
 
+import static java.lang.String.format;
+import static org.openbel.belnetwork.api.FormatUtility.getSchemaMessages;
 import static org.openbel.belnetwork.internal.Constants.APPLIED_VISUAL_STYLE;
 
 public class JGFNetworkReader extends AbstractCyNetworkReader {
 
-    private final InputStream inputStream;
-    private final CyApplicationManager appMgr;
-    private final CyNetworkManager networkMgr;
-    private final CyTableFactory tableFactory;
-    private final CyTableManager tableMgr;
-    private final VisualMappingManager visMgr;
-    private final CyEventHelper eventHelper;
+    protected final InputStream inputStream;
+    protected final String inputName;
+    protected final CyApplicationManager appMgr;
+    protected final CyNetworkManager networkMgr;
+    protected final CyTableFactory tableFactory;
+    protected final CyTableManager tableMgr;
+    protected final VisualMappingManager visMgr;
+    protected final CyEventHelper eventHelper;
+    protected final BELGraphReader belGraphReader;
 
-    public JGFNetworkReader(InputStream inputStream, CyApplicationManager appMgr,
+    public JGFNetworkReader(InputStream inputStream, String inputName,
+            BELGraphReader belGraphReader, CyApplicationManager appMgr,
             CyNetworkViewFactory networkVieFactory, CyNetworkFactory networkFactory,
             CyNetworkManager networkMgr, CyRootNetworkManager rootNetworkMgr,
             CyTableFactory tableFactory, CyTableManager tableMgr,
@@ -41,15 +50,18 @@ public class JGFNetworkReader extends AbstractCyNetworkReader {
         super(inputStream, networkVieFactory, networkFactory, networkMgr, rootNetworkMgr);
 
         if (inputStream == null) throw new NullPointerException("inputStream cannot be null");
+        if (inputName == null) throw new NullPointerException("inputName cannot be null");
         if (appMgr == null) throw new NullPointerException("appMgr cannot be null");
         if (networkMgr == null) throw new NullPointerException("networkMgr cannot be null");
         this.inputStream = inputStream;
+        this.inputName = inputName;
         this.appMgr = appMgr;
         this.networkMgr = networkMgr;
         this.tableFactory = tableFactory;
         this.tableMgr = tableMgr;
         this.visMgr = visMgr;
         this.eventHelper = eventHelper;
+        this.belGraphReader = belGraphReader;
     }
 
     @Override
@@ -86,17 +98,49 @@ public class JGFNetworkReader extends AbstractCyNetworkReader {
     }
 
     @Override
-    public void run(TaskMonitor taskMonitor) throws Exception {
-        JsonToNetworkConverter converter = new JsonToNetworkConverter();
+    public void run(TaskMonitor m) throws Exception {
+        m.setTitle(format("Import BEL JSON Graph"));
 
-        try {
-            Graph[] graphs = converter.createGraphs(inputStream);
-            this.networks = converter.createNetworks(graphs, cyNetworkFactory, tableFactory, tableMgr);
-            for (CyNetwork n : networks)
-                networkMgr.addNetwork(n);
-        } catch (Exception e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+        m.setStatusMessage(format("Read and validate \"%s\" against the BEL JSON Graph schema.", inputName));
+        GraphsWithValidation gv = checkSchema(inputStream, inputName, belGraphReader);
+        Graph[] graphs = gv.getGraphs();
+        m.setProgress(0.50);
+
+        m.setStatusMessage(format("Creating %d networks from \"%s\".", graphs.length, inputName));
+        mapNetworks(graphs);
+        for (CyNetwork n : networks)
+            networkMgr.addNetwork(n);
+        m.setProgress(1.0);
+    }
+
+    protected GraphsWithValidation checkSchema(InputStream inputStream, String inputName, BELGraphReader belGraphReader) throws IOException {
+        final GraphsWithValidation gv = belGraphReader.validatingRead(inputStream);
+        final ProcessingReport report = gv.getValidationReport();
+        if (!report.isSuccess()) {
+            SwingUtilities.invokeLater(new Runnable() {
+                @Override
+                public void run() {
+                    String msg = format("Schema validation error: \n\n%s", getSchemaMessages(report));
+                    JOptionPane.showMessageDialog(null, msg, "Validation Error", JOptionPane.ERROR_MESSAGE);
+                }
+            });
+
+            String msg = format("Schema validation error, details in Task History: %s", getSchemaMessages(report));
+            throw new RuntimeException(msg);
+        }
+        return gv;
+    }
+
+    protected void mapNetworks(Graph[] graphs) {
+        // create N number of CyNetwork for N number of Graph...
+        this.networks = new CyNetwork[graphs.length];
+        for (int i = 0; i < networks.length; i++)
+            this.networks[i] = cyNetworkFactory.createNetwork();
+
+        // ...map each Graph to CyNetwork
+        for (int i = 0; i < graphs.length; i++) {
+            JGFMapper mapper = new JGFMapper(graphs[i], networks[i], tableFactory, tableMgr);
+            mapper.doMapping();
         }
     }
 }
