@@ -1,4 +1,4 @@
-package org.openbel.belnetwork.internal.util;
+package org.openbel.belnetwork.api;
 
 import org.openbel.belnetwork.model.Graph;
 import org.openbel.belnetwork.model.Root;

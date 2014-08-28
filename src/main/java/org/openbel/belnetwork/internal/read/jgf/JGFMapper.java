@@ -16,8 +16,8 @@ import org.cytoscape.model.SavePolicy;
 import org.openbel.belnetwork.model.*;
 
 import static org.openbel.belnetwork.internal.Constants.COORDINATE_TRANSLATION;
-import static org.openbel.belnetwork.internal.util.FormatUtility.getOrEmptyString;
-import static org.openbel.belnetwork.internal.util.FormatUtility.getOrZero;
+import static org.openbel.belnetwork.api.FormatUtility.getOrEmptyString;
+import static org.openbel.belnetwork.api.FormatUtility.getOrZero;
 import static org.openbel.belnetwork.internal.util.TableUtility.getOrCreateColumn;
 import static org.openbel.belnetwork.internal.util.TableUtility.getTable;
 

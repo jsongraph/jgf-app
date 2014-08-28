@@ -6,15 +6,10 @@ import org.openbel.belnetwork.internal.read.jgf.JsonToNetworkConverter;
 
 import static org.junit.Assert.*;
 
-import org.junit.After;
 import org.junit.Test;
 import org.openbel.belnetwork.model.Graph;
 
 public class JGFReaderTest {
-
-    @After
-    public void tearDown() throws Exception {
-    }
 
     @Test
     public void test() {

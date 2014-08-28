@@ -3,7 +3,6 @@ package org.openbel.belnetwork.internal.read.jgf;
 import java.io.InputStream;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.github.fge.jsonschema.core.report.ProcessingMessage;
 import org.cytoscape.model.*;
 import org.openbel.belnetwork.model.Graph;
 import org.openbel.belnetwork.model.Root;
@@ -17,7 +16,7 @@ import com.github.fge.jsonschema.core.report.ProcessingReport;
 import com.github.fge.jsonschema.main.JsonSchema;
 import com.github.fge.jsonschema.main.JsonSchemaFactory;
 
-import static org.openbel.belnetwork.internal.util.FormatUtility.determineGraphs;
+import static org.openbel.belnetwork.api.FormatUtility.determineGraphs;
 
 public class JsonToNetworkConverter {
 
