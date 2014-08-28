@@ -24,8 +24,8 @@ public class JGFReaderTest {
         }
 
         assertEquals(1, graphs.length);
-        assertTrue(graphs[0] != null);
-        assertTrue(graphs[0].metadata.get("description") != null);
+        assertNotNull(graphs[0]);
+        assertNotNull(graphs[0].metadata.get("description"));
     }
 
     @Test
@@ -40,7 +40,7 @@ public class JGFReaderTest {
             fail("Exception thrown.");
         }
 
-        assertTrue(graphs != null);
+        assertNotNull(graphs);
         assertEquals(2, graphs.length);
     }
 }

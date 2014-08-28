@@ -53,7 +53,7 @@ public class JsonToNetworkConverter {
             JsonNode graphTree = objectMapper.readTree(is);
 
             //Validate against Bel JSON Schema
-            final JsonNode belSchema = JsonLoader.fromResource("/bel-json-graph-schema.json");
+            final JsonNode belSchema = JsonLoader.fromResource("/bel-json-graph.schema.json");
             final JsonSchemaFactory factory = JsonSchemaFactory.byDefault();
             final JsonSchema schema = factory.getJsonSchema(belSchema);
             ProcessingReport report = schema.validate(graphTree);

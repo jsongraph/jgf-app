@@ -8,8 +8,8 @@ import com.github.fge.jsonschema.core.exceptions.ProcessingException;
 import com.github.fge.jsonschema.core.report.ProcessingReport;
 import com.github.fge.jsonschema.main.JsonSchema;
 import com.github.fge.jsonschema.main.JsonSchemaFactory;
+import org.openbel.belnetwork.api.BELGraphReader;
 import org.openbel.belnetwork.api.GraphsWithValidation;
-import org.openbel.belnetwork.api.JSONGraphReader;
 import org.openbel.belnetwork.model.Graph;
 import org.openbel.belnetwork.model.Root;
 
@@ -17,11 +17,23 @@ import java.io.*;
 
 import static org.openbel.belnetwork.api.FormatUtility.determineGraphs;
 
-public class JSONGraphReaderImpl implements JSONGraphReader {
+/**
+ * {@link BELGraphReaderImpl} implements {@link BELGraphReader} to provide
+ * reading and validation of content encoded in <em>JSON Graph Format</em> and
+ * adhering to the <em>BEL JSON Graph</em> child schema.
+ * <br><br>
+ * Reading and de-serializing of <em>JSON</em> to {@link Graph} uses the
+ * <a href="https://github.com/FasterXML/jackson">Jackson</a> library.
+ * <br><br>
+ * JSON schema validation uses the
+ * <a href="https://github.com/fge/json-schema-validator">json-schema-validator</a>
+ * library.
+ */
+public class BELGraphReaderImpl implements BELGraphReader {
 
-    private final ObjectMapper mapper;
+    protected final ObjectMapper mapper;
 
-    public JSONGraphReaderImpl() {
+    public BELGraphReaderImpl() {
         mapper = new ObjectMapper();
         mapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
     }
@@ -42,8 +54,8 @@ public class JSONGraphReaderImpl implements JSONGraphReader {
     @Override
     public Graph[] read(File input) throws IOException {
         if (input == null) throw new NullPointerException("input cannot be null");
-        if (!input.exists()) throw new FileNotFoundException("input does not exist");
-        if (!input.canRead()) throw new IOException("input cannot be read");
+        if (!input.exists() || !input.canRead())
+            throw new FileNotFoundException("input does not exist");
 
         return _readGraph(_readJSON(new FileInputStream(input)));
     }
@@ -72,7 +84,8 @@ public class JSONGraphReaderImpl implements JSONGraphReader {
     public GraphsWithValidation validatingRead(File input) throws IOException {
         if (input == null) throw new NullPointerException("input cannot be null");
         if (!input.exists()) throw new FileNotFoundException("input does not exist");
-        if (!input.canRead()) throw new IOException("input cannot be read");
+        if (!input.exists() || !input.canRead())
+            throw new FileNotFoundException("input does not exist");
 
         JsonNode json = _readJSON(new FileInputStream(input));
 
@@ -89,7 +102,7 @@ public class JSONGraphReaderImpl implements JSONGraphReader {
     }
 
     protected ProcessingReport _validate(JsonNode json) throws IOException {
-        final JsonNode belSchema = JsonLoader.fromResource("/bel-json-graph-schema.json");
+        final JsonNode belSchema = JsonLoader.fromResource("/bel-json-graph.schema.json");
         final JsonSchemaFactory factory = JsonSchemaFactory.byDefault();
         final JsonSchema schema;
         try {

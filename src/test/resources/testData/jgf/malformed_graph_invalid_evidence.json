@@ -1,0 +1,31 @@
+{
+    "graphs": [
+        {
+            "label": "Test Graph",
+            "nodes": [
+                {
+                    "id": "1",
+                    "label": "p(HGNC:AKT1)"
+                },
+                {
+                    "id": "2",
+                    "label": "bp(MESHPP:Apoptosis)"
+                }
+            ],
+            "edges": [
+                {
+                    "source": "1",
+                    "target": "2",
+                    "relation": "directlyIncreases",
+                    "metadata": {
+                        "evidences": [
+                            {
+                                "bel": "p(HGNC:AKT1) => bp(MESHPP:Apoptosis)"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}
