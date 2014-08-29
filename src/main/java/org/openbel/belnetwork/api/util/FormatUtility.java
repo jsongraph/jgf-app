@@ -1,4 +1,4 @@
-package org.openbel.belnetwork.api;
+package org.openbel.belnetwork.api.util;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.github.fge.jsonschema.core.report.ProcessingMessage;

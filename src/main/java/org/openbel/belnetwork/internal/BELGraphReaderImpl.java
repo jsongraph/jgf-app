@@ -15,7 +15,7 @@ import org.openbel.belnetwork.model.Root;
 
 import java.io.*;
 
-import static org.openbel.belnetwork.api.FormatUtility.determineGraphs;
+import static org.openbel.belnetwork.api.util.FormatUtility.determineGraphs;
 
 /**
  * {@link BELGraphReaderImpl} implements {@link BELGraphReader} to provide

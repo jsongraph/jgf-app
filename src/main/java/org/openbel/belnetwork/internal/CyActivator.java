@@ -10,14 +10,13 @@ import org.cytoscape.service.util.AbstractCyActivator;
 import org.cytoscape.view.model.CyNetworkViewFactory;
 import org.cytoscape.view.vizmap.VisualMappingManager;
 import org.cytoscape.io.CyFileFilter;
-import org.cytoscape.io.DataCategory;
 import org.cytoscape.io.read.InputStreamTaskFactory;
 import org.cytoscape.io.util.StreamUtil;
 import org.openbel.belnetwork.api.BELGraphConverter;
 import org.openbel.belnetwork.api.BELGraphReader;
 import org.openbel.belnetwork.internal.listeners.SessionListener;
-import org.openbel.belnetwork.internal.read.jgf.JGFFileFilter;
-import org.openbel.belnetwork.internal.read.jgf.JGFNetworkReaderFactory;
+import org.openbel.belnetwork.internal.io.JGFFileFilter;
+import org.openbel.belnetwork.internal.io.JGFNetworkReaderFactory;
 import org.openbel.belnetwork.internal.ui.EdgeSelectedListener;
 import org.openbel.belnetwork.internal.ui.ShowEvidenceFactory;
 import org.cytoscape.task.EdgeViewTaskFactory;
@@ -26,7 +25,7 @@ import org.cytoscape.model.CyNetworkManager;
 import org.cytoscape.model.CyTableFactory;
 import org.cytoscape.model.CyTableManager;
 import org.cytoscape.model.subnetwork.CyRootNetworkManager;
-import org.openbel.belnetwork.internal.util.StyleUtility;
+import org.openbel.belnetwork.api.util.StyleUtility;
 import org.osgi.framework.BundleContext;
 import org.cytoscape.model.events.RowsSetListener;
 
@@ -68,7 +67,9 @@ public class CyActivator extends AbstractCyActivator {
         super();
     }
 
-    // comment
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void start(BundleContext bc) throws Exception {
 
@@ -85,6 +86,7 @@ public class CyActivator extends AbstractCyActivator {
         final VizmapReaderManager vizmapReaderMgr = getService(bc, VizmapReaderManager.class);
         final CyEventHelper eventHelper = getService(bc, CyEventHelper.class);
 
+        // contribute visual styles
         CyActivator.contributeStyles(visMgr, vizmapReaderMgr);
 
         // API implementations
@@ -113,7 +115,7 @@ public class CyActivator extends AbstractCyActivator {
         evidenceFactoryProps.put(PREFERRED_MENU, "Apps.JGF");
         evidenceFactoryProps.put(MENU_GRAVITY, "14.0");
         evidenceFactoryProps.put(TITLE, "View Evidence");
-        registerService(bc, new ShowEvidenceFactory( ), EdgeViewTaskFactory.class, evidenceFactoryProps);
+        registerService(bc, new ShowEvidenceFactory(), EdgeViewTaskFactory.class, evidenceFactoryProps);
     }
 
     public static void contributeStyles(VisualMappingManager visMgr, VizmapReaderManager vizmapReaderMgr) {

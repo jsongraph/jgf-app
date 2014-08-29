@@ -1,4 +1,4 @@
-package org.openbel.belnetwork.api;
+package org.openbel.belnetwork.api.util;
 
 import static java.lang.System.err;
 import static java.lang.System.out;

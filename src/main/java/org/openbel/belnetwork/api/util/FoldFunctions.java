@@ -1,4 +1,4 @@
-package org.openbel.belnetwork.api;
+package org.openbel.belnetwork.api.util;
 
 import java.util.Collection;
 import java.util.Map;

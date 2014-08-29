@@ -1,4 +1,4 @@
-package org.openbel.belnetwork.internal.read.jgf;
+package org.openbel.belnetwork.internal.io;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -29,6 +29,9 @@ public class JGFFileFilter extends BasicCyFileFilter {
               DataCategory.NETWORK, streamUtil);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean accepts(final InputStream stream, final DataCategory category) {
         final String header = getHeader(stream, 5);
@@ -37,6 +40,9 @@ public class JGFFileFilter extends BasicCyFileFilter {
         return true;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean accepts(final URI uri, final DataCategory category) {
         try {

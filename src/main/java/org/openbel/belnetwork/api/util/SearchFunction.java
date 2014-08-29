@@ -1,4 +1,4 @@
-package org.openbel.belnetwork.api;
+package org.openbel.belnetwork.api.util;
 
 /**
  * Interface defining a function that can be applied over every {@code T} of an

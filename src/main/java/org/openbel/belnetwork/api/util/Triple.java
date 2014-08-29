@@ -1,4 +1,4 @@
-package org.openbel.belnetwork.api;
+package org.openbel.belnetwork.api.util;
 
 /**
  * A triple of types {@code T}, {@code U}, and {@code V}.

@@ -1,4 +1,4 @@
-package org.openbel.belnetwork.api;
+package org.openbel.belnetwork.api.util;
 
 /**
  * Provides general {@link MapFunction map functions} through static methods.

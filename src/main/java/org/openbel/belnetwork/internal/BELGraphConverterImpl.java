@@ -6,11 +6,15 @@ import org.openbel.belnetwork.model.*;
 
 import java.util.*;
 
-import static org.openbel.belnetwork.api.FormatUtility.getOrEmptyString;
-import static org.openbel.belnetwork.api.FormatUtility.getOrZero;
-import static org.openbel.belnetwork.api.Utility.typedList;
+import static org.openbel.belnetwork.api.util.FormatUtility.getOrEmptyString;
+import static org.openbel.belnetwork.api.util.FormatUtility.getOrZero;
+import static org.openbel.belnetwork.api.util.Utility.typedList;
 import static org.openbel.belnetwork.internal.Constants.COORDINATE_TRANSLATION;
 
+/**
+ * {@link BELGraphConverterImpl} implements a {@link BELGraphConverter} that converts
+ * {@link Graph} to {@link CyNetwork} and vice versa.
+ */
 public class BELGraphConverterImpl implements BELGraphConverter {
 
     private static final String TYPE = "type";
@@ -37,15 +41,24 @@ public class BELGraphConverterImpl implements BELGraphConverter {
         this.networkFactory = networkFactory;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public CyNetwork convert(Graph graph) {
         CyNetwork network = networkFactory.createNetwork();
         mapNetworkData(graph, network);
         Map<String, CyNode> createdNodes = mapNodeData(graph, network);
+        mapEdgeData(createdNodes, graph, network);
 
         return network;
     }
 
+    /**
+     * {@inheritDoc}
+     * <br><br>
+     * FIXME Unsupported at the moment.
+     */
     @Override
     public Graph convert(CyNetwork network) {
         throw new UnsupportedOperationException("TODO, convert CyNetwork -> Graph");

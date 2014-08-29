@@ -1,4 +1,4 @@
-package org.openbel.belnetwork.api;
+package org.openbel.belnetwork.api.util;
 
 import static java.io.File.separator;
 import static java.lang.Character.SPACE_SEPARATOR;

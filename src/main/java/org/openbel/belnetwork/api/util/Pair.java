@@ -1,4 +1,4 @@
-package org.openbel.belnetwork.api;
+package org.openbel.belnetwork.api.util;
 
 /**
  * A pair of some types, {@code T1} and {@code T2}.

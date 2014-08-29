@@ -1,9 +1,10 @@
-package org.openbel.belnetwork.internal.util;
+package org.openbel.belnetwork.api.util;
 
 import org.cytoscape.io.read.VizmapReader;
 import org.cytoscape.io.read.VizmapReaderManager;
 import org.cytoscape.view.vizmap.VisualMappingManager;
 import org.cytoscape.view.vizmap.VisualStyle;
+import org.cytoscape.work.TaskMonitor;
 
 import java.io.InputStream;
 import java.util.HashSet;
@@ -73,9 +74,17 @@ public class StyleUtility {
             visMgr.addVisualStyle(vs);
     }
 
+    /**
+     * Return the {@link VisualStyle}, identified by {@code title}, or {@code null}
+     * if it does not exist in {@link VisualMappingManager}.
+     *
+     * @param title {@link String} title; cannot be {@code null}
+     * @param mgr {@link VisualMappingManager} Cytoscape service; cannot be {@code null}
+     * @return the {@link VisualStyle} or {@code null} if it does not exist
+     */
     public static VisualStyle findVisualStyleByTitle(String title, VisualMappingManager mgr) {
         if (mgr == null) throw new NullPointerException("mgr cannot be null");
-        if (title == null) title = "";
+        if (title == null) throw new NullPointerException("title cannot be null");
         for (VisualStyle vs : mgr.getAllVisualStyles()) {
             if (vs.getTitle().equals(title))
                 return vs;
@@ -87,6 +96,20 @@ public class StyleUtility {
         public VizmapReadException(String resourceName, Exception cause) {
             super(format("Unable to read vizmap from '%s'", resourceName), cause);
         }
+    }
+
+    private static final class NoOpTaskMonitor implements TaskMonitor {
+        @Override
+        public void setTitle(String s) {}
+
+        @Override
+        public void setProgress(double v) {}
+
+        @Override
+        public void setStatusMessage(String s) {}
+
+        @Override
+        public void showMessage(Level level, String s) {}
     }
 
     private StyleUtility() {

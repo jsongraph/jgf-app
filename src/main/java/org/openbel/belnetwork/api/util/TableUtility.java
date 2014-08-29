@@ -1,4 +1,4 @@
-package org.openbel.belnetwork.internal.util;
+package org.openbel.belnetwork.api.util;
 
 import org.cytoscape.model.*;
 

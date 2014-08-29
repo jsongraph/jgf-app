@@ -1,4 +1,4 @@
-package org.openbel.belnetwork.api;
+package org.openbel.belnetwork.api.util;
 
 /**
  * MapFunction defines a function to map type {@code <T>} to type {@code <U>}.

@@ -1,4 +1,4 @@
-package org.openbel.belnetwork.internal.read.jgf;
+package org.openbel.belnetwork.internal.io;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -23,15 +23,21 @@ import org.cytoscape.work.TaskMonitor;
 import org.openbel.belnetwork.api.BELGraphConverter;
 import org.openbel.belnetwork.api.BELGraphReader;
 import org.openbel.belnetwork.api.GraphsWithValidation;
-import org.openbel.belnetwork.internal.util.StyleUtility;
+import org.openbel.belnetwork.api.util.StyleUtility;
 import org.openbel.belnetwork.model.Graph;
 
 import javax.swing.*;
+import org.cytoscape.io.read.CyNetworkReader;
 
 import static java.lang.String.format;
-import static org.openbel.belnetwork.api.FormatUtility.getSchemaMessages;
+import static org.openbel.belnetwork.api.util.FormatUtility.getSchemaMessages;
 import static org.openbel.belnetwork.internal.Constants.APPLIED_VISUAL_STYLE;
 
+/**
+ * {@link JGFNetworkReader} implements a {@link CyNetworkReader} to allow creation
+ * of {@link CyNetwork networks} and {@link CyNetworkView views} from BEL JSON
+ * {@link Graph graphs}.
+ */
 public class JGFNetworkReader extends AbstractCyNetworkReader {
 
     protected final InputStream inputStream;
@@ -70,6 +76,9 @@ public class JGFNetworkReader extends AbstractCyNetworkReader {
         this.eventHelper = eventHelper;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public CyNetworkView buildCyNetworkView(CyNetwork network) {
         final CyNetworkView view = cyNetworkViewFactory.createNetworkView(network);
@@ -103,12 +112,15 @@ public class JGFNetworkReader extends AbstractCyNetworkReader {
         return view;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void run(TaskMonitor m) throws Exception {
         m.setTitle(format("Import BEL JSON Graph"));
 
         m.setStatusMessage(format("Read and validate \"%s\" against the BEL JSON Graph schema.", inputName));
-        GraphsWithValidation gv = checkSchema(inputStream, inputName, belGraphReader);
+        GraphsWithValidation gv = checkSchema(inputStream, belGraphReader);
         Graph[] graphs = gv.getGraphs();
         m.setProgress(0.50);
 
@@ -119,7 +131,21 @@ public class JGFNetworkReader extends AbstractCyNetworkReader {
         m.setProgress(1.0);
     }
 
-    protected GraphsWithValidation checkSchema(InputStream inputStream, String inputName, BELGraphReader belGraphReader) throws IOException {
+    /**
+     * Validates the BEL JSON graph against its schema and returns a
+     * {@link GraphsWithValidation} result.
+     * <br><br>
+     * Validation errors are conveyed to the user by popping open a {@link JOptionPane}
+     * and throwing {@link RuntimeException} which will stop the current task.
+     *
+     * @param inputStream {@link InputStream} input
+     * @param belGraphReader {@link BELGraphReader} graph reader
+     * @return {@link GraphsWithValidation} when validation succeeds
+     * @throws IOException when an IO error occurred reading {@code inputStream}
+     * @throws RuntimeException when schema validation does not succeed, the user
+     * will receive the error
+     */
+    protected GraphsWithValidation checkSchema(InputStream inputStream, BELGraphReader belGraphReader) throws IOException {
         final GraphsWithValidation gv = belGraphReader.validatingRead(inputStream);
         final ProcessingReport report = gv.getValidationReport();
         if (!report.isSuccess()) {
@@ -137,6 +163,12 @@ public class JGFNetworkReader extends AbstractCyNetworkReader {
         return gv;
     }
 
+    /**
+     * Convert an array of {@link Graph} to array of {@link CyNetwork}.
+     *
+     * @param graphs {@link Graph} array
+     * @return array of {@link CyNetwork}
+     */
     protected CyNetwork[] mapNetworks(Graph[] graphs) {
         List<CyNetwork> cyNetworks = new ArrayList<CyNetwork>();
         for (Graph graph : graphs) {

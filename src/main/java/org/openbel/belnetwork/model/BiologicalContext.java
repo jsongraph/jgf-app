@@ -3,6 +3,10 @@ package org.openbel.belnetwork.model;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * {@link BiologicalContext} represents the "biological_context" object within
+ * the "evidence" definition from the BEL JSON graph schema.
+ */
 public class BiologicalContext {
 
     public Integer ncbiTaxId;
