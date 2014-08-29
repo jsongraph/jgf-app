@@ -1,0 +1,11 @@
+click("1409285710268.png")
+click("1409285632655.png")
+click("1409285755246.png")
+click("1409285839378.png")
+
+wait("1409285907731.png")
+doubleClick("1409286389768.png")
+wait("1409286192081.png")
+click("1409286282153.png")
+wait("1409286442592.png")
+type("g", KeyModifier.CTRL)
