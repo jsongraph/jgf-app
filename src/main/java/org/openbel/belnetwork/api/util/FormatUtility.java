@@ -50,24 +50,6 @@ public class FormatUtility {
     }
 
     /**
-     * Determines the array of {@link Graph} from the {@link Root root object}.
-     *
-     * @param root the {@link Root} object;
-     * @return array of {@link Graph} objects; returns {@code null} when
-     * {@code root} or {@code root}'s graph fields are all {@code null}
-     */
-    public static Graph[] determineGraphs(Root root) {
-        if (root == null) return null;
-
-        if (root.graph != null)
-            return new Graph[] {root.graph};
-        if (root.graphs != null)
-            return root.graphs.toArray(new Graph[root.graphs.size()]);
-
-        return null;
-    }
-
-    /**
      * Return a {@link String} representing all schema validation messages.
      *
      * @param report the {@link ProcessingReport}; cannot be {@code null}

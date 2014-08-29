@@ -15,8 +15,6 @@ import org.openbel.belnetwork.model.Root;
 
 import java.io.*;
 
-import static org.openbel.belnetwork.api.util.FormatUtility.determineGraphs;
-
 /**
  * {@link BELGraphReaderImpl} implements {@link BELGraphReader} to provide
  * reading and validation of content encoded in <em>JSON Graph Format</em> and
@@ -115,6 +113,6 @@ public class BELGraphReaderImpl implements BELGraphReader {
 
     protected Graph[] _readGraph(JsonNode json) throws IOException {
         Root root = mapper.readValue(json.toString(), Root.class);
-        return determineGraphs(root);
+        return Root.determineGraphs(root);
     }
 }
