@@ -3,8 +3,6 @@ package org.openbel.belnetwork.api.util;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.github.fge.jsonschema.core.report.ProcessingMessage;
 import com.github.fge.jsonschema.core.report.ProcessingReport;
-import org.openbel.belnetwork.model.Graph;
-import org.openbel.belnetwork.model.Root;
 
 import java.util.Map;
 

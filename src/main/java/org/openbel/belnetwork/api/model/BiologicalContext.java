@@ -1,4 +1,4 @@
-package org.openbel.belnetwork.model;
+package org.openbel.belnetwork.api.model;
 
 import java.util.HashMap;
 import java.util.Map;

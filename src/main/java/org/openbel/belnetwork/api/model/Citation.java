@@ -1,4 +1,4 @@
-package org.openbel.belnetwork.model;
+package org.openbel.belnetwork.api.model;
 
 /**
  * {@link Citation} represents the "citation" object within the "evidence" definition

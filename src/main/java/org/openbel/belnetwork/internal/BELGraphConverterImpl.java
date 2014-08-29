@@ -2,7 +2,7 @@ package org.openbel.belnetwork.internal;
 
 import org.cytoscape.model.*;
 import org.openbel.belnetwork.api.BELGraphConverter;
-import org.openbel.belnetwork.model.*;
+import org.openbel.belnetwork.api.model.*;
 
 import java.util.*;
 

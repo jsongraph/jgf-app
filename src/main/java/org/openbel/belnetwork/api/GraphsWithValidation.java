@@ -1,7 +1,7 @@
 package org.openbel.belnetwork.api;
 
 import com.github.fge.jsonschema.core.report.ProcessingReport;
-import org.openbel.belnetwork.model.Graph;
+import org.openbel.belnetwork.api.model.Graph;
 
 import java.util.Arrays;
 

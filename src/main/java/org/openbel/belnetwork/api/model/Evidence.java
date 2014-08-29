@@ -1,4 +1,4 @@
-package org.openbel.belnetwork.model;
+package org.openbel.belnetwork.api.model;
 
 /**
  * {@link Evidence} represents the "evidence" definition from the

@@ -24,7 +24,7 @@ import org.openbel.belnetwork.api.BELGraphConverter;
 import org.openbel.belnetwork.api.BELGraphReader;
 import org.openbel.belnetwork.api.GraphsWithValidation;
 import org.openbel.belnetwork.api.util.StyleUtility;
-import org.openbel.belnetwork.model.Graph;
+import org.openbel.belnetwork.api.model.Graph;
 
 import javax.swing.*;
 import org.cytoscape.io.read.CyNetworkReader;

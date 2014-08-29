@@ -1,4 +1,4 @@
-package org.openbel.belnetwork.model;
+package org.openbel.belnetwork.api.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.cytoscape.model.CyEdge;

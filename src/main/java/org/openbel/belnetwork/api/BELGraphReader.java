@@ -1,6 +1,6 @@
 package org.openbel.belnetwork.api;
 
-import org.openbel.belnetwork.model.Graph;
+import org.openbel.belnetwork.api.model.Graph;
 
 import java.io.File;
 import java.io.IOException;

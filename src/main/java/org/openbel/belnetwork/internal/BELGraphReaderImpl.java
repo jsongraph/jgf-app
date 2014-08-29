@@ -10,8 +10,8 @@ import com.github.fge.jsonschema.main.JsonSchema;
 import com.github.fge.jsonschema.main.JsonSchemaFactory;
 import org.openbel.belnetwork.api.BELGraphReader;
 import org.openbel.belnetwork.api.GraphsWithValidation;
-import org.openbel.belnetwork.model.Graph;
-import org.openbel.belnetwork.model.Root;
+import org.openbel.belnetwork.api.model.Graph;
+import org.openbel.belnetwork.api.model.Root;
 
 import java.io.*;
 
