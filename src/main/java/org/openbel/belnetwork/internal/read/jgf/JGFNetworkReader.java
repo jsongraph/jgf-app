@@ -2,6 +2,8 @@ package org.openbel.belnetwork.internal.read.jgf;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.github.fge.jsonschema.core.report.ProcessingReport;
 import org.cytoscape.application.CyApplicationManager;
@@ -18,6 +20,7 @@ import org.cytoscape.model.subnetwork.CyRootNetworkManager;
 import org.cytoscape.view.model.CyNetworkView;
 import org.cytoscape.view.model.CyNetworkViewFactory;
 import org.cytoscape.work.TaskMonitor;
+import org.openbel.belnetwork.api.BELGraphConverter;
 import org.openbel.belnetwork.api.BELGraphReader;
 import org.openbel.belnetwork.api.GraphsWithValidation;
 import org.openbel.belnetwork.internal.util.StyleUtility;
@@ -40,13 +43,15 @@ public class JGFNetworkReader extends AbstractCyNetworkReader {
     protected final VisualMappingManager visMgr;
     protected final CyEventHelper eventHelper;
     protected final BELGraphReader belGraphReader;
+    protected final BELGraphConverter belGraphConverter;
 
     public JGFNetworkReader(InputStream inputStream, String inputName,
-            BELGraphReader belGraphReader, CyApplicationManager appMgr,
-            CyNetworkViewFactory networkVieFactory, CyNetworkFactory networkFactory,
-            CyNetworkManager networkMgr, CyRootNetworkManager rootNetworkMgr,
-            CyTableFactory tableFactory, CyTableManager tableMgr,
-            VisualMappingManager visMgr, CyEventHelper eventHelper) {
+            BELGraphReader belGraphReader, BELGraphConverter belGraphConverter,
+            CyApplicationManager appMgr, CyNetworkViewFactory networkVieFactory,
+            CyNetworkFactory networkFactory, CyNetworkManager networkMgr,
+            CyRootNetworkManager rootNetworkMgr, CyTableFactory tableFactory,
+            CyTableManager tableMgr, VisualMappingManager visMgr,
+            CyEventHelper eventHelper) {
         super(inputStream, networkVieFactory, networkFactory, networkMgr, rootNetworkMgr);
 
         if (inputStream == null) throw new NullPointerException("inputStream cannot be null");
@@ -55,13 +60,14 @@ public class JGFNetworkReader extends AbstractCyNetworkReader {
         if (networkMgr == null) throw new NullPointerException("networkMgr cannot be null");
         this.inputStream = inputStream;
         this.inputName = inputName;
+        this.belGraphReader = belGraphReader;
+        this.belGraphConverter = belGraphConverter;
         this.appMgr = appMgr;
         this.networkMgr = networkMgr;
         this.tableFactory = tableFactory;
         this.tableMgr = tableMgr;
         this.visMgr = visMgr;
         this.eventHelper = eventHelper;
-        this.belGraphReader = belGraphReader;
     }
 
     @Override
@@ -107,8 +113,8 @@ public class JGFNetworkReader extends AbstractCyNetworkReader {
         m.setProgress(0.50);
 
         m.setStatusMessage(format("Creating %d networks from \"%s\".", graphs.length, inputName));
-        mapNetworks(graphs);
-        for (CyNetwork n : networks)
+        this.networks = mapNetworks(graphs);
+        for (CyNetwork n : this.networks)
             networkMgr.addNetwork(n);
         m.setProgress(1.0);
     }
@@ -131,16 +137,11 @@ public class JGFNetworkReader extends AbstractCyNetworkReader {
         return gv;
     }
 
-    protected void mapNetworks(Graph[] graphs) {
-        // create N number of CyNetwork for N number of Graph...
-        this.networks = new CyNetwork[graphs.length];
-        for (int i = 0; i < networks.length; i++)
-            this.networks[i] = cyNetworkFactory.createNetwork();
-
-        // ...map each Graph to CyNetwork
-        for (int i = 0; i < graphs.length; i++) {
-            JGFMapper mapper = new JGFMapper(graphs[i], networks[i], tableFactory, tableMgr);
-            mapper.doMapping();
+    protected CyNetwork[] mapNetworks(Graph[] graphs) {
+        List<CyNetwork> cyNetworks = new ArrayList<CyNetwork>();
+        for (Graph graph : graphs) {
+            cyNetworks.add(belGraphConverter.convert(graph));
         }
+        return cyNetworks.toArray(new CyNetwork[cyNetworks.size()]);
     }
 }

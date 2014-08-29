@@ -13,6 +13,7 @@ import org.cytoscape.io.CyFileFilter;
 import org.cytoscape.io.DataCategory;
 import org.cytoscape.io.read.InputStreamTaskFactory;
 import org.cytoscape.io.util.StreamUtil;
+import org.openbel.belnetwork.api.BELGraphConverter;
 import org.openbel.belnetwork.api.BELGraphReader;
 import org.openbel.belnetwork.internal.listeners.SessionListener;
 import org.openbel.belnetwork.internal.read.jgf.JGFFileFilter;
@@ -86,13 +87,16 @@ public class CyActivator extends AbstractCyActivator {
 
         CyActivator.contributeStyles(visMgr, vizmapReaderMgr);
 
-        // readers
+        // API implementations
         final BELGraphReader belGraphReader = new BELGraphReaderImpl();
+        final BELGraphConverter belGraphConverter = new BELGraphConverterImpl(cyNetworkFactory);
+
+        // readers
         final CyFileFilter jgfReaderFilter = new JGFFileFilter(streamUtil);
         final JGFNetworkReaderFactory jgfReaderFactory = new JGFNetworkReaderFactory(
                 jgfReaderFilter, appMgr, cyNetworkViewFactory, cyNetworkFactory,
                 cyNetworkManager, cyRootNetworkManager, cyTableFactory,
-                cyTableManager, visMgr, eventHelper, belGraphReader);
+                cyTableManager, visMgr, eventHelper, belGraphReader, belGraphConverter);
         final Properties jgfNetworkReaderFactoryProps = new Properties();
         jgfNetworkReaderFactoryProps.put(ID, "JGFNetworkReaderFactory");
         registerService(bc, jgfReaderFactory, InputStreamTaskFactory.class, jgfNetworkReaderFactoryProps);
