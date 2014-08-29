@@ -9,20 +9,19 @@ import com.github.fge.jsonschema.core.report.ProcessingReport;
 import org.cytoscape.application.CyApplicationManager;
 import org.cytoscape.event.CyEventHelper;
 import org.cytoscape.io.read.AbstractCyNetworkReader;
+import org.cytoscape.model.*;
 import org.cytoscape.view.vizmap.VisualMappingManager;
 import org.cytoscape.view.vizmap.VisualStyle;
-import org.cytoscape.model.CyNetwork;
-import org.cytoscape.model.CyNetworkFactory;
-import org.cytoscape.model.CyNetworkManager;
-import org.cytoscape.model.CyTableFactory;
-import org.cytoscape.model.CyTableManager;
 import org.cytoscape.model.subnetwork.CyRootNetworkManager;
 import org.cytoscape.view.model.CyNetworkView;
 import org.cytoscape.view.model.CyNetworkViewFactory;
 import org.cytoscape.work.TaskMonitor;
+import org.openbel.belnetwork.api.BELEvidenceMapper;
 import org.openbel.belnetwork.api.BELGraphConverter;
 import org.openbel.belnetwork.api.BELGraphReader;
 import org.openbel.belnetwork.api.GraphsWithValidation;
+import org.openbel.belnetwork.api.model.Edge;
+import org.openbel.belnetwork.api.model.Evidence;
 import org.openbel.belnetwork.api.util.StyleUtility;
 import org.openbel.belnetwork.api.model.Graph;
 
@@ -31,6 +30,7 @@ import org.cytoscape.io.read.CyNetworkReader;
 
 import static java.lang.String.format;
 import static org.openbel.belnetwork.api.util.FormatUtility.getSchemaMessages;
+import static org.openbel.belnetwork.api.util.TableUtility.getTable;
 import static org.openbel.belnetwork.internal.Constants.APPLIED_VISUAL_STYLE;
 
 /**
@@ -50,14 +50,15 @@ public class JGFNetworkReader extends AbstractCyNetworkReader {
     protected final CyEventHelper eventHelper;
     protected final BELGraphReader belGraphReader;
     protected final BELGraphConverter belGraphConverter;
+    protected final BELEvidenceMapper belEvidenceMapper;
 
     public JGFNetworkReader(InputStream inputStream, String inputName,
             BELGraphReader belGraphReader, BELGraphConverter belGraphConverter,
-            CyApplicationManager appMgr, CyNetworkViewFactory networkVieFactory,
-            CyNetworkFactory networkFactory, CyNetworkManager networkMgr,
-            CyRootNetworkManager rootNetworkMgr, CyTableFactory tableFactory,
-            CyTableManager tableMgr, VisualMappingManager visMgr,
-            CyEventHelper eventHelper) {
+            BELEvidenceMapper belEvidenceMapper, CyApplicationManager appMgr,
+            CyNetworkViewFactory networkVieFactory, CyNetworkFactory networkFactory,
+            CyNetworkManager networkMgr, CyRootNetworkManager rootNetworkMgr,
+            CyTableFactory tableFactory, CyTableManager tableMgr,
+            VisualMappingManager visMgr, CyEventHelper eventHelper) {
         super(inputStream, networkVieFactory, networkFactory, networkMgr, rootNetworkMgr);
 
         if (inputStream == null) throw new NullPointerException("inputStream cannot be null");
@@ -68,6 +69,7 @@ public class JGFNetworkReader extends AbstractCyNetworkReader {
         this.inputName = inputName;
         this.belGraphReader = belGraphReader;
         this.belGraphConverter = belGraphConverter;
+        this.belEvidenceMapper = belEvidenceMapper;
         this.appMgr = appMgr;
         this.networkMgr = networkMgr;
         this.tableFactory = tableFactory;
@@ -128,6 +130,13 @@ public class JGFNetworkReader extends AbstractCyNetworkReader {
         this.networks = mapNetworks(graphs);
         for (CyNetwork n : this.networks)
             networkMgr.addNetwork(n);
+
+        // set up evidence table if we have cytoscape networks
+        if (this.networks.length > 0) {
+            CyTable table = getOrCreateEvidenceTable();
+            mapGraphsToEvidenceTable(graphs, table);
+            tableMgr.addTable(table);
+        }
         m.setProgress(1.0);
     }
 
@@ -175,5 +184,34 @@ public class JGFNetworkReader extends AbstractCyNetworkReader {
             cyNetworks.add(belGraphConverter.convert(graph));
         }
         return cyNetworks.toArray(new CyNetwork[cyNetworks.size()]);
+    }
+
+    protected CyTable getOrCreateEvidenceTable() {
+        CyTable tbl = getTable("BEL.Evidence", tableMgr);
+        if (tbl != null) return tbl;
+
+        tbl = tableFactory.createTable("BEL.Evidence", "SUID", Long.class, true, false);
+        tbl.setSavePolicy(SavePolicy.SESSION_FILE);
+        tbl.createColumn("network suid", Long.class, true, null);
+        tbl.createColumn("network name", String.class, true);
+        tbl.createColumn("edge suid", Long.class, true, null);
+        tbl.createColumn("bel statement", String.class, false);
+        tbl.createColumn("citation type", String.class, false);
+        tbl.createColumn("citation id", String.class, false);
+        tbl.createColumn("citation name", String.class, false);
+        tbl.createColumn("summary text", String.class, false);
+        tbl.createColumn("species", String.class, false);
+        return tbl;
+    }
+
+    protected void mapGraphsToEvidenceTable(Graph[] graphs, CyTable table) {
+        for (Graph graph : graphs) {
+            for (Edge edge : graph.edges) {
+                Evidence[] evidences = belEvidenceMapper.mapEdgeToEvidence(graph, edge);
+                for (Evidence ev : evidences) {
+                    belEvidenceMapper.mapToTable(graph, edge, ev, table);
+                }
+            }
+        }
     }
 }

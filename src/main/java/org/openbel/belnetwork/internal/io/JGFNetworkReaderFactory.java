@@ -14,6 +14,7 @@ import org.cytoscape.model.subnetwork.CyRootNetworkManager;
 import org.cytoscape.view.model.CyNetworkViewFactory;
 import org.cytoscape.view.vizmap.VisualMappingManager;
 import org.cytoscape.work.TaskIterator;
+import org.openbel.belnetwork.api.BELEvidenceMapper;
 import org.openbel.belnetwork.api.BELGraphConverter;
 import org.openbel.belnetwork.api.BELGraphReader;
 
@@ -31,12 +32,14 @@ public class JGFNetworkReaderFactory implements InputStreamTaskFactory {
     private final CyEventHelper eventHelper;
     private final BELGraphReader belGraphReader;
     private final BELGraphConverter belGraphConverter;
+    private final BELEvidenceMapper belEvidenceMapper;
 
     public JGFNetworkReaderFactory(final CyFileFilter cyFileFilter, final CyApplicationManager appMgr,
             final CyNetworkViewFactory cyNetworkViewFactory, final CyNetworkFactory cyNetworkFactory,
             final CyNetworkManager cyNetworkManager, final CyRootNetworkManager cyRootNetworkManager,
             CyTableFactory cyTableFactory, CyTableManager cyTableManager, VisualMappingManager visMgr,
-            CyEventHelper eventHelper, BELGraphReader belGraphReader, BELGraphConverter belGraphConverter) {
+            CyEventHelper eventHelper, BELGraphReader belGraphReader, BELGraphConverter belGraphConverter,
+            BELEvidenceMapper belEvidenceMapper) {
 
         this.cyFileFilter = cyFileFilter;
         this.appMgr = appMgr;
@@ -50,6 +53,7 @@ public class JGFNetworkReaderFactory implements InputStreamTaskFactory {
         this.eventHelper = eventHelper;
         this.belGraphReader = belGraphReader;
         this.belGraphConverter = belGraphConverter;
+        this.belEvidenceMapper = belEvidenceMapper;
     }
 
     /**
@@ -71,7 +75,8 @@ public class JGFNetworkReaderFactory implements InputStreamTaskFactory {
     @Override
     public TaskIterator createTaskIterator(InputStream is, String inputName) {
         return new TaskIterator(
-                new JGFNetworkReader(is, inputName, belGraphReader, belGraphConverter, appMgr, cyNetworkViewFactory,
+                new JGFNetworkReader(is, inputName, belGraphReader, belGraphConverter,
+                                     belEvidenceMapper, appMgr, cyNetworkViewFactory,
                                      cyNetworkFactory, cyNetworkManager, cyRootNetworkManager,
                                      cyTableFactory, cyTableManager, visMgr, eventHelper));
     }
