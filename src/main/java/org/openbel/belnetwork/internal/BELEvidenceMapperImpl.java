@@ -14,6 +14,10 @@ import static org.openbel.belnetwork.api.util.TableUtility.getOrCreateColumn;
 import static org.openbel.belnetwork.api.util.Utility.typedList;
 import static org.openbel.belnetwork.internal.Constants.*;
 
+/**
+ * {@link BELEvidenceMapperImpl} implements a {@link BELEvidenceMapper} to
+ * map between {@link Evidence} and {@link CyTable} objects.
+ */
 public class BELEvidenceMapperImpl implements BELEvidenceMapper {
 
     /**
@@ -120,6 +124,9 @@ public class BELEvidenceMapperImpl implements BELEvidenceMapper {
      */
     @Override
     public Evidence[] mapFromTable(CyEdge edge, CyTable table) {
+        if (edge == null) throw new NullPointerException("edge cannot be null");
+        if (table == null) throw new NullPointerException("table cannot be null");
+
         Set<String> nonAnnotationColumns = new HashSet<String>(
                 asList(CyNetwork.SUID, NETWORK_SUID, NETWORK_NAME, EDGE_SUID,
                        BEL_STATEMENT, SUMMARY_TEXT, CITATION_ID, CITATION_NAME,

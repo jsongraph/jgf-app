@@ -3,6 +3,7 @@ package org.openbel.belnetwork.internal.ui;
 import ca.odell.glazedlists.BasicEventList;
 import ca.odell.glazedlists.EventList;
 import ca.odell.glazedlists.swing.DefaultEventTableModel;
+import org.cytoscape.model.CyEdge;
 import org.jdesktop.swingx.JXHyperlink;
 import org.jdesktop.swingx.JXTable;
 import org.openbel.belnetwork.api.model.Evidence;
@@ -22,12 +23,19 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.table.TableModel;
 
 import static java.lang.String.format;
+import static org.openbel.belnetwork.api.util.Utility.hasItems;
 import static org.openbel.belnetwork.api.util.Utility.hasLength;
 
 /**
- *
+ * {@link EvidencePanel} provides the user interface to show
+ * {@link Evidence evidence}
+ * (e.g. BEL statement, summary text, citation, and biological context) for a
+ * cytoscape {@link CyEdge}.
+ * <br><br>
+ * The interface can be updated to show new {@link Evidence} objects by calling
+ * the {@link EvidencePanel#update(java.util.List)} method.
  */
-public class EvidencePanel extends JPanel implements ListSelectionListener {
+class EvidencePanel extends JPanel implements ListSelectionListener {
 
     private EventList<Pair<String, Evidence>> statements = new BasicEventList<Pair<String, Evidence>>();
     private final JXTable statementTable;
@@ -35,6 +43,10 @@ public class EvidencePanel extends JPanel implements ListSelectionListener {
     private final JXHyperlink citationLink;
     private final JTextPane annotationPane;
 
+    /**
+     * Constructor for the {@link EvidencePanel} that creates the user interface
+     * components.
+     */
     public EvidencePanel() {
         setPreferredSize(new Dimension(400, 400));
 
@@ -115,6 +127,14 @@ public class EvidencePanel extends JPanel implements ListSelectionListener {
                         new Insets(0, 5, 5, 5), 0, 0));
     }
 
+    /**
+     * Update the {@link EvidencePanel} user interface with a new list of
+     * {@link Evidence evidences}. If {@code evidences} is {@code null} or empty
+     * then the user interface will be cleared.
+     *
+     * @param evidences the {@link List} of {@link Evidence}; {@code null} implies
+     * clearing the user interface
+     */
     public void update(final List<Evidence> evidences) {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
@@ -127,26 +147,28 @@ public class EvidencePanel extends JPanel implements ListSelectionListener {
                     stmtIt.remove();
                 }
 
-                List<Pair<String, Evidence>> l = new ArrayList<Pair<String, Evidence>>();
-                for (Evidence e : evidences) {
-                    l.add(new Pair<String, Evidence>(e.belStatement, e));
-                }
-                Collections.sort(l, new Comparator<Pair<String, Evidence>>() {
-                    @Override
-                    public int compare(Pair<String, Evidence> p1, Pair<String, Evidence> p2) {
-                        if (p1.first() == null && p2.first() == null)
-                            return 0;
-                        if (p1.first() == null && p2.first() != null)
-                            return 1;
-                        if (p1.first() != null && p2.first() == null)
-                            return -1;
-                        return p1.first().compareTo(p2.first());
+                if (hasItems(evidences)) {
+                    List<Pair<String, Evidence>> l = new ArrayList<Pair<String, Evidence>>();
+                    for (Evidence e : evidences) {
+                        l.add(new Pair<String, Evidence>(e.belStatement, e));
                     }
-                });
-                statements.addAll(l);
+                    Collections.sort(l, new Comparator<Pair<String, Evidence>>() {
+                        @Override
+                        public int compare(Pair<String, Evidence> p1, Pair<String, Evidence> p2) {
+                            if (p1.first() == null && p2.first() == null)
+                                return 0;
+                            if (p1.first() == null && p2.first() != null)
+                                return 1;
+                            if (p1.first() != null && p2.first() == null)
+                                return -1;
+                            return p1.first().compareTo(p2.first());
+                        }
+                    });
+                    statements.addAll(l);
 
-                if (statementTable.getRowCount() > 0)
-                    statementTable.getSelectionModel().setSelectionInterval(0, 0);
+                    if (statementTable.getRowCount() > 0)
+                        statementTable.getSelectionModel().setSelectionInterval(0, 0);
+                }
             }
         });
     }

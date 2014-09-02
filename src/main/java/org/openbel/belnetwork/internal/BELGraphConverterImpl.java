@@ -6,8 +6,6 @@ import org.openbel.belnetwork.api.model.*;
 
 import java.util.*;
 
-import static org.openbel.belnetwork.api.util.FormatUtility.getOrEmptyString;
-import static org.openbel.belnetwork.api.util.FormatUtility.getOrZero;
 import static org.openbel.belnetwork.api.util.Utility.typedList;
 import static org.openbel.belnetwork.internal.Constants.COORDINATE_TRANSLATION;
 
@@ -46,6 +44,8 @@ public class BELGraphConverterImpl implements BELGraphConverter {
      */
     @Override
     public CyNetwork convert(Graph graph) {
+        if (graph == null) return null;
+
         CyNetwork network = networkFactory.createNetwork();
         mapNetworkData(graph, network);
         Map<String, CyNode> createdNodes = mapNodeData(graph, network);
@@ -57,10 +57,12 @@ public class BELGraphConverterImpl implements BELGraphConverter {
     /**
      * {@inheritDoc}
      * <br><br>
-     * FIXME Unsupported at the moment.
+     * FIXME Unsupported.
      */
     @Override
     public Graph convert(CyNetwork network) {
+        if (network == null) return null;
+
         throw new UnsupportedOperationException("TODO, convert CyNetwork -> Graph");
     }
 

@@ -4,7 +4,11 @@ import ca.odell.glazedlists.gui.TableFormat;
 import org.openbel.belnetwork.api.model.Evidence;
 import org.openbel.belnetwork.api.util.Pair;
 
-public class StatementTableFormat implements TableFormat<Pair<String, Evidence>> {
+/**
+ * {@link StatementTableFormat} defines the data for the statement table in the
+ * {@link EvidencePanel}.
+ */
+class StatementTableFormat implements TableFormat<Pair<String, Evidence>> {
 
     /**
      * {@inheritDoc}

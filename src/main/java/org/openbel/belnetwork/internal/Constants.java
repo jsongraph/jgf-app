@@ -29,16 +29,63 @@ public class Constants {
      */
     public static final String CY_USER_MESSAGES = "CyUserMessages";
 
+    /**
+     * The name of the Cytoscape evidence table: {@value}
+     */
     public static final String BEL_EVIDENCE_TABLE = "BEL.Evidence";
 
+    /**
+     * Name of the cytoscape column holding the network identifier in the
+     * {@link Constants#BEL_EVIDENCE_TABLE}: {@value}
+     */
     public static final String NETWORK_SUID = "network suid";
+
+    /**
+     * Name of the cytoscape column holding the network name in the
+     * {@link Constants#BEL_EVIDENCE_TABLE}: {@value}
+     */
     public static final String NETWORK_NAME = "network name";
+
+    /**
+     * Name of the cytoscape column holding the edge identifier in the
+     * {@link Constants#BEL_EVIDENCE_TABLE}: {@value}
+     */
     public static final String EDGE_SUID = "edge suid";
+
+    /**
+     * Name of the cytoscape column holding the bel statement in the
+     * {@link Constants#BEL_EVIDENCE_TABLE}: {@value}
+     */
     public static final String BEL_STATEMENT = "bel statement";
+
+    /**
+     * Name of the cytoscape column holding the summary text in the
+     * {@link Constants#BEL_EVIDENCE_TABLE}: {@value}
+     */
     public static final String SUMMARY_TEXT = "summary text";
+
+    /**
+     * Name of the cytoscape column holding the citation type in the
+     * {@link Constants#BEL_EVIDENCE_TABLE}: {@value}
+     */
     public static final String CITATION_TYPE = "citation type";
+
+    /**
+     * Name of the cytoscape column holding the citation id in the
+     * {@link Constants#BEL_EVIDENCE_TABLE}: {@value}
+     */
     public static final String CITATION_ID = "citation id";
+
+    /**
+     * Name of the cytoscape column holding the citation name in the
+     * {@link Constants#BEL_EVIDENCE_TABLE}: {@value}
+     */
     public static final String CITATION_NAME = "citation name";
+
+    /**
+     * Name of the cytoscape column holding the species in the
+     * {@link Constants#BEL_EVIDENCE_TABLE}: {@value}
+     */
     public static final String SPECIES = "species";
 
     private Constants() {

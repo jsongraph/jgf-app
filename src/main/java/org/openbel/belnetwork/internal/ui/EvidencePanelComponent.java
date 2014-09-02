@@ -18,6 +18,17 @@ import static java.util.Arrays.asList;
 import static org.openbel.belnetwork.api.util.TableUtility.getTable;
 import static org.openbel.belnetwork.internal.Constants.*;
 
+/**
+ * {@link EvidencePanelComponent} defines a {@link CytoPanelComponent} tab for
+ * the cytoscape <em>Results Panel</em>.
+ * <br><br>
+ * The {@link EvidencePanel} provides the user interface for this
+ * {@link CytoPanelComponent}.
+ * <br><br>
+ * The {@link EvidencePanelComponent#handleEvent(org.cytoscape.model.events.RowsSetEvent)}
+ * method will call {@link EvidencePanel#update(java.util.List)} when an
+ * {@link CyEdge edge} is clicked.
+ */
 public class EvidencePanelComponent implements CytoPanelComponent, RowsSetListener {
 
     private final EvidencePanel evidencePanel;
