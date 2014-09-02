@@ -1,21 +1,55 @@
 package org.openbel.belnetwork.internal.ui;
 
+import org.cytoscape.application.swing.CySwingApplication;
+import org.cytoscape.application.swing.CytoPanel;
+import org.cytoscape.application.swing.CytoPanelName;
+import org.cytoscape.application.swing.CytoPanelState;
 import org.cytoscape.model.CyEdge;
+import org.cytoscape.model.CyRow;
+import org.cytoscape.model.CyTable;
+import org.cytoscape.model.CyTableManager;
 import org.cytoscape.task.EdgeViewTaskFactory;
 import org.cytoscape.view.model.CyNetworkView;
 import org.cytoscape.view.model.View;
 import org.cytoscape.work.TaskIterator;
 
+import java.util.Collection;
+
+import static org.openbel.belnetwork.api.util.TableUtility.getTable;
+import static org.openbel.belnetwork.api.util.Utility.hasItems;
+import static org.openbel.belnetwork.internal.Constants.BEL_EVIDENCE_TABLE;
+import static org.openbel.belnetwork.internal.Constants.EDGE_SUID;
+
 public class ShowEvidenceFactory implements EdgeViewTaskFactory {
 
-    @Override
-    public TaskIterator createTaskIterator(View<CyEdge> arg0, CyNetworkView arg1) {
-        return null;
+    private final CyTableManager tableManager;
+    private final CySwingApplication swingApplication;
+    private final EvidencePanelComponent evidencePanelComponent;
+
+    public ShowEvidenceFactory(CyTableManager tableManager, CySwingApplication swingApplication,
+                               EvidencePanelComponent evidencePanelComponent) {
+        this.tableManager = tableManager;
+        this.swingApplication = swingApplication;
+        this.evidencePanelComponent = evidencePanelComponent;
     }
 
     @Override
-    public boolean isReady(View<CyEdge> edgeV, CyNetworkView cyNv) {
-        // TODO true if records exist in evidence table for network/edge
-        return true;
+    public TaskIterator createTaskIterator(View<CyEdge> view, CyNetworkView networkView) {
+        CytoPanel eastPanel = swingApplication.getCytoPanel(CytoPanelName.EAST);
+        eastPanel.setState(CytoPanelState.DOCK);
+        int index = eastPanel.indexOfComponent(evidencePanelComponent.getComponent());
+        eastPanel.setSelectedIndex(index);
+
+        return new TaskIterator(new NoOpTask());
+    }
+
+    @Override
+    public boolean isReady(View<CyEdge> view, CyNetworkView cyNv) {
+        Long suid = view.getModel().getSUID();
+        CyTable evTable = getTable(BEL_EVIDENCE_TABLE, tableManager);
+        if (evTable == null) return false;
+
+        Collection<CyRow> rows = evTable.getMatchingRows(EDGE_SUID, suid);
+        return hasItems(rows);
     }
 }

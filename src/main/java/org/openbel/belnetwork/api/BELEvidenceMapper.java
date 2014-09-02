@@ -1,5 +1,7 @@
 package org.openbel.belnetwork.api;
 
+import org.cytoscape.model.CyEdge;
+import org.cytoscape.model.CyNetwork;
 import org.cytoscape.model.CyTable;
 import org.openbel.belnetwork.api.model.Edge;
 import org.openbel.belnetwork.api.model.Evidence;
@@ -11,5 +13,5 @@ public interface BELEvidenceMapper {
 
     public void mapToTable(Graph graph, Edge edge, Evidence evidence, CyTable table);
 
-    public Evidence[] mapFromTable(Graph graph, Edge edge, CyTable table);
+    public Evidence[] mapFromTable(CyEdge edge, CyTable table);
 }

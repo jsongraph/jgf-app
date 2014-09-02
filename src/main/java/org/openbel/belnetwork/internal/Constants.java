@@ -29,6 +29,18 @@ public class Constants {
      */
     public static final String CY_USER_MESSAGES = "CyUserMessages";
 
+    public static final String BEL_EVIDENCE_TABLE = "BEL.Evidence";
+
+    public static final String NETWORK_SUID = "network suid";
+    public static final String NETWORK_NAME = "network name";
+    public static final String EDGE_SUID = "edge suid";
+    public static final String BEL_STATEMENT = "bel statement";
+    public static final String SUMMARY_TEXT = "summary text";
+    public static final String CITATION_TYPE = "citation type";
+    public static final String CITATION_ID = "citation id";
+    public static final String CITATION_NAME = "citation name";
+    public static final String SPECIES = "species";
+
     private Constants() {
         // static accessors only
     }

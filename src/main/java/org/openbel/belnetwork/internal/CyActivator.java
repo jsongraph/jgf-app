@@ -4,6 +4,7 @@ import java.io.InputStream;
 import java.util.Properties;
 
 import org.cytoscape.application.CyApplicationManager;
+import org.cytoscape.application.swing.CySwingApplication;
 import org.cytoscape.event.CyEventHelper;
 import org.cytoscape.io.read.VizmapReaderManager;
 import org.cytoscape.service.util.AbstractCyActivator;
@@ -18,7 +19,7 @@ import org.openbel.belnetwork.api.BELGraphReader;
 import org.openbel.belnetwork.internal.listeners.SessionListener;
 import org.openbel.belnetwork.internal.io.JGFFileFilter;
 import org.openbel.belnetwork.internal.io.JGFNetworkReaderFactory;
-import org.openbel.belnetwork.internal.ui.EdgeSelectedListener;
+import org.openbel.belnetwork.internal.ui.EvidencePanelComponent;
 import org.openbel.belnetwork.internal.ui.ShowEvidenceFactory;
 import org.cytoscape.task.EdgeViewTaskFactory;
 import org.cytoscape.model.CyNetworkFactory;
@@ -28,7 +29,6 @@ import org.cytoscape.model.CyTableManager;
 import org.cytoscape.model.subnetwork.CyRootNetworkManager;
 import org.openbel.belnetwork.api.util.StyleUtility;
 import org.osgi.framework.BundleContext;
-import org.cytoscape.model.events.RowsSetListener;
 
 import static org.cytoscape.work.ServiceProperties.*;
 import static org.openbel.belnetwork.internal.Constants.*;
@@ -86,6 +86,7 @@ public class CyActivator extends AbstractCyActivator {
         final VisualMappingManager visMgr = getService(bc, VisualMappingManager.class);
         final VizmapReaderManager vizmapReaderMgr = getService(bc, VizmapReaderManager.class);
         final CyEventHelper eventHelper = getService(bc, CyEventHelper.class);
+        final CySwingApplication cySwingApplication = getService(bc, CySwingApplication.class);
 
         // contribute visual styles
         CyActivator.contributeStyles(visMgr, vizmapReaderMgr);
@@ -107,18 +108,18 @@ public class CyActivator extends AbstractCyActivator {
         registerService(bc, jgfReaderFactory, InputStreamTaskFactory.class, jgfNetworkReaderFactoryProps);
 
         // listeners
-        final Properties edgeSelectedListenerProps = new Properties();
-        edgeSelectedListenerProps.put(ID, "EdgeSelectedListener");
-        final EdgeSelectedListener  edgeSelectedListener = new EdgeSelectedListener();
-        registerService(bc, edgeSelectedListener, RowsSetListener.class, edgeSelectedListenerProps);
+        final Properties evidenceProps = new Properties();
+        evidenceProps.put("name", "evidence");
+        EvidencePanelComponent evidencePanelComponent = new EvidencePanelComponent(belEvidenceMapper, cyTableManager, cyNetworkManager);
+        registerAllServices(bc, evidencePanelComponent, evidenceProps);
         registerAllServices(bc, new SessionListener(visMgr, vizmapReaderMgr), new Properties());
 
         final Properties evidenceFactoryProps = new Properties();
         evidenceFactoryProps.put(ID, "ShowEvidenceFactory");
-        evidenceFactoryProps.put(PREFERRED_MENU, "Apps.JGF");
+        evidenceFactoryProps.put(PREFERRED_MENU, "Apps.BEL Network App");
         evidenceFactoryProps.put(MENU_GRAVITY, "14.0");
         evidenceFactoryProps.put(TITLE, "View Evidence");
-        registerService(bc, new ShowEvidenceFactory(), EdgeViewTaskFactory.class, evidenceFactoryProps);
+        registerService(bc, new ShowEvidenceFactory(cyTableManager, cySwingApplication, evidencePanelComponent), EdgeViewTaskFactory.class, evidenceFactoryProps);
     }
 
     public static void contributeStyles(VisualMappingManager visMgr, VizmapReaderManager vizmapReaderMgr) {

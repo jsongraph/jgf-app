@@ -204,6 +204,16 @@
             <artifactId>guava</artifactId>
             <version>18.0</version>
         </dependency>
+        <dependency>
+            <groupId>org.swinglabs.swingx</groupId>
+            <artifactId>swingx-all</artifactId>
+            <version>1.6.5-1</version>
+        </dependency>
+        <dependency>
+            <groupId>net.java.dev.glazedlists</groupId>
+            <artifactId>glazedlists_java15</artifactId>
+            <version>1.9.0</version>
+        </dependency>
 
         <!-- Testing -->
         <dependency>

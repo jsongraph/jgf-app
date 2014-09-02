@@ -4,18 +4,15 @@ import org.cytoscape.model.*;
 import org.openbel.belnetwork.api.BELEvidenceMapper;
 import org.openbel.belnetwork.api.model.*;
 
-import java.util.Arrays;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.Map.Entry;
-import java.util.Set;
 
+import static java.util.Arrays.asList;
 import static org.openbel.belnetwork.api.util.FormatUtility.getOrEmptyString;
 import static org.openbel.belnetwork.api.util.FormatUtility.getOrZero;
 import static org.openbel.belnetwork.api.util.TableUtility.getOrCreateColumn;
 import static org.openbel.belnetwork.api.util.Utility.typedList;
+import static org.openbel.belnetwork.internal.Constants.*;
 
 public class BELEvidenceMapperImpl implements BELEvidenceMapper {
 
@@ -39,7 +36,7 @@ public class BELEvidenceMapperImpl implements BELEvidenceMapper {
             Map<String, Object> evMap = (Map<String, Object>) item;
 
             Evidence ev = new Evidence();
-            ev.belStatement = getOrEmptyString("bel_statement", evMap);
+            ev.belStatement = getOrEmptyString("bel_statement", evMap).replace("\\\"", "\"");
             ev.summaryText = getOrEmptyString("summary_text", evMap);
             Citation citation = new Citation();
             @SuppressWarnings("unchecked")
@@ -57,7 +54,7 @@ public class BELEvidenceMapperImpl implements BELEvidenceMapper {
                 context.speciesCommonName = getOrEmptyString("species_common_name", contextMap);
                 context.ncbiTaxId = getOrZero("ncbi_tax_id", contextMap);
                 Set<String> varying = new HashSet<String>(contextMap.keySet());
-                varying.removeAll(Arrays.asList("species_common_name", "ncbi_tax_id"));
+                varying.removeAll(asList("species_common_name", "ncbi_tax_id"));
                 for (String key : varying) {
                     context.variedAnnotations.put(key, contextMap.get(key));
                 }
@@ -90,16 +87,16 @@ public class BELEvidenceMapperImpl implements BELEvidenceMapper {
         String networkName = networkRow.get(CyNetwork.NAME, String.class);
         CyRow row = table.getRow(SUIDFactory.getNextSUID());
 
-        row.set("network suid", cyN.getSUID());
-        row.set("network name", networkName);
-        row.set("edge suid", cyE.getSUID());
-        row.set("bel statement", evidence.belStatement);
-        row.set("summary text", evidence.summaryText);
+        row.set(NETWORK_SUID, cyN.getSUID());
+        row.set(NETWORK_NAME, networkName);
+        row.set(EDGE_SUID, cyE.getSUID());
+        row.set(BEL_STATEMENT, evidence.belStatement);
+        row.set(SUMMARY_TEXT, evidence.summaryText);
 
         if (evidence.citation != null) {
-            row.set("citation type", evidence.citation.type);
-            row.set("citation id", evidence.citation.id);
-            row.set("citation name", evidence.citation.name);
+            row.set(CITATION_TYPE, evidence.citation.type);
+            row.set(CITATION_ID, evidence.citation.id);
+            row.set(CITATION_NAME, evidence.citation.name);
         }
 
         if (evidence.biologicalContext != null) {
@@ -110,7 +107,7 @@ public class BELEvidenceMapperImpl implements BELEvidenceMapper {
             }
 
             // set annotation values
-            row.set("species", bc.speciesCommonName);
+            row.set(SPECIES, bc.speciesCommonName);
             Map<String, Object> varying = bc.variedAnnotations;
             for (Entry<String, Object> entry : varying.entrySet()) {
                 row.set(entry.getKey(), getOrEmptyString(entry.getKey(), varying));
@@ -122,7 +119,35 @@ public class BELEvidenceMapperImpl implements BELEvidenceMapper {
      * {@inheritDoc}
      */
     @Override
-    public Evidence[] mapFromTable(Graph graph, Edge edge, CyTable table) {
-        return new Evidence[0];
+    public Evidence[] mapFromTable(CyEdge edge, CyTable table) {
+        Set<String> nonAnnotationColumns = new HashSet<String>(
+                asList(CyNetwork.SUID, NETWORK_SUID, NETWORK_NAME, EDGE_SUID,
+                       BEL_STATEMENT, SUMMARY_TEXT, CITATION_ID, CITATION_NAME,
+                       CITATION_TYPE, SPECIES));
+
+        Collection<CyRow> evidenceRows = table.getMatchingRows(EDGE_SUID, edge.getSUID());
+        List<Evidence> evidences = new ArrayList<Evidence>(evidenceRows.size());
+        if (!evidenceRows.isEmpty()) {
+            for (CyRow evRow : evidenceRows) {
+                Evidence e = new Evidence();
+                e.belStatement = evRow.get(BEL_STATEMENT, String.class);
+                e.summaryText = evRow.get(SUMMARY_TEXT, String.class);
+                e.citation = new Citation();
+                e.citation.id = evRow.get(CITATION_ID, String.class);
+                e.citation.name = evRow.get(CITATION_NAME, String.class);
+                e.citation.type = evRow.get(CITATION_TYPE, String.class);
+                e.biologicalContext = new BiologicalContext();
+                e.biologicalContext.speciesCommonName = evRow.get(SPECIES, String.class);
+                e.biologicalContext.variedAnnotations = new HashMap<String, Object>();
+                for (Entry<String, Object> columnValue : evRow.getAllValues().entrySet()) {
+                    if (nonAnnotationColumns.contains(columnValue.getKey()))
+                        continue;
+                    e.biologicalContext.variedAnnotations.put(columnValue.getKey(), columnValue.getValue());
+                }
+                evidences.add(e);
+            }
+        }
+
+        return evidences.toArray(new Evidence[evidences.size()]);
     }
 }

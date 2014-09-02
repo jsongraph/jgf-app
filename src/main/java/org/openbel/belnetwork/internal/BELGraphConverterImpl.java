@@ -156,41 +156,6 @@ public class BELGraphConverterImpl implements BELGraphConverter {
 
             if (edge.metadata != null) {
                 HashMap<String, Object> mdata = edge.metadata;
-
-                if (mdata.containsKey("evidences")) {
-                    @SuppressWarnings("unchecked")
-                    List<Map<String, Object>> evidenceMap = (List<Map<String,Object>>)mdata.get("evidences");
-                    for (Map<String,Object> item : evidenceMap) {
-                        Evidence ev = new Evidence();
-                        ev.belStatement = getOrEmptyString("bel_statement", item);
-                        ev.summaryText = getOrEmptyString("summary_text", item);
-
-                        Citation citation = new Citation();
-                        @SuppressWarnings("unchecked")
-                        Map<String, Object> citationMap = (Map<String, Object>)item.get("citation");
-                        if (citationMap != null) {
-                            citation.id = getOrEmptyString("id", citationMap);
-                            citation.type = getOrEmptyString("type", citationMap);
-                            citation.name = getOrEmptyString("name", citationMap);
-                        }
-                        ev.citation = citation;
-
-                        BiologicalContext context = new BiologicalContext();
-                        @SuppressWarnings("unchecked")
-                        Map<String, Object> contextMap = (Map<String, Object>)item.get("biological_context");
-                        if (contextMap != null) {
-                            context.speciesCommonName = getOrEmptyString("species_common_name", contextMap);
-                            context.ncbiTaxId = getOrZero("ncbi_tax_id", contextMap);
-                            Set<String> varying = new HashSet<String>(contextMap.keySet());
-                            varying.removeAll(Arrays.asList("species_common_name", "ncbi_tax_id"));
-
-                            for (String key : varying) {
-                                context.variedAnnotations.put(key, contextMap.get(key));
-                            }
-                            ev.biologicalContext = context;
-                        }
-                    }
-                }
                 if (mdata.containsKey("casual")) {
                     row.set(EDGE_CAUSAL, mdata.get("casual"));
                 }
