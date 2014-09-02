@@ -1,9 +1,11 @@
 package org.openbel.belnetwork.api.util;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.github.fge.jsonschema.core.report.ProcessingMessage;
 import com.github.fge.jsonschema.core.report.ProcessingReport;
 
+import java.util.Iterator;
 import java.util.Map;
 
 /**
@@ -59,8 +61,21 @@ public class FormatUtility {
 
         for (ProcessingMessage m : report) {
             JsonNode data = m.asJson();
-            for (JsonNode n : data.findValues("message")) {
-                b.append(n.textValue()).append("\n");
+            Iterator<Map.Entry<String, JsonNode>> entries = data.get("reports").fields();
+            while(entries.hasNext()) {
+                Map.Entry<String, JsonNode> entry = entries.next();
+                String path = entry.getKey();
+                if (!(entry.getValue() instanceof ArrayNode)) continue;
+
+                Iterator<JsonNode> items = entry.getValue().elements();
+                while (items.hasNext()) {
+                    JsonNode valNode = items.next();
+                    if (valNode.has("instance") && valNode.get("instance").has("pointer")) {
+                        path += valNode.get("instance").get("pointer").asText();
+                    }
+                    b.append("JSON Path: ").append(path).append("\n");
+                    b.append("    ").append(valNode.get("message").asText()).append("\n");
+                }
             }
         }
         return b.toString();
