@@ -11,12 +11,7 @@ import org.openbel.belnetwork.api.model.Graph;
 import java.io.IOException;
 import java.io.InputStream;
 
-import static org.hamcrest.CoreMatchers.containsString;
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.Matchers.arrayWithSize;
-import static org.hamcrest.Matchers.emptyIterable;
-import static org.hamcrest.Matchers.not;
+import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.*;
 
 public class BELGraphReaderImplTest {
@@ -27,8 +22,8 @@ public class BELGraphReaderImplTest {
         BELGraphReader reader = new BELGraphReaderImpl();
         Graph[] graphs = reader.read(stream);
 
-        assertEquals(1, graphs.length);
-        assertNotNull(graphs[0]);
+        assertThat(graphs, arrayWithSize(1));
+        assertThat(graphs[0], is(notNullValue()));
     }
 
     @Test
@@ -38,16 +33,16 @@ public class BELGraphReaderImplTest {
         GraphsWithValidation gv = reader.validatingRead(stream);
 
         // check validation
-        assertNotNull(gv);
+        assertThat(gv, is(notNullValue()));
         ProcessingReport validation = gv.getValidationReport();
-        assertNotNull(validation);
-        assertTrue(validation.isSuccess());
+        assertThat(validation, is(notNullValue()));
+        assertThat(validation.isSuccess(), is(true));
         assertThat(validation, is(emptyIterable()));
 
         // check graph
         Graph[] graphs = gv.getGraphs();
-        assertEquals(1, graphs.length);
-        assertNotNull(graphs[0]);
+        assertThat(graphs, arrayWithSize(1));
+        assertThat(graphs[0], is(notNullValue()));
     }
 
     @Test
@@ -56,8 +51,8 @@ public class BELGraphReaderImplTest {
         BELGraphReader reader = new BELGraphReaderImpl();
         Graph[] graphs = reader.read(stream);
 
-        assertNotNull(graphs);
-        assertEquals(2, graphs.length);
+        assertThat(graphs, is(notNullValue()));
+        assertThat(graphs, arrayWithSize(2));
     }
 
     @Test
@@ -67,15 +62,16 @@ public class BELGraphReaderImplTest {
         GraphsWithValidation gv = reader.validatingRead(stream);
 
         // check validation
-        assertNotNull(gv);
+        assertThat(gv, is(notNullValue()));
         ProcessingReport validation = gv.getValidationReport();
-        assertNotNull(validation);
-        assertTrue(validation.isSuccess());
+        assertThat(validation, is(notNullValue()));
+        assertThat(validation, is(notNullValue()));
+        assertThat(validation.isSuccess(), is(true));
         assertThat(validation, is(emptyIterable()));
 
         // check graph
         Graph[] graphs = gv.getGraphs();
-        assertEquals(2, graphs.length);
+        assertThat(graphs, arrayWithSize(2));
     }
 
     @Test
@@ -84,8 +80,8 @@ public class BELGraphReaderImplTest {
         BELGraphReader reader = new BELGraphReaderImpl();
         Graph[] graphs = reader.read(stream);
 
-        assertNotNull(graphs);
-        assertEquals(0, graphs.length);
+        assertThat(graphs, is(notNullValue()));
+        assertThat(graphs, arrayWithSize(0));
     }
 
     @Test
@@ -119,16 +115,16 @@ public class BELGraphReaderImplTest {
         GraphsWithValidation gv = reader.validatingRead(stream);
 
         // check validation
-        assertNotNull(gv);
+        assertThat(gv, is(notNullValue()));
         ProcessingReport validation = gv.getValidationReport();
-        assertNotNull(validation);
-        assertFalse(validation.isSuccess());
+        assertThat(validation, is(notNullValue()));
+        assertThat(validation.isSuccess(), is(false));
         assertThat(validation, is(not(emptyIterable())));
 
         // check graph
         Graph[] graphs = gv.getGraphs();
-        assertNotNull(graphs);
-        assertEquals(0, graphs.length);
+        assertThat(graphs, is(notNullValue()));
+        assertThat(graphs, arrayWithSize(0));
 
         return validation;
     }
