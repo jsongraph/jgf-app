@@ -25,6 +25,9 @@ import javax.swing.table.TableModel;
 import static java.lang.String.format;
 import static org.openbel.belnetwork.api.util.Utility.hasItems;
 import static org.openbel.belnetwork.api.util.Utility.hasLength;
+import static org.openbel.belnetwork.internal.Constants.PUBMED;
+import static org.openbel.belnetwork.internal.Constants.ONLINE_RESOURCE;
+import static org.openbel.belnetwork.internal.Constants.PUBMED_URL_PREFIX;
 
 /**
  * {@link EvidencePanel} provides the user interface to show
@@ -240,9 +243,9 @@ class EvidencePanel extends JPanel implements ListSelectionListener {
         if (type == null) return null;
 
         try {
-            if (type.equals("PUBMED")) {
-                return new URI("http://www.ncbi.nlm.nih.gov/pubmed/" + id);
-            } else if (type.equals("ONLINE_RESOURCE")) {
+            if (type.equals(PUBMED)) {
+                return new URI(PUBMED_URL_PREFIX + id);
+            } else if (type.equals(ONLINE_RESOURCE)) {
                 return new URI(id);
             } else {
                 return null;

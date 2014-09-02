@@ -35,6 +35,21 @@ public class Constants {
     public static final String BEL_EVIDENCE_TABLE = "BEL.Evidence";
 
     /**
+     * The name of the pubmed citation type: {@value}
+     */
+    public static final String PUBMED = "PubMed";
+
+    /**
+     * The name of the online resource citation type: {@value}
+     */
+    public static final String ONLINE_RESOURCE = "Online Resource";
+
+    /**
+     * The URL prefix for the NBCI PubMed resource: {@value}
+     */
+    public static final String PUBMED_URL_PREFIX = "http://www.ncbi.nlm.nih.gov/pubmed/";
+
+    /**
      * Name of the cytoscape column holding the network identifier in the
      * {@link Constants#BEL_EVIDENCE_TABLE}: {@value}
      */
