@@ -105,7 +105,7 @@ public class BELGraphReaderImpl implements BELGraphReader {
         final JsonSchema schema;
         try {
             schema = factory.getJsonSchema(belSchema);
-            return schema.validate(json);
+            return schema.validate(json, true);
         } catch (ProcessingException e) {
             throw new IOException(e);
         }
