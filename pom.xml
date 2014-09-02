@@ -13,9 +13,9 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.openbel</groupId>
     <artifactId>bel-network-app</artifactId>
-    <version>0.8.0</version>
+    <version>1.0.0</version>
     <name>${bundle.name}</name>
-    <description>A cytoscape 3.x app to import and export BEL networks.</description>
+    <description>A cytoscape 3.x app to import BEL networks and view evidence.</description>
     <packaging>bundle</packaging>
 
     <licenses>
