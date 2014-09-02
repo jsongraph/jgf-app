@@ -119,7 +119,7 @@ public class JGFNetworkReader extends AbstractCyNetworkReader {
      */
     @Override
     public void run(TaskMonitor m) throws Exception {
-        m.setTitle(format("Import BEL JSON Graph"));
+        m.setTitle("Import BEL JSON Graph");
 
         m.setStatusMessage(format("Read and validate \"%s\" against the BEL JSON Graph schema.", inputName));
         GraphsWithValidation gv = checkSchema(inputStream, belGraphReader);
