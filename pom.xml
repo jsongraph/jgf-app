@@ -87,6 +87,8 @@
                 <extensions>true</extensions>
                 <configuration>
                     <instructions>
+                        <_include>src/main/resources/META-INF/MANIFEST.MF</_include>
+                        <Bundle-Name>BEL Network App</Bundle-Name>
                         <Bundle-SymbolicName>org.openbel.belnetwork</Bundle-SymbolicName>
                         <Bundle-Version>${project.version}</Bundle-Version>
                         <!-- This tells the bundle plugin which packages should not be exported. -->
@@ -94,7 +96,8 @@
                         <Bundle-Activator>org.openbel.belnetwork.internal.CyActivator</Bundle-Activator>
                         <Embed-Dependency>*;scope=!provided|test;groupId=!org.cytoscape</Embed-Dependency>
                         <Embed-Transitive>true</Embed-Transitive>
-                        <Import-Package>*;resolution:=optional</Import-Package>
+                        <Export-Package>org.openbel.belnetwork.api.*</Export-Package>
+                        <Import-Package>*;resolution:=optional;com.github.fge.jsonschema.core.report;com.fasterxml.jackson.annotation</Import-Package>
                     </instructions>
                 </configuration>
             </plugin>
