@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 
 /**
- * {@link Graph} represents the "graph" definition from the BEL JSON graph schema.
+ * {@link Graph} represents the "graph" definition from the JSON graph schema.
  */
 public class Graph {
 

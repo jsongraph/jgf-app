@@ -6,7 +6,7 @@ import org.cytoscape.model.CyNode;
 import java.util.HashMap;
 
 /**
- * {@link Node} represents the "node" definition from the BEL JSON graph schema.
+ * {@link Node} represents the "node" definition from the JSON graph schema.
  */
 public class Node {
 

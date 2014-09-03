@@ -6,7 +6,7 @@ import org.cytoscape.model.CyEdge;
 import java.util.HashMap;
 
 /**
- * {@link Edge} represents the "edge" definition from the BEL JSON graph schema.
+ * {@link Edge} represents the "edge" definition from the JSON graph schema.
  */
 public class Edge {
 
