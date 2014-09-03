@@ -5,6 +5,12 @@ Installation
 
 > - *todo*
 
+### Manual Install within Cytoscape:
+
+> 1. Open the App Manager (*Apps* → *App Manager* → *Install from File...*)
+> 2. Select the BEL Network App jar obtained from the [releases page](https://github.com/OpenBEL/bel-network-app/releases/).
+> 3. Click the *Open* button to install the plugin.
+
 ### From the sourcecode in this repository:
 
 > Requirements:
