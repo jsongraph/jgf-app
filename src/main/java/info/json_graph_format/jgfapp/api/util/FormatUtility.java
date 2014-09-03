@@ -10,6 +10,7 @@ import com.google.common.collect.Iterables;
 import javax.annotation.Nullable;
 import java.util.*;
 
+import static java.lang.String.format;
 import static java.util.Arrays.asList;
 import static java.util.Collections.emptyList;
 import static info.json_graph_format.jgfapp.internal.Constants.*;
@@ -63,30 +64,48 @@ public class FormatUtility {
      * @throws java.lang.NullPointerException when {@code report} is {@code null}
      */
     public static String getSchemaMessages(ProcessingReport report) {
-        final StringBuilder b = new StringBuilder();
-
+        List<String> errors = new ArrayList<String>();
         for (ProcessingMessage m : report) {
             JsonNode data = m.asJson();
             Iterator<Map.Entry<String, JsonNode>> entries = data.get("reports").fields();
             while(entries.hasNext()) {
                 Map.Entry<String, JsonNode> entry = entries.next();
-                String path = entry.getKey();
                 if (!(entry.getValue() instanceof ArrayNode)) continue;
 
                 Iterator<JsonNode> items = entry.getValue().elements();
                 while (items.hasNext()) {
+                    String path = entry.getKey();
                     JsonNode valNode = items.next();
                     if (valNode.has("instance") && valNode.get("instance").has("pointer")) {
                         path += valNode.get("instance").get("pointer").asText();
                     }
-                    b.append("JSON Path: ").append(path).append("\n");
-                    b.append("    ").append(valNode.get("message").asText()).append("\n");
+                    errors.add(format("JSON Path: %s\n    %s\n", path, valNode.get("message").asText()));
                 }
             }
         }
+
+        int show = 10;
+        StringBuilder b = new StringBuilder(
+                format("%d validation errors.%s\n\n",
+                        errors.size(),
+                        (errors.size() > show) ?
+                                format(" Showing first %d.", Collections.min(asList(errors.size(), show))) :
+                                ""
+                )
+        );
+        for (int i = 0; i < errors.size() && i < show; i++)
+            b.append(errors.get(i));
         return b.toString();
     }
 
+    /**
+     * Translate x, y, z coordinates. If points are percentage-based then they are translated
+     * to absolute positioning according to Cytoscape, otherwise they are passed through as is.
+     *
+     * @param points the {@link Collection} of points (x,y,z) as a {@link List} of {@link Double}
+     * @return translated coordinate {@link List}; {@code null} if {@code points} is {@code null};
+     * an empty immutable {@link List} if {@code points} is empty
+     */
     public static List<List<Double>> translateCoordinates(Collection<List<Double>> points) {
         if (points == null) return null;
         if (points.isEmpty()) return emptyList();
