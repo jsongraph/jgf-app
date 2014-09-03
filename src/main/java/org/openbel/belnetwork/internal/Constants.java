@@ -20,9 +20,19 @@ public class Constants {
     public static final String APPLIED_VISUAL_STYLE = "BEL Visualization";
 
     /**
-     * Multiplier for coordinate translation: {@value}
+     * Default view width: {@value}
      */
-    public static final int COORDINATE_TRANSLATION = 1500;
+    public static final int DEFAULT_VIEW_WIDTH = 480;
+
+    /**
+     * Default view height: {@value}
+     */
+    public static final int DEFAULT_VIEW_HEIGHT = 370;
+
+    /**
+     * Coordinate multiplier: {@value}
+     */
+    public static final double COORDINATE_MULTIPLIER = 3.0;
 
     /**
      * Log name for Cytoscape user messages: {@value}

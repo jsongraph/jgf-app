@@ -6,8 +6,8 @@ import org.openbel.belnetwork.api.model.*;
 
 import java.util.*;
 
+import static org.openbel.belnetwork.api.util.FormatUtility.translateCoordinates;
 import static org.openbel.belnetwork.api.util.Utility.typedList;
-import static org.openbel.belnetwork.internal.Constants.COORDINATE_TRANSLATION;
 
 /**
  * {@link BELGraphConverterImpl} implements a {@link BELGraphConverter} that converts
@@ -107,6 +107,7 @@ public class BELGraphConverterImpl implements BELGraphConverter {
         network.getDefaultNodeTable().createColumn(Z_COORD, Double.class, true);
         network.getDefaultNodeTable().createColumn(BEL_FUNCTION, String.class, true);
 
+        Map<CyRow, List<Double>> nodeCoordinates = new LinkedHashMap<CyRow, List<Double>>();
         Map<String, CyNode> createdNodes = new HashMap<String, CyNode>();
         for (Node n : graph.nodes) {
             final CyNode cyNode = network.addNode();
@@ -118,13 +119,7 @@ public class BELGraphConverterImpl implements BELGraphConverter {
                 Object coords = n.metadata.get("coordinate");
                 if (coords != null && (coords instanceof List)) {
                     List<Double> coordinates = typedList((List) coords, Double.class);
-                    if (coordinates.size() >= 2) {
-                        row.set(X_COORD, coordinates.get(0) * COORDINATE_TRANSLATION);
-                        row.set(Y_COORD, coordinates.get(1) * COORDINATE_TRANSLATION);
-                        if (coordinates.size() == 3) {
-                            row.set(Z_COORD, coordinates.get(2) * COORDINATE_TRANSLATION);
-                        }
-                    }
+                    nodeCoordinates.put(row, coordinates);
                 }
             }
             if (n.metadata.containsKey("bel_function_type"))
@@ -132,6 +127,17 @@ public class BELGraphConverterImpl implements BELGraphConverter {
 
             createdNodes.put(n.id, cyNode);
         }
+
+        List<List<Double>> translateCoordinates = translateCoordinates(nodeCoordinates.values());
+        CyRow[] rows = nodeCoordinates.keySet().toArray(new CyRow[nodeCoordinates.size()]);
+        for (int i = 0; i < rows.length; i++) {
+            CyRow row = rows[i];
+            List<Double> coord = translateCoordinates.get(i);
+            if (coord.size() > 0) row.set(X_COORD, coord.get(0));
+            if (coord.size() > 1) row.set(Y_COORD, coord.get(1));
+            if (coord.size() > 2) row.set(Z_COORD, coord.get(2));
+        }
+
         return createdNodes;
     }
 
