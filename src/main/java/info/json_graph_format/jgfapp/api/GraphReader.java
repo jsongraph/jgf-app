@@ -7,11 +7,11 @@ import java.io.IOException;
 import java.io.InputStream;
 
 /**
- * {@link BELGraphReader} reads <em>JSON Graph Format</em> content into object form.
+ * {@link GraphReader} reads <em>JSON Graph Format</em> content into object form.
  * The input content is expected to be <em>JSON Graph Format</em> that adheres to
  * the BEL JSON Graph child schema.
  */
-public interface BELGraphReader {
+public interface GraphReader {
 
     /**
      * Returns an array of {@link Graph} from a <em>JSON Graph Format</em>-encoded

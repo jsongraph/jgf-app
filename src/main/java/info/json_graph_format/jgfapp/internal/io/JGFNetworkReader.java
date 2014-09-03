@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.github.fge.jsonschema.core.report.ProcessingReport;
+import info.json_graph_format.jgfapp.api.GraphConverter;
 import org.cytoscape.application.CyApplicationManager;
 import org.cytoscape.event.CyEventHelper;
 import org.cytoscape.io.read.AbstractCyNetworkReader;
@@ -17,8 +18,7 @@ import org.cytoscape.view.model.CyNetworkView;
 import org.cytoscape.view.model.CyNetworkViewFactory;
 import org.cytoscape.work.TaskMonitor;
 import info.json_graph_format.jgfapp.api.BELEvidenceMapper;
-import info.json_graph_format.jgfapp.api.BELGraphConverter;
-import info.json_graph_format.jgfapp.api.BELGraphReader;
+import info.json_graph_format.jgfapp.api.GraphReader;
 import info.json_graph_format.jgfapp.api.GraphsWithValidation;
 import info.json_graph_format.jgfapp.api.model.Edge;
 import info.json_graph_format.jgfapp.api.model.Evidence;
@@ -48,12 +48,12 @@ public class JGFNetworkReader extends AbstractCyNetworkReader {
     protected final CyTableManager tableMgr;
     protected final VisualMappingManager visMgr;
     protected final CyEventHelper eventHelper;
-    protected final BELGraphReader belGraphReader;
-    protected final BELGraphConverter belGraphConverter;
+    protected final GraphReader graphReader;
+    protected final GraphConverter belGraphConverter;
     protected final BELEvidenceMapper belEvidenceMapper;
 
     public JGFNetworkReader(InputStream inputStream, String inputName,
-            BELGraphReader belGraphReader, BELGraphConverter belGraphConverter,
+            GraphReader graphReader, GraphConverter belGraphConverter,
             BELEvidenceMapper belEvidenceMapper, CyApplicationManager appMgr,
             CyNetworkViewFactory networkVieFactory, CyNetworkFactory networkFactory,
             CyNetworkManager networkMgr, CyRootNetworkManager rootNetworkMgr,
@@ -67,7 +67,7 @@ public class JGFNetworkReader extends AbstractCyNetworkReader {
         if (networkMgr == null) throw new NullPointerException("networkMgr cannot be null");
         this.inputStream = inputStream;
         this.inputName = inputName;
-        this.belGraphReader = belGraphReader;
+        this.graphReader = graphReader;
         this.belGraphConverter = belGraphConverter;
         this.belEvidenceMapper = belEvidenceMapper;
         this.appMgr = appMgr;
@@ -122,7 +122,7 @@ public class JGFNetworkReader extends AbstractCyNetworkReader {
         m.setTitle("Import BEL JSON Graph");
 
         m.setStatusMessage(format("Read and validate \"%s\" against the BEL JSON Graph schema.", inputName));
-        GraphsWithValidation gv = checkSchema(inputStream, belGraphReader);
+        GraphsWithValidation gv = checkSchema(inputStream, graphReader);
         Graph[] graphs = gv.getGraphs();
         m.setProgress(0.50);
 
@@ -148,14 +148,14 @@ public class JGFNetworkReader extends AbstractCyNetworkReader {
      * and throwing {@link RuntimeException} which will stop the current task.
      *
      * @param inputStream {@link InputStream} input
-     * @param belGraphReader {@link BELGraphReader} graph reader
+     * @param graphReader {@link info.json_graph_format.jgfapp.api.GraphReader} graph reader
      * @return {@link GraphsWithValidation} when validation succeeds
      * @throws IOException when an IO error occurred reading {@code inputStream}
      * @throws RuntimeException when schema validation does not succeed, the user
      * will receive the error
      */
-    protected GraphsWithValidation checkSchema(InputStream inputStream, BELGraphReader belGraphReader) throws IOException {
-        final GraphsWithValidation gv = belGraphReader.validatingRead(inputStream);
+    protected GraphsWithValidation checkSchema(InputStream inputStream, GraphReader graphReader) throws IOException {
+        final GraphsWithValidation gv = graphReader.validatingRead(inputStream);
         final ProcessingReport report = gv.getValidationReport();
         if (!report.isSuccess()) {
             SwingUtilities.invokeLater(new Runnable() {

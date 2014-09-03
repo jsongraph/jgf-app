@@ -2,6 +2,7 @@ package info.json_graph_format.jgfapp.internal.io;
 
 import java.io.InputStream;
 
+import info.json_graph_format.jgfapp.api.GraphConverter;
 import org.cytoscape.application.CyApplicationManager;
 import org.cytoscape.event.CyEventHelper;
 import org.cytoscape.io.CyFileFilter;
@@ -15,8 +16,7 @@ import org.cytoscape.view.model.CyNetworkViewFactory;
 import org.cytoscape.view.vizmap.VisualMappingManager;
 import org.cytoscape.work.TaskIterator;
 import info.json_graph_format.jgfapp.api.BELEvidenceMapper;
-import info.json_graph_format.jgfapp.api.BELGraphConverter;
-import info.json_graph_format.jgfapp.api.BELGraphReader;
+import info.json_graph_format.jgfapp.api.GraphReader;
 
 public class JGFNetworkReaderFactory implements InputStreamTaskFactory {
 
@@ -30,15 +30,15 @@ public class JGFNetworkReaderFactory implements InputStreamTaskFactory {
     private final CyTableManager cyTableManager;
     private final VisualMappingManager visMgr;
     private final CyEventHelper eventHelper;
-    private final BELGraphReader belGraphReader;
-    private final BELGraphConverter belGraphConverter;
+    private final GraphReader graphReader;
+    private final GraphConverter belGraphConverter;
     private final BELEvidenceMapper belEvidenceMapper;
 
     public JGFNetworkReaderFactory(final CyFileFilter cyFileFilter, final CyApplicationManager appMgr,
             final CyNetworkViewFactory cyNetworkViewFactory, final CyNetworkFactory cyNetworkFactory,
             final CyNetworkManager cyNetworkManager, final CyRootNetworkManager cyRootNetworkManager,
             CyTableFactory cyTableFactory, CyTableManager cyTableManager, VisualMappingManager visMgr,
-            CyEventHelper eventHelper, BELGraphReader belGraphReader, BELGraphConverter belGraphConverter,
+            CyEventHelper eventHelper, GraphReader graphReader, GraphConverter belGraphConverter,
             BELEvidenceMapper belEvidenceMapper) {
 
         this.cyFileFilter = cyFileFilter;
@@ -51,7 +51,7 @@ public class JGFNetworkReaderFactory implements InputStreamTaskFactory {
         this.cyTableManager = cyTableManager;
         this.visMgr = visMgr;
         this.eventHelper = eventHelper;
-        this.belGraphReader = belGraphReader;
+        this.graphReader = graphReader;
         this.belGraphConverter = belGraphConverter;
         this.belEvidenceMapper = belEvidenceMapper;
     }
@@ -75,7 +75,7 @@ public class JGFNetworkReaderFactory implements InputStreamTaskFactory {
     @Override
     public TaskIterator createTaskIterator(InputStream is, String inputName) {
         return new TaskIterator(
-                new JGFNetworkReader(is, inputName, belGraphReader, belGraphConverter,
+                new JGFNetworkReader(is, inputName, graphReader, belGraphConverter,
                                      belEvidenceMapper, appMgr, cyNetworkViewFactory,
                                      cyNetworkFactory, cyNetworkManager, cyRootNetworkManager,
                                      cyTableFactory, cyTableManager, visMgr, eventHelper));

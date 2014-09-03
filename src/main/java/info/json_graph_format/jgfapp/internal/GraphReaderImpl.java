@@ -8,7 +8,7 @@ import com.github.fge.jsonschema.core.exceptions.ProcessingException;
 import com.github.fge.jsonschema.core.report.ProcessingReport;
 import com.github.fge.jsonschema.main.JsonSchema;
 import com.github.fge.jsonschema.main.JsonSchemaFactory;
-import info.json_graph_format.jgfapp.api.BELGraphReader;
+import info.json_graph_format.jgfapp.api.GraphReader;
 import info.json_graph_format.jgfapp.api.GraphsWithValidation;
 import info.json_graph_format.jgfapp.api.model.Graph;
 import info.json_graph_format.jgfapp.api.model.Root;
@@ -16,7 +16,7 @@ import info.json_graph_format.jgfapp.api.model.Root;
 import java.io.*;
 
 /**
- * {@link BELGraphReaderImpl} implements {@link BELGraphReader} to provide
+ * {@link GraphReaderImpl} implements {@link info.json_graph_format.jgfapp.api.GraphReader} to provide
  * reading and validation of content encoded in <em>JSON Graph Format</em> and
  * adhering to the <em>BEL JSON Graph</em> child schema.
  * <br><br>
@@ -27,11 +27,11 @@ import java.io.*;
  * <a href="https://github.com/fge/json-schema-validator">json-schema-validator</a>
  * library.
  */
-public class BELGraphReaderImpl implements BELGraphReader {
+public class GraphReaderImpl implements GraphReader {
 
     protected final ObjectMapper mapper;
 
-    public BELGraphReaderImpl() {
+    public GraphReaderImpl() {
         mapper = new ObjectMapper();
         mapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
     }

@@ -1,7 +1,7 @@
 package info.json_graph_format.jgfapp.internal;
 
+import info.json_graph_format.jgfapp.api.GraphConverter;
 import org.cytoscape.model.*;
-import info.json_graph_format.jgfapp.api.BELGraphConverter;
 import info.json_graph_format.jgfapp.api.model.*;
 
 import java.util.*;
@@ -10,10 +10,11 @@ import static info.json_graph_format.jgfapp.api.util.FormatUtility.translateCoor
 import static info.json_graph_format.jgfapp.api.util.Utility.typedList;
 
 /**
- * {@link BELGraphConverterImpl} implements a {@link BELGraphConverter} that converts
- * {@link Graph} to {@link CyNetwork} and vice versa.
+ * {@link BELGraphConverterImpl} implements a {@link GraphConverter} that converts
+ * {@link Graph} to {@link CyNetwork} and vice versa. This implementation understands
+ * BEL format as well.
  */
-public class BELGraphConverterImpl implements BELGraphConverter {
+public class BELGraphConverterImpl implements GraphConverter {
 
     private static final String TYPE = "type";
     private static final String DIRECTED = "directed";

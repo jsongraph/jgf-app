@@ -4,10 +4,10 @@ import org.cytoscape.model.CyNetwork;
 import info.json_graph_format.jgfapp.api.model.Graph;
 
 /**
- * {@link BELGraphConverter} converts a {@link Graph graph} into a
+ * {@link GraphConverter} converts a {@link Graph graph} into a
  * {@link CyNetwork cytoscape network} and vice versa.
  */
-public interface BELGraphConverter {
+public interface GraphConverter {
 
     /**
      * Converts a {@link Graph graph} into a {@link CyNetwork cytoscape network}.

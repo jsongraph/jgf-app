@@ -4,8 +4,8 @@ import com.github.fge.jsonschema.core.report.LogLevel;
 import com.github.fge.jsonschema.core.report.ProcessingMessage;
 import com.github.fge.jsonschema.core.report.ProcessingReport;
 import com.google.common.collect.Iterators;
+import info.json_graph_format.jgfapp.internal.GraphReaderImpl;
 import org.junit.Test;
-import info.json_graph_format.jgfapp.internal.BELGraphReaderImpl;
 import info.json_graph_format.jgfapp.api.model.Graph;
 
 import java.io.IOException;
@@ -14,12 +14,12 @@ import java.io.InputStream;
 import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.*;
 
-public class BELGraphReaderImplTest {
+public class GraphReaderImplTest {
 
     @Test
     public void testReadSingleGraph() throws IOException {
         InputStream stream = this.getClass().getClassLoader().getResourceAsStream("testData/jgf/single_graph.jgf");
-        BELGraphReader reader = new BELGraphReaderImpl();
+        GraphReader reader = new GraphReaderImpl();
         Graph[] graphs = reader.read(stream);
 
         assertThat(graphs, arrayWithSize(1));
@@ -29,7 +29,7 @@ public class BELGraphReaderImplTest {
     @Test
     public void testReadSingleGraphWithValidation() throws IOException {
         InputStream stream = this.getClass().getClassLoader().getResourceAsStream("testData/jgf/single_graph.jgf");
-        BELGraphReader reader = new BELGraphReaderImpl();
+        GraphReader reader = new GraphReaderImpl();
         GraphsWithValidation gv = reader.validatingRead(stream);
 
         // check validation
@@ -48,7 +48,7 @@ public class BELGraphReaderImplTest {
     @Test
     public void testReadMultipleGraphs() throws IOException {
         InputStream stream = this.getClass().getClassLoader().getResourceAsStream("testData/jgf/multiple_graphs.jgf");
-        BELGraphReader reader = new BELGraphReaderImpl();
+        GraphReader reader = new GraphReaderImpl();
         Graph[] graphs = reader.read(stream);
 
         assertThat(graphs, is(notNullValue()));
@@ -58,7 +58,7 @@ public class BELGraphReaderImplTest {
     @Test
     public void testReadMultipleGraphsWithValidation() throws IOException {
         InputStream stream = this.getClass().getClassLoader().getResourceAsStream("testData/jgf/multiple_graphs.jgf");
-        BELGraphReader reader = new BELGraphReaderImpl();
+        GraphReader reader = new GraphReaderImpl();
         GraphsWithValidation gv = reader.validatingRead(stream);
 
         // check validation
@@ -77,7 +77,7 @@ public class BELGraphReaderImplTest {
     @Test
     public void testEmptyGraphs() throws IOException {
         InputStream stream = this.getClass().getClassLoader().getResourceAsStream("testData/jgf/empty_graphs.jgf");
-        BELGraphReader reader = new BELGraphReaderImpl();
+        GraphReader reader = new GraphReaderImpl();
         Graph[] graphs = reader.read(stream);
 
         assertThat(graphs, is(notNullValue()));
@@ -111,7 +111,7 @@ public class BELGraphReaderImplTest {
 
     private ProcessingReport expectValidationError(String testResource) throws IOException {
         InputStream stream = this.getClass().getClassLoader().getResourceAsStream(testResource);
-        BELGraphReader reader = new BELGraphReaderImpl();
+        GraphReader reader = new GraphReaderImpl();
         GraphsWithValidation gv = reader.validatingRead(stream);
 
         // check validation

@@ -3,6 +3,7 @@ package info.json_graph_format.jgfapp.internal;
 import java.io.InputStream;
 import java.util.Properties;
 
+import info.json_graph_format.jgfapp.api.GraphConverter;
 import org.cytoscape.application.CyApplicationManager;
 import org.cytoscape.application.swing.CySwingApplication;
 import org.cytoscape.event.CyEventHelper;
@@ -14,8 +15,7 @@ import org.cytoscape.io.CyFileFilter;
 import org.cytoscape.io.read.InputStreamTaskFactory;
 import org.cytoscape.io.util.StreamUtil;
 import info.json_graph_format.jgfapp.api.BELEvidenceMapper;
-import info.json_graph_format.jgfapp.api.BELGraphConverter;
-import info.json_graph_format.jgfapp.api.BELGraphReader;
+import info.json_graph_format.jgfapp.api.GraphReader;
 import info.json_graph_format.jgfapp.internal.listeners.SessionListener;
 import info.json_graph_format.jgfapp.internal.io.JGFFileFilter;
 import info.json_graph_format.jgfapp.internal.io.JGFNetworkReaderFactory;
@@ -92,8 +92,8 @@ public class CyActivator extends AbstractCyActivator {
         CyActivator.contributeStyles(visMgr, vizmapReaderMgr);
 
         // API implementations
-        final BELGraphReader belGraphReader = new BELGraphReaderImpl();
-        final BELGraphConverter belGraphConverter = new BELGraphConverterImpl(cyNetworkFactory);
+        final GraphReader graphReader = new GraphReaderImpl();
+        final GraphConverter belGraphConverter = new BELGraphConverterImpl(cyNetworkFactory);
         final BELEvidenceMapper belEvidenceMapper = new BELEvidenceMapperImpl();
 
         // readers
@@ -101,7 +101,7 @@ public class CyActivator extends AbstractCyActivator {
         final JGFNetworkReaderFactory jgfReaderFactory = new JGFNetworkReaderFactory(
                 jgfReaderFilter, appMgr, cyNetworkViewFactory, cyNetworkFactory,
                 cyNetworkManager, cyRootNetworkManager, cyTableFactory,
-                cyTableManager, visMgr, eventHelper, belGraphReader, belGraphConverter,
+                cyTableManager, visMgr, eventHelper, graphReader, belGraphConverter,
                 belEvidenceMapper);
         final Properties jgfNetworkReaderFactoryProps = new Properties();
         jgfNetworkReaderFactoryProps.put(ID, "JGFNetworkReaderFactory");
@@ -116,7 +116,7 @@ public class CyActivator extends AbstractCyActivator {
 
         final Properties evidenceFactoryProps = new Properties();
         evidenceFactoryProps.put(ID, "ShowEvidenceFactory");
-        evidenceFactoryProps.put(PREFERRED_MENU, "Apps.BEL Network App");
+        evidenceFactoryProps.put(PREFERRED_MENU, "Apps.JGF App");
         evidenceFactoryProps.put(MENU_GRAVITY, "14.0");
         evidenceFactoryProps.put(TITLE, "View Evidence");
         registerService(bc, new ShowEvidenceFactory(cyTableManager, cySwingApplication, evidencePanelComponent), EdgeViewTaskFactory.class, evidenceFactoryProps);
