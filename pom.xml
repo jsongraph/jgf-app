@@ -5,17 +5,15 @@
         <maven-compiler-plugin.version>3.1</maven-compiler-plugin.version>
         <maven-bundle-plugin.version>2.4.0</maven-bundle-plugin.version>
         <osgi.api.version>4.2.0</osgi.api.version>
-        <bundle.symbolicName>org.openbel.belnetwork</bundle.symbolicName>
-        <bundle.namespaece>org.openbel.belnetwork</bundle.namespaece>
-        <bundle.name>bel-network-app</bundle.name>
+        <bundle.symbolicName>info.json_graph_format.jgfapp</bundle.symbolicName>
     </properties>
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.openbel</groupId>
-    <artifactId>bel-network-app</artifactId>
+    <artifactId>jgf-app</artifactId>
     <version>1.0.0</version>
-    <name>${bundle.name}</name>
-    <description>A cytoscape 3.x app to import BEL networks and view evidence.</description>
+    <name>JGF App</name>
+    <description>A Cytoscape app to import and export JSON Graph Format.</description>
     <packaging>bundle</packaging>
 
     <licenses>
@@ -26,15 +24,15 @@
     </licenses>
 
     <organization>
-        <name>OpenBEL</name>
-        <url>http://www.openbel.org/</url>
+        <name>jsongraph</name>
+        <url>http://json-graph-format.info/</url>
     </organization>
 
     <developers>
         <developer>
             <id>cfletcher</id>
             <name>Charlene Fletcher</name>
-            <email>eredmond@codehaus.org</email>
+            <email>cfletcher@ads-llc.com</email>
             <organization>Applied Dynamic Solutions, LLC.</organization>
             <organizationUrl>http://ads-llc.com/</organizationUrl>
             <roles>
@@ -56,17 +54,17 @@
     </developers>
 
     <scm>
-        <connection>scm:git:git://github.com/OpenBEL/bel-network-app.git</connection>
-        <developerConnection>scm:git:git://github.com/OpenBEL/bel-network-app.git</developerConnection>
-        <url>https://github.com/OpenBEL/bel-network-app/</url>
+        <connection>scm:git:git://github.com/jsongraph/jgf-app.git</connection>
+        <developerConnection>scm:git:git://github.com/jsongraph/jgf-app.git</developerConnection>
+        <url>https://github.com/jsongraph/jgf-app/</url>
     </scm>
 
     <issueManagement>
-        <url>https://github.com/OpenBEL/bel-network-app/issues/</url>
+      <url>https://github.com/jsongraph/jgf-app/issues/</url>
     </issueManagement>
 
     <build>
-      <finalName>bel-network-app-${project.version}</finalName>
+      <finalName>${project.artifactId}-${project.version}</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -88,15 +86,15 @@
                 <configuration>
                     <instructions>
                         <_include>src/main/resources/META-INF/MANIFEST.MF</_include>
-                        <Bundle-Name>BEL Network App</Bundle-Name>
-                        <Bundle-SymbolicName>org.openbel.belnetwork</Bundle-SymbolicName>
+                        <Bundle-Name>${project.name}</Bundle-Name>
+                        <Bundle-SymbolicName>${bundle.symbolicName}</Bundle-SymbolicName>
                         <Bundle-Version>${project.version}</Bundle-Version>
                         <!-- This tells the bundle plugin which packages should not be exported. -->
-                        <Private-Package>org.openbel.belnetwork.internal.*</Private-Package>
-                        <Bundle-Activator>org.openbel.belnetwork.internal.CyActivator</Bundle-Activator>
+                        <Private-Package>info.json_graph_format.jgfapp.internal.*</Private-Package>
+                        <Bundle-Activator>info.json_graph_format.jgfapp.internal.CyActivator</Bundle-Activator>
                         <Embed-Dependency>*;scope=!provided|test;groupId=!org.cytoscape</Embed-Dependency>
                         <Embed-Transitive>true</Embed-Transitive>
-                        <Export-Package>org.openbel.belnetwork.api.*</Export-Package>
+                        <Export-Package>info.json_graph_format.jgfapp.api.*</Export-Package>
                         <Import-Package>*;resolution:=optional;com.github.fge.jsonschema.core.report;com.fasterxml.jackson.annotation</Import-Package>
                     </instructions>
                 </configuration>
