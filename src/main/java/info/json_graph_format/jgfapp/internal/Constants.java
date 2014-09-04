@@ -62,8 +62,11 @@ public class Constants {
     /**
      * Name of the cytoscape column holding the network identifier in the
      * {@link Constants#BEL_EVIDENCE_TABLE}: {@value}
+     * <br><br>
+     * The columns ends must end in <em>.SUID</em> so Cytoscape can associate
+     * the SUID values to the Cytoscape networks when they change.
      */
-    public static final String NETWORK_SUID = "network suid";
+    public static final String NETWORK_SUID = "network.SUID";
 
     /**
      * Name of the cytoscape column holding the network name in the
@@ -74,8 +77,11 @@ public class Constants {
     /**
      * Name of the cytoscape column holding the edge identifier in the
      * {@link Constants#BEL_EVIDENCE_TABLE}: {@value}
+     * <br><br>
+     * The columns ends must end in <em>.SUID</em> so Cytoscape can associate
+     * the SUID values to the Cytoscape edges when they change.
      */
-    public static final String EDGE_SUID = "edge suid";
+    public static final String EDGE_SUID = "edge.SUID";
 
     /**
      * Name of the cytoscape column holding the bel statement in the

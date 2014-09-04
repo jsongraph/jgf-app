@@ -28,6 +28,7 @@ import info.json_graph_format.jgfapp.api.model.Graph;
 import javax.swing.*;
 import org.cytoscape.io.read.CyNetworkReader;
 
+import static info.json_graph_format.jgfapp.internal.Constants.*;
 import static java.lang.String.format;
 import static info.json_graph_format.jgfapp.api.util.FormatUtility.getSchemaMessages;
 import static info.json_graph_format.jgfapp.api.util.TableUtility.getTable;
@@ -192,15 +193,15 @@ public class JGFNetworkReader extends AbstractCyNetworkReader {
 
         tbl = tableFactory.createTable("BEL.Evidence", "SUID", Long.class, true, false);
         tbl.setSavePolicy(SavePolicy.SESSION_FILE);
-        tbl.createColumn("network suid", Long.class, true, null);
-        tbl.createColumn("network name", String.class, true);
-        tbl.createColumn("edge suid", Long.class, true, null);
-        tbl.createColumn("bel statement", String.class, false);
-        tbl.createColumn("citation type", String.class, false);
-        tbl.createColumn("citation id", String.class, false);
-        tbl.createColumn("citation name", String.class, false);
-        tbl.createColumn("summary text", String.class, false);
-        tbl.createColumn("species", String.class, false);
+        tbl.createColumn(NETWORK_SUID, Long.class, true, null);
+        tbl.createColumn(NETWORK_NAME, String.class, true);
+        tbl.createColumn(EDGE_SUID, Long.class, true, null);
+        tbl.createColumn(BEL_STATEMENT, String.class, false);
+        tbl.createColumn(CITATION_TYPE, String.class, false);
+        tbl.createColumn(CITATION_ID, String.class, false);
+        tbl.createColumn(CITATION_NAME, String.class, false);
+        tbl.createColumn(SUMMARY_TEXT, String.class, false);
+        tbl.createColumn(SPECIES, String.class, false);
         return tbl;
     }
 
