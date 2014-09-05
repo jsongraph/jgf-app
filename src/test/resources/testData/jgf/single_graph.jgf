@@ -2802,7 +2802,7 @@
                 "directed": false,
                 "label": "p(HGNC:SP1,pmod(P,S,101)) increases bp(GO:\"double-strand break repair\")",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:SP1,pmod(P,S,101)) increases bp(GO:\\\"double-strand break repair\\\")",
@@ -2829,7 +2829,7 @@
                 "directed": false,
                 "label": "p(HGNC:RASSF1) hasModification p(HGNC:RASSF1,pmod(P,S,131))",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:RASSF1) hasModification p(HGNC:RASSF1,pmod(P,S,131))",
@@ -2856,7 +2856,7 @@
                 "directed": false,
                 "label": "p(HGNC:RASSF1,pmod(P,S,131)) increases p(HGNC:TP73)",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:RASSF1,pmod(P,S,131)) increases p(HGNC:TP73)",
@@ -2883,7 +2883,7 @@
                 "directed": false,
                 "label": "p(HGNC:NET1,pmod(P,S,152)) decreases cat(p(HGNC:NET1))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:NET1,pmod(P,S,152)) decreases cat(p(HGNC:NET1))",
@@ -2910,7 +2910,7 @@
                 "directed": false,
                 "label": "p(HGNC:EP300,pmod(P,S,106)) increases p(HGNC:NBN)",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:EP300,pmod(P,S,106)) increases p(HGNC:NBN)",
@@ -2937,7 +2937,7 @@
                 "directed": false,
                 "label": "p(HGNC:TOPBP1) directlyIncreases kin(p(HGNC:ATR))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:TOPBP1) directlyIncreases kin(p(HGNC:ATR))",
@@ -2979,7 +2979,7 @@
                 "directed": false,
                 "label": "p(HGNC:DDB1) actsIn cat(p(HGNC:DDB1))",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:DDB1) actsIn cat(p(HGNC:DDB1))",
@@ -3006,7 +3006,7 @@
                 "directed": false,
                 "label": "cat(p(HGNC:DDB1)) increases bp(GO:\"nucleotide-excision repair, DNA damage recognition\")",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "cat(p(HGNC:DDB1)) increases bp(GO:\\\"nucleotide-excision repair, DNA damage recognition\\\")",
@@ -3033,7 +3033,7 @@
                 "directed": false,
                 "label": "kin(p(HGNC:PLK1)) directlyIncreases p(HGNC:TP73,pmod(P,T,27))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "kin(p(HGNC:PLK1)) directlyIncreases p(HGNC:TP73,pmod(P,T,27))",
@@ -3075,7 +3075,7 @@
                 "directed": false,
                 "label": "p(HGNC:TP73,pmod(P,T,27)) directlyDecreases tscript(p(HGNC:TP73))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:TP73,pmod(P,T,27)) directlyDecreases tscript(p(HGNC:TP73))",
@@ -3102,7 +3102,7 @@
                 "directed": false,
                 "label": "phos(p(HGNC:PPP1R13B)) directlyIncreases tscript(p(HGNC:TP73))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "phos(p(HGNC:PPP1R13B)) directlyIncreases tscript(p(HGNC:TP73))",
@@ -3129,7 +3129,7 @@
                 "directed": false,
                 "label": "p(HGNC:YY1) actsIn tscript(p(HGNC:YY1))",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:YY1) actsIn tscript(p(HGNC:YY1))",
@@ -3936,7 +3936,7 @@
                 "directed": false,
                 "label": "tscript(p(HGNC:YY1)) directlyDecreases tscript(p(HGNC:TP53))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "tscript(p(HGNC:YY1)) directlyDecreases tscript(p(HGNC:TP53))",
@@ -3963,7 +3963,7 @@
                 "directed": false,
                 "label": "p(HGNC:POLE) actsIn cat(p(HGNC:POLE))",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:POLE) actsIn cat(p(HGNC:POLE))",
@@ -4020,7 +4020,7 @@
                 "directed": false,
                 "label": "cat(p(HGNC:POLE)) increases bp(GO:\"nucleotide-excision repair, DNA gap filling\")",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "cat(p(HGNC:POLE)) increases bp(GO:\\\"nucleotide-excision repair, DNA gap filling\\\")",
@@ -4047,7 +4047,7 @@
                 "directed": false,
                 "label": "cat(p(HGNC:POLE)) increases bp(GO:\"single strand break repair\")",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "cat(p(HGNC:POLE)) increases bp(GO:\\\"single strand break repair\\\")",
@@ -4074,7 +4074,7 @@
                 "directed": false,
                 "label": "p(HGNC:POLE2) actsIn cat(p(HGNC:POLE2))",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:POLE2) actsIn cat(p(HGNC:POLE2))",
@@ -4101,7 +4101,7 @@
                 "directed": false,
                 "label": "cat(p(HGNC:POLE2)) increases bp(GO:\"nucleotide-excision repair, DNA gap filling\")",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "cat(p(HGNC:POLE2)) increases bp(GO:\\\"nucleotide-excision repair, DNA gap filling\\\")",
@@ -4128,7 +4128,7 @@
                 "directed": false,
                 "label": "p(HGNC:CCNA2) increases bp(GO:\"single strand break repair\")",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:CCNA2) increases bp(GO:\\\"single strand break repair\\\")",
@@ -4155,7 +4155,7 @@
                 "directed": false,
                 "label": "p(HGNC:UNG) actsIn cat(p(HGNC:UNG))",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:UNG) actsIn cat(p(HGNC:UNG))",
@@ -4197,7 +4197,7 @@
                 "directed": false,
                 "label": "cat(p(HGNC:UNG)) increases bp(GO:\"single strand break repair\")",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "cat(p(HGNC:UNG)) increases bp(GO:\\\"single strand break repair\\\")",
@@ -4224,7 +4224,7 @@
                 "directed": false,
                 "label": "p(HGNC:ERCC6) actsIn cat(p(HGNC:ERCC6))",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:ERCC6) actsIn cat(p(HGNC:ERCC6))",
@@ -4281,7 +4281,7 @@
                 "directed": false,
                 "label": "cat(p(HGNC:ERCC6)) increases bp(GO:\"nucleotide-excision repair\")",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "cat(p(HGNC:ERCC6)) increases bp(GO:\\\"nucleotide-excision repair\\\")",
@@ -4308,7 +4308,7 @@
                 "directed": false,
                 "label": "cat(p(HGNC:ERCC6)) increases bp(GO:\"base-excision repair\")",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "cat(p(HGNC:ERCC6)) increases bp(GO:\\\"base-excision repair\\\")",
@@ -4335,7 +4335,7 @@
                 "directed": false,
                 "label": "a(SCHEM:Nickel) decreases bp(GO:\"nucleotide-excision repair\")",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "a(SCHEM:Nickel) decreases bp(GO:\\\"nucleotide-excision repair\\\")",
@@ -4362,7 +4362,7 @@
                 "directed": false,
                 "label": "p(HGNC:POLA1) actsIn cat(p(HGNC:POLA1))",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:POLA1) actsIn cat(p(HGNC:POLA1))",
@@ -4404,7 +4404,7 @@
                 "directed": false,
                 "label": "cat(p(HGNC:POLA1)) increases bp(GO:\"single strand break repair\")",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "cat(p(HGNC:POLA1)) increases bp(GO:\\\"single strand break repair\\\")",
@@ -4431,7 +4431,7 @@
                 "directed": false,
                 "label": "p(HGNC:POLD1) actsIn cat(p(HGNC:POLD1))",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:POLD1) actsIn cat(p(HGNC:POLD1))",
@@ -4488,7 +4488,7 @@
                 "directed": false,
                 "label": "cat(p(HGNC:POLD1)) increases bp(GO:\"base-excision repair\")",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "cat(p(HGNC:POLD1)) increases bp(GO:\\\"base-excision repair\\\")",
@@ -4530,7 +4530,7 @@
                 "directed": false,
                 "label": "cat(p(HGNC:POLD1)) increases bp(GO:\"nucleotide-excision repair, DNA gap filling\")",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "cat(p(HGNC:POLD1)) increases bp(GO:\\\"nucleotide-excision repair, DNA gap filling\\\")",
@@ -4557,7 +4557,7 @@
                 "directed": false,
                 "label": "p(HGNC:NET1) actsIn cat(p(HGNC:NET1))",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:NET1) actsIn cat(p(HGNC:NET1))",
@@ -4644,7 +4644,7 @@
                 "directed": false,
                 "label": "bp(GO:\"response to hypoxia\") decreases bp(GO:\"DNA repair\")",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "bp(GO:\\\"response to hypoxia\\\") decreases bp(GO:\\\"DNA repair\\\")",
@@ -4686,7 +4686,7 @@
                 "directed": false,
                 "label": "kin(p(HGNC:WEE1)) directlyIncreases p(EGID:5424,pmod(P,Y,15))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "kin(p(HGNC:WEE1)) directlyIncreases p(EGID:5424,pmod(P,Y,15))",
@@ -4788,7 +4788,7 @@
                 "directed": false,
                 "label": "a(CHEBI:\"3-aminobenzoic acid\") decreases bp(GO:\"DNA repair\")",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "a(CHEBI:\\\"3-aminobenzoic acid\\\") decreases bp(GO:\\\"DNA repair\\\")",
@@ -4815,7 +4815,7 @@
                 "directed": false,
                 "label": "p(HGNC:DNMT3A) directlyDecreases tscript(p(HGNC:TP53))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:DNMT3A) directlyDecreases tscript(p(HGNC:TP53))",
@@ -4842,7 +4842,7 @@
                 "directed": false,
                 "label": "p(HGNC:UBE2N) increases bp(GO:\"double-strand break repair via homologous recombination\")",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:UBE2N) increases bp(GO:\\\"double-strand break repair via homologous recombination\\\")",
@@ -4869,7 +4869,7 @@
                 "directed": false,
                 "label": "p(HGNC:LIG1) actsIn cat(p(HGNC:LIG1))",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:LIG1) actsIn cat(p(HGNC:LIG1))",
@@ -4956,7 +4956,7 @@
                 "directed": false,
                 "label": "cat(p(HGNC:LIG1)) increases bp(GO:\"nucleotide-excision repair, DNA gap filling\")",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "cat(p(HGNC:LIG1)) increases bp(GO:\\\"nucleotide-excision repair, DNA gap filling\\\")",
@@ -4983,7 +4983,7 @@
                 "directed": false,
                 "label": "cat(p(HGNC:LIG1)) increases bp(GO:\"base-excision repair\")",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "cat(p(HGNC:LIG1)) increases bp(GO:\\\"base-excision repair\\\")",
@@ -5010,7 +5010,7 @@
                 "directed": false,
                 "label": "complex(p(HGNC:BRCA2),p(HGNC:FANCD2)) hasComponent p(HGNC:FANCD2)",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "complex(p(HGNC:BRCA2),p(HGNC:FANCD2)) hasComponent p(HGNC:FANCD2)",
@@ -5037,7 +5037,7 @@
                 "directed": false,
                 "label": "complex(p(HGNC:BRCA2),p(HGNC:FANCD2)) hasComponent p(HGNC:BRCA2)",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "complex(p(HGNC:BRCA2),p(HGNC:FANCD2)) hasComponent p(HGNC:BRCA2)",
@@ -5064,7 +5064,7 @@
                 "directed": false,
                 "label": "p(HGNC:BRCA2) increases cat(p(HGNC:PARP1))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:BRCA2) increases cat(p(HGNC:PARP1))",
@@ -5091,7 +5091,7 @@
                 "directed": false,
                 "label": "p(HGNC:TP53,pmod(P,S,46)) directlyIncreases tscript(p(HGNC:TP53))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:TP53,pmod(P,S,46)) directlyIncreases tscript(p(HGNC:TP53))",
@@ -5208,7 +5208,7 @@
                 "directed": false,
                 "label": "kin(p(HGNC:HIPK2)) directlyIncreases p(HGNC:TP53,pmod(P,S,46))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "kin(p(HGNC:HIPK2)) directlyIncreases p(HGNC:TP53,pmod(P,S,46))",
@@ -5265,7 +5265,7 @@
                 "directed": false,
                 "label": "p(HGNC:HIPK2) actsIn kin(p(HGNC:HIPK2))",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:HIPK2) actsIn kin(p(HGNC:HIPK2))",
@@ -5442,7 +5442,7 @@
                 "directed": false,
                 "label": "a(SCHEM:Arsenic) decreases bp(GO:\"nucleotide-excision repair\")",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "a(SCHEM:Arsenic) decreases bp(GO:\\\"nucleotide-excision repair\\\")",
@@ -5469,7 +5469,7 @@
                 "directed": false,
                 "label": "complex(p(HGNC:BRCA1),p(HGNC:TP53)) hasComponent p(HGNC:BRCA1)",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "complex(p(HGNC:BRCA1),p(HGNC:TP53)) hasComponent p(HGNC:BRCA1)",
@@ -5556,7 +5556,7 @@
                 "directed": false,
                 "label": "complex(p(HGNC:BRCA1),p(HGNC:TP53)) hasComponent p(HGNC:TP53)",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "complex(p(HGNC:BRCA1),p(HGNC:TP53)) hasComponent p(HGNC:TP53)",
@@ -5643,7 +5643,7 @@
                 "directed": false,
                 "label": "complex(p(HGNC:BRCA1),p(HGNC:TP53)) increases p(HGNC:CDKN1A)",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "complex(p(HGNC:BRCA1),p(HGNC:TP53)) increases p(HGNC:CDKN1A)",
@@ -5670,7 +5670,7 @@
                 "directed": false,
                 "label": "p(HGNC:CHEK2) actsIn kin(p(HGNC:CHEK2))",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:CHEK2) actsIn kin(p(HGNC:CHEK2))",
@@ -6252,7 +6252,7 @@
                 "directed": false,
                 "label": "p(HGNC:ATR) actsIn kin(p(HGNC:ATR))",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:ATR) actsIn kin(p(HGNC:ATR))",
@@ -7104,7 +7104,7 @@
                 "directed": false,
                 "label": "p(HGNC:POLB) actsIn cat(p(HGNC:POLB))",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:POLB) actsIn cat(p(HGNC:POLB))",
@@ -7161,7 +7161,7 @@
                 "directed": false,
                 "label": "cat(p(HGNC:POLB)) increases bp(GO:\"base-excision repair\")",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "cat(p(HGNC:POLB)) increases bp(GO:\\\"base-excision repair\\\")",
@@ -7203,7 +7203,7 @@
                 "directed": false,
                 "label": "cat(p(HGNC:POLB)) increases bp(GO:\"single strand break repair\")",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "cat(p(HGNC:POLB)) increases bp(GO:\\\"single strand break repair\\\")",
@@ -7230,7 +7230,7 @@
                 "directed": false,
                 "label": "complex(p(HGNC:XRCC5),p(HGNC:XRCC6)) increases kin(p(HGNC:PRKDC))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "complex(p(HGNC:XRCC5),p(HGNC:XRCC6)) increases kin(p(HGNC:PRKDC))",
@@ -7257,7 +7257,7 @@
                 "directed": false,
                 "label": "complex(p(HGNC:XRCC5),p(HGNC:XRCC6)) hasComponent p(HGNC:XRCC5)",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "complex(p(HGNC:XRCC5),p(HGNC:XRCC6)) hasComponent p(HGNC:XRCC5)",
@@ -7389,7 +7389,7 @@
                 "directed": false,
                 "label": "complex(p(HGNC:XRCC5),p(HGNC:XRCC6)) hasComponent p(HGNC:XRCC6)",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "complex(p(HGNC:XRCC5),p(HGNC:XRCC6)) hasComponent p(HGNC:XRCC6)",
@@ -7521,7 +7521,7 @@
                 "directed": false,
                 "label": "kin(p(HGNC:HCK)) directlyIncreases p(HGNC:TP73,pmod(P,Y,28))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "kin(p(HGNC:HCK)) directlyIncreases p(HGNC:TP73,pmod(P,Y,28))",
@@ -7548,7 +7548,7 @@
                 "directed": false,
                 "label": "p(HGNC:SMARCB1) decreases p(HGNC:TP53,pmod(P,S,15))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:SMARCB1) decreases p(HGNC:TP53,pmod(P,S,15))",
@@ -7575,7 +7575,7 @@
                 "directed": false,
                 "label": "p(HGNC:PRKDC) hasModification p(HGNC:PRKDC,pmod(P,T,2638))",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:PRKDC) hasModification p(HGNC:PRKDC,pmod(P,T,2638))",
@@ -7602,7 +7602,7 @@
                 "directed": false,
                 "label": "p(HGNC:BRCA1) hasModification p(HGNC:BRCA1,pmod(P,S,1524))",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:BRCA1) hasModification p(HGNC:BRCA1,pmod(P,S,1524))",
@@ -7629,7 +7629,7 @@
                 "directed": false,
                 "label": "p(HGNC:BRCA1) hasModification p(HGNC:BRCA1,pmod(P,S,1466))",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:BRCA1) hasModification p(HGNC:BRCA1,pmod(P,S,1466))",
@@ -7656,7 +7656,7 @@
                 "directed": false,
                 "label": "p(HGNC:WRN) hasModification p(HGNC:WRN,pmod(P,S,1292))",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:WRN) hasModification p(HGNC:WRN,pmod(P,S,1292))",
@@ -7683,7 +7683,7 @@
                 "directed": false,
                 "label": "p(HGNC:ATF2) hasModification p(HGNC:ATF2,pmod(P,S,498))",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:ATF2) hasModification p(HGNC:ATF2,pmod(P,S,498))",
@@ -7710,7 +7710,7 @@
                 "directed": false,
                 "label": "p(HGNC:ATF2) increases kin(p(HGNC:ATM))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:ATF2) increases kin(p(HGNC:ATM))",
@@ -7737,7 +7737,7 @@
                 "directed": false,
                 "label": "p(HGNC:ATF2) actsIn tscript(p(HGNC:ATF2))",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:ATF2) actsIn tscript(p(HGNC:ATF2))",
@@ -8619,7 +8619,7 @@
                 "directed": false,
                 "label": "p(HGNC:ATF2) hasModification p(HGNC:ATF2,pmod(P,S,490))",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:ATF2) hasModification p(HGNC:ATF2,pmod(P,S,490))",
@@ -8646,7 +8646,7 @@
                 "directed": false,
                 "label": "p(HGNC:PARP1) actsIn cat(p(HGNC:PARP1))",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:PARP1) actsIn cat(p(HGNC:PARP1))",
@@ -9438,7 +9438,7 @@
                 "directed": false,
                 "label": "p(HGNC:CHEK1) actsIn kin(p(HGNC:CHEK1))",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:CHEK1) actsIn kin(p(HGNC:CHEK1))",
@@ -10095,7 +10095,7 @@
                 "directed": false,
                 "label": "complex(p(HGNC:BRCA1),p(HGNC:FANCD2)) hasComponent p(HGNC:BRCA1)",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "complex(p(HGNC:BRCA1),p(HGNC:FANCD2)) hasComponent p(HGNC:BRCA1)",
@@ -10152,7 +10152,7 @@
                 "directed": false,
                 "label": "complex(p(HGNC:BRCA1),p(HGNC:FANCD2)) hasComponent p(HGNC:FANCD2)",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "complex(p(HGNC:BRCA1),p(HGNC:FANCD2)) hasComponent p(HGNC:FANCD2)",
@@ -10209,7 +10209,7 @@
                 "directed": false,
                 "label": "tscript(p(HGNC:TP63)) isA tscript(p(HGNC:TP63))",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "tscript(p(HGNC:TP63)) isA tscript(p(HGNC:TP63))",
@@ -10236,7 +10236,7 @@
                 "directed": false,
                 "label": "p(HGNC:TP63) actsIn tscript(p(HGNC:TP63))",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:TP63) actsIn tscript(p(HGNC:TP63))",
@@ -11238,7 +11238,7 @@
                 "directed": false,
                 "label": "p(HGNC:PRKDC) hasModification p(HGNC:PRKDC,pmod(P,S,2056))",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:PRKDC) hasModification p(HGNC:PRKDC,pmod(P,S,2056))",
@@ -11265,7 +11265,7 @@
                 "directed": false,
                 "label": "a(SCHEM:Cadmium) decreases bp(GO:\"nucleotide-excision repair\")",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "a(SCHEM:Cadmium) decreases bp(GO:\\\"nucleotide-excision repair\\\")",
@@ -11292,7 +11292,7 @@
                 "directed": false,
                 "label": "p(HGNC:RPA1) increases kin(p(HGNC:ATR))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:RPA1) increases kin(p(HGNC:ATR))",
@@ -11319,7 +11319,7 @@
                 "directed": false,
                 "label": "p(HGNC:EP300) actsIn cat(p(HGNC:EP300))",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:EP300) actsIn cat(p(HGNC:EP300))",
@@ -12171,7 +12171,7 @@
                 "directed": false,
                 "label": "p(HGNC:TP73) hasModification TP73 A@K",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
 
                     ]
@@ -12184,7 +12184,7 @@
                 "directed": false,
                 "label": "p(HGNC:FANCD2) hasModification p(HGNC:FANCD2,pmod(P,S,1257))",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:FANCD2) hasModification p(HGNC:FANCD2,pmod(P,S,1257))",
@@ -12211,7 +12211,7 @@
                 "directed": false,
                 "label": "p(HGNC:LIG3) actsIn cat(p(HGNC:LIG3))",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:LIG3) actsIn cat(p(HGNC:LIG3))",
@@ -12238,7 +12238,7 @@
                 "directed": false,
                 "label": "cat(p(HGNC:LIG3)) increases bp(GO:\"base-excision repair\")",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "cat(p(HGNC:LIG3)) increases bp(GO:\\\"base-excision repair\\\")",
@@ -12265,7 +12265,7 @@
                 "directed": false,
                 "label": "p(HGNC:BRCA1) hasModification p(HGNC:BRCA1,pmod(P,S,1330))",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:BRCA1) hasModification p(HGNC:BRCA1,pmod(P,S,1330))",
@@ -12292,7 +12292,7 @@
                 "directed": false,
                 "label": "p(HGNC:FANCD2) hasModification p(HGNC:FANCD2,pmod(P,S,222))",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:FANCD2) hasModification p(HGNC:FANCD2,pmod(P,S,222))",
@@ -12319,7 +12319,7 @@
                 "directed": false,
                 "label": "p(HGNC:WWOX) directlyDecreases tscript(p(HGNC:TP73))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:WWOX) directlyDecreases tscript(p(HGNC:TP73))",
@@ -12346,7 +12346,7 @@
                 "directed": false,
                 "label": "bp(GO:\"response to ionizing radiation\") decreases p(HGNC:NET1,pmod(P,S,152))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "bp(GO:\\\"response to ionizing radiation\\\") decreases p(HGNC:NET1,pmod(P,S,152))",
@@ -12373,7 +12373,7 @@
                 "directed": false,
                 "label": "bp(GO:\"response to ionizing radiation\") increases bp(GO:\"response to DNA damage stimulus\")",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "bp(GO:\\\"response to ionizing radiation\\\") increases bp(GO:\\\"response to DNA damage stimulus\\\")",
@@ -12400,7 +12400,7 @@
                 "directed": false,
                 "label": "bp(GO:\"response to ionizing radiation\") increases bp(GO:\"response to ionizing radiation\")",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "bp(GO:\\\"response to ionizing radiation\\\") increases bp(GO:\\\"response to ionizing radiation\\\")",
@@ -12427,7 +12427,7 @@
                 "directed": false,
                 "label": "bp(GO:\"response to ionizing radiation\") increases a(SCHEM:\"double-stranded DNA break\")",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "bp(GO:\\\"response to ionizing radiation\\\") increases a(SCHEM:\\\"double-stranded DNA break\\\")",
@@ -12454,7 +12454,7 @@
                 "directed": false,
                 "label": "cat(p(HGNC:NET1)) increases gtp(p(HGNC:RHOA))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "cat(p(HGNC:NET1)) increases gtp(p(HGNC:RHOA))",
@@ -12511,7 +12511,7 @@
                 "directed": false,
                 "label": "cat(p(HGNC:EP300)) increases TP73 A@K",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
 
                     ]
@@ -12524,7 +12524,7 @@
                 "directed": false,
                 "label": "cat(p(HGNC:EP300)) directlyIncreases tscript(p(HGNC:TP53))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "cat(p(HGNC:EP300)) directlyIncreases tscript(p(HGNC:TP53))",
@@ -12566,7 +12566,7 @@
                 "directed": false,
                 "label": "bp(GO:\"response to ionizing radiation\") increases complex(p(HGNC:CCND1),p(HGNC:RAD51))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "bp(GO:\\\"response to ionizing radiation\\\") increases complex(p(HGNC:CCND1),p(HGNC:RAD51))",
@@ -12593,7 +12593,7 @@
                 "directed": false,
                 "label": "bp(GO:\"response to ionizing radiation\") increases kin(p(HGNC:ATM))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "bp(GO:\\\"response to ionizing radiation\\\") increases kin(p(HGNC:ATM))",
@@ -12635,7 +12635,7 @@
                 "directed": false,
                 "label": "bp(GO:\"response to ionizing radiation\") increases gtp(p(HGNC:RHOB))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "bp(GO:\\\"response to ionizing radiation\\\") increases gtp(p(HGNC:RHOB))",
@@ -12662,7 +12662,7 @@
                 "directed": false,
                 "label": "kin(p(HGNC:PRKDC)) directlyIncreases p(HGNC:PRKDC,pmod(P,T,2647))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "kin(p(HGNC:PRKDC)) directlyIncreases p(HGNC:PRKDC,pmod(P,T,2647))",
@@ -12704,7 +12704,7 @@
                 "directed": false,
                 "label": "kin(p(HGNC:PRKDC)) increases bp(GO:\"double-strand break repair\")",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "kin(p(HGNC:PRKDC)) increases bp(GO:\\\"double-strand break repair\\\")",
@@ -12731,7 +12731,7 @@
                 "directed": false,
                 "label": "kin(p(HGNC:PRKDC)) directlyIncreases p(HGNC:TP53,pmod(P,S,15))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "kin(p(HGNC:PRKDC)) directlyIncreases p(HGNC:TP53,pmod(P,S,15))",
@@ -12773,7 +12773,7 @@
                 "directed": false,
                 "label": "kin(p(HGNC:PRKDC)) directlyIncreases p(HGNC:PRKDC,pmod(P,T,2638))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "kin(p(HGNC:PRKDC)) directlyIncreases p(HGNC:PRKDC,pmod(P,T,2638))",
@@ -12815,7 +12815,7 @@
                 "directed": false,
                 "label": "kin(p(HGNC:PRKDC)) directlyIncreases p(HGNC:PRKDC,pmod(P,S,2056))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "kin(p(HGNC:PRKDC)) directlyIncreases p(HGNC:PRKDC,pmod(P,S,2056))",
@@ -12842,7 +12842,7 @@
                 "directed": false,
                 "label": "kin(p(HGNC:PRKDC)) directlyIncreases p(HGNC:H2AFX,pmod(P,S,140))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "kin(p(HGNC:PRKDC)) directlyIncreases p(HGNC:H2AFX,pmod(P,S,140))",
@@ -12869,7 +12869,7 @@
                 "directed": false,
                 "label": "kin(p(HGNC:PRKDC)) directlyIncreases p(HGNC:PRKDC,pmod(P,T,2609))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "kin(p(HGNC:PRKDC)) directlyIncreases p(HGNC:PRKDC,pmod(P,T,2609))",
@@ -12911,7 +12911,7 @@
                 "directed": false,
                 "label": "kin(p(HGNC:PRKDC)) directlyIncreases p(HGNC:TP53,pmod(P,S,37))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "kin(p(HGNC:PRKDC)) directlyIncreases p(HGNC:TP53,pmod(P,S,37))",
@@ -12953,7 +12953,7 @@
                 "directed": false,
                 "label": "kin(p(HGNC:PRKDC)) directlyIncreases p(HGNC:PRKDC,pmod(P,S,2612))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "kin(p(HGNC:PRKDC)) directlyIncreases p(HGNC:PRKDC,pmod(P,S,2612))",
@@ -12995,7 +12995,7 @@
                 "directed": false,
                 "label": "p(HGNC:PRKDC) hasModification p(HGNC:PRKDC,pmod(P,T,2647))",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:PRKDC) hasModification p(HGNC:PRKDC,pmod(P,T,2647))",
@@ -13022,7 +13022,7 @@
                 "directed": false,
                 "label": "p(HGNC:H2AFX) hasModification p(HGNC:H2AFX,pmod(P,S,140))",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:H2AFX) hasModification p(HGNC:H2AFX,pmod(P,S,140))",
@@ -13049,7 +13049,7 @@
                 "directed": false,
                 "label": "p(HGNC:H2AFX,pmod(P,S,140)) increases bp(GO:\"double-strand break repair\")",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:H2AFX,pmod(P,S,140)) increases bp(GO:\\\"double-strand break repair\\\")",
@@ -13076,7 +13076,7 @@
                 "directed": false,
                 "label": "p(HGNC:H2AFX,pmod(P,S,140)) increases complex(p(HGNC:MRE11A),p(HGNC:RAD50),p(HGNC:NBN))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:H2AFX,pmod(P,S,140)) increases complex(p(HGNC:MRE11A),p(HGNC:RAD50),p(HGNC:NBN))",
@@ -13103,7 +13103,7 @@
                 "directed": false,
                 "label": "p(HGNC:PRKDC) hasModification p(HGNC:PRKDC,pmod(P,T,2609))",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:PRKDC) hasModification p(HGNC:PRKDC,pmod(P,T,2609))",
@@ -13130,7 +13130,7 @@
                 "directed": false,
                 "label": "p(HGNC:PRKDC) actsIn kin(p(HGNC:PRKDC))",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:PRKDC) actsIn kin(p(HGNC:PRKDC))",
@@ -13637,7 +13637,7 @@
                 "directed": false,
                 "label": "p(HGNC:PRKDC) hasModification p(HGNC:PRKDC,pmod(P,S,2612))",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:PRKDC) hasModification p(HGNC:PRKDC,pmod(P,S,2612))",
@@ -13664,7 +13664,7 @@
                 "directed": false,
                 "label": "p(HGNC:ATF2,pmod(P,T,71)) directlyIncreases tscript(p(HGNC:ATF2))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:ATF2,pmod(P,T,71)) directlyIncreases tscript(p(HGNC:ATF2))",
@@ -13766,7 +13766,7 @@
                 "directed": false,
                 "label": "p(HGNC:ATF2,pmod(P,T,69)) directlyIncreases tscript(p(HGNC:ATF2))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:ATF2,pmod(P,T,69)) directlyIncreases tscript(p(HGNC:ATF2))",
@@ -13838,7 +13838,7 @@
                 "directed": false,
                 "label": "kin(p(PFH:\"MAPK p38 Family\")) directlyIncreases p(HGNC:ATF2,pmod(P,T,71))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "kin(p(PFH:\\\"MAPK p38 Family\\\")) directlyIncreases p(HGNC:ATF2,pmod(P,T,71))",
@@ -13910,7 +13910,7 @@
                 "directed": false,
                 "label": "kin(p(PFH:\"MAPK p38 Family\")) directlyIncreases p(HGNC:ATF2,pmod(P,T,69))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "kin(p(PFH:\\\"MAPK p38 Family\\\")) directlyIncreases p(HGNC:ATF2,pmod(P,T,69))",
@@ -13982,7 +13982,7 @@
                 "directed": false,
                 "label": "p(EGID:5424,pmod(P,Y,15)) directlyDecreases kin(p(HGNC:POLD1))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "p(EGID:5424,pmod(P,Y,15)) directlyDecreases kin(p(HGNC:POLD1))",
@@ -14009,7 +14009,7 @@
                 "directed": false,
                 "label": "kin(p(HGNC:PKMYT1)) directlyIncreases p(EGID:5424,pmod(P,Y,15))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "kin(p(HGNC:PKMYT1)) directlyIncreases p(EGID:5424,pmod(P,Y,15))",
@@ -14066,7 +14066,7 @@
                 "directed": false,
                 "label": "p(HGNC:FEN1) actsIn cat(p(HGNC:FEN1))",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:FEN1) actsIn cat(p(HGNC:FEN1))",
@@ -14138,7 +14138,7 @@
                 "directed": false,
                 "label": "cat(p(HGNC:FEN1)) increases bp(GO:\"base-excision repair\")",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "cat(p(HGNC:FEN1)) increases bp(GO:\\\"base-excision repair\\\")",
@@ -14165,7 +14165,7 @@
                 "directed": false,
                 "label": "p(HGNC:YAP1) directlyIncreases tscript(p(HGNC:TP73))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:YAP1) directlyIncreases tscript(p(HGNC:TP73))",
@@ -14192,7 +14192,7 @@
                 "directed": false,
                 "label": "p(HGNC:CHEK1,pmod(P,S,317)) directlyIncreases kin(p(HGNC:CHEK1))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:CHEK1,pmod(P,S,317)) directlyIncreases kin(p(HGNC:CHEK1))",
@@ -14234,7 +14234,7 @@
                 "directed": false,
                 "label": "p(HGNC:FHIT) decreases kin(p(HGNC:ATR))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:FHIT) decreases kin(p(HGNC:ATR))",
@@ -14276,7 +14276,7 @@
                 "directed": false,
                 "label": "p(HGNC:FHIT) increases p(HGNC:CHEK1,pmod(P,S,317))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:FHIT) increases p(HGNC:CHEK1,pmod(P,S,317))",
@@ -14303,7 +14303,7 @@
                 "directed": false,
                 "label": "p(HGNC:ABL1) hasModification p(HGNC:ABL1,pmod(P,S,446))",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:ABL1) hasModification p(HGNC:ABL1,pmod(P,S,446))",
@@ -14330,7 +14330,7 @@
                 "directed": false,
                 "label": "tscript(p(MGI:Trp63)) decreases bp(MESHPP:Apoptosis)",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "tscript(p(MGI:Trp63)) decreases bp(MESHPP:Apoptosis)",
@@ -14357,7 +14357,7 @@
                 "directed": false,
                 "label": "kin(p(HGNC:RPS6KB1)) directlyDecreases p(MGI:Trp63)",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "kin(p(HGNC:RPS6KB1)) directlyDecreases p(MGI:Trp63)",
@@ -14384,7 +14384,7 @@
                 "directed": false,
                 "label": "p(HGNC:RPS6KB1) actsIn kin(p(HGNC:RPS6KB1))",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:RPS6KB1) actsIn kin(p(HGNC:RPS6KB1))",
@@ -16256,7 +16256,7 @@
                 "directed": false,
                 "label": "cat(p(HGNC:PARP1)) increases bp(GO:\"base-excision repair\")",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "cat(p(HGNC:PARP1)) increases bp(GO:\\\"base-excision repair\\\")",
@@ -16298,7 +16298,7 @@
                 "directed": false,
                 "label": "cat(p(HGNC:PARP1)) increases bp(GO:\"single strand break repair\")",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "cat(p(HGNC:PARP1)) increases bp(GO:\\\"single strand break repair\\\")",
@@ -16340,7 +16340,7 @@
                 "directed": false,
                 "label": "bp(GO:\"single strand break repair\") increases cat(p(HGNC:PARP1))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "bp(GO:\\\"single strand break repair\\\") increases cat(p(HGNC:PARP1))",
@@ -16367,7 +16367,7 @@
                 "directed": false,
                 "label": "bp(GO:\"single strand break repair\") increases kin(p(HGNC:ATR))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "bp(GO:\\\"single strand break repair\\\") increases kin(p(HGNC:ATR))",
@@ -16394,7 +16394,7 @@
                 "directed": false,
                 "label": "p(HGNC:BRCA1) hasModification p(HGNC:BRCA1,pmod(P,S,1423))",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:BRCA1) hasModification p(HGNC:BRCA1,pmod(P,S,1423))",
@@ -16421,7 +16421,7 @@
                 "directed": false,
                 "label": "p(HGNC:WRN) increases bp(GO:\"double-strand break repair\")",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:WRN) increases bp(GO:\\\"double-strand break repair\\\")",
@@ -16448,7 +16448,7 @@
                 "directed": false,
                 "label": "p(HGNC:WRN) hasModification p(HGNC:WRN,pmod(P,S,1141))",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:WRN) hasModification p(HGNC:WRN,pmod(P,S,1141))",
@@ -16475,7 +16475,7 @@
                 "directed": false,
                 "label": "tscript(p(HGNC:TP63)) increases bp(MESHPP:Apoptosis)",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "tscript(p(HGNC:TP63)) increases bp(MESHPP:Apoptosis)",
@@ -16547,7 +16547,7 @@
                 "directed": false,
                 "label": "p(HGNC:TP63) actsIn tscript(p(HGNC:TP63))",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:TP63) actsIn tscript(p(HGNC:TP63))",
@@ -17549,7 +17549,7 @@
                 "directed": false,
                 "label": "cat(p(HGNC:WWP1)) directlyDecreases p(MGI:Trp63)",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "cat(p(HGNC:WWP1)) directlyDecreases p(MGI:Trp63)",
@@ -17576,7 +17576,7 @@
                 "directed": false,
                 "label": "cat(p(HGNC:WWP1)) directlyDecreases p(HGNC:TP63)",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "cat(p(HGNC:WWP1)) directlyDecreases p(HGNC:TP63)",
@@ -17603,7 +17603,7 @@
                 "directed": false,
                 "label": "p(HGNC:WWP1) actsIn cat(p(HGNC:WWP1))",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:WWP1) actsIn cat(p(HGNC:WWP1))",
@@ -17645,7 +17645,7 @@
                 "directed": false,
                 "label": "complex(p(HGNC:MRE11A),p(HGNC:RAD50),p(HGNC:NBN)) directlyIncreases kin(p(HGNC:ATM))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "complex(p(HGNC:MRE11A),p(HGNC:RAD50),p(HGNC:NBN)) directlyIncreases kin(p(HGNC:ATM))",
@@ -17672,7 +17672,7 @@
                 "directed": false,
                 "label": "complex(p(HGNC:MRE11A),p(HGNC:RAD50),p(HGNC:NBN)) hasComponent p(HGNC:NBN)",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "complex(p(HGNC:MRE11A),p(HGNC:RAD50),p(HGNC:NBN)) hasComponent p(HGNC:NBN)",
@@ -17789,7 +17789,7 @@
                 "directed": false,
                 "label": "complex(p(HGNC:MRE11A),p(HGNC:RAD50),p(HGNC:NBN)) hasComponent p(HGNC:RAD50)",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "complex(p(HGNC:MRE11A),p(HGNC:RAD50),p(HGNC:NBN)) hasComponent p(HGNC:RAD50)",
@@ -17906,7 +17906,7 @@
                 "directed": false,
                 "label": "complex(p(HGNC:MRE11A),p(HGNC:RAD50),p(HGNC:NBN)) hasComponent p(HGNC:MRE11A)",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "complex(p(HGNC:MRE11A),p(HGNC:RAD50),p(HGNC:NBN)) hasComponent p(HGNC:MRE11A)",
@@ -18023,7 +18023,7 @@
                 "directed": false,
                 "label": "complex(p(HGNC:MRE11A),p(HGNC:RAD50),p(HGNC:NBN)) increases bp(GO:\"double-strand break repair\")",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "complex(p(HGNC:MRE11A),p(HGNC:RAD50),p(HGNC:NBN)) increases bp(GO:\\\"double-strand break repair\\\")",
@@ -18050,7 +18050,7 @@
                 "directed": false,
                 "label": "cat(p(HGNC:RAD50)) increases bp(GO:\"double-strand break repair\")",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "cat(p(HGNC:RAD50)) increases bp(GO:\\\"double-strand break repair\\\")",
@@ -18077,7 +18077,7 @@
                 "directed": false,
                 "label": "p(HGNC:RAD50) actsIn cat(p(HGNC:RAD50))",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:RAD50) actsIn cat(p(HGNC:RAD50))",
@@ -18104,7 +18104,7 @@
                 "directed": false,
                 "label": "p(HGNC:NBN) increases bp(GO:\"double-strand break repair\")",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:NBN) increases bp(GO:\\\"double-strand break repair\\\")",
@@ -18131,7 +18131,7 @@
                 "directed": false,
                 "label": "p(HGNC:MYC) increases kin(p(HGNC:ATM))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:MYC) increases kin(p(HGNC:ATM))",
@@ -18158,7 +18158,7 @@
                 "directed": false,
                 "label": "p(HGNC:MYC) increases p(HGNC:NBN)",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:MYC) increases p(HGNC:NBN)",
@@ -18185,7 +18185,7 @@
                 "directed": false,
                 "label": "cat(p(HGNC:TRIM28)) decreases bp(GO:\"double-strand break repair\")",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "cat(p(HGNC:TRIM28)) decreases bp(GO:\\\"double-strand break repair\\\")",
@@ -18212,7 +18212,7 @@
                 "directed": false,
                 "label": "p(HGNC:TRIM28,pmod(P,S,824)) decreases cat(p(HGNC:TRIM28))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:TRIM28,pmod(P,S,824)) decreases cat(p(HGNC:TRIM28))",
@@ -18239,7 +18239,7 @@
                 "directed": false,
                 "label": "p(HGNC:TRIM28) hasModification p(HGNC:TRIM28,pmod(P,S,824))",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:TRIM28) hasModification p(HGNC:TRIM28,pmod(P,S,824))",
@@ -18266,7 +18266,7 @@
                 "directed": false,
                 "label": "p(MGI:Trp63) decreases tscript(p(HGNC:TP63))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "p(MGI:Trp63) decreases tscript(p(HGNC:TP63))",
@@ -18293,7 +18293,7 @@
                 "directed": false,
                 "label": "p(MGI:Trp63) actsIn tscript(p(MGI:Trp63))",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "p(MGI:Trp63) actsIn tscript(p(MGI:Trp63))",
@@ -18320,7 +18320,7 @@
                 "directed": false,
                 "label": "kin(p(HGNC:CDK2)) directlyDecreases p(MGI:Trp63)",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "kin(p(HGNC:CDK2)) directlyDecreases p(MGI:Trp63)",
@@ -18347,7 +18347,7 @@
                 "directed": false,
                 "label": "p(HGNC:CDK2) actsIn kin(p(HGNC:CDK2))",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:CDK2) actsIn kin(p(HGNC:CDK2))",
@@ -20489,7 +20489,7 @@
                 "directed": false,
                 "label": "p(HGNC:ERCC2) actsIn cat(p(HGNC:ERCC2))",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:ERCC2) actsIn cat(p(HGNC:ERCC2))",
@@ -20531,7 +20531,7 @@
                 "directed": false,
                 "label": "cat(p(HGNC:ERCC2)) increases bp(GO:\"nucleotide-excision repair\")",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "cat(p(HGNC:ERCC2)) increases bp(GO:\\\"nucleotide-excision repair\\\")",
@@ -20558,7 +20558,7 @@
                 "directed": false,
                 "label": "cat(p(HGNC:ERCC2)) increases bp(GO:\"nucleotide-excision repair, DNA duplex unwinding\")",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "cat(p(HGNC:ERCC2)) increases bp(GO:\\\"nucleotide-excision repair, DNA duplex unwinding\\\")",
@@ -20585,7 +20585,7 @@
                 "directed": false,
                 "label": "cat(p(HGNC:ERCC2)) increases tscript(p(PFH:\"GTF2H Family\"))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "cat(p(HGNC:ERCC2)) increases tscript(p(PFH:\\\"GTF2H Family\\\"))",
@@ -20612,7 +20612,7 @@
                 "directed": false,
                 "label": "p(HGNC:FANCD2) hasModification p(HGNC:FANCD2,pmod(P,T,691))",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:FANCD2) hasModification p(HGNC:FANCD2,pmod(P,T,691))",
@@ -20639,7 +20639,7 @@
                 "directed": false,
                 "label": "p(HGNC:TP53,pmod(P,S,20)) directlyIncreases tscript(p(HGNC:TP53))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:TP53,pmod(P,S,20)) directlyIncreases tscript(p(HGNC:TP53))",
@@ -20681,7 +20681,7 @@
                 "directed": false,
                 "label": "p(HGNC:TP73,pmod(P,S,47)) directlyIncreases tscript(p(HGNC:TP73))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:TP73,pmod(P,S,47)) directlyIncreases tscript(p(HGNC:TP73))",
@@ -20708,7 +20708,7 @@
                 "directed": false,
                 "label": "deg(p(HGNC:CDC25A)) directlyDecreases p(HGNC:CDC25A)",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "deg(p(HGNC:CDC25A)) directlyDecreases p(HGNC:CDC25A)",
@@ -20855,7 +20855,7 @@
                 "directed": false,
                 "label": "kin(p(HGNC:CHEK1)) directlyIncreases p(HGNC:TP53,pmod(P,S,20))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "kin(p(HGNC:CHEK1)) directlyIncreases p(HGNC:TP53,pmod(P,S,20))",
@@ -20882,7 +20882,7 @@
                 "directed": false,
                 "label": "kin(p(HGNC:CHEK1)) increases tscript(p(HGNC:TP53))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "kin(p(HGNC:CHEK1)) increases tscript(p(HGNC:TP53))",
@@ -20909,7 +20909,7 @@
                 "directed": false,
                 "label": "kin(p(HGNC:CHEK1)) directlyIncreases p(HGNC:TP73,pmod(P,S,47))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "kin(p(HGNC:CHEK1)) directlyIncreases p(HGNC:TP73,pmod(P,S,47))",
@@ -20936,7 +20936,7 @@
                 "directed": false,
                 "label": "kin(p(HGNC:CHEK1)) increases deg(p(HGNC:CDC25A))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "kin(p(HGNC:CHEK1)) increases deg(p(HGNC:CDC25A))",
@@ -20993,7 +20993,7 @@
                 "directed": false,
                 "label": "p(HGNC:CHEK1,pmod(P,S,345)) directlyIncreases kin(p(HGNC:CHEK1))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:CHEK1,pmod(P,S,345)) directlyIncreases kin(p(HGNC:CHEK1))",
@@ -21065,7 +21065,7 @@
                 "directed": false,
                 "label": "p(PFH:\"PPP1R Family\") actsIn phos(p(PFH:\"PPP1R Family\"))",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "p(PFH:\\\"PPP1R Family\\\") actsIn phos(p(PFH:\\\"PPP1R Family\\\"))",
@@ -21482,7 +21482,7 @@
                 "directed": false,
                 "label": "p(HGNC:TP53,pmod(P,S,15)) directlyIncreases tscript(p(HGNC:TP53))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:TP53,pmod(P,S,15)) directlyIncreases tscript(p(HGNC:TP53))",
@@ -21599,7 +21599,7 @@
                 "directed": false,
                 "label": "p(HGNC:TP53,pmod(P,S,37)) directlyIncreases tscript(p(HGNC:TP53))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:TP53,pmod(P,S,37)) directlyIncreases tscript(p(HGNC:TP53))",
@@ -21641,7 +21641,7 @@
                 "directed": false,
                 "label": "phos(p(PFH:\"PPP1R Family\")) decreases p(HGNC:TP53,pmod(P,S,15))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "phos(p(PFH:\\\"PPP1R Family\\\")) decreases p(HGNC:TP53,pmod(P,S,15))",
@@ -21683,7 +21683,7 @@
                 "directed": false,
                 "label": "phos(p(PFH:\"PPP1R Family\")) decreases p(HGNC:TP53,pmod(P,S,37))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "phos(p(PFH:\\\"PPP1R Family\\\")) decreases p(HGNC:TP53,pmod(P,S,37))",
@@ -21710,7 +21710,7 @@
                 "directed": false,
                 "label": "p(HGNC:BRCA1) hasModification p(HGNC:BRCA1,pmod(P,S,1387))",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:BRCA1) hasModification p(HGNC:BRCA1,pmod(P,S,1387))",
@@ -21737,7 +21737,7 @@
                 "directed": false,
                 "label": "p(HGNC:ABL1) actsIn kin(p(HGNC:ABL1))",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:ABL1) actsIn kin(p(HGNC:ABL1))",
@@ -23024,7 +23024,7 @@
                 "directed": false,
                 "label": "kin(p(HGNC:ABL1)) directlyIncreases p(HGNC:RAD51,pmod(P,Y,54))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "kin(p(HGNC:ABL1)) directlyIncreases p(HGNC:RAD51,pmod(P,Y,54))",
@@ -23051,7 +23051,7 @@
                 "directed": false,
                 "label": "kin(p(HGNC:ABL1)) directlyIncreases p(HGNC:RAD52,pmod(P,Y,104))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "kin(p(HGNC:ABL1)) directlyIncreases p(HGNC:RAD52,pmod(P,Y,104))",
@@ -23078,7 +23078,7 @@
                 "directed": false,
                 "label": "kin(p(HGNC:ABL1)) directlyIncreases p(HGNC:RAD51,pmod(P,Y,315))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "kin(p(HGNC:ABL1)) directlyIncreases p(HGNC:RAD51,pmod(P,Y,315))",
@@ -23120,7 +23120,7 @@
                 "directed": false,
                 "label": "p(HGNC:ABL1) hasModification p(HGNC:ABL1,pmod(P,S,465))",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:ABL1) hasModification p(HGNC:ABL1,pmod(P,S,465))",
@@ -23147,7 +23147,7 @@
                 "directed": false,
                 "label": "p(HGNC:ABL1,pmod(P,S,465)) directlyIncreases kin(p(HGNC:ABL1))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:ABL1,pmod(P,S,465)) directlyIncreases kin(p(HGNC:ABL1))",
@@ -23189,7 +23189,7 @@
                 "directed": false,
                 "label": "p(HGNC:RAD52) increases bp(GO:\"double-strand break repair\")",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:RAD52) increases bp(GO:\\\"double-strand break repair\\\")",
@@ -23216,7 +23216,7 @@
                 "directed": false,
                 "label": "p(HGNC:RAD52) hasModification p(HGNC:RAD52,pmod(P,Y,104))",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:RAD52) hasModification p(HGNC:RAD52,pmod(P,Y,104))",
@@ -23243,7 +23243,7 @@
                 "directed": false,
                 "label": "p(HGNC:RAD51) hasModification p(HGNC:RAD51,pmod(P,Y,315))",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:RAD51) hasModification p(HGNC:RAD51,pmod(P,Y,315))",
@@ -23270,7 +23270,7 @@
                 "directed": false,
                 "label": "p(HGNC:RAD51) hasComponent complex(p(HGNC:CCND1),p(HGNC:RAD51))",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:RAD51) hasComponent complex(p(HGNC:CCND1),p(HGNC:RAD51))",
@@ -23297,7 +23297,7 @@
                 "directed": false,
                 "label": "p(HGNC:RAD51) increases bp(GO:\"double-strand break repair\")",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:RAD51) increases bp(GO:\\\"double-strand break repair\\\")",
@@ -23324,7 +23324,7 @@
                 "directed": false,
                 "label": "p(HGNC:RAD51) increases bp(GO:\"double-strand break repair via homologous recombination\")",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:RAD51) increases bp(GO:\\\"double-strand break repair via homologous recombination\\\")",
@@ -23366,7 +23366,7 @@
                 "directed": false,
                 "label": "p(HGNC:RAD51) hasModification p(HGNC:RAD51,pmod(P,Y,54))",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:RAD51) hasModification p(HGNC:RAD51,pmod(P,Y,54))",
@@ -23393,7 +23393,7 @@
                 "directed": false,
                 "label": "p(HGNC:TP73,pmod(P,Y,28)) directlyDecreases tscript(p(HGNC:TP73))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:TP73,pmod(P,Y,28)) directlyDecreases tscript(p(HGNC:TP73))",
@@ -23420,7 +23420,7 @@
                 "directed": false,
                 "label": "kin(p(HGNC:SRC)) directlyIncreases p(HGNC:TP73,pmod(P,Y,28))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "kin(p(HGNC:SRC)) directlyIncreases p(HGNC:TP73,pmod(P,Y,28))",
@@ -23447,7 +23447,7 @@
                 "directed": false,
                 "label": "phos(p(HGNC:PNKP)) increases bp(GO:\"single strand break repair\")",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "phos(p(HGNC:PNKP)) increases bp(GO:\\\"single strand break repair\\\")",
@@ -23474,7 +23474,7 @@
                 "directed": false,
                 "label": "phos(p(HGNC:PNKP)) increases bp(GO:\"base-excision repair\")",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "phos(p(HGNC:PNKP)) increases bp(GO:\\\"base-excision repair\\\")",
@@ -23501,7 +23501,7 @@
                 "directed": false,
                 "label": "p(HGNC:PNKP) actsIn phos(p(HGNC:PNKP))",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:PNKP) actsIn phos(p(HGNC:PNKP))",
@@ -23528,7 +23528,7 @@
                 "directed": false,
                 "label": "p(EGID:5424) actsIn kin(p(HGNC:POLD1))",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "p(EGID:5424) actsIn kin(p(HGNC:POLD1))",
@@ -23555,7 +23555,7 @@
                 "directed": false,
                 "label": "p(EGID:5424) hasModification p(EGID:983,pmod(P,T,161))",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "p(EGID:5424) hasModification p(EGID:983,pmod(P,T,161))",
@@ -23582,7 +23582,7 @@
                 "directed": false,
                 "label": "p(EGID:983,pmod(P,T,161)) directlyIncreases kin(p(HGNC:POLD1))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "p(EGID:983,pmod(P,T,161)) directlyIncreases kin(p(HGNC:POLD1))",
@@ -23609,7 +23609,7 @@
                 "directed": false,
                 "label": "tscript(p(HGNC:E2F1)) directlyIncreases p(HGNC:ATM)",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "tscript(p(HGNC:E2F1)) directlyIncreases p(HGNC:ATM)",
@@ -23636,7 +23636,7 @@
                 "directed": false,
                 "label": "p(HGNC:MDM4) directlyDecreases tscript(p(HGNC:TP53))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:MDM4) directlyDecreases tscript(p(HGNC:TP53))",
@@ -23678,7 +23678,7 @@
                 "directed": false,
                 "label": "gtp(p(HGNC:RHOA)) increases kin(p(PFH:\"MAPK p38 Family\"))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "gtp(p(HGNC:RHOA)) increases kin(p(PFH:\\\"MAPK p38 Family\\\"))",
@@ -23705,7 +23705,7 @@
                 "directed": false,
                 "label": "p(HGNC:RHOA) actsIn gtp(p(HGNC:RHOA))",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:RHOA) actsIn gtp(p(HGNC:RHOA))",
@@ -26642,7 +26642,7 @@
                 "directed": false,
                 "label": "gtp(p(HGNC:RHOB)) increases p(HGNC:CCND1)",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "gtp(p(HGNC:RHOB)) increases p(HGNC:CCND1)",
@@ -26669,7 +26669,7 @@
                 "directed": false,
                 "label": "gtp(p(HGNC:RHOB)) increases p(HGNC:RAD51)",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "gtp(p(HGNC:RHOB)) increases p(HGNC:RAD51)",
@@ -26696,7 +26696,7 @@
                 "directed": false,
                 "label": "p(HGNC:RHOB) actsIn gtp(p(HGNC:RHOB))",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:RHOB) actsIn gtp(p(HGNC:RHOB))",
@@ -27218,7 +27218,7 @@
                 "directed": false,
                 "label": "a(SCHEM:\"Benzo(a)pyrene diolepoxide I\") decreases bp(GO:\"DNA repair\")",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "a(SCHEM:\\\"Benzo(a)pyrene diolepoxide I\\\") decreases bp(GO:\\\"DNA repair\\\")",
@@ -27245,7 +27245,7 @@
                 "directed": false,
                 "label": "cat(p(HGNC:SIRT1)) decreases tscript(p(HGNC:TP73))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "cat(p(HGNC:SIRT1)) decreases tscript(p(HGNC:TP73))",
@@ -27272,7 +27272,7 @@
                 "directed": false,
                 "label": "p(HGNC:GADD45A) directlyDecreases kin(p(HGNC:POLD1))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:GADD45A) directlyDecreases kin(p(HGNC:POLD1))",
@@ -27299,7 +27299,7 @@
                 "directed": false,
                 "label": "p(HGNC:APEX1) actsIn cat(p(HGNC:APEX1))",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:APEX1) actsIn cat(p(HGNC:APEX1))",
@@ -27806,7 +27806,7 @@
                 "directed": false,
                 "label": "cat(p(HGNC:APEX1)) increases bp(GO:\"single strand break repair\")",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "cat(p(HGNC:APEX1)) increases bp(GO:\\\"single strand break repair\\\")",
@@ -27833,7 +27833,7 @@
                 "directed": false,
                 "label": "bp(GO:\"response to oxidative stress\") decreases bp(GO:\"DNA repair\")",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "bp(GO:\\\"response to oxidative stress\\\") decreases bp(GO:\\\"DNA repair\\\")",
@@ -27860,7 +27860,7 @@
                 "directed": false,
                 "label": "cat(p(HGNC:XPA)) increases bp(GO:\"nucleotide-excision repair, DNA damage recognition\")",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "cat(p(HGNC:XPA)) increases bp(GO:\\\"nucleotide-excision repair, DNA damage recognition\\\")",
@@ -27887,7 +27887,7 @@
                 "directed": false,
                 "label": "p(HGNC:XPA) actsIn cat(p(HGNC:XPA))",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:XPA) actsIn cat(p(HGNC:XPA))",
@@ -27944,7 +27944,7 @@
                 "directed": false,
                 "label": "p(HGNC:CHEK2,pmod(P,S,19)) directlyIncreases kin(p(HGNC:CHEK2))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:CHEK2,pmod(P,S,19)) directlyIncreases kin(p(HGNC:CHEK2))",
@@ -27971,7 +27971,7 @@
                 "directed": false,
                 "label": "p(HGNC:SFN) decreases p(HGNC:MDM2)",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:SFN) decreases p(HGNC:MDM2)",
@@ -27998,7 +27998,7 @@
                 "directed": false,
                 "label": "p(HGNC:SFN) increases p(HGNC:TP53)",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:SFN) increases p(HGNC:TP53)",
@@ -28025,7 +28025,7 @@
                 "directed": false,
                 "label": "deg(p(HGNC:TP53)) directlyDecreases p(HGNC:TP53)",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "deg(p(HGNC:TP53)) directlyDecreases p(HGNC:TP53)",
@@ -28907,7 +28907,7 @@
                 "directed": false,
                 "label": "p(HGNC:ERCC3) actsIn cat(p(HGNC:ERCC3))",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:ERCC3) actsIn cat(p(HGNC:ERCC3))",
@@ -28949,7 +28949,7 @@
                 "directed": false,
                 "label": "cat(p(HGNC:ERCC3)) increases tscript(p(PFH:\"GTF2H Family\"))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "cat(p(HGNC:ERCC3)) increases tscript(p(PFH:\\\"GTF2H Family\\\"))",
@@ -28976,7 +28976,7 @@
                 "directed": false,
                 "label": "cat(p(HGNC:ERCC3)) increases bp(GO:\"nucleotide-excision repair, DNA duplex unwinding\")",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "cat(p(HGNC:ERCC3)) increases bp(GO:\\\"nucleotide-excision repair, DNA duplex unwinding\\\")",
@@ -29003,7 +29003,7 @@
                 "directed": false,
                 "label": "cat(p(HGNC:ERCC3)) increases bp(GO:\"nucleotide-excision repair\")",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "cat(p(HGNC:ERCC3)) increases bp(GO:\\\"nucleotide-excision repair\\\")",
@@ -29030,7 +29030,7 @@
                 "directed": false,
                 "label": "complex(p(HGNC:RAD9A),p(HGNC:RAD1),p(HGNC:HUS1)) hasComponent p(HGNC:HUS1)",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "complex(p(HGNC:RAD9A),p(HGNC:RAD1),p(HGNC:HUS1)) hasComponent p(HGNC:HUS1)",
@@ -29072,7 +29072,7 @@
                 "directed": false,
                 "label": "complex(p(HGNC:RAD9A),p(HGNC:RAD1),p(HGNC:HUS1)) hasComponent p(HGNC:RAD1)",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "complex(p(HGNC:RAD9A),p(HGNC:RAD1),p(HGNC:HUS1)) hasComponent p(HGNC:RAD1)",
@@ -29114,7 +29114,7 @@
                 "directed": false,
                 "label": "complex(p(HGNC:RAD9A),p(HGNC:RAD1),p(HGNC:HUS1)) increases bp(GO:\"base-excision repair\")",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "complex(p(HGNC:RAD9A),p(HGNC:RAD1),p(HGNC:HUS1)) increases bp(GO:\\\"base-excision repair\\\")",
@@ -29141,7 +29141,7 @@
                 "directed": false,
                 "label": "complex(p(HGNC:RAD9A),p(HGNC:RAD1),p(HGNC:HUS1)) hasComponent p(HGNC:RAD9A)",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "complex(p(HGNC:RAD9A),p(HGNC:RAD1),p(HGNC:HUS1)) hasComponent p(HGNC:RAD9A)",
@@ -29183,7 +29183,7 @@
                 "directed": false,
                 "label": "complex(p(HGNC:RAD9A),p(HGNC:RAD1),p(HGNC:HUS1)) increases kin(p(HGNC:ATR))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "complex(p(HGNC:RAD9A),p(HGNC:RAD1),p(HGNC:HUS1)) increases kin(p(HGNC:ATR))",
@@ -29210,7 +29210,7 @@
                 "directed": false,
                 "label": "p(HGNC:ERCC5) actsIn cat(p(HGNC:ERCC5))",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:ERCC5) actsIn cat(p(HGNC:ERCC5))",
@@ -29267,7 +29267,7 @@
                 "directed": false,
                 "label": "cat(p(HGNC:ERCC5)) increases bp(GO:\"nucleotide-excision repair, DNA incision, 3'-to lesion\")",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "cat(p(HGNC:ERCC5)) increases bp(GO:\\\"nucleotide-excision repair, DNA incision, 3\\u0027-to lesion\\\")",
@@ -29294,7 +29294,7 @@
                 "directed": false,
                 "label": "p(HGNC:PCNA) increases bp(GO:\"nucleotide-excision repair\")",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:PCNA) increases bp(GO:\\\"nucleotide-excision repair\\\")",
@@ -29321,7 +29321,7 @@
                 "directed": false,
                 "label": "a(CHEBI:\"nitric oxide\") decreases bp(GO:\"nucleotide-excision repair\")",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "a(CHEBI:\\\"nitric oxide\\\") decreases bp(GO:\\\"nucleotide-excision repair\\\")",
@@ -29348,7 +29348,7 @@
                 "directed": false,
                 "label": "p(HGNC:CCND1) hasComponent complex(p(HGNC:CCND1),p(HGNC:RAD51))",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:CCND1) hasComponent complex(p(HGNC:CCND1),p(HGNC:RAD51))",
@@ -29375,7 +29375,7 @@
                 "directed": false,
                 "label": "p(HGNC:CCND1) increases bp(GO:\"G1/S transition of mitotic cell cycle\")",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:CCND1) increases bp(GO:\\\"G1/S transition of mitotic cell cycle\\\")",
@@ -29402,7 +29402,7 @@
                 "directed": false,
                 "label": "p(HGNC:MDM2) directlyIncreases deg(p(HGNC:TP53))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:MDM2) directlyIncreases deg(p(HGNC:TP53))",
@@ -29459,7 +29459,7 @@
                 "directed": false,
                 "label": "p(HGNC:TP73) actsIn tscript(p(HGNC:TP73))",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:TP73) actsIn tscript(p(HGNC:TP73))",
@@ -30296,7 +30296,7 @@
                 "directed": false,
                 "label": "p(HGNC:RASSF1) decreases tscript(p(HGNC:ATF2))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:RASSF1) decreases tscript(p(HGNC:ATF2))",
@@ -30323,7 +30323,7 @@
                 "directed": false,
                 "label": "p(HGNC:RASSF1) decreases p(HGNC:CCND1)",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:RASSF1) decreases p(HGNC:CCND1)",
@@ -30380,7 +30380,7 @@
                 "directed": false,
                 "label": "p(HGNC:RASSF1) decreases p(HGNC:MDM2)",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:RASSF1) decreases p(HGNC:MDM2)",
@@ -30407,7 +30407,7 @@
                 "directed": false,
                 "label": "bp(GO:\"nucleotide-excision repair, DNA duplex unwinding\") isA bp(GO:\"nucleotide-excision repair\")",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "bp(GO:\\\"nucleotide-excision repair, DNA duplex unwinding\\\") isA bp(GO:\\\"nucleotide-excision repair\\\")",
@@ -30434,7 +30434,7 @@
                 "directed": false,
                 "label": "bp(GO:\"nucleotide-excision repair, DNA gap filling\") isA bp(GO:\"nucleotide-excision repair\")",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "bp(GO:\\\"nucleotide-excision repair, DNA gap filling\\\") isA bp(GO:\\\"nucleotide-excision repair\\\")",
@@ -30461,7 +30461,7 @@
                 "directed": false,
                 "label": "bp(GO:\"nucleotide-excision repair, DNA damage recognition\") isA bp(GO:\"nucleotide-excision repair\")",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "bp(GO:\\\"nucleotide-excision repair, DNA damage recognition\\\") isA bp(GO:\\\"nucleotide-excision repair\\\")",
@@ -30488,7 +30488,7 @@
                 "directed": false,
                 "label": "bp(GO:\"nucleotide-excision repair, DNA incision, 3'-to lesion\") isA bp(GO:\"nucleotide-excision repair\")",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "bp(GO:\\\"nucleotide-excision repair, DNA incision, 3\\u0027-to lesion\\\") isA bp(GO:\\\"nucleotide-excision repair\\\")",
@@ -30515,7 +30515,7 @@
                 "directed": false,
                 "label": "bp(GO:\"nucleotide-excision repair, DNA incision, 5'-to lesion\") isA bp(GO:\"nucleotide-excision repair\")",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "bp(GO:\\\"nucleotide-excision repair, DNA incision, 5\\u0027-to lesion\\\") isA bp(GO:\\\"nucleotide-excision repair\\\")",
@@ -30542,7 +30542,7 @@
                 "directed": false,
                 "label": "cat(p(HGNC:ERCC8)) increases bp(GO:\"nucleotide-excision repair\")",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "cat(p(HGNC:ERCC8)) increases bp(GO:\\\"nucleotide-excision repair\\\")",
@@ -30569,7 +30569,7 @@
                 "directed": false,
                 "label": "p(HGNC:ERCC8) actsIn cat(p(HGNC:ERCC8))",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:ERCC8) actsIn cat(p(HGNC:ERCC8))",
@@ -30611,7 +30611,7 @@
                 "directed": false,
                 "label": "bp(GO:\"double-strand break repair via homologous recombination\") isA bp(GO:\"double-strand break repair\")",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "bp(GO:\\\"double-strand break repair via homologous recombination\\\") isA bp(GO:\\\"double-strand break repair\\\")",
@@ -30638,7 +30638,7 @@
                 "directed": false,
                 "label": "p(HGNC:TP53BP1) increases bp(GO:\"double-strand break repair\")",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:TP53BP1) increases bp(GO:\\\"double-strand break repair\\\")",
@@ -30665,7 +30665,7 @@
                 "directed": false,
                 "label": "complex(p(HGNC:RNF8),p(HGNC:MDC1)) hasComponent p(HGNC:MDC1)",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "complex(p(HGNC:RNF8),p(HGNC:MDC1)) hasComponent p(HGNC:MDC1)",
@@ -30707,7 +30707,7 @@
                 "directed": false,
                 "label": "complex(p(HGNC:RNF8),p(HGNC:MDC1)) increases p(HGNC:TP53BP1)",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "complex(p(HGNC:RNF8),p(HGNC:MDC1)) increases p(HGNC:TP53BP1)",
@@ -30734,7 +30734,7 @@
                 "directed": false,
                 "label": "complex(p(HGNC:RNF8),p(HGNC:MDC1)) increases p(HGNC:BRCA1)",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "complex(p(HGNC:RNF8),p(HGNC:MDC1)) increases p(HGNC:BRCA1)",
@@ -30776,7 +30776,7 @@
                 "directed": false,
                 "label": "complex(p(HGNC:RNF8),p(HGNC:MDC1)) hasComponent p(HGNC:RNF8)",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "complex(p(HGNC:RNF8),p(HGNC:MDC1)) hasComponent p(HGNC:RNF8)",
@@ -30818,7 +30818,7 @@
                 "directed": false,
                 "label": "p(HGNC:CHEK2,pmod(P,S,35)) directlyIncreases kin(p(HGNC:CHEK2))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:CHEK2,pmod(P,S,35)) directlyIncreases kin(p(HGNC:CHEK2))",
@@ -30845,7 +30845,7 @@
                 "directed": false,
                 "label": "p(HGNC:CDC25A) decreases bp(GO:\"DNA repair\")",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:CDC25A) decreases bp(GO:\\\"DNA repair\\\")",
@@ -30872,7 +30872,7 @@
                 "directed": false,
                 "label": "p(HGNC:CDC25A) actsIn phos(p(HGNC:CDC25A))",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:CDC25A) actsIn phos(p(HGNC:CDC25A))",
@@ -31079,7 +31079,7 @@
                 "directed": false,
                 "label": "complex(p(HGNC:ERCC4),p(HGNC:ERCC1)) increases bp(GO:\"nucleotide-excision repair, DNA incision, 5'-to lesion\")",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "complex(p(HGNC:ERCC4),p(HGNC:ERCC1)) increases bp(GO:\\\"nucleotide-excision repair, DNA incision, 5\\u0027-to lesion\\\")",
@@ -31106,7 +31106,7 @@
                 "directed": false,
                 "label": "complex(p(HGNC:ERCC4),p(HGNC:ERCC1)) hasComponent p(HGNC:ERCC1)",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "complex(p(HGNC:ERCC4),p(HGNC:ERCC1)) hasComponent p(HGNC:ERCC1)",
@@ -31193,7 +31193,7 @@
                 "directed": false,
                 "label": "complex(p(HGNC:ERCC4),p(HGNC:ERCC1)) hasComponent p(HGNC:ERCC4)",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "complex(p(HGNC:ERCC4),p(HGNC:ERCC1)) hasComponent p(HGNC:ERCC4)",
@@ -31280,7 +31280,7 @@
                 "directed": false,
                 "label": "p(HGNC:FANCI) hasModification p(HGNC:FANCI,pmod(P))",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:FANCI) hasModification p(HGNC:FANCI,pmod(P))",
@@ -31307,7 +31307,7 @@
                 "directed": false,
                 "label": "p(HGNC:BRCA1) increases bp(GO:\"double-strand break repair via homologous recombination\")",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:BRCA1) increases bp(GO:\\\"double-strand break repair via homologous recombination\\\")",
@@ -31334,7 +31334,7 @@
                 "directed": false,
                 "label": "p(HGNC:BRCA1) directlyIncreases tscript(p(HGNC:TP53))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:BRCA1) directlyIncreases tscript(p(HGNC:TP53))",
@@ -31361,7 +31361,7 @@
                 "directed": false,
                 "label": "p(HGNC:BRCA1) increases cat(p(HGNC:PARP1))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:BRCA1) increases cat(p(HGNC:PARP1))",
@@ -31418,7 +31418,7 @@
                 "directed": false,
                 "label": "p(HGNC:BRCA1) increases bp(GO:\"double-strand break repair\")",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:BRCA1) increases bp(GO:\\\"double-strand break repair\\\")",
@@ -31475,7 +31475,7 @@
                 "directed": false,
                 "label": "p(HGNC:BRCA1) hasModification p(HGNC:BRCA1,pmod(P,S,1457))",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:BRCA1) hasModification p(HGNC:BRCA1,pmod(P,S,1457))",
@@ -31502,7 +31502,7 @@
                 "directed": false,
                 "label": "p(HGNC:FANCD2) increases bp(GO:\"double-strand break repair via homologous recombination\")",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:FANCD2) increases bp(GO:\\\"double-strand break repair via homologous recombination\\\")",
@@ -31529,7 +31529,7 @@
                 "directed": false,
                 "label": "p(HGNC:FANCD2) hasModification p(HGNC:FANCD2,pmod(P,S,717))",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:FANCD2) hasModification p(HGNC:FANCD2,pmod(P,S,717))",
@@ -31556,7 +31556,7 @@
                 "directed": false,
                 "label": "kin(p(HGNC:ATR)) directlyIncreases p(HGNC:FANCD2,pmod(P,T,691))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "kin(p(HGNC:ATR)) directlyIncreases p(HGNC:FANCD2,pmod(P,T,691))",
@@ -31583,7 +31583,7 @@
                 "directed": false,
                 "label": "kin(p(HGNC:ATR)) directlyIncreases p(HGNC:BRCA1,pmod(P,S,1524))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "kin(p(HGNC:ATR)) directlyIncreases p(HGNC:BRCA1,pmod(P,S,1524))",
@@ -31610,7 +31610,7 @@
                 "directed": false,
                 "label": "kin(p(HGNC:ATR)) directlyIncreases p(HGNC:BRCA1,pmod(P,S,1457))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "kin(p(HGNC:ATR)) directlyIncreases p(HGNC:BRCA1,pmod(P,S,1457))",
@@ -31637,7 +31637,7 @@
                 "directed": false,
                 "label": "kin(p(HGNC:ATR)) directlyIncreases p(HGNC:TP53,pmod(P,S,15))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "kin(p(HGNC:ATR)) directlyIncreases p(HGNC:TP53,pmod(P,S,15))",
@@ -31709,7 +31709,7 @@
                 "directed": false,
                 "label": "kin(p(HGNC:ATR)) directlyIncreases p(HGNC:BRCA1,pmod(P,S,1423))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "kin(p(HGNC:ATR)) directlyIncreases p(HGNC:BRCA1,pmod(P,S,1423))",
@@ -31751,7 +31751,7 @@
                 "directed": false,
                 "label": "kin(p(HGNC:ATR)) directlyIncreases p(HGNC:CHEK1,pmod(P,S,345))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "kin(p(HGNC:ATR)) directlyIncreases p(HGNC:CHEK1,pmod(P,S,345))",
@@ -31883,7 +31883,7 @@
                 "directed": false,
                 "label": "kin(p(HGNC:ATR)) directlyIncreases tscript(p(HGNC:TP53))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "kin(p(HGNC:ATR)) directlyIncreases tscript(p(HGNC:TP53))",
@@ -31910,7 +31910,7 @@
                 "directed": false,
                 "label": "kin(p(HGNC:ATR)) directlyIncreases p(HGNC:FANCI,pmod(P))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "kin(p(HGNC:ATR)) directlyIncreases p(HGNC:FANCI,pmod(P))",
@@ -31937,7 +31937,7 @@
                 "directed": false,
                 "label": "kin(p(HGNC:ATR)) directlyIncreases p(HGNC:FANCD2,pmod(P,S,717))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "kin(p(HGNC:ATR)) directlyIncreases p(HGNC:FANCD2,pmod(P,S,717))",
@@ -31964,7 +31964,7 @@
                 "directed": false,
                 "label": "p(HGNC:ATRIP) directlyIncreases kin(p(HGNC:ATR))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:ATRIP) directlyIncreases kin(p(HGNC:ATR))",
@@ -31991,7 +31991,7 @@
                 "directed": false,
                 "label": "cat(p(HGNC:PARP2)) increases bp(GO:\"base-excision repair\")",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "cat(p(HGNC:PARP2)) increases bp(GO:\\\"base-excision repair\\\")",
@@ -32018,7 +32018,7 @@
                 "directed": false,
                 "label": "p(HGNC:PARP2) actsIn cat(p(HGNC:PARP2))",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:PARP2) actsIn cat(p(HGNC:PARP2))",
@@ -32060,7 +32060,7 @@
                 "directed": false,
                 "label": "kin(p(PFH:\"AKT Family\")) directlyIncreases p(HGNC:CDKN1A,pmod(P,T,145))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "kin(p(PFH:\\\"AKT Family\\\")) directlyIncreases p(HGNC:CDKN1A,pmod(P,T,145))",
@@ -32087,7 +32087,7 @@
                 "directed": false,
                 "label": "p(HGNC:CDKN1A,pmod(P,T,145)) directlyDecreases deg(p(HGNC:CDKN1A))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:CDKN1A,pmod(P,T,145)) directlyDecreases deg(p(HGNC:CDKN1A))",
@@ -32144,7 +32144,7 @@
                 "directed": false,
                 "label": "p(HGNC:CDKN1A) hasModification p(HGNC:CDKN1A,pmod(P,T,145))",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:CDKN1A) hasModification p(HGNC:CDKN1A,pmod(P,T,145))",
@@ -32171,7 +32171,7 @@
                 "directed": false,
                 "label": "p(HGNC:CDKN1A) decreases bp(GO:\"G1/S transition of mitotic cell cycle\")",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:CDKN1A) decreases bp(GO:\\\"G1/S transition of mitotic cell cycle\\\")",
@@ -32198,7 +32198,7 @@
                 "directed": false,
                 "label": "deg(p(HGNC:CDKN1A)) directlyDecreases p(HGNC:CDKN1A)",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "deg(p(HGNC:CDKN1A)) directlyDecreases p(HGNC:CDKN1A)",
@@ -32465,7 +32465,7 @@
                 "directed": false,
                 "label": "p(HGNC:GADD45G) directlyDecreases kin(p(HGNC:POLD1))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:GADD45G) directlyDecreases kin(p(HGNC:POLD1))",
@@ -32492,7 +32492,7 @@
                 "directed": false,
                 "label": "p(HGNC:GADD45B) directlyDecreases kin(p(HGNC:POLD1))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:GADD45B) directlyDecreases kin(p(HGNC:POLD1))",
@@ -32519,7 +32519,7 @@
                 "directed": false,
                 "label": "bp(GO:\"nucleotide-excision repair\") isA bp(GO:\"DNA repair\")",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "bp(GO:\\\"nucleotide-excision repair\\\") isA bp(GO:\\\"DNA repair\\\")",
@@ -32546,7 +32546,7 @@
                 "directed": false,
                 "label": "cat(p(HGNC:TOP1)) increases bp(GO:\"DNA repair\")",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "cat(p(HGNC:TOP1)) increases bp(GO:\\\"DNA repair\\\")",
@@ -32588,7 +32588,7 @@
                 "directed": false,
                 "label": "a(CHEBI:camptothecin) directlyDecreases cat(p(HGNC:TOP1))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "a(CHEBI:camptothecin) directlyDecreases cat(p(HGNC:TOP1))",
@@ -32615,7 +32615,7 @@
                 "directed": false,
                 "label": "cat(p(HGNC:XRCC1)) increases bp(GO:\"single strand break repair\")",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "cat(p(HGNC:XRCC1)) increases bp(GO:\\\"single strand break repair\\\")",
@@ -32657,7 +32657,7 @@
                 "directed": false,
                 "label": "p(HGNC:XRCC1) actsIn cat(p(HGNC:XRCC1))",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:XRCC1) actsIn cat(p(HGNC:XRCC1))",
@@ -32714,7 +32714,7 @@
                 "directed": false,
                 "label": "bp(GO:\"base-excision repair\") isA bp(GO:\"single strand break repair\")",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "bp(GO:\\\"base-excision repair\\\") isA bp(GO:\\\"single strand break repair\\\")",
@@ -32741,7 +32741,7 @@
                 "directed": false,
                 "label": "complex(p(HGNC:XRCC1),p(HGNC:APTX)) hasComponent p(HGNC:XRCC1)",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "complex(p(HGNC:XRCC1),p(HGNC:APTX)) hasComponent p(HGNC:XRCC1)",
@@ -32798,7 +32798,7 @@
                 "directed": false,
                 "label": "complex(p(HGNC:XRCC1),p(HGNC:APTX)) hasComponent p(HGNC:APTX)",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "complex(p(HGNC:XRCC1),p(HGNC:APTX)) hasComponent p(HGNC:APTX)",
@@ -32855,7 +32855,7 @@
                 "directed": false,
                 "label": "complex(p(HGNC:XRCC1),p(HGNC:APTX)) increases bp(GO:\"single strand break repair\")",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "complex(p(HGNC:XRCC1),p(HGNC:APTX)) increases bp(GO:\\\"single strand break repair\\\")",
@@ -32882,7 +32882,7 @@
                 "directed": false,
                 "label": "bp(GO:\"response to DNA damage stimulus\") increases p(HGNC:GADD45G)",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "bp(GO:\\\"response to DNA damage stimulus\\\") increases p(HGNC:GADD45G)",
@@ -32909,7 +32909,7 @@
                 "directed": false,
                 "label": "bp(GO:\"response to DNA damage stimulus\") decreases p(HGNC:CCND1)",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "bp(GO:\\\"response to DNA damage stimulus\\\") decreases p(HGNC:CCND1)",
@@ -32936,7 +32936,7 @@
                 "directed": false,
                 "label": "bp(GO:\"response to DNA damage stimulus\") increases p(HGNC:CDKN2A)",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "bp(GO:\\\"response to DNA damage stimulus\\\") increases p(HGNC:CDKN2A)",
@@ -32978,7 +32978,7 @@
                 "directed": false,
                 "label": "bp(GO:\"response to DNA damage stimulus\") increases kin(p(HGNC:ATR))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "bp(GO:\\\"response to DNA damage stimulus\\\") increases kin(p(HGNC:ATR))",
@@ -33050,7 +33050,7 @@
                 "directed": false,
                 "label": "bp(GO:\"response to DNA damage stimulus\") increases tscript(p(HGNC:TP73))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "bp(GO:\\\"response to DNA damage stimulus\\\") increases tscript(p(HGNC:TP73))",
@@ -33107,7 +33107,7 @@
                 "directed": false,
                 "label": "bp(GO:\"response to DNA damage stimulus\") increases kin(p(HGNC:ATM))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "bp(GO:\\\"response to DNA damage stimulus\\\") increases kin(p(HGNC:ATM))",
@@ -33209,7 +33209,7 @@
                 "directed": false,
                 "label": "bp(GO:\"response to DNA damage stimulus\") increases kin(p(HGNC:CHEK1))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "bp(GO:\\\"response to DNA damage stimulus\\\") increases kin(p(HGNC:CHEK1))",
@@ -33236,7 +33236,7 @@
                 "directed": false,
                 "label": "bp(GO:\"response to DNA damage stimulus\") increases cat(p(HGNC:EP300))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "bp(GO:\\\"response to DNA damage stimulus\\\") increases cat(p(HGNC:EP300))",
@@ -33263,7 +33263,7 @@
                 "directed": false,
                 "label": "bp(GO:\"response to UV-C\") isA bp(GO:\"response to UV\")",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "bp(GO:\\\"response to UV-C\\\") isA bp(GO:\\\"response to UV\\\")",
@@ -33290,7 +33290,7 @@
                 "directed": false,
                 "label": "bp(GO:\"response to UV\") increases a(SCHEM:\"double-stranded DNA break\")",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "bp(GO:\\\"response to UV\\\") increases a(SCHEM:\\\"double-stranded DNA break\\\")",
@@ -33317,7 +33317,7 @@
                 "directed": false,
                 "label": "bp(GO:\"response to UV\") increases bp(GO:\"response to DNA damage stimulus\")",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "bp(GO:\\\"response to UV\\\") increases bp(GO:\\\"response to DNA damage stimulus\\\")",
@@ -33389,7 +33389,7 @@
                 "directed": false,
                 "label": "bp(GO:\"response to UV-A\") isA bp(GO:\"response to UV\")",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "bp(GO:\\\"response to UV-A\\\") isA bp(GO:\\\"response to UV\\\")",
@@ -33416,7 +33416,7 @@
                 "directed": false,
                 "label": "bp(GO:\"response to UV-B\") isA bp(GO:\"response to UV\")",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "bp(GO:\\\"response to UV-B\\\") isA bp(GO:\\\"response to UV\\\")",
@@ -33443,7 +33443,7 @@
                 "directed": false,
                 "label": "phos(p(HGNC:CDC25A)) increases bp(GO:\"G1/S transition of mitotic cell cycle\")",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "phos(p(HGNC:CDC25A)) increases bp(GO:\\\"G1/S transition of mitotic cell cycle\\\")",
@@ -33470,7 +33470,7 @@
                 "directed": false,
                 "label": "tscript(p(HGNC:TP73)) directlyIncreases p(HGNC:CDKN1A)",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "tscript(p(HGNC:TP73)) directlyIncreases p(HGNC:CDKN1A)",
@@ -33497,7 +33497,7 @@
                 "directed": false,
                 "label": "tscript(p(HGNC:TP73)) directlyIncreases p(HGNC:MDM2)",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "tscript(p(HGNC:TP73)) directlyIncreases p(HGNC:MDM2)",
@@ -33524,7 +33524,7 @@
                 "directed": false,
                 "label": "p(HGNC:TP53BP2) directlyIncreases tscript(p(HGNC:TP73))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:TP53BP2) directlyIncreases tscript(p(HGNC:TP73))",
@@ -33551,7 +33551,7 @@
                 "directed": false,
                 "label": "complex(p(HGNC:SMC1A),p(HGNC:SMC3)) hasComponent p(HGNC:SMC3)",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "complex(p(HGNC:SMC1A),p(HGNC:SMC3)) hasComponent p(HGNC:SMC3)",
@@ -33593,7 +33593,7 @@
                 "directed": false,
                 "label": "complex(p(HGNC:SMC1A),p(HGNC:SMC3)) hasComponent p(HGNC:SMC1A)",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "complex(p(HGNC:SMC1A),p(HGNC:SMC3)) hasComponent p(HGNC:SMC1A)",
@@ -33635,7 +33635,7 @@
                 "directed": false,
                 "label": "complex(p(HGNC:SMC1A),p(HGNC:SMC3)) increases bp(GO:\"double-strand break repair via homologous recombination\")",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "complex(p(HGNC:SMC1A),p(HGNC:SMC3)) increases bp(GO:\\\"double-strand break repair via homologous recombination\\\")",
@@ -33662,7 +33662,7 @@
                 "directed": false,
                 "label": "tscript(p(PFH:\"GTF2H Family\")) increases bp(GO:\"nucleotide-excision repair\")",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "tscript(p(PFH:\\\"GTF2H Family\\\")) increases bp(GO:\\\"nucleotide-excision repair\\\")",
@@ -33689,7 +33689,7 @@
                 "directed": false,
                 "label": "complex(NCH:\"TFIIH Complex\") actsIn tscript(p(PFH:\"GTF2H Family\"))",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "complex(NCH:\\\"TFIIH Complex\\\") actsIn tscript(p(PFH:\\\"GTF2H Family\\\"))",
@@ -33716,7 +33716,7 @@
                 "directed": false,
                 "label": "complex(p(HGNC:XPC),p(HGNC:RAD23B)) hasComponent p(HGNC:RAD23B)",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "complex(p(HGNC:XPC),p(HGNC:RAD23B)) hasComponent p(HGNC:RAD23B)",
@@ -33803,7 +33803,7 @@
                 "directed": false,
                 "label": "complex(p(HGNC:XPC),p(HGNC:RAD23B)) increases bp(GO:\"nucleotide-excision repair, DNA damage recognition\")",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "complex(p(HGNC:XPC),p(HGNC:RAD23B)) increases bp(GO:\\\"nucleotide-excision repair, DNA damage recognition\\\")",
@@ -33830,7 +33830,7 @@
                 "directed": false,
                 "label": "complex(p(HGNC:XPC),p(HGNC:RAD23B)) hasComponent p(HGNC:XPC)",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "complex(p(HGNC:XPC),p(HGNC:RAD23B)) hasComponent p(HGNC:XPC)",
@@ -33917,7 +33917,7 @@
                 "directed": false,
                 "label": "p(HGNC:RPRM) decreases kin(p(HGNC:POLD1))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:RPRM) decreases kin(p(HGNC:POLD1))",
@@ -33944,7 +33944,7 @@
                 "directed": false,
                 "label": "tscript(p(HGNC:TP53)) directlyIncreases p(HGNC:GADD45A)",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "tscript(p(HGNC:TP53)) directlyIncreases p(HGNC:GADD45A)",
@@ -33971,7 +33971,7 @@
                 "directed": false,
                 "label": "tscript(p(HGNC:TP53)) directlyIncreases p(HGNC:GADD45B)",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "tscript(p(HGNC:TP53)) directlyIncreases p(HGNC:GADD45B)",
@@ -33998,7 +33998,7 @@
                 "directed": false,
                 "label": "tscript(p(HGNC:TP53)) directlyDecreases p(HGNC:TOP2A)",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "tscript(p(HGNC:TP53)) directlyDecreases p(HGNC:TOP2A)",
@@ -34025,7 +34025,7 @@
                 "directed": false,
                 "label": "tscript(p(HGNC:TP53)) directlyDecreases p(HGNC:BRCA1)",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "tscript(p(HGNC:TP53)) directlyDecreases p(HGNC:BRCA1)",
@@ -34052,7 +34052,7 @@
                 "directed": false,
                 "label": "tscript(p(HGNC:TP53)) directlyIncreases p(HGNC:CDKN1A)",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "tscript(p(HGNC:TP53)) directlyIncreases p(HGNC:CDKN1A)",
@@ -34079,7 +34079,7 @@
                 "directed": false,
                 "label": "tscript(p(HGNC:TP53)) directlyIncreases p(HGNC:SFN)",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "tscript(p(HGNC:TP53)) directlyIncreases p(HGNC:SFN)",
@@ -34106,7 +34106,7 @@
                 "directed": false,
                 "label": "tscript(p(HGNC:TP53)) decreases p(HGNC:TOP2B)",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "tscript(p(HGNC:TP53)) decreases p(HGNC:TOP2B)",
@@ -34133,7 +34133,7 @@
                 "directed": false,
                 "label": "tscript(p(HGNC:TP53)) directlyIncreases p(HGNC:PCNA)",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "tscript(p(HGNC:TP53)) directlyIncreases p(HGNC:PCNA)",
@@ -34160,7 +34160,7 @@
                 "directed": false,
                 "label": "tscript(p(HGNC:TP53)) directlyIncreases p(HGNC:MDM2)",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "tscript(p(HGNC:TP53)) directlyIncreases p(HGNC:MDM2)",
@@ -34187,7 +34187,7 @@
                 "directed": false,
                 "label": "tscript(p(HGNC:TP53)) increases p(HGNC:RPRM)",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "tscript(p(HGNC:TP53)) increases p(HGNC:RPRM)",
@@ -34214,7 +34214,7 @@
                 "directed": false,
                 "label": "p(HGNC:TP53,pmod(P,T,18)) directlyIncreases tscript(p(HGNC:TP53))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:TP53,pmod(P,T,18)) directlyIncreases tscript(p(HGNC:TP53))",
@@ -34256,7 +34256,7 @@
                 "directed": false,
                 "label": "kin(p(HGNC:CHEK2)) directlyIncreases p(HGNC:CHEK2,pmod(P,T,68))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "kin(p(HGNC:CHEK2)) directlyIncreases p(HGNC:CHEK2,pmod(P,T,68))",
@@ -34283,7 +34283,7 @@
                 "directed": false,
                 "label": "kin(p(HGNC:CHEK2)) increases p(HGNC:TP53,pmod(P,S,15))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "kin(p(HGNC:CHEK2)) increases p(HGNC:TP53,pmod(P,S,15))",
@@ -34310,7 +34310,7 @@
                 "directed": false,
                 "label": "kin(p(HGNC:CHEK2)) directlyIncreases p(HGNC:TP53,pmod(P,S,20))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "kin(p(HGNC:CHEK2)) directlyIncreases p(HGNC:TP53,pmod(P,S,20))",
@@ -34352,7 +34352,7 @@
                 "directed": false,
                 "label": "kin(p(HGNC:CHEK2)) directlyIncreases p(HGNC:TP53,pmod(P,T,18))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "kin(p(HGNC:CHEK2)) directlyIncreases p(HGNC:TP53,pmod(P,T,18))",
@@ -34379,7 +34379,7 @@
                 "directed": false,
                 "label": "kin(p(HGNC:CHEK2)) increases tscript(p(HGNC:TP53))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "kin(p(HGNC:CHEK2)) increases tscript(p(HGNC:TP53))",
@@ -34421,7 +34421,7 @@
                 "directed": false,
                 "label": "p(HGNC:CHEK2,pmod(P,S,33)) directlyIncreases kin(p(HGNC:CHEK2))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:CHEK2,pmod(P,S,33)) directlyIncreases kin(p(HGNC:CHEK2))",
@@ -34448,7 +34448,7 @@
                 "directed": false,
                 "label": "p(HGNC:ATM) actsIn kin(p(HGNC:ATM))",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:ATM) actsIn kin(p(HGNC:ATM))",
@@ -36260,7 +36260,7 @@
                 "directed": false,
                 "label": "kin(p(HGNC:ATM)) directlyIncreases p(HGNC:RASSF1,pmod(P,S,131))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "kin(p(HGNC:ATM)) directlyIncreases p(HGNC:RASSF1,pmod(P,S,131))",
@@ -36287,7 +36287,7 @@
                 "directed": false,
                 "label": "kin(p(HGNC:ATM)) directlyIncreases p(HGNC:EP300,pmod(P,S,106))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "kin(p(HGNC:ATM)) directlyIncreases p(HGNC:EP300,pmod(P,S,106))",
@@ -36314,7 +36314,7 @@
                 "directed": false,
                 "label": "kin(p(HGNC:ATM)) increases p(HGNC:SP1,pmod(P,S,101))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "kin(p(HGNC:ATM)) increases p(HGNC:SP1,pmod(P,S,101))",
@@ -36341,7 +36341,7 @@
                 "directed": false,
                 "label": "kin(p(HGNC:ATM)) directlyIncreases p(HGNC:BRCA1,pmod(P,S,1423))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "kin(p(HGNC:ATM)) directlyIncreases p(HGNC:BRCA1,pmod(P,S,1423))",
@@ -36383,7 +36383,7 @@
                 "directed": false,
                 "label": "kin(p(HGNC:ATM)) increases tscript(p(HGNC:TP53))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "kin(p(HGNC:ATM)) increases tscript(p(HGNC:TP53))",
@@ -36455,7 +36455,7 @@
                 "directed": false,
                 "label": "kin(p(HGNC:ATM)) directlyIncreases p(HGNC:BRCA1,pmod(P,S,1524))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "kin(p(HGNC:ATM)) directlyIncreases p(HGNC:BRCA1,pmod(P,S,1524))",
@@ -36482,7 +36482,7 @@
                 "directed": false,
                 "label": "kin(p(HGNC:ATM)) directlyIncreases p(HGNC:BRCA1,pmod(P,S,1466))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "kin(p(HGNC:ATM)) directlyIncreases p(HGNC:BRCA1,pmod(P,S,1466))",
@@ -36509,7 +36509,7 @@
                 "directed": false,
                 "label": "kin(p(HGNC:ATM)) directlyIncreases p(HGNC:WRN,pmod(P,S,1292))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "kin(p(HGNC:ATM)) directlyIncreases p(HGNC:WRN,pmod(P,S,1292))",
@@ -36536,7 +36536,7 @@
                 "directed": false,
                 "label": "kin(p(HGNC:ATM)) directlyIncreases p(HGNC:CHEK1,pmod(P,S,317))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "kin(p(HGNC:ATM)) directlyIncreases p(HGNC:CHEK1,pmod(P,S,317))",
@@ -36593,7 +36593,7 @@
                 "directed": false,
                 "label": "kin(p(HGNC:ATM)) directlyIncreases p(HGNC:ATF2,pmod(P,S,498))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "kin(p(HGNC:ATM)) directlyIncreases p(HGNC:ATF2,pmod(P,S,498))",
@@ -36635,7 +36635,7 @@
                 "directed": false,
                 "label": "kin(p(HGNC:ATM)) directlyIncreases p(HGNC:WRN,pmod(P,S,1141))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "kin(p(HGNC:ATM)) directlyIncreases p(HGNC:WRN,pmod(P,S,1141))",
@@ -36662,7 +36662,7 @@
                 "directed": false,
                 "label": "kin(p(HGNC:ATM)) directlyIncreases p(HGNC:ATF2,pmod(P,S,490))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "kin(p(HGNC:ATM)) directlyIncreases p(HGNC:ATF2,pmod(P,S,490))",
@@ -36704,7 +36704,7 @@
                 "directed": false,
                 "label": "kin(p(HGNC:ATM)) directlyIncreases p(HGNC:H2AFX,pmod(P,S,140))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "kin(p(HGNC:ATM)) directlyIncreases p(HGNC:H2AFX,pmod(P,S,140))",
@@ -36776,7 +36776,7 @@
                 "directed": false,
                 "label": "kin(p(HGNC:ATM)) directlyIncreases p(HGNC:CHEK2,pmod(P,S,33))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "kin(p(HGNC:ATM)) directlyIncreases p(HGNC:CHEK2,pmod(P,S,33))",
@@ -36818,7 +36818,7 @@
                 "directed": false,
                 "label": "kin(p(HGNC:ATM)) directlyIncreases p(HGNC:FANCD2,pmod(P,S,1257))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "kin(p(HGNC:ATM)) directlyIncreases p(HGNC:FANCD2,pmod(P,S,1257))",
@@ -36845,7 +36845,7 @@
                 "directed": false,
                 "label": "kin(p(HGNC:ATM)) directlyIncreases p(HGNC:BRCA1,pmod(P,S,1330))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "kin(p(HGNC:ATM)) directlyIncreases p(HGNC:BRCA1,pmod(P,S,1330))",
@@ -36872,7 +36872,7 @@
                 "directed": false,
                 "label": "kin(p(HGNC:ATM)) directlyIncreases p(HGNC:FANCD2,pmod(P,S,222))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "kin(p(HGNC:ATM)) directlyIncreases p(HGNC:FANCD2,pmod(P,S,222))",
@@ -36914,7 +36914,7 @@
                 "directed": false,
                 "label": "kin(p(HGNC:ATM)) directlyIncreases p(HGNC:CHEK2,pmod(P,T,68))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "kin(p(HGNC:ATM)) directlyIncreases p(HGNC:CHEK2,pmod(P,T,68))",
@@ -37016,7 +37016,7 @@
                 "directed": false,
                 "label": "kin(p(HGNC:ATM)) directlyIncreases p(HGNC:ABL1,pmod(P,S,446))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "kin(p(HGNC:ATM)) directlyIncreases p(HGNC:ABL1,pmod(P,S,446))",
@@ -37043,7 +37043,7 @@
                 "directed": false,
                 "label": "kin(p(HGNC:ATM)) directlyIncreases p(HGNC:CHEK1,pmod(P,S,345))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "kin(p(HGNC:ATM)) directlyIncreases p(HGNC:CHEK1,pmod(P,S,345))",
@@ -37115,7 +37115,7 @@
                 "directed": false,
                 "label": "kin(p(HGNC:ATM)) increases p(HGNC:TRIM28,pmod(P,S,824))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "kin(p(HGNC:ATM)) increases p(HGNC:TRIM28,pmod(P,S,824))",
@@ -37142,7 +37142,7 @@
                 "directed": false,
                 "label": "kin(p(HGNC:ATM)) directlyIncreases p(HGNC:BRCA1,pmod(P,S,1387))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "kin(p(HGNC:ATM)) directlyIncreases p(HGNC:BRCA1,pmod(P,S,1387))",
@@ -37184,7 +37184,7 @@
                 "directed": false,
                 "label": "kin(p(HGNC:ATM)) directlyIncreases p(HGNC:ABL1,pmod(P,S,465))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "kin(p(HGNC:ATM)) directlyIncreases p(HGNC:ABL1,pmod(P,S,465))",
@@ -37226,7 +37226,7 @@
                 "directed": false,
                 "label": "kin(p(HGNC:ATM)) directlyDecreases p(MGI:Trp63)",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "kin(p(HGNC:ATM)) directlyDecreases p(MGI:Trp63)",
@@ -37253,7 +37253,7 @@
                 "directed": false,
                 "label": "kin(p(HGNC:ATM)) directlyIncreases p(HGNC:BRCA1,pmod(P,S,1457))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "kin(p(HGNC:ATM)) directlyIncreases p(HGNC:BRCA1,pmod(P,S,1457))",
@@ -37295,7 +37295,7 @@
                 "directed": false,
                 "label": "kin(p(HGNC:ATM)) directlyIncreases p(HGNC:CHEK2,pmod(P,S,19))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "kin(p(HGNC:ATM)) directlyIncreases p(HGNC:CHEK2,pmod(P,S,19))",
@@ -37322,7 +37322,7 @@
                 "directed": false,
                 "label": "kin(p(HGNC:ATM)) directlyIncreases p(HGNC:TP53,pmod(P,S,15))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "kin(p(HGNC:ATM)) directlyIncreases p(HGNC:TP53,pmod(P,S,15))",
@@ -37454,7 +37454,7 @@
                 "directed": false,
                 "label": "kin(p(HGNC:ATM)) directlyIncreases p(HGNC:CHEK2,pmod(P,S,35))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "kin(p(HGNC:ATM)) directlyIncreases p(HGNC:CHEK2,pmod(P,S,35))",
@@ -37496,7 +37496,7 @@
                 "directed": false,
                 "label": "p(HGNC:ATM) hasModification p(HGNC:ATM,pmod(P,S,1981))",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:ATM) hasModification p(HGNC:ATM,pmod(P,S,1981))",
@@ -37523,7 +37523,7 @@
                 "directed": false,
                 "label": "p(HGNC:ATM,pmod(P,S,1981)) directlyIncreases kin(p(HGNC:ATM))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:ATM,pmod(P,S,1981)) directlyIncreases kin(p(HGNC:ATM))",
@@ -37565,7 +37565,7 @@
                 "directed": false,
                 "label": "p(HGNC:TP53) actsIn tscript(p(HGNC:TP53))",
                 "metadata": {
-                    "casual": false,
+                    "causal": false,
                     "evidences": [
                         {
                             "bel_statement": "p(HGNC:TP53) actsIn tscript(p(HGNC:TP53))",
@@ -45527,7 +45527,7 @@
                 "directed": false,
                 "label": "a(SCHEM:\"double-stranded DNA break\") increases kin(p(HGNC:PRKDC))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "a(SCHEM:\\\"double-stranded DNA break\\\") increases kin(p(HGNC:PRKDC))",
@@ -45584,7 +45584,7 @@
                 "directed": false,
                 "label": "a(SCHEM:\"double-stranded DNA break\") increases p(HGNC:H2AFX,pmod(P,S,140))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "a(SCHEM:\\\"double-stranded DNA break\\\") increases p(HGNC:H2AFX,pmod(P,S,140))",
@@ -45611,7 +45611,7 @@
                 "directed": false,
                 "label": "a(SCHEM:\"double-stranded DNA break\") increases kin(p(HGNC:ATM))",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "a(SCHEM:\\\"double-stranded DNA break\\\") increases kin(p(HGNC:ATM))",
@@ -45653,7 +45653,7 @@
                 "directed": false,
                 "label": "a(CHEBI:cisplatin) increases p(HGNC:TP53)",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "a(CHEBI:cisplatin) increases p(HGNC:TP53)",
@@ -45680,7 +45680,7 @@
                 "directed": false,
                 "label": "a(CHEBI:cisplatin) directlyIncreases a(SCHEM:\"double-stranded DNA break\")",
                 "metadata": {
-                    "casual": true,
+                    "causal": true,
                     "evidences": [
                         {
                             "bel_statement": "a(CHEBI:cisplatin) directlyIncreases a(SCHEM:\\\"double-stranded DNA break\\\")",
