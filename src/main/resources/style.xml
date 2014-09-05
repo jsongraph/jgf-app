@@ -40,7 +40,7 @@
                 </discreteMapping>
             </visualProperty>
             <visualProperty name="NODE_SIZE" default="35.0">
-                <discreteMapping attributeType="string" attributeName="bel function">
+                <discreteMapping attributeType="string" attributeName="bel_function_type">
                     <discreteMappingEntry value="100.0" attributeValue="transcriptionalActivity"/>
                 </discreteMapping>
             </visualProperty>
@@ -56,7 +56,7 @@
             <visualProperty name="NODE_HEIGHT" default="30.0"/>
             <visualProperty name="NODE_LABEL_COLOR" default="#000000"/>
             <visualProperty name="NODE_FILL_COLOR" default="#ffffff">
-                <discreteMapping attributeType="string" attributeName="bel function">
+                <discreteMapping attributeType="string" attributeName="bel_function_type">
                     <discreteMappingEntry value="#9696ff" attributeValue="reaction"/>
                     <discreteMappingEntry value="#ff3264" attributeValue="degradation"/>
                     <discreteMappingEntry value="#6464ff" attributeValue="transcriptionalActivity"/>
@@ -111,7 +111,7 @@
             <visualProperty name="NODE_CUSTOMGRAPHICS_7" default="org.cytoscape.ding.customgraphics.NullCustomGraphics,0,[ Remove Graphics ],"/>
             <visualProperty name="NODE_LABEL_FONT_SIZE" default="12"/>
             <visualProperty name="NODE_WIDTH" default="70.0">
-                <discreteMapping attributeType="string" attributeName="bel function">
+                <discreteMapping attributeType="string" attributeName="bel_function_type">
                     <discreteMappingEntry value="150.0" attributeValue="reaction"/>
                     <discreteMappingEntry value="110.0" attributeValue="degradation"/>
                     <discreteMappingEntry value="110.0" attributeValue="transcriptionalActivity"/>
@@ -139,7 +139,7 @@
                 </discreteMapping>
             </visualProperty>
             <visualProperty name="NODE_SHAPE" default="RECTANGLE">
-                <discreteMapping attributeType="string" attributeName="bel function">
+                <discreteMapping attributeType="string" attributeName="bel_function_type">
                     <discreteMappingEntry value="PARALLELOGRAM" attributeValue="reaction"/>
                     <discreteMappingEntry value="ROUND_RECTANGLE" attributeValue="degradation"/>
                     <discreteMappingEntry value="HEXAGON" attributeValue="transcriptionalActivity"/>
@@ -378,7 +378,7 @@
                 </discreteMapping>
             </visualProperty>
             <visualProperty name="NODE_SIZE" default="35.0">
-                <discreteMapping attributeType="string" attributeName="bel function">
+                <discreteMapping attributeType="string" attributeName="bel_function_type">
                     <discreteMappingEntry value="100.0" attributeValue="transcriptionalActivity"/>
                 </discreteMapping>
             </visualProperty>
@@ -394,7 +394,7 @@
             <visualProperty name="NODE_HEIGHT" default="30.0"/>
             <visualProperty name="NODE_LABEL_COLOR" default="#000000"/>
             <visualProperty name="NODE_FILL_COLOR" default="#ffffff">
-                <discreteMapping attributeType="string" attributeName="bel function"/>
+                <discreteMapping attributeType="string" attributeName="bel_function_type"/>
             </visualProperty>
             <visualProperty name="NODE_CUSTOMGRAPHICS_6" default="org.cytoscape.ding.customgraphics.NullCustomGraphics,0,[ Remove Graphics ],"/>
             <visualProperty name="NODE_CUSTOMGRAPHICS_SIZE_4" default="0.0"/>
@@ -424,7 +424,7 @@
             <visualProperty name="NODE_CUSTOMGRAPHICS_7" default="org.cytoscape.ding.customgraphics.NullCustomGraphics,0,[ Remove Graphics ],"/>
             <visualProperty name="NODE_LABEL_FONT_SIZE" default="12"/>
             <visualProperty name="NODE_WIDTH" default="70.0">
-                <discreteMapping attributeType="string" attributeName="bel function">
+                <discreteMapping attributeType="string" attributeName="bel_function_type">
                     <discreteMappingEntry value="150.0" attributeValue="reaction"/>
                     <discreteMappingEntry value="110.0" attributeValue="degradation"/>
                     <discreteMappingEntry value="110.0" attributeValue="transcriptionalActivity"/>
@@ -452,7 +452,7 @@
                 </discreteMapping>
             </visualProperty>
             <visualProperty name="NODE_SHAPE" default="RECTANGLE">
-                <discreteMapping attributeType="string" attributeName="bel function">
+                <discreteMapping attributeType="string" attributeName="bel_function_type">
                     <discreteMappingEntry value="PARALLELOGRAM" attributeValue="reaction"/>
                     <discreteMappingEntry value="ROUND_RECTANGLE" attributeValue="degradation"/>
                     <discreteMappingEntry value="HEXAGON" attributeValue="transcriptionalActivity"/>

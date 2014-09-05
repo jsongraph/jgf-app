@@ -1,14 +1,98 @@
 package info.json_graph_format.jgfapp.api.util;
 
+import com.google.common.base.Function;
+import com.google.common.collect.FluentIterable;
+import com.google.common.collect.Iterables;
 import org.cytoscape.model.*;
 
-import java.util.Set;
+import javax.annotation.Nullable;
+import java.util.*;
+
+import static com.google.common.base.Predicates.*;
+import static info.json_graph_format.jgfapp.api.util.Utility.noItems;
+import static java.lang.String.format;
 
 /**
  * {@link TableUtility} provides convenience methods for working with Cytoscape
  * table objects.
  */
 public class TableUtility {
+
+    private static final Collection<Class<?>> SUPPORTED_TYPES;
+    static {
+        SUPPORTED_TYPES = new ArrayList<Class<?>>();
+        SUPPORTED_TYPES.add(Boolean.class);
+        SUPPORTED_TYPES.add(Double.class);
+        SUPPORTED_TYPES.add(Float.class);
+        SUPPORTED_TYPES.add(Integer.class);
+        SUPPORTED_TYPES.add(String.class);
+    }
+
+    public static CyColumn getOrCreateColumnByPrototypes(String name, Collection<Object> prototypes,
+                                        boolean immutable, CyTable table) {
+        if (name == null) throw new NullPointerException("name cannot be null");
+        if (table == null) throw new NullPointerException("table cannot be null");
+
+        Class<?> type;
+        if (noItems(prototypes)) {
+            type = String.class;
+        } else {
+            // map prototypes to classes and filter for non-null objects...
+            Iterable<Class<?>> types = FluentIterable.from(prototypes).
+                    transform(new Function<Object, Class<?>>() {
+                @Nullable
+                public Class<?> apply(@Nullable Object o) {
+                    return (o == null) ? null : o.getClass();
+                }
+            }).filter(and(notNull(), not(assignableFrom(Map.class))));
+
+            if (Iterables.all(types, assignableFrom(Collection.class))) {
+                Collection<Collection<Object>> all = new ArrayList<Collection<Object>>();
+                for (Object o : prototypes) {
+                    all.add((Collection<Object>) o);
+                }
+                return getOrCreateListColumnByPrototypes(name, all, false, table);
+            }
+
+            // ...reduce to representative type for all prototypes
+            Iterator<Class<?>> it = types.iterator();
+            if (!it.hasNext()) return null;
+
+            type = it.next();
+            while (it.hasNext()) {
+                Class<?> nextType = it.next();
+                // skip; no further work needed
+                if (type == nextType) continue;
+
+                // skip; already chose higher precision data type
+                if (type == Double.class && nextType == Integer.class)
+                    continue;
+
+                // choose higher precision data type
+                if (type == Integer.class && nextType == Double.class) {
+                    type = nextType;
+                // incompatible types; resort to loose String type
+                } else {
+                    type = String.class;
+                }
+            }
+        }
+
+        return getOrCreateColumn(name, type, immutable, table);
+    }
+
+    public static CyColumn getOrCreateColumnByPrototype(String name, Object prototype,
+                                        boolean immutable, CyTable table) {
+        if (name == null) throw new NullPointerException("name cannot be null");
+        if (table == null) throw new NullPointerException("table cannot be null");
+
+        Class<?> type = (prototype == null) ? String.class : prototype.getClass();
+        if (!SUPPORTED_TYPES.contains(type)) {
+            type = String.class;
+        }
+
+        return getOrCreateColumn(name, type, immutable, table);
+    }
 
     /**
      * Returns a {@link CyColumn}, referenced by {@code name}, contained in the
@@ -40,6 +124,59 @@ public class TableUtility {
         return column;
     }
 
+    public static CyColumn getOrCreateListColumn(String name, Class<?> type, boolean immutable, CyTable table) {
+        if (name == null) throw new NullPointerException("name cannot be null");
+        if (type == null) throw new NullPointerException("type cannot be null");
+        if (table == null) throw new NullPointerException("table cannot be null");
+
+        CyColumn column = table.getColumn(name);
+        if (column == null) {
+            table.createListColumn(name, type, immutable);
+            column = table.getColumn(name);
+        }
+        return column;
+    }
+
+    public static void setColumnValue(String name, Object value, CyRow row, CyColumn column) {
+        if (name == null) throw new NullPointerException("name cannot be null");
+        if (row == null) throw new NullPointerException("row cannot be null");
+
+        // Cannot set value to null column
+        if (column == null)
+            return;
+
+        // set name to value when value is null or fits the column type
+        Class<?> type = column.getType();
+        if (value == null || type.isAssignableFrom(value.getClass())) {
+            row.set(name, value);
+            return;
+        }
+
+        if (type == Double.class) {
+            // type convert Integer to Double for more precision
+            if (value instanceof Double)
+                row.set(name, value);
+            else if (value instanceof Integer)
+                row.set(name, ((Integer) value).doubleValue());
+            else if (value instanceof Float)
+                row.set(name, ((Float) value).doubleValue());
+            else if (value instanceof String) {
+                try {
+                    Double.parseDouble(value.toString());
+                } catch (NumberFormatException e) {
+                    // string value does not represent a double
+                    String fmt = "value of type %s cannot be converted to %s";
+                    throw new IllegalArgumentException(
+                            format(fmt, value.getClass(), type.getClass()), e);
+                }
+            } else {
+                String fmt = "value of type %s cannot be converted to %s";
+                throw new IllegalArgumentException(
+                        format(fmt, value.getClass(), type.getClass()));
+            }
+        }
+    }
+
     /**
      * Returns the {@link CyTable table} associated with {@code name} or {@code null}
      * if it does not exist.
@@ -63,6 +200,53 @@ public class TableUtility {
             }
         }
         return null;
+    }
+
+    private static CyColumn getOrCreateListColumnByPrototypes(
+            String name, Collection<Collection<Object>> prototypes,
+            boolean immutable, CyTable table) {
+        if (name == null) throw new NullPointerException("name cannot be null");
+        if (table == null) throw new NullPointerException("table cannot be null");
+
+        Class<?> type;
+        if (noItems(prototypes)) {
+            type = String.class;
+        } else {
+            // flatten collections, map prototypes to classes, and filter for non-null objects...
+            Iterable<Class<?>> types = FluentIterable.from(
+                    Iterables.concat(prototypes)).
+                    transform(new Function<Object, Class<?>>() {
+                        @Nullable
+                        public Class<?> apply(@Nullable Object o) {
+                            return (o == null) ? null : o.getClass();
+                        }
+                    }).filter(and(notNull(), not(assignableFrom(Map.class))));
+
+            // ...reduce to representative type for all prototypes
+            Iterator<Class<?>> it = types.iterator();
+            if (!it.hasNext()) return null;
+
+            type = it.next();
+            while (it.hasNext()) {
+                Class<?> nextType = it.next();
+                // skip; no further work needed
+                if (type == nextType) continue;
+
+                // skip; already chose higher precision data type
+                if (type == Double.class && nextType == Integer.class)
+                    continue;
+
+                // choose higher precision data type
+                if (type == Integer.class && nextType == Double.class) {
+                    type = nextType;
+                    // incompatible types; resort to loose String type
+                } else {
+                    type = String.class;
+                }
+            }
+        }
+
+        return getOrCreateListColumn(name, type, immutable, table);
     }
 
     private TableUtility() {
