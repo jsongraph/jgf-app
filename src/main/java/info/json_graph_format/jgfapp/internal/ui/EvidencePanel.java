@@ -3,31 +3,27 @@ package info.json_graph_format.jgfapp.internal.ui;
 import ca.odell.glazedlists.BasicEventList;
 import ca.odell.glazedlists.EventList;
 import ca.odell.glazedlists.swing.DefaultEventTableModel;
+import info.json_graph_format.jgfapp.api.model.Evidence;
+import info.json_graph_format.jgfapp.api.util.Pair;
 import org.cytoscape.model.CyEdge;
 import org.jdesktop.swingx.JXHyperlink;
 import org.jdesktop.swingx.JXTable;
-import info.json_graph_format.jgfapp.api.model.Evidence;
-import info.json_graph_format.jgfapp.api.util.Pair;
 
-import java.awt.Dimension;
-import java.awt.GridBagLayout;
-import java.awt.GridBagConstraints;
-import java.awt.Insets;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.util.*;
-import java.util.Map.Entry;
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.TableModel;
+import java.awt.*;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.*;
+import java.util.List;
+import java.util.Map.Entry;
 
-import static java.lang.String.format;
 import static info.json_graph_format.jgfapp.api.util.Utility.hasItems;
 import static info.json_graph_format.jgfapp.api.util.Utility.hasLength;
-import static info.json_graph_format.jgfapp.internal.Constants.PUBMED;
-import static info.json_graph_format.jgfapp.internal.Constants.ONLINE_RESOURCE;
-import static info.json_graph_format.jgfapp.internal.Constants.PUBMED_URL_PREFIX;
+import static info.json_graph_format.jgfapp.internal.Constants.*;
+import static java.lang.String.format;
 
 /**
  * {@link EvidencePanel} provides the user interface to show

@@ -1,7 +1,7 @@
 package info.json_graph_format.jgfapp.api;
 
-import org.cytoscape.model.CyNetwork;
 import info.json_graph_format.jgfapp.api.model.Graph;
+import org.cytoscape.model.CyNetwork;
 
 /**
  * {@link GraphConverter} converts a {@link Graph graph} into a

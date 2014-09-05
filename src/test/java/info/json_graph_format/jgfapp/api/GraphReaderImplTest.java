@@ -4,15 +4,15 @@ import com.github.fge.jsonschema.core.report.LogLevel;
 import com.github.fge.jsonschema.core.report.ProcessingMessage;
 import com.github.fge.jsonschema.core.report.ProcessingReport;
 import com.google.common.collect.Iterators;
+import info.json_graph_format.jgfapp.api.model.Graph;
 import info.json_graph_format.jgfapp.internal.GraphReaderImpl;
 import org.junit.Test;
-import info.json_graph_format.jgfapp.api.model.Graph;
 
 import java.io.IOException;
 import java.io.InputStream;
 
 import static org.hamcrest.Matchers.*;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 
 public class GraphReaderImplTest {
 

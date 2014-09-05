@@ -1,38 +1,38 @@
 package info.json_graph_format.jgfapp.internal;
 
-import java.io.InputStream;
-import java.util.Properties;
-
+import info.json_graph_format.jgfapp.api.BELEvidenceMapper;
 import info.json_graph_format.jgfapp.api.GraphConverter;
+import info.json_graph_format.jgfapp.api.GraphReader;
+import info.json_graph_format.jgfapp.api.util.StyleUtility;
+import info.json_graph_format.jgfapp.internal.io.JGFFileFilter;
+import info.json_graph_format.jgfapp.internal.io.JGFNetworkReaderFactory;
+import info.json_graph_format.jgfapp.internal.listeners.SessionListener;
+import info.json_graph_format.jgfapp.internal.ui.EvidencePanelComponent;
+import info.json_graph_format.jgfapp.internal.ui.ShowEvidenceFactory;
 import org.cytoscape.application.CyApplicationManager;
 import org.cytoscape.application.swing.CySwingApplication;
 import org.cytoscape.event.CyEventHelper;
-import org.cytoscape.io.read.VizmapReaderManager;
-import org.cytoscape.service.util.AbstractCyActivator;
-import org.cytoscape.view.model.CyNetworkViewFactory;
-import org.cytoscape.view.model.CyNetworkViewManager;
-import org.cytoscape.view.vizmap.VisualMappingManager;
 import org.cytoscape.io.CyFileFilter;
 import org.cytoscape.io.read.InputStreamTaskFactory;
+import org.cytoscape.io.read.VizmapReaderManager;
 import org.cytoscape.io.util.StreamUtil;
-import info.json_graph_format.jgfapp.api.BELEvidenceMapper;
-import info.json_graph_format.jgfapp.api.GraphReader;
-import info.json_graph_format.jgfapp.internal.listeners.SessionListener;
-import info.json_graph_format.jgfapp.internal.io.JGFFileFilter;
-import info.json_graph_format.jgfapp.internal.io.JGFNetworkReaderFactory;
-import info.json_graph_format.jgfapp.internal.ui.EvidencePanelComponent;
-import info.json_graph_format.jgfapp.internal.ui.ShowEvidenceFactory;
-import org.cytoscape.task.EdgeViewTaskFactory;
 import org.cytoscape.model.CyNetworkFactory;
 import org.cytoscape.model.CyNetworkManager;
 import org.cytoscape.model.CyTableFactory;
 import org.cytoscape.model.CyTableManager;
 import org.cytoscape.model.subnetwork.CyRootNetworkManager;
-import info.json_graph_format.jgfapp.api.util.StyleUtility;
+import org.cytoscape.service.util.AbstractCyActivator;
+import org.cytoscape.task.EdgeViewTaskFactory;
+import org.cytoscape.view.model.CyNetworkViewFactory;
+import org.cytoscape.view.model.CyNetworkViewManager;
+import org.cytoscape.view.vizmap.VisualMappingManager;
 import org.osgi.framework.BundleContext;
 
+import java.io.InputStream;
+import java.util.Properties;
+
+import static info.json_graph_format.jgfapp.internal.Constants.STYLE_RESOURCE_PATH;
 import static org.cytoscape.work.ServiceProperties.*;
-import static info.json_graph_format.jgfapp.internal.Constants.*;
 
 /**
  * {@code CyActivator} is a class that is a starting point for OSGi bundles.

@@ -1,18 +1,18 @@
 package info.json_graph_format.jgfapp.internal;
 
-import org.cytoscape.model.*;
 import info.json_graph_format.jgfapp.api.BELEvidenceMapper;
 import info.json_graph_format.jgfapp.api.model.*;
+import org.cytoscape.model.*;
 
 import java.util.*;
 import java.util.Map.Entry;
 
-import static java.util.Arrays.asList;
 import static info.json_graph_format.jgfapp.api.util.FormatUtility.getOrEmptyString;
 import static info.json_graph_format.jgfapp.api.util.FormatUtility.getOrZero;
 import static info.json_graph_format.jgfapp.api.util.TableUtility.getOrCreateColumn;
 import static info.json_graph_format.jgfapp.api.util.Utility.typedList;
 import static info.json_graph_format.jgfapp.internal.Constants.*;
+import static java.util.Arrays.asList;
 
 /**
  * {@link BELEvidenceMapperImpl} implements a {@link BELEvidenceMapper} to

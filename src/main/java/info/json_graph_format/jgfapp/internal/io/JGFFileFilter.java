@@ -1,14 +1,14 @@
 package info.json_graph_format.jgfapp.internal.io;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URI;
-
 import org.cytoscape.io.BasicCyFileFilter;
 import org.cytoscape.io.DataCategory;
 import org.cytoscape.io.util.StreamUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URI;
 
 /**
  * Custom file filter to return JGF reader for all JSON JGF files.

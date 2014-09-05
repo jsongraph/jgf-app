@@ -3,7 +3,10 @@ package info.json_graph_format.jgfapp.api.util;
 import com.google.common.base.Function;
 import com.google.common.collect.FluentIterable;
 import com.google.common.collect.Iterables;
-import org.cytoscape.model.*;
+import org.cytoscape.model.CyColumn;
+import org.cytoscape.model.CyRow;
+import org.cytoscape.model.CyTable;
+import org.cytoscape.model.CyTableManager;
 
 import javax.annotation.Nullable;
 import java.util.*;

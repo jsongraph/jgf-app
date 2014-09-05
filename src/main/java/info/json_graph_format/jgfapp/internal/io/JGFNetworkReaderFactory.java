@@ -1,8 +1,8 @@
 package info.json_graph_format.jgfapp.internal.io;
 
-import java.io.InputStream;
-
+import info.json_graph_format.jgfapp.api.BELEvidenceMapper;
 import info.json_graph_format.jgfapp.api.GraphConverter;
+import info.json_graph_format.jgfapp.api.GraphReader;
 import org.cytoscape.application.CyApplicationManager;
 import org.cytoscape.event.CyEventHelper;
 import org.cytoscape.io.CyFileFilter;
@@ -16,8 +16,8 @@ import org.cytoscape.view.model.CyNetworkViewFactory;
 import org.cytoscape.view.model.CyNetworkViewManager;
 import org.cytoscape.view.vizmap.VisualMappingManager;
 import org.cytoscape.work.TaskIterator;
-import info.json_graph_format.jgfapp.api.BELEvidenceMapper;
-import info.json_graph_format.jgfapp.api.GraphReader;
+
+import java.io.InputStream;
 
 public class JGFNetworkReaderFactory implements InputStreamTaskFactory {
 

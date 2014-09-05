@@ -10,10 +10,10 @@ import com.google.common.collect.Iterables;
 import javax.annotation.Nullable;
 import java.util.*;
 
+import static info.json_graph_format.jgfapp.internal.Constants.*;
 import static java.lang.String.format;
 import static java.util.Arrays.asList;
 import static java.util.Collections.emptyList;
-import static info.json_graph_format.jgfapp.internal.Constants.*;
 
 /**
  * {@link FormatUtility} provides convenience methods for serializing / de-serializing

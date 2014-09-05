@@ -1,40 +1,38 @@
 package info.json_graph_format.jgfapp.internal.io;
 
+import com.github.fge.jsonschema.core.report.ProcessingReport;
+import info.json_graph_format.jgfapp.api.BELEvidenceMapper;
+import info.json_graph_format.jgfapp.api.GraphConverter;
+import info.json_graph_format.jgfapp.api.GraphReader;
+import info.json_graph_format.jgfapp.api.GraphsWithValidation;
+import info.json_graph_format.jgfapp.api.model.Edge;
+import info.json_graph_format.jgfapp.api.model.Evidence;
+import info.json_graph_format.jgfapp.api.model.Graph;
+import info.json_graph_format.jgfapp.api.util.StyleUtility;
+import org.cytoscape.application.CyApplicationManager;
+import org.cytoscape.event.CyEventHelper;
+import org.cytoscape.io.read.AbstractCyNetworkReader;
+import org.cytoscape.io.read.CyNetworkReader;
+import org.cytoscape.model.*;
+import org.cytoscape.model.subnetwork.CyRootNetworkManager;
+import org.cytoscape.view.model.CyNetworkView;
+import org.cytoscape.view.model.CyNetworkViewFactory;
+import org.cytoscape.view.model.CyNetworkViewManager;
+import org.cytoscape.view.vizmap.VisualMappingManager;
+import org.cytoscape.view.vizmap.VisualStyle;
+import org.cytoscape.work.TaskMonitor;
+
+import javax.swing.*;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-import com.github.fge.jsonschema.core.report.ProcessingReport;
-import info.json_graph_format.jgfapp.api.GraphConverter;
-import org.cytoscape.application.CyApplicationManager;
-import org.cytoscape.event.CyEventHelper;
-import org.cytoscape.io.read.AbstractCyNetworkReader;
-import org.cytoscape.model.*;
-import org.cytoscape.view.model.CyNetworkViewManager;
-import org.cytoscape.view.vizmap.VisualMappingManager;
-import org.cytoscape.view.vizmap.VisualStyle;
-import org.cytoscape.model.subnetwork.CyRootNetworkManager;
-import org.cytoscape.view.model.CyNetworkView;
-import org.cytoscape.view.model.CyNetworkViewFactory;
-import org.cytoscape.work.TaskMonitor;
-import info.json_graph_format.jgfapp.api.BELEvidenceMapper;
-import info.json_graph_format.jgfapp.api.GraphReader;
-import info.json_graph_format.jgfapp.api.GraphsWithValidation;
-import info.json_graph_format.jgfapp.api.model.Edge;
-import info.json_graph_format.jgfapp.api.model.Evidence;
-import info.json_graph_format.jgfapp.api.util.StyleUtility;
-import info.json_graph_format.jgfapp.api.model.Graph;
-
-import javax.swing.*;
-import org.cytoscape.io.read.CyNetworkReader;
-
-import static info.json_graph_format.jgfapp.internal.Constants.*;
-import static java.lang.String.format;
 import static info.json_graph_format.jgfapp.api.util.FormatUtility.getSchemaMessages;
 import static info.json_graph_format.jgfapp.api.util.TableUtility.getTable;
-import static info.json_graph_format.jgfapp.internal.Constants.APPLIED_VISUAL_STYLE;
+import static info.json_graph_format.jgfapp.internal.Constants.*;
+import static java.lang.String.format;
 
 /**
  * {@link JGFNetworkReader} implements a {@link CyNetworkReader} to allow creation

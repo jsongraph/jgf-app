@@ -1,10 +1,10 @@
 package info.json_graph_format.jgfapp.internal.listeners;
 
+import info.json_graph_format.jgfapp.internal.CyActivator;
 import org.cytoscape.io.read.VizmapReaderManager;
 import org.cytoscape.session.events.SessionLoadedEvent;
 import org.cytoscape.session.events.SessionLoadedListener;
 import org.cytoscape.view.vizmap.VisualMappingManager;
-import info.json_graph_format.jgfapp.internal.CyActivator;
 
 public class SessionListener implements SessionLoadedListener {
 

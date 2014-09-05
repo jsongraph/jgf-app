@@ -1,8 +1,11 @@
 package info.json_graph_format.jgfapp.internal;
 
 import info.json_graph_format.jgfapp.api.GraphConverter;
+import info.json_graph_format.jgfapp.api.model.Edge;
+import info.json_graph_format.jgfapp.api.model.Graph;
+import info.json_graph_format.jgfapp.api.model.MetadataProvider;
+import info.json_graph_format.jgfapp.api.model.Node;
 import org.cytoscape.model.*;
-import info.json_graph_format.jgfapp.api.model.*;
 
 import java.util.*;
 import java.util.Map.Entry;
@@ -10,10 +13,7 @@ import java.util.Map.Entry;
 import static info.json_graph_format.jgfapp.api.util.FormatUtility.translateCoordinates;
 import static info.json_graph_format.jgfapp.api.util.TableUtility.getOrCreateColumnByPrototypes;
 import static info.json_graph_format.jgfapp.api.util.TableUtility.setColumnValue;
-import static info.json_graph_format.jgfapp.api.util.Utility.hasItems;
-import static info.json_graph_format.jgfapp.api.util.Utility.hasLength;
-import static info.json_graph_format.jgfapp.api.util.Utility.typedList;
-import static java.lang.String.format;
+import static info.json_graph_format.jgfapp.api.util.Utility.*;
 
 /**
  * {@link BELGraphConverterImpl} implements a {@link GraphConverter} that converts

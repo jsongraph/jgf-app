@@ -1,10 +1,10 @@
 package info.json_graph_format.jgfapp.api;
 
-import org.cytoscape.model.CyEdge;
-import org.cytoscape.model.CyTable;
 import info.json_graph_format.jgfapp.api.model.Edge;
 import info.json_graph_format.jgfapp.api.model.Evidence;
 import info.json_graph_format.jgfapp.api.model.Graph;
+import org.cytoscape.model.CyEdge;
+import org.cytoscape.model.CyTable;
 
 /**
  * {@link BELEvidenceMapper} handles {@link Evidence} conversions.
