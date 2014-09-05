@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
+# load custom environment if available
+if [ -r "env.sh.custom" ]; then
+    source env.sh.custom || exit 1
+fi
+
 # -- Directories --
 export DEV_DIR="${DEV_DIR:=$DIR}"
 export DEV_SOURCE_DIR="${DEV_SOURCE_DIR:=$DEV_DIR/src}"
