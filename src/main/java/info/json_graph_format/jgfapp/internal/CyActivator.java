@@ -10,6 +10,7 @@ import org.cytoscape.event.CyEventHelper;
 import org.cytoscape.io.read.VizmapReaderManager;
 import org.cytoscape.service.util.AbstractCyActivator;
 import org.cytoscape.view.model.CyNetworkViewFactory;
+import org.cytoscape.view.model.CyNetworkViewManager;
 import org.cytoscape.view.vizmap.VisualMappingManager;
 import org.cytoscape.io.CyFileFilter;
 import org.cytoscape.io.read.InputStreamTaskFactory;
@@ -80,6 +81,7 @@ public class CyActivator extends AbstractCyActivator {
         final CyNetworkViewFactory cyNetworkViewFactory = getService(bc, CyNetworkViewFactory.class);
         final CyNetworkFactory cyNetworkFactory = getService(bc, CyNetworkFactory.class);
         final CyNetworkManager cyNetworkManager = getService(bc, CyNetworkManager.class);
+        final CyNetworkViewManager cyNetworkViewManager = getService(bc, CyNetworkViewManager.class);
         final CyRootNetworkManager cyRootNetworkManager = getService(bc, CyRootNetworkManager.class);
         final CyTableManager cyTableManager = getService(bc, CyTableManager.class);
         final CyTableFactory cyTableFactory = getService(bc, CyTableFactory.class);
@@ -100,7 +102,7 @@ public class CyActivator extends AbstractCyActivator {
         final CyFileFilter jgfReaderFilter = new JGFFileFilter(streamUtil);
         final JGFNetworkReaderFactory jgfReaderFactory = new JGFNetworkReaderFactory(
                 jgfReaderFilter, appMgr, cyNetworkViewFactory, cyNetworkFactory,
-                cyNetworkManager, cyRootNetworkManager, cyTableFactory,
+                cyNetworkManager, cyNetworkViewManager, cyRootNetworkManager, cyTableFactory,
                 cyTableManager, visMgr, eventHelper, graphReader, belGraphConverter,
                 belEvidenceMapper);
         final Properties jgfNetworkReaderFactoryProps = new Properties();

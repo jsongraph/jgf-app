@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import com.github.fge.jsonschema.core.report.ProcessingReport;
 import info.json_graph_format.jgfapp.api.GraphConverter;
@@ -11,6 +12,7 @@ import org.cytoscape.application.CyApplicationManager;
 import org.cytoscape.event.CyEventHelper;
 import org.cytoscape.io.read.AbstractCyNetworkReader;
 import org.cytoscape.model.*;
+import org.cytoscape.view.model.CyNetworkViewManager;
 import org.cytoscape.view.vizmap.VisualMappingManager;
 import org.cytoscape.view.vizmap.VisualStyle;
 import org.cytoscape.model.subnetwork.CyRootNetworkManager;
@@ -52,15 +54,16 @@ public class JGFNetworkReader extends AbstractCyNetworkReader {
     protected final GraphReader graphReader;
     protected final GraphConverter belGraphConverter;
     protected final BELEvidenceMapper belEvidenceMapper;
+    protected final CyNetworkViewManager networkViewMgr;
 
     public JGFNetworkReader(InputStream inputStream, String inputName,
             GraphReader graphReader, GraphConverter belGraphConverter,
             BELEvidenceMapper belEvidenceMapper, CyApplicationManager appMgr,
-            CyNetworkViewFactory networkVieFactory, CyNetworkFactory networkFactory,
-            CyNetworkManager networkMgr, CyRootNetworkManager rootNetworkMgr,
-            CyTableFactory tableFactory, CyTableManager tableMgr,
-            VisualMappingManager visMgr, CyEventHelper eventHelper) {
-        super(inputStream, networkVieFactory, networkFactory, networkMgr, rootNetworkMgr);
+            CyNetworkViewFactory networkViewFactory, CyNetworkFactory networkFactory,
+            CyNetworkManager networkMgr, CyNetworkViewManager networkViewMgr,
+            CyRootNetworkManager rootNetworkMgr, CyTableFactory tableFactory,
+            CyTableManager tableMgr, VisualMappingManager visMgr, CyEventHelper eventHelper) {
+        super(inputStream, networkViewFactory, networkFactory, networkMgr, rootNetworkMgr);
 
         if (inputStream == null) throw new NullPointerException("inputStream cannot be null");
         if (inputName == null) throw new NullPointerException("inputName cannot be null");
@@ -73,6 +76,7 @@ public class JGFNetworkReader extends AbstractCyNetworkReader {
         this.belEvidenceMapper = belEvidenceMapper;
         this.appMgr = appMgr;
         this.networkMgr = networkMgr;
+        this.networkViewMgr = networkViewMgr;
         this.tableFactory = tableFactory;
         this.tableMgr = tableMgr;
         this.visMgr = visMgr;
@@ -96,19 +100,17 @@ public class JGFNetworkReader extends AbstractCyNetworkReader {
                 if (view == null || style == null) return;
 
                 // ...wait for view to be active before setting visual style
-                while (view != appMgr.getCurrentNetworkView()) {
-                    try {
-                        Thread.sleep(10);
-                    } catch (InterruptedException e) {
-                    }
-                }
+                try { Thread.sleep(500); } catch (InterruptedException e) {}
+                Set<CyNetworkView> views = networkViewMgr.getNetworkViewSet();
 
-                // ...then set visual style and fit network content in window
-                eventHelper.flushPayloadEvents();
-                visMgr.setVisualStyle(style, view);
-                style.apply(view);
-                view.fitContent();
-                view.updateView();
+                if (views.contains(view)) {
+                    // ...then set visual style and fit network content in window
+                    eventHelper.flushPayloadEvents();
+                    visMgr.setVisualStyle(style, view);
+                    style.apply(view);
+                    view.fitContent();
+                    view.updateView();
+                }
             }
         });
 
