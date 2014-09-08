@@ -3,8 +3,6 @@ package info.json_graph_format.jgfapp.api.util;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static java.util.Objects.requireNonNull;
-
 /**
  * FilterFunctions provides general {@link FilterFunction}s through static
  * methods.
@@ -42,7 +40,8 @@ public class FilterFunctions {
          * @param pattern {@link Pattern}; may not be {@code null}
          */
         public Regex(final Pattern pattern) {
-            requireNonNull(pattern, "pattern is null");
+            if (pattern == null)
+                throw new NullPointerException("pattern cannot be null");
             this.pattern = pattern;
         }
         

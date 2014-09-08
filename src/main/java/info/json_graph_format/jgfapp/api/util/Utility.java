@@ -26,7 +26,6 @@ import static java.lang.System.arraycopy;
 import static java.lang.Thread.currentThread;
 import static java.lang.reflect.Array.newInstance;
 import static java.util.Collections.*;
-import static java.util.Objects.requireNonNull;
 import static java.util.regex.Pattern.compile;
 import static org.slf4j.LoggerFactory.getLogger;
 
@@ -231,8 +230,8 @@ public class Utility {
     public static long copy(final InputStream input, final OutputStream output)
             throws IOException {
         // guard against null streams
-        requireNonNull(input);
-        requireNonNull(output);
+        if (input == null) throw new NullPointerException("input cannot be null");
+        if (output == null) throw new NullPointerException("output cannot be null");
 
         byte[] buf = new byte[4096];
         long count = 0;
@@ -1154,7 +1153,7 @@ public class Utility {
      * @return {@link String}
      */
     public static String prefix(final BundleContext b, final String s) {
-        requireNonNull(s);
+        if (s == null) throw new NullPointerException("s cannot be null");
         return b.getBundle().getSymbolicName().concat(": ".concat(s));
     }
 
@@ -1362,9 +1361,9 @@ public class Utility {
     public static <T> Iterator<List<T>> typedListIterator(
             @SuppressWarnings("rawtypes") final Iterator<List> it,
             final Class<T> t) {
-        requireNonNull(t);
+        if (t == null) throw new NullPointerException("t cannot be null");
         if (it == null) {
-            return emptyIterator();
+            return Collections.EMPTY_LIST.iterator();
         }
 
         return new Iterator<List<T>>() {
@@ -1467,7 +1466,7 @@ public class Utility {
      * @return {@code int} max length
      */
     public static int maxLength(Collection<String> strings) {
-        requireNonNull(strings, "strings is null");
+        if (strings == null) throw new NullPointerException("strings cannot be null");
         Iterator<String> i = strings.iterator();
         int max = 0;
         while (i.hasNext()) {
@@ -1502,7 +1501,7 @@ public class Utility {
      * @param newLength {@code int}
      */
     public static <T> void fillOut(Collection<T> col, T obj, int newLength) {
-        requireNonNull(col, "col is null");
+        if (col == null) throw new NullPointerException("col cannot be null");
         int len = col.size();
         if (len < newLength) {
             int remainder = newLength - len;
@@ -1530,7 +1529,7 @@ public class Utility {
      * @param newLength {@code int}
      */
     public static <T> void fillOut(List<T> list, T obj, int newLength) {
-        requireNonNull(list, "list is null");
+        if (list == null) throw new NullPointerException("list cannot be null");
         int len = list.size();
         if (len < newLength) {
             int remainder = newLength - len;
@@ -1555,7 +1554,7 @@ public class Utility {
         if (noItems(o)) {
             return emptyList();
         }
-        requireNonNull(fx, "fx is null");
+        if (fx == null) throw new NullPointerException("fx cannot be null");
         List<U> l = sizedArrayList(o.size());
         Iterator<T> i = o.iterator();
         while (i.hasNext()) {
@@ -1576,7 +1575,7 @@ public class Utility {
      *         {@code o} is {@code null} or empty
      */
     public static <T, U> U fold(final Collection<T> o, FoldFunction<T, U> fx) {
-        requireNonNull(fx, "fx is null");
+        if (fx == null) throw new NullPointerException("fx cannot be null");
         U accumulated = fx.initial();
         if (noItems(o)) return accumulated;
         for (T item : o) {
@@ -1615,7 +1614,7 @@ public class Utility {
      */
     public static ThreadFactory threadFactory(final String threadName,
                                               final Boolean daemonize, final UncaughtExceptionHandler exHndlr) {
-        requireNonNull(threadName, "threadName is null");
+        if (threadName == null) throw new NullPointerException("threadName cannot be null");
         return new ThreadFactory() {
             /**
              * {@inheritDoc}
@@ -1789,7 +1788,7 @@ public class Utility {
      */
     public static <T> Pair<Collection<T>, Collection<T>> partition(
             Collection<T> col, FilterFunction<T> partitionFx) {
-        requireNonNull(partitionFx);
+        if (partitionFx == null) throw new NullPointerException("partitionFx cannot be null");
         if (col == null || col.isEmpty())
             return null;
         if (partitionFx == null)
@@ -1828,8 +1827,10 @@ public class Utility {
     public static <T> Pair<Collection<T>, Collection<T>> bucket2(
             Collection<T> col, FilterFunction<T> partitionFx1,
             FilterFunction<T> partitionFx2) {
-        requireNonNull(partitionFx1);
-        requireNonNull(partitionFx2);
+        if (partitionFx1 == null)
+            throw new NullPointerException("partitionFx1 cannot be null");
+        if (partitionFx2 == null)
+            throw new NullPointerException("partitionFx2 cannot be null");
         if (col == null || col.isEmpty())
             return null;
 
@@ -1869,9 +1870,12 @@ public class Utility {
     public static <T> Triple<Collection<T>, Collection<T>, Collection<T>> bucket3(
             Collection<T> col, FilterFunction<T> partitionFx1,
             FilterFunction<T> partitionFx2, FilterFunction<T> partitionFx3) {
-        requireNonNull(partitionFx1);
-        requireNonNull(partitionFx2);
-        requireNonNull(partitionFx3);
+        if (partitionFx1 == null)
+            throw new NullPointerException("partitionFx1 cannot be null");
+        if (partitionFx2 == null)
+            throw new NullPointerException("partitionFx2 cannot be null");
+        if (partitionFx3 == null)
+            throw new NullPointerException("partitionFx3 cannot be null");
         if (col == null || col.isEmpty())
             return null;
 
@@ -1910,8 +1914,8 @@ public class Utility {
      */
     public static <U> FileIterator<U> fileIterator(final File f,
                                                    final MapFunction<String, U> fx) throws IOException {
-        requireNonNull(f, "f is null");
-        requireNonNull(fx, "fx is null");
+        if (f == null) throw new NullPointerException("f cannot be null");
+        if (fx == null) throw new NullPointerException("fx cannot be null");
         if (!readable(f)) {
             throw new IllegalArgumentException("f is unreadable");
         }
@@ -1938,8 +1942,8 @@ public class Utility {
      */
     public static <U> FileIterable<U> fileIterable(final File f,
                                                    final MapFunction<String, U> fx) {
-        requireNonNull(f, "f is null");
-        requireNonNull(fx, "fx is null");
+        if (f == null) throw new NullPointerException("f cannot be null");
+        if (fx == null) throw new NullPointerException("fx cannot be null");
         if (!readable(f)) {
             throw new IllegalArgumentException("f is unreadable");
         }
@@ -1967,7 +1971,7 @@ public class Utility {
      */
     public static <T> T requireKey(String key, Map<?, ?> map,
             Class<T> valueClass) {
-        requireNonNull(map);
+        if (map == null) throw new NullPointerException("map cannot be null");
         if (!map.containsKey(key)) {
             String msg = "key '%s': missing, expected type %s";
             throw new RuntimeException(format(msg, key, valueClass.getName()));
@@ -2010,8 +2014,8 @@ public class Utility {
         private String line;
 
         private FileIterator(File f, MapFunction<String, U> fx) {
-            requireNonNull(f, "f is null");
-            requireNonNull(fx, "fx is null");
+            if (f == null) throw new NullPointerException("f cannot be null");
+            if (fx == null) throw new NullPointerException("fx cannot be null");
             if (!readable(f)) {
                 throw new IllegalArgumentException("f is unreadable");
             }
@@ -2081,7 +2085,7 @@ public class Utility {
         private final MapFunction<String, U> fx;
 
         private FileIterable(final File f, MapFunction<String, U> fx) {
-            requireNonNull(f, "f is null");
+            if (f == null) throw new NullPointerException("f cannot be null");
             if (!readable(f)) {
                 throw new IllegalArgumentException("f is not readable");
             }
