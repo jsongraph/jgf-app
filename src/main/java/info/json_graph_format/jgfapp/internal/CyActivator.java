@@ -9,7 +9,10 @@ import info.json_graph_format.jgfapp.internal.io.JGFNetworkReaderFactory;
 import info.json_graph_format.jgfapp.internal.listeners.SessionListener;
 import info.json_graph_format.jgfapp.internal.ui.EvidencePanelComponent;
 import info.json_graph_format.jgfapp.internal.ui.ShowEvidenceFactory;
+import org.cytoscape.application.CyApplicationConfiguration;
 import org.cytoscape.application.CyApplicationManager;
+import org.cytoscape.application.swing.AbstractCyAction;
+import org.cytoscape.application.swing.CyAction;
 import org.cytoscape.application.swing.CySwingApplication;
 import org.cytoscape.event.CyEventHelper;
 import org.cytoscape.io.CyFileFilter;
@@ -31,6 +34,7 @@ import org.osgi.framework.BundleContext;
 import java.io.InputStream;
 import java.util.Properties;
 
+import static info.json_graph_format.jgfapp.api.util.HelpUtility.createBrowseHelpAction;
 import static info.json_graph_format.jgfapp.internal.Constants.STYLE_RESOURCE_PATH;
 import static org.cytoscape.work.ServiceProperties.*;
 
@@ -89,6 +93,7 @@ public class CyActivator extends AbstractCyActivator {
         final VizmapReaderManager vizmapReaderMgr = getService(bc, VizmapReaderManager.class);
         final CyEventHelper eventHelper = getService(bc, CyEventHelper.class);
         final CySwingApplication cySwingApplication = getService(bc, CySwingApplication.class);
+        final CyApplicationConfiguration cyAppConfig = getService(bc, CyApplicationConfiguration.class);
 
         // contribute visual styles
         CyActivator.contributeStyles(visMgr, vizmapReaderMgr);
@@ -98,7 +103,7 @@ public class CyActivator extends AbstractCyActivator {
         final GraphConverter belGraphConverter = new BELGraphConverterImpl(cyNetworkFactory);
         final BELEvidenceMapper belEvidenceMapper = new BELEvidenceMapperImpl();
 
-        // readers
+        // register readers
         final CyFileFilter jgfReaderFilter = new JGFFileFilter(streamUtil);
         final JGFNetworkReaderFactory jgfReaderFactory = new JGFNetworkReaderFactory(
                 jgfReaderFilter, appMgr, cyNetworkViewFactory, cyNetworkFactory,
@@ -109,7 +114,7 @@ public class CyActivator extends AbstractCyActivator {
         jgfNetworkReaderFactoryProps.put(ID, "JGFNetworkReaderFactory");
         registerService(bc, jgfReaderFactory, InputStreamTaskFactory.class, jgfNetworkReaderFactoryProps);
 
-        // listeners
+        // register listeners
         final Properties evidenceProps = new Properties();
         evidenceProps.put("name", "evidence");
         EvidencePanelComponent evidencePanelComponent = new EvidencePanelComponent(belEvidenceMapper, cyTableManager, cyNetworkManager);
@@ -122,6 +127,14 @@ public class CyActivator extends AbstractCyActivator {
         evidenceFactoryProps.put(MENU_GRAVITY, "14.0");
         evidenceFactoryProps.put(TITLE, "View Evidence");
         registerService(bc, new ShowEvidenceFactory(cyTableManager, cySwingApplication, evidencePanelComponent), EdgeViewTaskFactory.class, evidenceFactoryProps);
+
+        // register help action
+        AbstractCyAction helpAction = createBrowseHelpAction("/docs.zip", "docs/index.html", cyAppConfig, this);
+        helpAction.setMenuGravity(0.0f);
+        helpAction.setPreferredMenu("Apps.JGF App");
+        final Properties helpActionProps = new Properties();
+        helpActionProps.put("id", "jgfApp.help.action");
+        registerService(bc, helpAction, CyAction.class, helpActionProps);
     }
 
     public static void contributeStyles(VisualMappingManager visMgr, VizmapReaderManager vizmapReaderMgr) {
