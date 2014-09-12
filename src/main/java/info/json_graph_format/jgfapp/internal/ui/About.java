@@ -134,7 +134,7 @@ public class About extends JPanel {
                     ((Window) parent).dispose();
             }
         });
-        ok.setPreferredSize(new Dimension(45, 30));
+        ok.setPreferredSize(new Dimension(60, 30));
         buttonPanel.add(ok);
 
         add(buttonPanel, BorderLayout.SOUTH);
