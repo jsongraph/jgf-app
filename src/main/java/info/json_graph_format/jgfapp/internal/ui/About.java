@@ -19,7 +19,7 @@ public class About extends JPanel {
         JDialog dialog = new JDialog();
         dialog.setTitle(format("About %s", name));
         dialog.setContentPane(new About(name, description, version, icon, links));
-        dialog.setSize(new Dimension(400, 250));
+        dialog.setSize(new Dimension(600, 300));
         dialog.setLocationRelativeTo(null);
         dialog.setModal(true);
         dialog.setResizable(false);
