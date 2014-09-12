@@ -3,10 +3,12 @@ package info.json_graph_format.jgfapp.internal;
 import info.json_graph_format.jgfapp.api.BELEvidenceMapper;
 import info.json_graph_format.jgfapp.api.GraphConverter;
 import info.json_graph_format.jgfapp.api.GraphReader;
+import info.json_graph_format.jgfapp.api.JGFApp;
 import info.json_graph_format.jgfapp.api.util.StyleUtility;
 import info.json_graph_format.jgfapp.internal.io.JGFFileFilter;
 import info.json_graph_format.jgfapp.internal.io.JGFNetworkReaderFactory;
 import info.json_graph_format.jgfapp.internal.listeners.SessionListener;
+import info.json_graph_format.jgfapp.internal.ui.About;
 import info.json_graph_format.jgfapp.internal.ui.EvidencePanelComponent;
 import info.json_graph_format.jgfapp.internal.ui.ShowEvidenceFactory;
 import org.cytoscape.application.CyApplicationConfiguration;
@@ -31,6 +33,7 @@ import org.cytoscape.view.model.CyNetworkViewManager;
 import org.cytoscape.view.vizmap.VisualMappingManager;
 import org.osgi.framework.BundleContext;
 
+import java.awt.event.ActionEvent;
 import java.io.InputStream;
 import java.util.Properties;
 
@@ -128,9 +131,22 @@ public class CyActivator extends AbstractCyActivator {
         evidenceFactoryProps.put(TITLE, "View Evidence");
         registerService(bc, new ShowEvidenceFactory(cyTableManager, cySwingApplication, evidencePanelComponent), EdgeViewTaskFactory.class, evidenceFactoryProps);
 
+        // register about action
+        AbstractCyAction aboutAction = new AbstractCyAction("About") {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                About.showDialog(JGFApp.NAME, JGFApp.DESC, JGFApp.VERSION, JGFApp.ICON, JGFApp.LINKS);
+            }
+        };
+        aboutAction.setMenuGravity(0.0f);
+        aboutAction.setPreferredMenu("Apps.JGF App");
+        final Properties aboutActionProps = new Properties();
+        aboutActionProps.put("id", "jgfApp.about.action");
+        registerService(bc, aboutAction, CyAction.class, aboutActionProps);
+
         // register help action
         AbstractCyAction helpAction = createBrowseHelpAction("/docs.zip", "docs/index.html", cyAppConfig, this);
-        helpAction.setMenuGravity(0.0f);
+        helpAction.setMenuGravity(1.0f);
         helpAction.setPreferredMenu("Apps.JGF App");
         final Properties helpActionProps = new Properties();
         helpActionProps.put("id", "jgfApp.help.action");

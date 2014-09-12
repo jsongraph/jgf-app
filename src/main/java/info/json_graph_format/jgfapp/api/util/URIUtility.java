@@ -28,4 +28,20 @@ public class URIUtility {
 
         Desktop.getDesktop().browse(uri);
     }
+
+    /**
+     * Return {@code true} if {@link URI} is valid, {@code false} otherwise.
+     *
+     * @param uri {@link String}; {@code null} yields {@code false}
+     * @return {@code true} if valid {@link URI}; {@code false} otherwise
+     */
+    public static boolean isValid(String uri) {
+        if (uri == null) return false;
+        try {
+            new URI(uri);
+            return true;
+        } catch (URISyntaxException e) {
+            return false;
+        }
+    }
 }
