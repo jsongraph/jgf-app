@@ -7,7 +7,7 @@
 # First, see if help (-h, --help) or version (-v, --version) command line arguments
 # are specified. If so, display help or the current version and exit.
 
-CYTOSCAPE_VERSION="Cytoscape version: 3.1.1"
+CYTOSCAPE_VERSION="Cytoscape version: 3.2.1"
 
 if [[ $# > 0 ]]; then
 	if [ $1 == "-h" -o $1 == "--help" ]; then
@@ -47,7 +47,7 @@ fi
 
 export JAVA_DEBUG_OPTS="-Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=${DEBUG_PORT}"
 if [ `uname` = "Darwin" ]; then
-	CYTOSCAPE_MAC_OPTS="-Xdock:icon=cytoscape_logo_512.png -Xdock:name=Cytoscape"
+	CYTOSCAPE_MAC_OPTS="-Xdock:icon=$script_path/framework/cytoscape_logo_512.png -Xdock:name=Cytoscape"
 fi
 
 #vm_options_path=$HOME/.cytoscape
@@ -69,8 +69,8 @@ if [ -r $vm_options_path/Cytoscape.vmoptions ]; then
     JAVA_OPTS="$JAVA_OPTS `cat $vm_options_path/Cytoscape.vmoptions`"
 else # Just use sensible defaults.
     echo '*** Missing Cytoscape.vmoptions, falling back to using defaults!'
-    # Initialize MAX_MEM to something reasonable
-    JAVA_OPTS=-Xmx1550M
+		# Initialize MAX_MEM to something reasonable
+		JAVA_OPTS=-Xms1550M\ -Xmx1550M
 fi
 
 # The Cytoscape home directory contains the "framework" directory
@@ -89,4 +89,3 @@ export KARAF_DATA="${PLUGIN_CY3_DATA_DIR}"
 mkdir -p "${KARAF_DATA}/tmp"
 
 $script_path/framework/bin/karaf "$@"
-

@@ -20,4 +20,4 @@
 This directory is the Java extension directory.
 Any jar in this folder will be used as a JVM extension.
 For more information, see
-   http://download.oracle.com/javase/6/docs/technotes/guides/extensions/spec.html
+   http://download.oracle.com/javase/6/docs/technotes/guides/extensions/specs.html
