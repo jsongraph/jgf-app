@@ -40,6 +40,7 @@ class EvidencePanel extends JPanel implements ListSelectionListener {
     private final JXTable statementTable;
     private final JLabel citationName;
     private final JXHyperlink citationLink;
+    private final JTextPane summaryTextPane;
     private final JTextPane annotationPane;
 
     /**
@@ -108,9 +109,27 @@ class EvidencePanel extends JPanel implements ListSelectionListener {
                         GridBagConstraints.BOTH,
                         new Insets(0, 20, 0, 0), 0, 0));
 
+        // Summary Text panel
+        add(new JLabel("Summary Text"),
+                new GridBagConstraints(0, 4, 1, 1, 1.0, 0.1,
+                        GridBagConstraints.LINE_START,
+                        GridBagConstraints.NONE,
+                        new Insets(0, 0, 0, 0), 0, 0));
+
+        summaryTextPane = new JTextPane();
+        summaryTextPane.setContentType("text/html");
+        summaryTextPane.setBackground(null);
+        summaryTextPane.setBorder(null);
+        summaryTextPane.setEditable(false);
+        add(new JScrollPane(summaryTextPane),
+                new GridBagConstraints(0, 5, 1, 1, 1.0, 0.5,
+                        GridBagConstraints.LINE_START,
+                        GridBagConstraints.BOTH,
+                        new Insets(0, 5, 5, 5), 0, 0));
+
         // Annotations scrollpane
         add(new JLabel("Annotations"),
-                new GridBagConstraints(0, 4, 1, 1, 1.0, 0.1,
+                new GridBagConstraints(0, 6, 1, 1, 1.0, 0.1,
                         GridBagConstraints.LINE_START,
                         GridBagConstraints.NONE,
                         new Insets(0, 0, 0, 0), 0, 0));
@@ -120,7 +139,7 @@ class EvidencePanel extends JPanel implements ListSelectionListener {
         annotationPane.setBorder(null);
         annotationPane.setEditable(false);
         add(new JScrollPane(annotationPane),
-                new GridBagConstraints(0, 5, 1, 1, 1.0, 0.5,
+                new GridBagConstraints(0, 7, 1, 1, 1.0, 0.5,
                         GridBagConstraints.LINE_START,
                         GridBagConstraints.BOTH,
                         new Insets(0, 5, 5, 5), 0, 0));
@@ -204,6 +223,8 @@ class EvidencePanel extends JPanel implements ListSelectionListener {
                             citationLink.setText(ev.citation.id == null ? "" : ev.citation.id);
                             citationLink.setURI(makeCitationURI(ev.citation.type, ev.citation.id));
                         }
+
+                        summaryTextPane.setText(ev.summaryText);
 
                         String html = "<html><table width=\"100%\" height=\"100%\">";
                         Map<String, Object> annotations = new TreeMap<String, Object>();
