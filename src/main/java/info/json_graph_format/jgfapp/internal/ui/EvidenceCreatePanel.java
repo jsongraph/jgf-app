@@ -12,10 +12,9 @@ public class EvidenceCreatePanel extends HTMLPanel {
 
     @Override
     protected void onDocumentLoaded(WebEngine webEngine) {
-        Element createButton = webEngine.getDocument().getElementById("create-button");
+        Element createButton = webEngine.getDocument().getElementById("ok-button");
         ((EventTarget) createButton).addEventListener("click", evt -> {
             String action = ((Element) evt.getCurrentTarget()).getAttribute("action");
-            System.out.println("Button clicked, action: " + action);
             evt.preventDefault();
         }, false);
     }

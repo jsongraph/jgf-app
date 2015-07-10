@@ -60,14 +60,15 @@ public class EvidenceListPanel extends HTMLPanel {
         Element editButton = createEditButton(doc, evidence);
         ((EventTarget) editButton).addEventListener("click", evt -> {
             String evidenceId = ((Element) evt.getCurrentTarget()).getAttribute("evidence-id");
-            System.out.println("Edit evidence id: " + evidenceId);
+            System.out.println("Edit evidence: " + evidenceId);
+            evidenceComponent.editEvidence(evidence);
         }, false);
         tr.appendChild(createElementWithChild(doc, "td", editButton));
 
         Element deleteButton = createDeleteButton(doc, evidence);
         ((EventTarget) deleteButton).addEventListener("click", evt -> {
             String evidenceId = ((Element) evt.getCurrentTarget()).getAttribute("evidence-id");
-            System.out.println("Delete evidence id: " + evidenceId);
+            System.out.println("Delete evidence: " + evidenceId);
             this.evidenceComponent.deleteEvidence(Long.valueOf(evidenceId));
         }, false);
         tr.appendChild(createElementWithChild(doc, "td", deleteButton));

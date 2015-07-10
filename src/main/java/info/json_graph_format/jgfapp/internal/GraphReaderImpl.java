@@ -1,5 +1,6 @@
 package info.json_graph_format.jgfapp.internal;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -97,6 +98,14 @@ public class GraphReaderImpl implements GraphReader {
 
     protected JsonNode _readJSON(InputStream input) throws IOException {
         return mapper.readTree(input);
+    }
+
+    protected void _writeJSON(OutputStream output, JsonNode node) throws IOException {
+        mapper.writeValue(output, node);
+    }
+
+    protected String _toJSON(JsonNode node) throws JsonProcessingException {
+        return mapper.writeValueAsString(node);
     }
 
     protected ProcessingReport _validate(JsonNode json) throws IOException {

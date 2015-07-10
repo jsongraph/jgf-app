@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
+import netscape.javascript.JSObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -60,6 +61,13 @@ public abstract class HTMLPanel extends JFXPanel {
         webEngine.getLoadWorker().stateProperty().addListener(
                 (ObservableValue<? extends Worker.State> ov, Worker.State oldState, Worker.State newState) -> {
                     if (newState == Worker.State.SUCCEEDED) {
+                        JSObject window = (JSObject) webEngine.executeScript("window");
+                        window.setMember("java", new Logger());
+                        webEngine.executeScript("console.log = function(message) {\n" +
+                                                "    java.log(message);\n" +
+                                                "};"
+                        );
+
                         onDocumentLoaded(webEngine);
                     }
                 }

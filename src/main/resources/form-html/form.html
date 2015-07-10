@@ -1,12 +1,17 @@
 <!doctype html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http:www.w3.org/1999/xhtml">
     <head>
         <title>Create evidence</title>
-        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
-        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="http:netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="http:netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" />
 
         <script type="text/javascript">
-            function create() {
+            function reset() {
+                var form = document.getElementById("evidence-form");
+                form.reset();
+            }
+
+            function readFormAsJSON() {
                 var bel_statement = document.getElementById('bel-statement');
                 var summary_text  = document.getElementById('summary-text');
 
@@ -18,9 +23,22 @@
                 return JSON.stringify(evidence);
             }
 
-            function reset() {
-                var form = document.getElementById("evidence-form");
-                form.reset();
+            function populateForm() {
+                var evidenceJSON = document.getElementById('evidence-json').childNodes[0].nodeValue;
+                console.log("evidenceJSON set to: " + evidenceJSON);
+                var evidence     = JSON.parse(evidenceJSON);
+
+                var bel_statement   = document.getElementById('bel-statement');
+                bel_statement.value = evidence.bel_statement;
+
+                var citation_id     = document.getElementById('citation-id');
+                citation_id.value   = evidence.citation.id;
+
+                var citation_name   = document.getElementById('citation-name');
+                citation_name.value = evidence.citation.name;
+
+                var summary_text    = document.getElementById('summary-text');
+                summary_text.value  = evidence.summary_text;
             }
         </script>
     </head>
@@ -41,9 +59,9 @@
                 <fieldset>
                     <legend>Citation</legend>
                     <div class="form-group">
-                        <label class="col-md-4 control-label" for="citation-pubmed-id">PubMed ID</label>
+                        <label class="col-md-4 control-label" for="citation-id">PubMed ID</label>
                         <div class="col-md-8">
-                            <input id="citation-pubmed-id" name="citation-pubmed-id" placeholder="PubMed identifier" class="form-control input-md" required="" type="text">
+                            <input id="citation-id" name="citation-id" placeholder="PubMed identifier" class="form-control input-md" required="" type="text">
                             <span class="help-block">i.e. 9202001</span>
                         </div>
                         <label class="col-md-4 control-label" for="citation-name">Name</label>
@@ -111,9 +129,8 @@
                 </fieldset>
 
                 <div class="form-group">
-                    <label class="col-md-4 control-label" for="create-button"></label>
                     <div class="col-md-8">
-                        <button id="create-button" name="create-button" class="btn btn-primary">Create</button>
+                        <button id="ok-button"    name="ok-button"    class="btn btn-primary">OK</button>
                         <button id="reset-button" name="reset-button" class="btn btn-warning">Reset</button>
                     </div>
                 </div>

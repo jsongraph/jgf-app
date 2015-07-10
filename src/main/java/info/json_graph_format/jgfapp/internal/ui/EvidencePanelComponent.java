@@ -79,7 +79,26 @@ public class EvidencePanelComponent implements CytoPanelComponent, RowsSetListen
     }
 
     public void createEvidence(Long networkSUID, Long edgeSUID) {
-        new EvidenceCreateWindow(1L, 1L);
+        new EvidenceCreateWindow(networkSUID, edgeSUID);
+    }
+
+    public void editEvidence(Evidence evidence) {
+        CyTable evTable = getTable("BEL.Evidence", tableManager);
+        if (evTable == null) return;
+
+        Long evid = evidence.evidenceId;
+        Optional<CyRow> opt = evTable.getMatchingRows(CyIdentifiable.SUID, evid).stream().findFirst();
+        if (opt.isPresent()) {
+            CyRow row = opt.get();
+
+            // access evidence's network and edge
+            Long networkSUID = row.get(NETWORK_SUID, Long.class);
+            CyNetwork cyN = networkManager.getNetwork(networkSUID);
+            CyEdge cyE = cyN.getEdge(row.get(EDGE_SUID, Long.class));
+            if (cyE == null) return;
+
+            new EvidenceEditWindow(cyN, cyE, evidence);
+        }
     }
 
     public void deleteEvidence(Long evidenceId) {
@@ -142,4 +161,5 @@ public class EvidencePanelComponent implements CytoPanelComponent, RowsSetListen
             evidencePanel.update(new ArrayList<>(), this);
         }
     }
+
 }
