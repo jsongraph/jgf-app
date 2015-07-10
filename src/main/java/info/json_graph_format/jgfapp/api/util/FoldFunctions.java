@@ -7,15 +7,15 @@ public class FoldFunctions {
 
     private static final SizeMap SIZE_MAP = new SizeMap();
     private static final SizeCollection SIZE_COL = new SizeCollection();
- public static SizeMap mapSizeReduceFx() {
+    public static SizeMap mapSizeReduceFx() {
         return SIZE_MAP;
     }
 
-   lic static SizeCollection collectionSizeReduceFx() {
+    public static SizeCollection collectionSizeReduceFx() {
         return SIZE_COL;
     }
 
-    pubstatic final class SizeMap implements
+    public static final class SizeMap implements
             FoldFunction<Map<?, ?>, Integer> {
 
         /**

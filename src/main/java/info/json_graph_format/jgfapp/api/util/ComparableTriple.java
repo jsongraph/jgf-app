@@ -52,7 +52,8 @@ public final class ComparableTriple<T extends Comparable<T>,
         return first;
     }
 
-         * Return the second type {@code U}.
+    /**
+     * Return the second type {@code U}.
      *
      * @eturn {@code U}
      */
@@ -77,9 +78,9 @@ public final class ComparableTriple<T extends Comparable<T>,
         if (this == o) return true;
         if (o == null || !(o instanceof ComparableTriple)) return false;
 
-        final ComparableTriple<?,?,?> other = (Compa ra bleTriple<?,?,?>) o;
+        final ComparableTriple<?,?,?> other = (ComparableTriple<?,?,?>) o;
 
-        i f  (first == null) {
+        if  (first == null) {
             if (other.first != null) return false;
         } else if (!first.equals(other.first)) {
             return false;
@@ -91,7 +92,7 @@ public final class ComparableTriple<T extends Comparable<T>,
             return false;
         }
 
-        if (third  {
+        if (third == null)  {
             if (other.third != null) return false;
         } else if (!third.equals(other.third)) {
             return false;

@@ -39,7 +39,8 @@ public final class Triple<T, U, V> {
         this.hash = hash();
     }
 
-         * Return the first type {@code T}.
+    /**
+     * Return the first type {@code T}.
      *
      * @eturn {@code T}
      */
@@ -75,7 +76,7 @@ public final class Triple<T, U, V> {
 
         final Triple<?,?,?> other = (Triple<?,? ,? >) o;
 
-        if (fi rs t == null) {
+        if (first == null) {
             if (other.first != null) return false;
         } else if (!first.equals(other.first)) {
             return false;
@@ -87,7 +88,8 @@ public final class Triple<T, U, V> {
             return false;
         }
 
-        if (third == nu          if (other.third != null) return false;
+        if (third == null) {
+            if (other.third != null) return false;
         } else if (!third.equals(other.third)) {
             return false;
         }
@@ -104,7 +106,7 @@ public final class Triple<T, U, V> {
     }
 
     private int hash() {
-      nal int prime = 31;
+        final int prime = 31;
         int result = 1;
         if (first != null) {
             result *= prime;
