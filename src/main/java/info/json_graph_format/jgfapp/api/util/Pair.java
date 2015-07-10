@@ -52,7 +52,7 @@ public final class Pair<T1, T2> {
         if (this == o) return true;
         if (o == null || !(o instanceof Pair)) return false;
 
-        final Pair<?,?> other = (Pair<?,?>) o;
+        final Pair<?, ?> other = (Pair<?, ?>) o;
 
         if (first == null) {
             if (other.first != null) return false;

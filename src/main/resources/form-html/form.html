@@ -1,0 +1,125 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Create evidence</title>
+        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" />
+
+        <script type="text/javascript">
+            function create() {
+                var bel_statement = document.getElementById('bel-statement');
+                var summary_text  = document.getElementById('summary-text');
+
+                var evidence = {
+                    bel_statement: bel_statement.value,
+                    summary_text:  summary_text.value
+                }
+
+                return JSON.stringify(evidence);
+            }
+
+            function reset() {
+                var form = document.getElementById("evidence-form");
+                form.reset();
+            }
+        </script>
+    </head>
+    <body>
+        <form id="evidence-form" class="form-horizontal">
+            <fieldset>
+                <fieldset>
+                    <legend>BEL Statement</legend>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="bel-statement"></label>
+                        <div class="col-md-8">
+                            <input id="bel-statement" name="bel-statement" placeholder="Subject Relationship Object" class="form-control input-md" required="" type="text">
+                            <span class="help-block">i.e. p(HGNC:AKT1) -> bp(MESHPP:Apoptosis)</span>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Citation</legend>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="citation-pubmed-id">PubMed ID</label>
+                        <div class="col-md-8">
+                            <input id="citation-pubmed-id" name="citation-pubmed-id" placeholder="PubMed identifier" class="form-control input-md" required="" type="text">
+                            <span class="help-block">i.e. 9202001</span>
+                        </div>
+                        <label class="col-md-4 control-label" for="citation-name">Name</label>
+                        <div class="col-md-8">
+                            <input id="citation-name" name="citation-name" placeholder="PubMed reference name" class="form-control input-md" required="" type="text">
+                            <span class="help-block">i.e. J Biol Chem. 1997 Jul 4;272(27):16917-23.</span>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Annotation</legend>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="summary-text">Summary Text</label>
+                        <div class="col-md-4">
+                            <textarea class="form-control" id="summary-text" name="summary-text"></textarea>
+                        </div>
+                    </div>
+
+                    <label class="col-md-4 control-label">Annotations</label>
+                    <div class="container">
+                        <div class="form-horizontal row">
+                            <div class="control-group" id="annotation-fields">
+                                <div class="controls">
+                                    <div class="entry input-group col-md-4 form-group row">
+                                        <div class="col-md-10">
+                                            <input class="form-control" name="annotation_names[]" type="text" placeholder="Name" />
+                                        </div>
+                                        <div class="col-md-10">
+                                            <input class="form-control" name="annotation_values[]" type="text" placeholder="Value" />
+                                        </div>
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-success btn-add" type="button">
+                                                <span class="glyphicon glyphicon-plus"></span>
+                                            </button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <label class="col-md-4 control-label">Metadata</label>
+                    <div class="container">
+                        <div class="form-horizontal row">
+                            <div class="control-group" id="metadata-fields">
+                                <div class="controls">
+                                    <div class="entry input-group col-md-4 form-group row">
+                                        <div class="col-md-10">
+                                            <input class="form-control" name="metadata_names[]" type="text" placeholder="Name" />
+                                        </div>
+                                        <div class="col-md-10">
+                                            <input class="form-control" name="metadata_values[]" type="text" placeholder="Value" />
+                                        </div>
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-success btn-add" type="button">
+                                                <span class="glyphicon glyphicon-plus"></span>
+                                            </button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="create-button"></label>
+                    <div class="col-md-8">
+                        <button id="create-button" name="create-button" class="btn btn-primary">Create</button>
+                        <button id="reset-button" name="reset-button" class="btn btn-warning">Reset</button>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </body>
+</html>
+
+<!-- vim: ft=html sw=4 ts=4 sts=4 expandtab -->

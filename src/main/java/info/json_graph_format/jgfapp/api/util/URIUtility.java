@@ -15,10 +15,10 @@ public class URIUtility {
      * Open the {@link URI} in the system's browser.
      *
      * @param uri {@link URI}; cannot be {@code null}
-     * @throws NullPointerException when {@code uri} is {@code null}
+     * @throws NullPointerException  when {@code uri} is {@code null}
      * @throws IllegalStateException when {@link Desktop} is not supported or
-     * does not support the {@link Desktop.Action#BROWSE} action.
-     * @throws IOException when an IO error occurs browsing to {@code uri}
+     *                               does not support the {@link Desktop.Action#BROWSE} action.
+     * @throws IOException           when an IO error occurs browsing to {@code uri}
      */
     public static void openInBrowser(URI uri) throws IOException {
         if (uri == null) throw new NullPointerException("uri cannot be null");

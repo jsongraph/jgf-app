@@ -43,7 +43,7 @@ import static org.cytoscape.work.ServiceProperties.*;
 
 /**
  * {@code CyActivator} is a class that is a starting point for OSGi bundles.
- *
+ * <p>
  * A quick overview of OSGi: The common currency of OSGi is the <i>service</i>.
  * A service is merely a Java interface, along with objects that implement the
  * interface. OSGi establishes a system of <i>bundles</i>. Most bundles reference
@@ -51,21 +51,22 @@ import static org.cytoscape.work.ServiceProperties.*;
  * service, it provides an implementation to the service's interface. Bundles
  * reference a service by asking OSGi for an implementation. The implementation is
  * provided by some other bundle.
- *
+ * <p>
  * When OSGi starts your bundle, it will invoke
  * {@link CyActivator#start(org.osgi.framework.BundleContext)} method. So, the
  * {@code start} method is where you put in all your code that sets up your app.
  * This is where you reference and register services.
- *
+ * <p>
  * Your bundle's {@code Bundle-Activator} manifest entry has a fully-qualified
  * path to this class. It's not necessary to inherit from
  * {@code AbstractCyActivator}. However, we provide this class as a convenience
  * to make it easier to work with OSGi.
- *
+ * <p>
  * Note: AbstractCyActivator already provides its own {@code stop} method, which
  * {@code unget}s any services we fetch using getService().
  */
 public class CyActivator extends AbstractCyActivator {
+
     /**
      * This is the {@code start} method, which sets up your app. The
      * {@code BundleContext} object allows you to communicate with the OSGi

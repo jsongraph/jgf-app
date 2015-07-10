@@ -8,8 +8,7 @@ public interface SearchFunction<T> {
 
     /**
      * Returns {@code true} if {@code t} matches, {@code false} otherwise.
-     * 
-     * @param t {@code <T>}
+     *     * @param t {@code <T>}
      * @return boolean
      */
     public abstract boolean match(T t);

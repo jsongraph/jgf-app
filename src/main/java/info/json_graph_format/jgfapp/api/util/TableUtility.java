@@ -22,6 +22,7 @@ import static java.lang.String.format;
 public class TableUtility {
 
     private static final Collection<Class<?>> SUPPORTED_TYPES;
+
     static {
         SUPPORTED_TYPES = new ArrayList<Class<?>>();
         SUPPORTED_TYPES.add(Boolean.class);
@@ -32,7 +33,7 @@ public class TableUtility {
     }
 
     public static CyColumn getOrCreateColumnByPrototypes(String name, Collection<Object> prototypes,
-                                        boolean immutable, CyTable table) {
+                                                         boolean immutable, CyTable table) {
         if (name == null) throw new NullPointerException("name cannot be null");
         if (table == null) throw new NullPointerException("table cannot be null");
 
@@ -43,11 +44,11 @@ public class TableUtility {
             // map prototypes to classes and filter for non-null objects...
             Iterable<Class<?>> types = FluentIterable.from(prototypes).
                     transform(new Function<Object, Class<?>>() {
-                @Nullable
-                public Class<?> apply(@Nullable Object o) {
-                    return (o == null) ? null : o.getClass();
-                }
-            }).filter(and(notNull(), not(assignableFrom(Map.class))));
+                        @Nullable
+                        public Class<?> apply(@Nullable Object o) {
+                            return (o == null) ? null : o.getClass();
+                        }
+                    }).filter(and(notNull(), not(assignableFrom(Map.class))));
 
             if (Iterables.all(types, assignableFrom(Collection.class))) {
                 Collection<Collection<Object>> all = new ArrayList<Collection<Object>>();
@@ -74,7 +75,7 @@ public class TableUtility {
                 // choose higher precision data type
                 if (type == Integer.class && nextType == Double.class) {
                     type = nextType;
-                // incompatible types; resort to loose String type
+                    // incompatible types; resort to loose String type
                 } else {
                     type = String.class;
                 }
@@ -85,7 +86,7 @@ public class TableUtility {
     }
 
     public static CyColumn getOrCreateColumnByPrototype(String name, Object prototype,
-                                        boolean immutable, CyTable table) {
+                                                        boolean immutable, CyTable table) {
         if (name == null) throw new NullPointerException("name cannot be null");
         if (table == null) throw new NullPointerException("table cannot be null");
 
@@ -100,19 +101,19 @@ public class TableUtility {
     /**
      * Returns a {@link CyColumn}, referenced by {@code name}, contained in the
      * {@code table}.
-     *
+     * <p>
      * <br><br>
      * If the {@link CyColumn}
      * does not exist it is created in {@code table} and returned.
      *
-     * @param name the column name; cannot be {@code null}
-     * @param type the column type; cannot be {@code null}
+     * @param name      the column name; cannot be {@code null}
+     * @param type      the column type; cannot be {@code null}
      * @param immutable the column immutability flag
-     * @param table the table where this column exists or is created;
-     * cannot be {@code null}
+     * @param table     the table where this column exists or is created;
+     *                  cannot be {@code null}
      * @return the {@link CyColumn column} contained in the {@link CyTable table}
      * @throws java.lang.NullPointerException when {@code name}, {@code type}, or
-     * {@code table} is {@code null}
+     *                                        {@code table} is {@code null}
      */
     public static CyColumn getOrCreateColumn(String name, Class<?> type, boolean immutable, CyTable table) {
         if (name == null) throw new NullPointerException("name cannot be null");
@@ -184,12 +185,12 @@ public class TableUtility {
      * Returns the {@link CyTable table} associated with {@code name} or {@code null}
      * if it does not exist.
      *
-     * @param name the {@link String name}; cannot be {@code null}
+     * @param name     the {@link String name}; cannot be {@code null}
      * @param tableMgr the {@link CyTableManager} Cytoscape service;
-     * cannot be {@code null}
+     *                 cannot be {@code null}
      * @return the {@link CyTable} or {@code null} if it does not exist
      * @throws java.lang.NullPointerException if {@code name} or {@code tableMgr} is
-     * {@code null}
+     *                                        {@code null}
      */
     public static CyTable getTable(String name, CyTableManager tableMgr) {
         if (name == null) throw new NullPointerException("name cannot be null");

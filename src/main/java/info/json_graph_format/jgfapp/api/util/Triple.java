@@ -18,8 +18,7 @@ package info.json_graph_format.jgfapp.api.util;
  * @param <V> third type {@code T}
  */
 public final class Triple<T, U, V> {
-    
-    private final T first;
+ private final T first;
     private final U second;
     private final V third;
     private final int hash;
@@ -27,10 +26,11 @@ public final class Triple<T, U, V> {
     /**
      * Construct with first type {@code T}, second type {@code U}, and third
      * type {@code V}.
-     * 
-     * @param first type {@code T}
+     *
+
+     * @param first  type {@code T}
      * @param second type {@code U}
-     * @param third type {@code V}
+     * @param third  {@code V}
      */
     public Triple(T first, U second, V third) {
         this.first = first;
@@ -38,45 +38,44 @@ public final class Triple<T, U, V> {
         this.third = third;
         this.hash = hash();
     }
-    
-    /**
-     * Return the first type {@code T}.
-     * 
-     * @return {@code T}
+
+         * Return the first type {@code T}.
+     *
+     * @eturn {@code T}
      */
     public T first() {
         return first;
     }
-    
+
     /**
-     * Return the second type {@code U}.
-     * 
-     * @return {@code U}
+ * Return the second type {@code U}.
+     *
+     * @retur {@code U}
      */
     public U second() {
         return second;
     }
-    
+
     /**
-     * Return the third type {@code V}.
-     * 
-     * @return {@code V}
+     *urn the third type {@code V}.
+     *
+     * @return {@cde V}
      */
     public V third() {
         return third;
     }
-    
+
     /**
-     * {@inheritDoc}
+     * {@intDoc}
      */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || !(o instanceof Triple)) return false;
 
-        final Triple<?,?,?> other = (Triple<?,?,?>) o;
+        final Triple<?,?,?> other = (Triple<?,? ,? >) o;
 
-        if (first == null) {
+        if (fi rs t == null) {
             if (other.first != null) return false;
         } else if (!first.equals(other.first)) {
             return false;
@@ -87,9 +86,8 @@ public final class Triple<T, U, V> {
         } else if (!second.equals(other.second)) {
             return false;
         }
-        
-        if (third == null) {
-            if (other.third != null) return false;
+
+        if (third == nu          if (other.third != null) return false;
         } else if (!third.equals(other.third)) {
             return false;
         }
@@ -104,9 +102,9 @@ public final class Triple<T, U, V> {
     public int hashCode() {
         return hash;
     }
-    
+
     private int hash() {
-        final int prime = 31;
+      nal int prime = 31;
         int result = 1;
         if (first != null) {
             result *= prime;

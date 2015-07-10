@@ -22,7 +22,7 @@ public class Root {
         if (root == null) return null;
 
         if (root.graph != null)
-            return new Graph[] {root.graph};
+            return new Graph[]{root.graph};
         if (root.graphs != null)
             return root.graphs.toArray(new Graph[root.graphs.size()]);
 

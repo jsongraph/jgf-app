@@ -18,10 +18,10 @@ public interface GraphReader {
      * {@link InputStream}. The array may contain 0, 1, or more {@link Graph} objects.
      *
      * @param input the <em>JSON Graph Format</em>-encoded {@link InputStream};
-     * cannot be {@code null}
+     *              cannot be {@code null}
      * @return the array of {@link Graph}; will not be {@code null} and may contain
      * 0, 1, or more {@link Graph} objects
-     * @throws IOException when an IO error occurs reading from {@code input}
+     * @throws IOException                    when an IO error occurs reading from {@code input}
      * @throws java.lang.NullPointerException when {@code input} is {@code null}
      */
     public Graph[] read(InputStream input) throws IOException;
@@ -31,13 +31,13 @@ public interface GraphReader {
      * {@link File}. The array may contain 0, 1, or more {@link Graph} objects.
      *
      * @param input the <em>JSON Graph Format</em>-encoded {@link File};
-     * cannot be {@code null}
+     *              cannot be {@code null}
      * @return the array of {@link Graph}; will not be {@code null} and may contain
      * 0, 1, or more {@link Graph} objects
-     * @throws IOException when an IO error occurs reading from {@code input}
+     * @throws IOException                    when an IO error occurs reading from {@code input}
      * @throws java.lang.NullPointerException when {@code input} is {@code null}
-     * @throws java.io.FileNotFoundException when {@code input} does not exist or
-     * cannot be read
+     * @throws java.io.FileNotFoundException  when {@code input} does not exist or
+     *                                        cannot be read
      */
     public Graph[] read(File input) throws IOException;
 
@@ -53,10 +53,10 @@ public interface GraphReader {
      * {@link GraphsWithValidation}.
      *
      * @param input the <em>JSON Graph Format</em>-encoded {@link InputStream};
-     * cannot be {@code null}
+     *              cannot be {@code null}
      * @return a {@link GraphsWithValidation} object providing an array of
      * {@link Graph} and schema validation errors; will not be {@code null}
-     * @throws IOException when an IO error occurs reading from {@code input}
+     * @throws IOException                    when an IO error occurs reading from {@code input}
      * @throws java.lang.NullPointerException when {@code input} is {@code null}
      */
     public GraphsWithValidation validatingRead(InputStream input) throws IOException;
@@ -73,13 +73,13 @@ public interface GraphReader {
      * {@link GraphsWithValidation}.
      *
      * @param input the <em>JSON Graph Format</em>-encoded {@link File};
-     * cannot be {@code null}
+     *              cannot be {@code null}
      * @return a {@link GraphsWithValidation} object providing an array of
      * {@link Graph} and schema validation errors; will not be {@code null}
-     * @throws IOException when an IO error occurs reading from {@code input}
+     * @throws IOException                    when an IO error occurs reading from {@code input}
      * @throws java.lang.NullPointerException when {@code input} is {@code null}
-     * @throws java.io.FileNotFoundException when {@code input} does not exist or
-     * cannot be read
+     * @throws java.io.FileNotFoundException  when {@code input} does not exist or
+     *                                        cannot be read
      */
     public GraphsWithValidation validatingRead(File input) throws IOException;
 }

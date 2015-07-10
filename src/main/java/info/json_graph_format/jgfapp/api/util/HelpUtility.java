@@ -29,17 +29,17 @@ public class HelpUtility {
      * in the classpath.
      *
      * @param helpZipPath {@link String} resource path to zip help file; cannot be
-     * {@code null}
-     * @param indexPath {@link String} zip relative path that identifies the index page
-     * to browse to; cannot be {@code null}
-     * @param appConfig {@link CyApplicationConfiguration}; cannot be {@code null}
-     * @param appClass {@link AbstractCyActivator}; cannot be {@code null}
+     *                    {@code null}
+     * @param indexPath   {@link String} zip relative path that identifies the index page
+     *                    to browse to; cannot be {@code null}
+     * @param appConfig   {@link CyApplicationConfiguration}; cannot be {@code null}
+     * @param appClass    {@link AbstractCyActivator}; cannot be {@code null}
      * @return the {@link AbstractCyAction} to launch {@code indexPath} in browser
-     * @throws NullPointerException when {@code helpZipPath}, {@code indexPath},
-     * {@code appConfig}, or {@code appClass} is {@code null}
+     * @throws NullPointerException  when {@code helpZipPath}, {@code indexPath},
+     *                               {@code appConfig}, or {@code appClass} is {@code null}
      * @throws FileNotFoundException when {@code helpZipPath} does not exist or the
-     * application configuration path does not exist
-     * @throws IOException when directories cannot be created as needed
+     *                               application configuration path does not exist
+     * @throws IOException           when directories cannot be created as needed
      */
     public static AbstractCyAction createBrowseHelpAction(final String helpZipPath,
                                                           final String indexPath,

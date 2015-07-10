@@ -26,7 +26,7 @@ public class MapFunctions {
         /**
          * {@inheritDoc}
          * <br><br>
-         * <p/>
+         * <p>
          * Simply returns {@code o} of type {@code <T>} without any mapping.
          */
         @Override

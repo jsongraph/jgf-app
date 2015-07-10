@@ -25,7 +25,8 @@ import static java.lang.String.format;
 import static java.lang.System.arraycopy;
 import static java.lang.Thread.currentThread;
 import static java.lang.reflect.Array.newInstance;
-import static java.util.Collections.*;
+import static java.util.Collections.emptyList;
+import static java.util.Collections.emptySet;
 import static java.util.regex.Pattern.compile;
 import static org.slf4j.LoggerFactory.getLogger;
 
@@ -59,7 +60,7 @@ public class Utility {
      * collection}.
      *
      * @param <E> Formal type parameter collection element
-     * @param c {@link Collection}; may be null
+     * @param c   {@link Collection}; may be null
      * @return Hash set of type {@code E}
      */
     public static <E> HashSet<E> asHashSet(final Collection<E> c) {
@@ -75,8 +76,8 @@ public class Utility {
      *
      * @param strings
      * @return String in the following form:
-     *         {@code strings[0]<path_separator>strings[1]<path_separator>...<strings[n]>}
-     *         , or <b>null</b> if {@code strings} is null
+     * {@code strings[0]<path_separator>strings[1]<path_separator>...<strings[n]>}
+     * , or <b>null</b> if {@code strings} is null
      */
     public static String asPath(final String... strings) {
         if (strings == null) return null;
@@ -93,9 +94,9 @@ public class Utility {
      * {@code directory} and {@code filename} and returns the resulting string.
      *
      * @param directory Non-null string
-     * @param filename Non-null string
+     * @param filename  Non-null string
      * @return String following the format
-     *         {@code directory<path_separator>filename}
+     * {@code directory<path_separator>filename}
      */
     public static String asPath(final String directory, final String filename) {
         return directory.concat(separator).concat(filename);
@@ -104,7 +105,7 @@ public class Utility {
     /**
      * Casts.
      *
-     * @param o {@link Object}
+     * @param o   {@link Object}
      * @param <T> The type to cast to
      * @return {@code T}
      */
@@ -189,7 +190,7 @@ public class Utility {
      *
      * @param <K> Formal type parameter key
      * @param <V> Formal type parameter value
-     * @param s Initial hash map capacity
+     * @param s   Initial hash map capacity
      * @return Hash map of type {@code K, V}
      */
     public static <K, V> HashMap<K, V> constrainedHashMap(final int s) {
@@ -209,7 +210,7 @@ public class Utility {
      * </p>
      *
      * @param <T> Formal type parameter
-     * @param s Initial hash set capacity
+     * @param s   Initial hash set capacity
      * @return Hash set of type {@code T}
      */
     public static <T> HashSet<T> constrainedHashSet(final int s) {
@@ -220,10 +221,10 @@ public class Utility {
      * Copy bytes from the {@link InputStream input stream} to the
      * {@link OutputStream output stream} in 4 kilobyte increments.
      *
-     * @param input the {@link InputStream input stream} to read from, which
-     * cannot be null
+     * @param input  the {@link InputStream input stream} to read from, which
+     *               cannot be null
      * @param output the {@link OutputStream output stream} to write to, which
-     * cannot be null
+     *               cannot be null
      * @return the number of {@code bytes} read
      * @throws IOException Thrown if an IO error occurred while copying data
      */
@@ -247,19 +248,19 @@ public class Utility {
     /**
      * Copies a {@link File source file} to a {@link File destination file}.
      *
-     * @param src the {@link File source file}, which must be non-null and
-     * readable
+     * @param src  the {@link File source file}, which must be non-null and
+     *             readable
      * @param dest the {@link File destination file}, which must be non-null
-     * and
-     * writable
+     *             and
+     *             writable
      * @throws IOException Thrown if an IO error occurred copying the
-     * {@link File src} to {@link File dest}
+     *                     {@link File src} to {@link File dest}
      * @throws IOException thrown if
-     * <ul>
-     * <li>{@code src} or {@code dest} is {@code null}</li>
-     * <li>{@code src} is not readable</li>
-     * <li>{@code dest} is not writeable</li>
-     * </ul>
+     *                     <ul>
+     *                     <li>{@code src} or {@code dest} is {@code null}</li>
+     *                     <li>{@code src} is not readable</li>
+     *                     <li>{@code dest} is not writeable</li>
+     *                     </ul>
      */
     public static void copyFile(final File src, final File dest)
             throws IOException {
@@ -371,7 +372,7 @@ public class Utility {
      *
      * @param dir {@link File}, the directory to empty contents for
      * @return boolean determines whether or not the delete was successful,
-     *         <tt>true</tt> if success, <tt>false</tt> otherwise
+     * <tt>true</tt> if success, <tt>false</tt> otherwise
      */
     public static boolean deleteDirectoryContents(final File dir) {
         if (dir == null || !dir.isDirectory()) {
@@ -399,7 +400,7 @@ public class Utility {
      * {@code l} otherwise.
      *
      * @param <T> Formal type parameter
-     * @param l {@link List} of type {@code <T>}; may be {@code null} or empty
+     * @param l   {@link List} of type {@code <T>}; may be {@code null} or empty
      * @return {@link Collections#emptyList()} or {@code l}
      */
     public static <T> List<T> emptyListWhenEmpty(List<T> l) {
@@ -455,8 +456,8 @@ public class Utility {
      * @param o1 an object
      * @param o2 another object
      * @return {@code true} if both {@code o1} and {@code o2} are null or
-     *         {@code o1} equals {@code o2} in the sense of
-     *         {@link Object#equals(Object)} .
+     * {@code o1} equals {@code o2} in the sense of
+     * {@link Object#equals(Object)} .
      */
     public static boolean equals(Object o1, Object o2) {
         if (o1 == null) {
@@ -468,7 +469,7 @@ public class Utility {
     /**
      * Logs the message to the bundle's error level.
      *
-     * @param b {@link BundleContext}
+     * @param b   {@link BundleContext}
      * @param msg {@link String}
      */
     public static void error(final BundleContext b, final String msg) {
@@ -480,9 +481,9 @@ public class Utility {
     /**
      * Logs the message to the bundle's error level.
      *
-     * @param b {@link BundleContext}
+     * @param b   {@link BundleContext}
      * @param msg {@link String}
-     * @param t {@link Throwable}
+     * @param t   {@link Throwable}
      */
     public static void error(final BundleContext b, final String msg,
                              final Throwable t) {
@@ -496,14 +497,14 @@ public class Utility {
      * {@link Iterable iterable}, returning the first found match or null.
      *
      * @param iter {@link Iterable} the {@link Iterable iterable} of type
-     * {@code <T>}
-     * @param fx {@link FilterFunction} the filter function to apply to type
-     * {@code <T>}, which should not be {@code null}
+     *             {@code <T>}
+     * @param fx   {@link FilterFunction} the filter function to apply to type
+     *             {@code <T>}, which should not be {@code null}
      * @return {@code <T>} the first found item of the {@link Iterable
-     *         iterable}
-     *         or {@code null} if either no match was found, {@code fx} is
-     *         {@code null},
-     *         or {@code iter} is {@code null}
+     * iterable}
+     * or {@code null} if either no match was found, {@code fx} is
+     * {@code null},
+     * or {@code iter} is {@code null}
      */
     public static <T> T findFirst(Iterable<T> iter, FilterFunction<T> fx) {
         if (nulls(iter, fx)) {
@@ -521,13 +522,13 @@ public class Utility {
      * {@link Iterable iterable}, returning the last found match or null.
      *
      * @param iter {@link Iterable} the {@link Iterable iterable} of type
-     * {@code <T>}
-     * @param fx {@link FilterFunction} the filter function to apply to type
-     * {@code <T>}, which should not be {@code null}
+     *             {@code <T>}
+     * @param fx   {@link FilterFunction} the filter function to apply to type
+     *             {@code <T>}, which should not be {@code null}
      * @return {@code <T>} the last found item of the {@link Iterable iterable}
-     *         or {@code null} if either no match was found, {@code fx} is
-     *         {@code null},
-     *         or {@code iter} is {@code null}
+     * or {@code null} if either no match was found, {@code fx} is
+     * {@code null},
+     * or {@code iter} is {@code null}
      */
     public static <T> T findLast(Iterable<T> iter, FilterFunction<T> fx) {
         if (nulls(iter, fx)) {
@@ -547,7 +548,7 @@ public class Utility {
      * Returns a new {@link Collection} containing only items from
      * {@link Collection c} that match {@link FilterFunction fx}.
      *
-     * @param c {@link Collection}; {@code null} returns {@code null}
+     * @param c  {@link Collection}; {@code null} returns {@code null}
      * @param fx {@link FilterFunction}; {@code null} returns {@code null}
      * @return {@link Collection}
      */
@@ -577,7 +578,7 @@ public class Utility {
      * </p>
      *
      * @param iter {@link Iterable iterable} of type {@code <T>}
-     * @param fx the {@link Function function} to apply to type {@code <T>}
+     * @param fx   the {@link Function function} to apply to type {@code <T>}
      */
     public static <T> void forEach(Iterable<T> iter, Function<? super T> fx) {
         if (nulls(iter, fx)) {
@@ -594,7 +595,7 @@ public class Utility {
      * entries} within the supplied map.
      *
      * @param map Non-null {@link Map}
-     * @param fx Non-null {@link EntryFunction} to apply
+     * @param fx  Non-null {@link EntryFunction} to apply
      */
     public static <K, V> void forEach(Map<K, V> map, EntryFunction<K, V> fx) {
         Set<Entry<K, V>> entries = entries(map);
@@ -614,12 +615,12 @@ public class Utility {
      * </p>
      *
      * @param ctxt The {@link BundleContext bundle context}
-     * @param key The name of the requested property.
+     * @param key  The name of the requested property.
      * @return The value of the requested property, or <code>null</code> if the
-     *         property is undefined.
+     * property is undefined.
      * @throws SecurityException If the caller does not have the appropriate
-     * <code>PropertyPermission</code> to read the property, and the Java
-     * Runtime Environment supports permissions.
+     *                           <code>PropertyPermission</code> to read the property, and the Java
+     *                           Runtime Environment supports permissions.
      */
     public static String getBundleProperty(BundleContext ctxt, String key) {
         return ctxt.getProperty(key);
@@ -631,10 +632,10 @@ public class Utility {
      *
      * @param t the {@link Throwable throwable}
      * @return {@link Throwable} the first cause for the throwable, the
-     *         original
-     *         throwable if this is the first cause, or <tt>null</tt> if the
-     *         <tt>t</tt>
-     *         throwable was null
+     * original
+     * throwable if this is the first cause, or <tt>null</tt> if the
+     * <tt>t</tt>
+     * throwable was null
      */
     public static Throwable getFirstCause(Throwable t) {
         if (t == null) {
@@ -717,7 +718,7 @@ public class Utility {
      *
      * @param <K> Captured key type
      * @param <V> Captured value type
-     * @param m Map of type {@code <K, V>}, may be null
+     * @param m   Map of type {@code <K, V>}, may be null
      * @return boolean
      */
     public static <K, V> boolean hasItems(final Map<K, V> m) {
@@ -729,7 +730,7 @@ public class Utility {
      * than zero, {@code false} otherwise.
      *
      * @param <T> Captured array type
-     * @param t Array of type {@code <T>}
+     * @param t   Array of type {@code <T>}
      * @return boolean
      */
     public static <T> boolean hasItems(final T[] t) {
@@ -751,11 +752,11 @@ public class Utility {
      * Returns {@code true} if the element {@code t} is in the array of
      * {@code T}.
      *
-     * @param t Non-null element to search for
-     * @param ts Array of {@code T} to search in; may contain nulls
+     * @param t   Non-null element to search for
+     * @param ts  Array of {@code T} to search in; may contain nulls
      * @param <T>
      * @return {@code true} if {@code t} is found in the array,
-     *         {@code false} otherwise
+     * {@code false} otherwise
      */
     public static <T> boolean in(final T t, final T[] ts) {
         if (ts == null) return false;
@@ -843,7 +844,7 @@ public class Utility {
      * Whatever costs you pay up front for indexing the map quickly vanish on
      * each iteration of the loop.
      * </p>
-     * <p/>
+     * <p>
      * <h3>Guidelines</h3> Considering the following as a good baseline when it
      * comes to using large numbers of objects.
      * <ol>
@@ -857,10 +858,10 @@ public class Utility {
      * </ol>
      *
      * @param map The {@link Map map} to index. The keys used by the map
-     * <b>should never</b> be greater than the {@link Map#size() size} of the
-     * map. Under ideal conditions, each value {@code 0 <= x < = map.size()}
-     * should have a key assigned. Otherwise, the resulting array will waste
-     * memory (i.e., it will be a spare array).
+     *            <b>should never</b> be greater than the {@link Map#size() size} of the
+     *            map. Under ideal conditions, each value {@code 0 <= x < = map.size()}
+     *            should have a key assigned. Otherwise, the resulting array will waste
+     *            memory (i.e., it will be a spare array).
      * @return {@code T[]}
      */
     public static <T> T[] index(Class<T> cls, Map<Integer, T> map) {
@@ -881,7 +882,7 @@ public class Utility {
     /**
      * Logs the message to the bundle's info level.
      *
-     * @param b {@link BundleContext}
+     * @param b   {@link BundleContext}
      * @param msg {@link String}
      */
     public static void info(final BundleContext b, final String msg) {
@@ -942,7 +943,7 @@ public class Utility {
      * <blockquote> {@code "foo*bar"} </blockquote>
      * </p>
      *
-     * @param strings {@link Object objects} to stringify and join together
+     * @param strings   {@link Object objects} to stringify and join together
      * @param separator Separator {@link String string}
      * @return String
      */
@@ -966,7 +967,7 @@ public class Utility {
      * entries} within the supplied map.
      *
      * @param map Non-null {@link Map}
-     * @param fx Non-null {@link EntryFunction} to apply
+     * @param fx  Non-null {@link EntryFunction} to apply
      */
     public static <K, V> void mapfx(Map<K, V> map, EntryFunction<K, V> fx) {
         Set<Entry<K, V>> entries = entries(map);
@@ -994,7 +995,7 @@ public class Utility {
      *
      * @param <K> Captured key type
      * @param <V> Captured value type
-     * @param m Map of type {@code <K, V>}, may be null
+     * @param m   Map of type {@code <K, V>}, may be null
      * @return boolean
      */
     public static <K, V> boolean noItems(final Map<K, V> m) {
@@ -1006,7 +1007,7 @@ public class Utility {
      * {@code false} otherwise.
      *
      * @param <T> Captured array type
-     * @param t Array of type {@code <T>}, may be null
+     * @param t   Array of type {@code <T>}, may be null
      * @return boolean
      */
     public static <T> boolean noItems(final T[] t) {
@@ -1065,11 +1066,11 @@ public class Utility {
      * Returns {@code true} if the element {@code t} is not in the array of
      * {@code T}.
      *
-     * @param t Non-null element to search for
-     * @param ts Array of {@code T} to search in; may contain nulls
+     * @param t   Non-null element to search for
+     * @param ts  Array of {@code T} to search in; may contain nulls
      * @param <T>
      * @return {@code true} if {@code t} is not found in the array,
-     *         {@code false} otherwise
+     * {@code false} otherwise
      */
     public static <T> boolean not_in(final T t, final T[] ts) {
         if (ts == null) return true;
@@ -1116,8 +1117,8 @@ public class Utility {
      *
      * @param <K> Formal type parameter key
      * @param <V> Formal type parameter value
-     * @param s Initial hash map capacity
-     * @param lf Hash map load factor
+     * @param s   Initial hash map capacity
+     * @param lf  Hash map load factor
      * @return Hash map of type {@code K, V}
      */
     public static <K, V> HashMap<K, V> optimizedHashMap(final int s,
@@ -1136,8 +1137,8 @@ public class Utility {
      * </p>
      *
      * @param <T> Formal type parameter
-     * @param s Initial hash set capacity
-     * @param lf Hash set load factor
+     * @param s   Initial hash set capacity
+     * @param lf  Hash set load factor
      * @return Hash set of type {@code T}
      */
     public static <T> HashSet<T> optimizedHashSet(final int s, final float lf) {
@@ -1181,7 +1182,7 @@ public class Utility {
      * {@link Iterable iterable}, returning the first found match or null.
      *
      * @param iter {@link Iterable}
-     * @param fx {@link SearchFunction}
+     * @param fx   {@link SearchFunction}
      * @return {@code <T>}
      */
     public static <T> T search(Iterable<T> iter, SearchFunction<T> fx) {
@@ -1194,7 +1195,7 @@ public class Utility {
     /**
      * Returns a sized array list of type {@code T}.
      *
-     * @param <T> Formal type parameter
+     * @param <T>  Formal type parameter
      * @param size Array list size
      * @return Array list of type {@code T}
      */
@@ -1212,8 +1213,8 @@ public class Utility {
      * power of two.
      * </p>
      *
-     * @param <K> Formal type parameter key
-     * @param <V> Formal type parameter value
+     * @param <K>  Formal type parameter key
+     * @param <V>  Formal type parameter value
      * @param size Hash map initial capacity
      * @return Hash map of type {@code K, V}
      */
@@ -1230,7 +1231,7 @@ public class Utility {
      * power of two.
      * </p>
      *
-     * @param <T> Formal type parameter
+     * @param <T>  Formal type parameter
      * @param size Hash set initial capacity
      * @return Hash set of type {@code T}
      */
@@ -1241,7 +1242,7 @@ public class Utility {
     /**
      * Check equality of two substrings. This method does not create
      * intermediate {@link String} objects and is roughly equivalent to:
-     * <p/>
+     * <p>
      * <pre>
      * <code>
      * String sub1 = s1.substring(fromIndex1, toIndex1);
@@ -1250,12 +1251,12 @@ public class Utility {
      * </code>
      * </pre>
      *
-     * @param s1 First string
+     * @param s1         First string
      * @param fromIndex1 Starting index within {@code s1}
-     * @param toIndex1 Ending index within {@code s1}
-     * @param s2 Second string
+     * @param toIndex1   Ending index within {@code s1}
+     * @param s2         Second string
      * @param fromIndex2 Starting index within {@code s2}
-     * @param toIndex2 Ending index within {@code s2}
+     * @param toIndex2   Ending index within {@code s2}
      * @return {@code boolean}
      */
     public static boolean substringEquals(final String s1,
@@ -1303,7 +1304,7 @@ public class Utility {
      * @param fileProtocol File protocol URL
      * @return {@link String}; path
      * @throws MalformedURLException if no protocol is specified, or an
-     * unknown protocol is found, or <tt>spec</tt> is <tt>null</tt>.
+     *                               unknown protocol is found, or <tt>spec</tt> is <tt>null</tt>.
      */
     public static String toPath(String fileProtocol)
             throws MalformedURLException {
@@ -1315,9 +1316,9 @@ public class Utility {
      * Captures all objects of type {@code <T>} contained in the provided list
      * as a new checked list.
      *
-     * @param <T> Captured type for new checked list
+     * @param <T>     Captured type for new checked list
      * @param objects List of objects
-     * @param t Class type to capture
+     * @param t       Class type to capture
      * @return Checked list of type {@code T}; may be empty
      */
     @SuppressWarnings("unchecked")
@@ -1343,20 +1344,20 @@ public class Utility {
     /**
      * Returns a new {@link Iterator} of {@link List} elements.  The type of
      * the {@link List} elements are guaranteed to be of type {@code t}.
-     *
+     * <p>
      * <p>
      * If an element of any {@link List} cannot be assigned to {@code t} then a
      * {@link RuntimeException} is thrown.
      *
      * @param it {@link Iterator} of generic {@link List} elements;
-     * {@code null} returns {@link Collections#emptyIterator()}
-     * @param t {@link Class} of {@link List} element type; may not be
-     * {@code null}
+     *           {@code null} returns {@link Collections#emptyIterator()}
+     * @param t  {@link Class} of {@link List} element type; may not be
+     *           {@code null}
      * @return {@link Iterator} of {@link List} containing {@code <T>} type
      * elements
      * @throws NullPointerException when {@code t} is {@code null}
-     * @throws RuntimeException when a {@link List} element cannot be assigned
-     * to {@code <T>} type
+     * @throws RuntimeException     when a {@link List} element cannot be assigned
+     *                              to {@code <T>} type
      */
     public static <T> Iterator<List<T>> typedListIterator(
             @SuppressWarnings("rawtypes") final Iterator<List> it,
@@ -1371,6 +1372,7 @@ public class Utility {
             public boolean hasNext() {
                 return it.hasNext();
             }
+
             @Override
             public List<T> next() {
                 List<?> l = it.next();
@@ -1386,6 +1388,7 @@ public class Utility {
                 List<T> typedList = (List<T>) l;
                 return typedList;
             }
+
             @Override
             public void remove() {
                 it.remove();
@@ -1437,7 +1440,7 @@ public class Utility {
      *
      * @param s {@link String}
      * @return capitalized {@link String} or the original {@link String} if
-     *         {@code null} or the empty {@link String ""}
+     * {@code null} or the empty {@link String ""}
      */
     public static String capitalize(String s) {
         if (noLength(s)) {
@@ -1462,7 +1465,7 @@ public class Utility {
      * Returns the max {@link String} length from a {@link Collection}.
      *
      * @param strings {@link Collection} of {@link String}; may not be
-     * {@code null}
+     *                {@code null}
      * @return {@code int} max length
      */
     public static int maxLength(Collection<String> strings) {
@@ -1496,8 +1499,8 @@ public class Utility {
      * {@link Utility#fillOut(List, Object, int)}.
      * </p>
      *
-     * @param col {@link Collection}
-     * @param obj {@link Object} of type {@code <T>}; may be {@code null}
+     * @param col       {@link Collection}
+     * @param obj       {@link Object} of type {@code <T>}; may be {@code null}
      * @param newLength {@code int}
      */
     public static <T> void fillOut(Collection<T> col, T obj, int newLength) {
@@ -1524,8 +1527,8 @@ public class Utility {
      * {@link Utility#fillOut(Collection, Object, int)}.
      * </p>
      *
-     * @param list {@link List}
-     * @param obj {@link Object} of type {@code <T>}; may be {@code null}
+     * @param list      {@link List}
+     * @param obj       {@link Object} of type {@code <T>}; may be {@code null}
      * @param newLength {@code int}
      */
     public static <T> void fillOut(List<T> list, T obj, int newLength) {
@@ -1541,13 +1544,13 @@ public class Utility {
      * Maps a {@link Collection} of type {@code <T>} to a {@link Collection} of
      * type {@code <U>} by applying the {@link MapFunction} to each element.
      *
-     * @param o {@link Collection} of type {@code <T>}
+     * @param o  {@link Collection} of type {@code <T>}
      * @param fx {@link MapFunction}; may not be {@code null}
      * @return {@link Collection} of type {@code <U>},
-     *         {@link Collections#emptyList()} if {@code o} was {@code null} or
-     *         empty
+     * {@link Collections#emptyList()} if {@code o} was {@code null} or
+     * empty
      * @throws NullPointerException when {@code fx} is {@code null} and
-     * {@code o} has items
+     *                              {@code o} has items
      */
     public static <T, U> Collection<U> map(final Collection<T> o,
                                            MapFunction<T, U> fx) {
@@ -1569,10 +1572,10 @@ public class Utility {
      * value of type {@code <U>} but will be the initial value if {@code o} is
      * {@code null} or empty.
      *
-     * @param o {@link Collection}
+     * @param o  {@link Collection}
      * @param fx {@link FoldFunction}; may not be {@code null}
      * @return {@code <U>}; the accumulated value or the initial value if
-     *         {@code o} is {@code null} or empty
+     * {@code o} is {@code null} or empty
      */
     public static <T, U> U fold(final Collection<T> o, FoldFunction<T, U> fx) {
         if (fx == null) throw new NullPointerException("fx cannot be null");
@@ -1592,24 +1595,24 @@ public class Utility {
      * The {@code threadName} will be set on each create {@link Thread thread}
      * and cannot be {@code null}.
      * </p>
-     * <p/>
-     * <p/>
+     * <p>
+     * <p>
      * The {@link Boolean daemonize} parameter can be {@code null} meaning this
      * {@link Thread thread} will inherit the daemon status from its parent.
      * {@link Thread thread} is a daemon if {@link Boolean#TRUE true} otherwise
      * it is not a daemon.
-     * <p/>
-     * <p/>
-     * <p/>
+     * <p>
+     * <p>
+     * <p>
      * The {@link UncaughtExceptionHandler exception handler} can be set on
      * each new {@link Thread thread} allowing uncaught
      * {@link Exception exceptions} to be handled in a specific way.
      *
      * @param threadName {@link String}; may not be {@code null}
-     * @param daemonize {@link Boolean}; can be {@code null}
-     * @param exHndlr {@link UncaughtExceptionHandler}; can be {@code null}
+     * @param daemonize  {@link Boolean}; can be {@code null}
+     * @param exHndlr    {@link UncaughtExceptionHandler}; can be {@code null}
      * @return new {@link ThreadFactory} configured with {@code threadName},
-     *         {@code daemonize}, and {@code exHndlr}
+     * {@code daemonize}, and {@code exHndlr}
      * @throws NullPointerException when {@code threadName} is {@code null}
      */
     public static ThreadFactory threadFactory(final String threadName,
@@ -1633,7 +1636,7 @@ public class Utility {
 
     /**
      * Return a {@link Collection} of all lowest-valued {@code T}.
-     *
+     * <p>
      * <p>
      * For example a list containing: <pre>[7, 1, 5, 1, 3]</pre>
      * Will return: <pre>[1, 1]</pre>
@@ -1666,13 +1669,13 @@ public class Utility {
 
     /**
      * Return a {@link Collection} of all lowest-valued {@code T}.
-     *
+     * <p>
      * <p>
      * For example a list containing: <pre>[7, 1, 5, 1, 3]</pre>
      * Will return: <pre>[1, 1]</pre>
      *
      * @param col {@link Collection} of type {@code T}
-     * @param c {@link Comparator} of type {@code T}
+     * @param c   {@link Comparator} of type {@code T}
      * @return {@link Collection} of lowest-valued {@code T} or {@code null} if
      * {@code col} is {@code null} or empty
      */
@@ -1700,7 +1703,7 @@ public class Utility {
 
     /**
      * Return a {@link Collection} of all highest-valued {@code T}.
-     *
+     * <p>
      * <p>
      * For example a list containing: <pre>[1, 3, 5, 1, 1]</pre>
      * Will return: <pre>[1, 1, 1]</pre>
@@ -1733,13 +1736,13 @@ public class Utility {
 
     /**
      * Return a {@link Collection} of all highest-valued {@code T}.
-     *
+     * <p>
      * <p>
      * For example a list containing: <pre>[1, 3, 5, 1, 1]</pre>
      * Will return: <pre>[1, 1, 1]</pre>
      *
      * @param col {@link Collection} of type {@code T}
-     * @param c {@link Comparator} of type {@code T}
+     * @param c   {@link Comparator} of type {@code T}
      * @return {@link Collection} of highest-valued {@code T} or {@code null}
      * if {@code col} is {@code null} or empty
      */
@@ -1770,16 +1773,16 @@ public class Utility {
      * {@link FilterFunction}.  The first partition contains {@code T} that
      * matched the {@link FilterFunction} and the second partition contains
      * {@code T} that did not.
-     *
+     * <p>
      * <p>
      * For example a list containing: <pre>[true, true, false, false]</pre>
      * Will return a {@link Pair} of collections:
      * <pre>[true, true] and [false, false]</pre>
      * For a {@link FilterFunction} that selects by truthiness.
      *
-     * @param col {@link Collection} of type {@code T}
+     * @param col         {@link Collection} of type {@code T}
      * @param partitionFx {@link FilterFunction} of type {@code T}; may not be
-     * {@code null}
+     *                    {@code null}
      * @return {@link Pair} of partitioned {@link Collection} of type
      * {@code T}, {@code null} if {@code col} was {@code null} or empty, or
      * a {@link Pair} containing the first original {@link Collection} if the
@@ -1814,15 +1817,15 @@ public class Utility {
      * {@code T} that do not match either {@link FilterFunction} are
      * excluded from both partitions.
      *
-     * @param col {@link Collection} of type {@code T}
+     * @param col          {@link Collection} of type {@code T}
      * @param partitionFx1 {@link FilterFunction} of type {@code T}; may not be
-     * {@code null}
+     *                     {@code null}
      * @param partitionFx2 {@link FilterFunction} of type {@code T}; may not be
-     * {@code null}
+     *                     {@code null}
      * @return {@link Pair} of bucketed {@link Collection} of type {@code T},
      * {@code null} if {@code col} was {@code null} or empty
      * @throws NullPointerException when {@code partitionFx1} or
-     * {@code partitionFx2} is {@code null}
+     *                              {@code partitionFx2} is {@code null}
      */
     public static <T> Pair<Collection<T>, Collection<T>> bucket2(
             Collection<T> col, FilterFunction<T> partitionFx1,
@@ -1855,17 +1858,17 @@ public class Utility {
      * {@link FilterFunction}.  Any {@code T} that do not match either
      * {@link FilterFunction} are excluded from all partitions.
      *
-     * @param col {@link Collection} of type {@code T}
+     * @param col          {@link Collection} of type {@code T}
      * @param partitionFx1 {@link FilterFunction} of type {@code T}; may not be
-     * {@code null}
+     *                     {@code null}
      * @param partitionFx2 {@link FilterFunction} of type {@code T}; may not be
-     * {@code null}
+     *                     {@code null}
      * @param partitionFx3 {@link FilterFunction} of type {@code T}; may not be
-     * {@code null}
+     *                     {@code null}
      * @return {@link Triple} of bucketed {@link Collection} of type {@code T},
      * {@code null} if {@code col} was {@code null} or empty
      * @throws NullPointerException when {@code partitionFx1},
-     * {@code partitionFx2}, or {@code partitionFx3} is {@code null}
+     *                              {@code partitionFx2}, or {@code partitionFx3} is {@code null}
      */
     public static <T> Triple<Collection<T>, Collection<T>, Collection<T>> bucket3(
             Collection<T> col, FilterFunction<T> partitionFx1,
@@ -1906,11 +1909,11 @@ public class Utility {
      * {@code try-with-resources}.
      * </p>
      *
-     * @param f {@link File}; may not be {@code null}
+     * @param f  {@link File}; may not be {@code null}
      * @param fx {@link MapFunction}; may not be {@code null}
      * @return {@link FileIterator} iterating objects of type {@code <U>}
      * @throws NullPointerException when {@code f} or {@code fx} is
-     * {@code null}
+     *                              {@code null}
      */
     public static <U> FileIterator<U> fileIterator(final File f,
                                                    final MapFunction<String, U> fx) throws IOException {
@@ -1934,11 +1937,11 @@ public class Utility {
      * {@code try-with-resources}.
      * </p>
      *
-     * @param f {@link File}; may not be {@code null}
+     * @param f  {@link File}; may not be {@code null}
      * @param fx {@link MapFunction}; may not be {@code null}
      * @return {@link FileIterable} can iterate objects of type {@code <U>}
      * @throws NullPointerException when {@code f} or {@code fx} is
-     * {@code null}
+     *                              {@code null}
      */
     public static <U> FileIterable<U> fileIterable(final File f,
                                                    final MapFunction<String, U> fx) {
@@ -1954,23 +1957,23 @@ public class Utility {
      * Requires a {@link String key} to exist in a {@link Map map} and be of a
      * certain {@link Class type}.  If either of these conditions are not met
      * a {@link RuntimeException} is thrown.
-     *
+     * <p>
      * <p>
      * The typed value is casted safely if it can be assigned from
      * {@link Class cls}.
      *
-     * @param key {@link String}; may be {@code null} implying enforce
-     * {@link Map} contains check but not value type
-     * @param map {@link Map}; may not be {@code null}
+     * @param key        {@link String}; may be {@code null} implying enforce
+     *                   {@link Map} contains check but not value type
+     * @param map        {@link Map}; may not be {@code null}
      * @param valueClass {@link Class} {@code <T>}; may not be {@code null}
      * @return safely-casted type {@code <T>}
      * @throws NullPointerException when {@code map} or {@code valueClass} is
-     * {@code null}
-     * @throws RuntimeException when {@code key} is missing in {@code map} or
-     * the key's value is assignable from {@code valueClass}
+     *                              {@code null}
+     * @throws RuntimeException     when {@code key} is missing in {@code map} or
+     *                              the key's value is assignable from {@code valueClass}
      */
     public static <T> T requireKey(String key, Map<?, ?> map,
-            Class<T> valueClass) {
+                                   Class<T> valueClass) {
         if (map == null) throw new NullPointerException("map cannot be null");
         if (!map.containsKey(key)) {
             String msg = "key '%s': missing, expected type %s";

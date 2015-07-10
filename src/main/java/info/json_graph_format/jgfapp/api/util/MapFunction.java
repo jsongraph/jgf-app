@@ -10,8 +10,7 @@ public interface MapFunction<T, U> {
 
     /**
      * Maps type {@code T} to {@code U}.
-     * 
-     * @param o instance of type {@code T}
+     *     * @param o instance of type {@code T}
      * @return instance of type {@code U}
      */
     public U map(T o);

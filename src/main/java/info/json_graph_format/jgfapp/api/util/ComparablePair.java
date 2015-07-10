@@ -58,7 +58,7 @@ public final class ComparablePair<T1 extends Comparable<T1>, T2 extends Comparab
         if (this == o) return true;
         if (o == null || !(o instanceof ComparablePair)) return false;
 
-        final ComparablePair<?,?> other = (ComparablePair<?,?>) o;
+        final ComparablePair<?, ?> other = (ComparablePair<?, ?>) o;
 
         if (first == null) {
             if (other.first != null) return false;

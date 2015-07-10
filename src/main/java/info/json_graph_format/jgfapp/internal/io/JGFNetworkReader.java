@@ -55,12 +55,12 @@ public class JGFNetworkReader extends AbstractCyNetworkReader {
     protected final CyNetworkViewManager networkViewMgr;
 
     public JGFNetworkReader(InputStream inputStream, String inputName,
-            GraphReader graphReader, GraphConverter belGraphConverter,
-            BELEvidenceMapper belEvidenceMapper, CyApplicationManager appMgr,
-            CyNetworkViewFactory networkViewFactory, CyNetworkFactory networkFactory,
-            CyNetworkManager networkMgr, CyNetworkViewManager networkViewMgr,
-            CyRootNetworkManager rootNetworkMgr, CyTableFactory tableFactory,
-            CyTableManager tableMgr, VisualMappingManager visMgr, CyEventHelper eventHelper) {
+                            GraphReader graphReader, GraphConverter belGraphConverter,
+                            BELEvidenceMapper belEvidenceMapper, CyApplicationManager appMgr,
+                            CyNetworkViewFactory networkViewFactory, CyNetworkFactory networkFactory,
+                            CyNetworkManager networkMgr, CyNetworkViewManager networkViewMgr,
+                            CyRootNetworkManager rootNetworkMgr, CyTableFactory tableFactory,
+                            CyTableManager tableMgr, VisualMappingManager visMgr, CyEventHelper eventHelper) {
         super(inputStream, networkViewFactory, networkFactory, networkMgr, rootNetworkMgr);
 
         if (inputStream == null) throw new NullPointerException("inputStream cannot be null");
@@ -98,7 +98,10 @@ public class JGFNetworkReader extends AbstractCyNetworkReader {
                 if (view == null || style == null) return;
 
                 // ...wait for view to be active before setting visual style
-                try { Thread.sleep(500); } catch (InterruptedException e) {}
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException e) {
+                }
                 Set<CyNetworkView> views = networkViewMgr.getNetworkViewSet();
 
                 if (views.contains(view)) {
@@ -151,9 +154,9 @@ public class JGFNetworkReader extends AbstractCyNetworkReader {
      * @param inputStream {@link InputStream} input
      * @param graphReader {@link info.json_graph_format.jgfapp.api.GraphReader} graph reader
      * @return {@link GraphsWithValidation} when validation succeeds
-     * @throws IOException when an IO error occurred reading {@code inputStream}
+     * @throws IOException      when an IO error occurred reading {@code inputStream}
      * @throws RuntimeException when schema validation does not succeed, the user
-     * will receive the error
+     *                          will receive the error
      */
     protected GraphsWithValidation checkSchema(InputStream inputStream, GraphReader graphReader) throws IOException {
         final GraphsWithValidation gv = graphReader.validatingRead(inputStream);

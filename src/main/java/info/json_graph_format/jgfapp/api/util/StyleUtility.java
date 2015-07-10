@@ -24,20 +24,20 @@ public class StyleUtility {
      * {@link InputStream styleResource}. The styles are removed first to prevent
      * duplicates and allow for this action to be idempotent.
      *
-     * @param styleResource {@link InputStream} the stream which styles are loaded
-     * from; cannot be {@code null}
+     * @param styleResource     {@link InputStream} the stream which styles are loaded
+     *                          from; cannot be {@code null}
      * @param styleResourceName {@link String} the resource name; cannot be
-     * {@code null}
-     * @param visMgr {@link VisualMappingManager} the Cytoscape service that is used
-     * to view and edit currently loaded styles; cannot be {@code null}
-     * @param vizmapReaderMgr {@link VizmapReaderManager} the Cytoscape service that
-     * can read {@link VisualStyle visual styles} from a vizmap file; cannot be
-     * {@code null}
+     *                          {@code null}
+     * @param visMgr            {@link VisualMappingManager} the Cytoscape service that is used
+     *                          to view and edit currently loaded styles; cannot be {@code null}
+     * @param vizmapReaderMgr   {@link VizmapReaderManager} the Cytoscape service that
+     *                          can read {@link VisualStyle visual styles} from a vizmap file; cannot be
+     *                          {@code null}
      */
     public static void contributeStylesIdempotently(InputStream styleResource,
-                                        String styleResourceName,
-                                        VisualMappingManager visMgr,
-                                        VizmapReaderManager vizmapReaderMgr) {
+                                                    String styleResourceName,
+                                                    VisualMappingManager visMgr,
+                                                    VizmapReaderManager vizmapReaderMgr) {
         if (styleResource == null)
             throw new NullPointerException("styleResource cannot be null");
         if (styleResourceName == null)
@@ -63,7 +63,7 @@ public class StyleUtility {
 
         // remove existing styles having those titles
         Iterator<VisualStyle> styleIt = visMgr.getAllVisualStyles().iterator();
-        while(styleIt.hasNext()) {
+        while (styleIt.hasNext()) {
             VisualStyle style = styleIt.next();
             if (contributedStyleTitles.contains(style.getTitle()))
                 styleIt.remove();
@@ -79,7 +79,7 @@ public class StyleUtility {
      * if it does not exist in {@link VisualMappingManager}.
      *
      * @param title {@link String} title; cannot be {@code null}
-     * @param mgr {@link VisualMappingManager} Cytoscape service; cannot be {@code null}
+     * @param mgr   {@link VisualMappingManager} Cytoscape service; cannot be {@code null}
      * @return the {@link VisualStyle} or {@code null} if it does not exist
      */
     public static VisualStyle findVisualStyleByTitle(String title, VisualMappingManager mgr) {
@@ -100,16 +100,20 @@ public class StyleUtility {
 
     private static final class NoOpTaskMonitor implements TaskMonitor {
         @Override
-        public void setTitle(String s) {}
+        public void setTitle(String s) {
+        }
 
         @Override
-        public void setProgress(double v) {}
+        public void setProgress(double v) {
+        }
 
         @Override
-        public void setStatusMessage(String s) {}
+        public void setStatusMessage(String s) {
+        }
 
         @Override
-        public void showMessage(Level level, String s) {}
+        public void showMessage(Level level, String s) {
+        }
     }
 
     private StyleUtility() {

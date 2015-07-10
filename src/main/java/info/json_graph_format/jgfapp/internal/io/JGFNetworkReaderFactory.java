@@ -37,12 +37,12 @@ public class JGFNetworkReaderFactory implements InputStreamTaskFactory {
     private final BELEvidenceMapper belEvidenceMapper;
 
     public JGFNetworkReaderFactory(final CyFileFilter cyFileFilter, final CyApplicationManager appMgr,
-            final CyNetworkViewFactory cyNetworkViewFactory, final CyNetworkFactory cyNetworkFactory,
-            final CyNetworkManager cyNetworkManager, final CyNetworkViewManager cyNetworkViewManager,
-            final CyRootNetworkManager cyRootNetworkManager, final CyTableFactory cyTableFactory,
-            final CyTableManager cyTableManager, final VisualMappingManager visMgr,
-            final CyEventHelper eventHelper, final GraphReader graphReader,
-            final GraphConverter belGraphConverter, final BELEvidenceMapper belEvidenceMapper) {
+                                   final CyNetworkViewFactory cyNetworkViewFactory, final CyNetworkFactory cyNetworkFactory,
+                                   final CyNetworkManager cyNetworkManager, final CyNetworkViewManager cyNetworkViewManager,
+                                   final CyRootNetworkManager cyRootNetworkManager, final CyTableFactory cyTableFactory,
+                                   final CyTableManager cyTableManager, final VisualMappingManager visMgr,
+                                   final CyEventHelper eventHelper, final GraphReader graphReader,
+                                   final GraphConverter belGraphConverter, final BELEvidenceMapper belEvidenceMapper) {
 
         this.cyFileFilter = cyFileFilter;
         this.appMgr = appMgr;
@@ -80,9 +80,9 @@ public class JGFNetworkReaderFactory implements InputStreamTaskFactory {
     public TaskIterator createTaskIterator(InputStream is, String inputName) {
         return new TaskIterator(
                 new JGFNetworkReader(is, inputName, graphReader, belGraphConverter,
-                                     belEvidenceMapper, appMgr, cyNetworkViewFactory,
-                                     cyNetworkFactory, cyNetworkManager, cyNetworkViewManager,
-                                     cyRootNetworkManager, cyTableFactory, cyTableManager,
-                                     visMgr, eventHelper));
+                        belEvidenceMapper, appMgr, cyNetworkViewFactory,
+                        cyNetworkFactory, cyNetworkManager, cyNetworkViewManager,
+                        cyRootNetworkManager, cyTableFactory, cyTableManager,
+                        visMgr, eventHelper));
     }
 }

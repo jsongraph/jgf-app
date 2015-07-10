@@ -15,10 +15,10 @@ public interface BELEvidenceMapper {
      * Maps an {@link Edge edge} to an array of {@link Evidence} objects.
      *
      * @param graph the {@link Graph}; cannot be {@code null}
-     * @param edge the {@link Edge}; cannot be {@code null}
+     * @param edge  the {@link Edge}; cannot be {@code null}
      * @return the {@link Evidence} array; will not be {@code null} but may be empty
      * @throws java.lang.NullPointerException if {@code graph} or {@code edge} is
-     * {@code null}
+     *                                        {@code null}
      */
     public Evidence[] mapEdgeToEvidence(Graph graph, Edge edge);
 
@@ -31,17 +31,17 @@ public interface BELEvidenceMapper {
      * The {@link Edge edge} should provide the cytoscape edge information
      * (see {@link Edge#cyEdge}). This can provide access to the edge SUID.
      *
-     * @param graph the {@link Graph} containg the evidence; cannot be {@code null}
-     * and {@link Graph#cyNetwork} cannot be {@code null}
-     * @param edge the {@link Edge} containing the evidence; cannot be {@code null}
-     * and {@link Edge#cyEdge} cannot be {@code null}
+     * @param graph    the {@link Graph} containg the evidence; cannot be {@code null}
+     *                 and {@link Graph#cyNetwork} cannot be {@code null}
+     * @param edge     the {@link Edge} containing the evidence; cannot be {@code null}
+     *                 and {@link Edge#cyEdge} cannot be {@code null}
      * @param evidence the {@link Evidence} to map; cannot be {@code null}
-     * @param table the {@link CyTable} to map to; cannot be {@code null}
-     * @throws NullPointerException when {@code graph}, {@code edge},
-     * {@code evidence}, or {@code table} is {@code null}
+     * @param table    the {@link CyTable} to map to; cannot be {@code null}
+     * @throws NullPointerException     when {@code graph}, {@code edge},
+     *                                  {@code evidence}, or {@code table} is {@code null}
      * @throws IllegalArgumentException when the {@code graph}'s
-     * {@link Graph#cyNetwork} is {@code null} or the {@code edge}'s
-     * {@link Edge#cyEdge} is {@code null}
+     *                                  {@link Graph#cyNetwork} is {@code null} or the {@code edge}'s
+     *                                  {@link Edge#cyEdge} is {@code null}
      */
     public void mapToTable(Graph graph, Edge edge, Evidence evidence, CyTable table);
 
@@ -49,7 +49,7 @@ public interface BELEvidenceMapper {
      * Maps an {@link Edge edge} of the {@link CyTable table} to an array of
      * {@link Evidence} objects.
      *
-     * @param edge the {@link CyEdge}; cannot be {@code null}
+     * @param edge  the {@link CyEdge}; cannot be {@code null}
      * @param table the {@link CyTable}; cannot be {@code null}
      * @return the {@link Evidence} array; will not be {@code null} but may be empty
      */

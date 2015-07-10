@@ -23,10 +23,10 @@ public class JGFFileFilter extends BasicCyFileFilter {
     private static final Logger logger = LoggerFactory.getLogger(JGFFileFilter.class);
 
     public JGFFileFilter(StreamUtil streamUtil) {
-        super(new String[] {"jgf"},
-              new String[] {"application/jgf+json"},
-              "JSON Graph Format",
-              DataCategory.NETWORK, streamUtil);
+        super(new String[]{"jgf"},
+                new String[]{"application/jgf+json"},
+                "JSON Graph Format",
+                DataCategory.NETWORK, streamUtil);
     }
 
     /**

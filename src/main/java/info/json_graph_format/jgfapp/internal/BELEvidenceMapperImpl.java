@@ -34,7 +34,7 @@ public class BELEvidenceMapperImpl implements BELEvidenceMapper {
             return new Evidence[0];
         List<Map> evidenceMap = typedList(((List) evidences), Map.class);
 
-        List<Evidence> evidenceList = new ArrayList<Evidence>();
+        List<Evidence> evidenceList = new ArrayList<>();
         for (Map item : evidenceMap) {
             @SuppressWarnings("unchecked")
             Map<String, Object> evMap = (Map<String, Object>) item;
@@ -57,7 +57,7 @@ public class BELEvidenceMapperImpl implements BELEvidenceMapper {
             if (contextMap != null) {
                 context.speciesCommonName = getOrEmptyString("species_common_name", contextMap);
                 context.ncbiTaxId = getOrZero("ncbi_tax_id", contextMap);
-                Set<String> varying = new HashSet<String>(contextMap.keySet());
+                Set<String> varying = new HashSet<>(contextMap.keySet());
                 varying.removeAll(asList("species_common_name", "ncbi_tax_id"));
                 for (String key : varying) {
                     context.variedAnnotations.put(key, contextMap.get(key));
@@ -127,16 +127,17 @@ public class BELEvidenceMapperImpl implements BELEvidenceMapper {
         if (edge == null) throw new NullPointerException("edge cannot be null");
         if (table == null) throw new NullPointerException("table cannot be null");
 
-        Set<String> nonAnnotationColumns = new HashSet<String>(
+        Set<String> nonAnnotationColumns = new HashSet<>(
                 asList(CyNetwork.SUID, NETWORK_SUID, NETWORK_NAME, EDGE_SUID,
-                       BEL_STATEMENT, SUMMARY_TEXT, CITATION_ID, CITATION_NAME,
-                       CITATION_TYPE, SPECIES));
+                        BEL_STATEMENT, SUMMARY_TEXT, CITATION_ID, CITATION_NAME,
+                        CITATION_TYPE, SPECIES));
 
         Collection<CyRow> evidenceRows = table.getMatchingRows(EDGE_SUID, edge.getSUID());
-        List<Evidence> evidences = new ArrayList<Evidence>(evidenceRows.size());
+        List<Evidence> evidences = new ArrayList<>(evidenceRows.size());
         if (!evidenceRows.isEmpty()) {
             for (CyRow evRow : evidenceRows) {
                 Evidence e = new Evidence();
+                e.evidenceId = evRow.get(CyIdentifiable.SUID, Long.class);
                 e.belStatement = evRow.get(BEL_STATEMENT, String.class);
                 e.summaryText = evRow.get(SUMMARY_TEXT, String.class);
                 e.citation = new Citation();
@@ -145,7 +146,8 @@ public class BELEvidenceMapperImpl implements BELEvidenceMapper {
                 e.citation.type = evRow.get(CITATION_TYPE, String.class);
                 e.biologicalContext = new BiologicalContext();
                 e.biologicalContext.speciesCommonName = evRow.get(SPECIES, String.class);
-                e.biologicalContext.variedAnnotations = new HashMap<String, Object>();
+
+                e.biologicalContext.variedAnnotations = new HashMap<>();
                 for (Entry<String, Object> columnValue : evRow.getAllValues().entrySet()) {
                     if (nonAnnotationColumns.contains(columnValue.getKey()))
                         continue;

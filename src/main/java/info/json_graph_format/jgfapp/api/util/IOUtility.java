@@ -2,7 +2,9 @@ package info.json_graph_format.jgfapp.api.util;
 
 import com.google.common.io.Files;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
@@ -16,14 +18,14 @@ public class IOUtility {
     /**
      * Extract a {@link ZipInputStream} to a {@link File directory}.
      *
-     * @param zip {@link ZipInputStream}; cannot be {@code null}
+     * @param zip         {@link ZipInputStream}; cannot be {@code null}
      * @param destination {@link File}; cannot be {@code null}
      * @throws java.lang.NullPointerException if {@code zip} or {@code destination}
-     * is {@code null}
-     * @throws java.io.IOException if {@code destination} cannot be created when
-     * it doesn't exist, the {@code destination} sub-directories cannot be created, the jar
-     * entry could not be read, or the jar entry could not be written to the destination
-     * directory
+     *                                        is {@code null}
+     * @throws java.io.IOException            if {@code destination} cannot be created when
+     *                                        it doesn't exist, the {@code destination} sub-directories cannot be created, the jar
+     *                                        entry could not be read, or the jar entry could not be written to the destination
+     *                                        directory
      */
     public static void extract(ZipInputStream zip, File destination) throws IOException {
         if (zip == null) throw new NullPointerException("zip cannot be null");
@@ -36,7 +38,7 @@ public class IOUtility {
         }
 
         byte[] buffer = new byte[1024];
-        try{
+        try {
             ZipEntry entry;
             while ((entry = zip.getNextEntry()) != null) {
                 String fileName = entry.getName();
@@ -67,7 +69,7 @@ public class IOUtility {
                     }
                 }
             }
-        }catch(IOException ex){
+        } catch (IOException ex) {
             ex.printStackTrace();
         }
     }
@@ -76,14 +78,14 @@ public class IOUtility {
      * Copy {@link File source directory} to {@link File destination directory}
      * recursively.
      *
-     * @param source {@link File}; cannot be {@code null}
+     * @param source      {@link File}; cannot be {@code null}
      * @param destination {@link File}; cannot be {@code null}
-     * @throws java.lang.NullPointerException when {@code source} or {@code destination}
-     * is {@code null}
+     * @throws java.lang.NullPointerException     when {@code source} or {@code destination}
+     *                                            is {@code null}
      * @throws java.lang.IllegalArgumentException when {@code source} is not a
-     * directory
-     * @throws IOException when {@code destination} directory could not be created
-     * in the case that it doesn't exist
+     *                                            directory
+     * @throws IOException                        when {@code destination} directory could not be created
+     *                                            in the case that it doesn't exist
      */
     public static void copyDir(File source, File destination) throws IOException {
         if (source == null)
@@ -102,7 +104,7 @@ public class IOUtility {
     }
 
     private static void recursiveCopyDir(File source, File destination) throws IOException {
-        if(source.isDirectory()) {
+        if (source.isDirectory()) {
             if (!destination.exists()) {
                 if (!destination.mkdirs()) {
                     throw new IOException("The destination directory could not be created.");

@@ -27,7 +27,7 @@ public class FormatUtility {
      *
      * @param key the {@link String} key
      * @param map the {@link Map} of {@link String} key / {@link Object} value;
-     * cannot be {@code null}
+     *            cannot be {@code null}
      * @return {@code value} as a {@link String} or {@code ""}
      * @throws java.lang.NullPointerException when {@code map} is {@code null}
      */
@@ -45,7 +45,7 @@ public class FormatUtility {
      *
      * @param key the {@link String} key
      * @param map the {@link Map} of {@link String} key / {@link Object} value;
-     * cannot be {@code null}
+     *            cannot be {@code null}
      * @return {@code value} as an {@link Integer} or {@code 0}
      * @throws java.lang.NullPointerException when {@code map} is {@code null}
      */
@@ -68,7 +68,7 @@ public class FormatUtility {
         for (ProcessingMessage m : report) {
             JsonNode data = m.asJson();
             Iterator<Map.Entry<String, JsonNode>> entries = data.get("reports").fields();
-            while(entries.hasNext()) {
+            while (entries.hasNext()) {
                 Map.Entry<String, JsonNode> entry = entries.next();
                 if (!(entry.getValue() instanceof ArrayNode)) continue;
 
