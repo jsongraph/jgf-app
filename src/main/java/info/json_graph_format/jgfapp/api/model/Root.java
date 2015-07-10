@@ -1,5 +1,7 @@
 package info.json_graph_format.jgfapp.api.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.List;
 
 /**
@@ -8,7 +10,10 @@ import java.util.List;
  */
 public class Root {
 
+    @JsonProperty("graph")
     public Graph graph;
+
+    @JsonProperty("graphs")
     public List<Graph> graphs;
 
     /**

@@ -1,6 +1,7 @@
 package info.json_graph_format.jgfapp.api.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * {@link Evidence} represents the "evidence" definition from the
@@ -15,8 +16,15 @@ public class Evidence {
     @JsonIgnore
     public Long evidenceId;
 
+    @JsonProperty("bel_statement")
     public String belStatement;
+
+    @JsonProperty("citation")
     public Citation citation;
+
+    @JsonProperty("biological_context")
     public BiologicalContext biologicalContext;
+
+    @JsonProperty("summary_text")
     public String summaryText;
 }
