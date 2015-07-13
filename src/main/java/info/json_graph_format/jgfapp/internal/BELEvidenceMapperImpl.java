@@ -119,15 +119,17 @@ public class BELEvidenceMapperImpl implements BELEvidenceMapper {
         }
     }
 
-    public void mapToTable(CyNetwork cyN, CyEdge cyE, Evidence evidence, CyTable table) {
+    public void mapToTable(Long suid, CyNetwork cyN, CyEdge cyE, Evidence evidence, CyTable table) {
         if (cyN == null) throw new NullPointerException("CyN cannot be null");
         if (cyE == null) throw new NullPointerException("edge cannot be null");
         if (evidence == null) throw new NullPointerException("evidence cannot be null");
         if (table == null) throw new NullPointerException("table cannot be null");
 
+        Long evidenceSUID = Optional.ofNullable(suid).orElse(SUIDFactory.getNextSUID());
+
         CyRow networkRow = cyN.getRow(cyN);
         String networkName = networkRow.get(CyNetwork.NAME, String.class);
-        CyRow row = table.getRow(SUIDFactory.getNextSUID());
+        CyRow row = table.getRow(evidenceSUID);
 
         row.set(NETWORK_SUID, cyN.getSUID());
         row.set(NETWORK_NAME, networkName);

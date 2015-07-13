@@ -10,23 +10,19 @@ import org.cytoscape.model.*;
 import org.w3c.dom.Element;
 import org.w3c.dom.events.EventTarget;
 
-import javax.swing.*;
-import java.awt.event.WindowEvent;
 import java.io.IOException;
 import java.util.Objects;
 
 public class EvidenceCreatePanel extends HTMLPanel {
 
-    private final JFrame parentFrame;
     private final EvidencePanelComponent evComponent;
     private final CyTable evTable;
     private final CyNetwork cyN;
     private final CyEdge cyE;
 
-    public EvidenceCreatePanel(JFrame parentFrame, EvidencePanelComponent evComponent, CyTable evTable, CyNetwork cyN, CyEdge cyE) {
+    public EvidenceCreatePanel(EvidencePanelComponent evComponent, CyTable evTable, CyNetwork cyN, CyEdge cyE) {
         super("/form-html/form.html");
 
-        this.parentFrame = parentFrame;
         this.evComponent = evComponent;
         this.evTable     = evTable;
         this.cyN         = cyN;
@@ -43,7 +39,7 @@ public class EvidenceCreatePanel extends HTMLPanel {
             }
 
             BELEvidenceMapper mapper = new BELEvidenceMapperImpl();
-            mapper.mapToTable(cyN, cyE, convertEvidence(), evTable);
+            mapper.mapToTable(null, cyN, cyE, convertEvidence(), evTable);
             evComponent.refresh(cyE);
         }, false);
 

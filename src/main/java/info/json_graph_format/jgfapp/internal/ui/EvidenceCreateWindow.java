@@ -8,9 +8,10 @@ import javax.swing.*;
 
 public class EvidenceCreateWindow extends JFrame {
 
-    public EvidenceCreateWindow(EvidencePanelComponent evComponent, CyTable table, CyNetwork cyN, CyEdge cyE) {
+    public EvidenceCreateWindow(EvidencePanelComponent evComponent,
+                                CyTable table, CyNetwork cyN, CyEdge cyE) {
         JFrame frame = new JFrame("Create Evidence");
-        frame.add(new EvidenceCreatePanel(this, evComponent, table, cyN, cyE));
+        frame.add(new EvidenceCreatePanel(evComponent, table, cyN, cyE));
         frame.setSize(600, 400);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

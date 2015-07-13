@@ -109,7 +109,7 @@ public class EvidencePanelComponent implements CytoPanelComponent, RowsSetListen
             CyEdge cyE = cyN.getEdge(row.get(EDGE_SUID, Long.class));
             if (cyE == null) return;
 
-            new EvidenceEditWindow(cyN, cyE, evidence);
+            new EvidenceEditWindow(evidence, this, evTable, cyN, cyE);
         }
     }
 

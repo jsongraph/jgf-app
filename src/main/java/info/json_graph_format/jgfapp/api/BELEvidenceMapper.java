@@ -7,6 +7,8 @@ import org.cytoscape.model.CyEdge;
 import org.cytoscape.model.CyNetwork;
 import org.cytoscape.model.CyTable;
 
+import java.util.Optional;
+
 /**
  * {@link BELEvidenceMapper} handles {@link Evidence} conversions.
  */
@@ -63,7 +65,7 @@ public interface BELEvidenceMapper {
      *                                  {@link Graph#cyNetwork} is {@code null} or the {@code edge}'s
      *                                  {@link Edge#cyEdge} is {@code null}
      */
-    public void mapToTable(CyNetwork cyN, CyEdge cyE, Evidence evidence, CyTable table);
+    public void mapToTable(Long suid, CyNetwork cyN, CyEdge cyE, Evidence evidence, CyTable table);
 
     /**
      * Maps an {@link Edge edge} of the {@link CyTable table} to an array of
