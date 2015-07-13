@@ -28,7 +28,7 @@ public class EvidenceListPanel extends HTMLPanel {
             if (!Objects.equals(((Element) evt.getCurrentTarget()).getTagName(), "BUTTON")) {
                 return;
             }
-            evidenceComponent.createEvidence(1L, 1L);
+            evidenceComponent.createEvidence();
         }, false);
     }
 

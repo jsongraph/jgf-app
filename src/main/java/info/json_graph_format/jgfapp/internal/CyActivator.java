@@ -121,7 +121,7 @@ public class CyActivator extends AbstractCyActivator {
         // register listeners
         final Properties evidenceProps = new Properties();
         evidenceProps.put("name", "evidence");
-        EvidencePanelComponent evidencePanelComponent = new EvidencePanelComponent(belEvidenceMapper, cyTableManager, cyNetworkManager);
+        EvidencePanelComponent evidencePanelComponent = new EvidencePanelComponent(belEvidenceMapper, cyTableManager, cyNetworkManager, appMgr);
         registerAllServices(bc, evidencePanelComponent, evidenceProps);
         registerAllServices(bc, new SessionListener(visMgr, vizmapReaderMgr), new Properties());
 

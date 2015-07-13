@@ -33,6 +33,7 @@ public class EvidenceEditPanel extends HTMLPanel {
         HTMLElement htmlBody = ((HTMLDocument) webEngine.getDocument()).getBody();
         Element pEvidence = createElementWithText(webEngine.getDocument(), "p", evidenceJSON);
         pEvidence.setAttribute("id", "evidence-json");
+        pEvidence.setAttribute("style", "display: none;");
         htmlBody.appendChild(pEvidence);
 
         webEngine.executeScript("populateForm();");

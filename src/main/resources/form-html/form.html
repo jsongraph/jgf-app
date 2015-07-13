@@ -1,9 +1,10 @@
 <!doctype html>
 <html xmlns="http:www.w3.org/1999/xhtml">
     <head>
+        <meta charset="UTF-8">
         <title>Create evidence</title>
-        <link rel="stylesheet" href="http:netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
-        <link rel="stylesheet" href="http:netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" />
 
         <script type="text/javascript">
             function reset() {
@@ -13,10 +14,16 @@
 
             function readFormAsJSON() {
                 var bel_statement = document.getElementById('bel-statement');
+                var citation_id   = document.getElementById('citation-id');
+                var citation_name = document.getElementById('citation-name');
                 var summary_text  = document.getElementById('summary-text');
 
                 var evidence = {
                     bel_statement: bel_statement.value,
+                    citation: {
+                        id:   citation_id.value,
+                        name: citation_name.value
+                    },
                     summary_text:  summary_text.value
                 }
 
@@ -81,6 +88,7 @@
                         </div>
                     </div>
 
+                    <!--
                     <label class="col-md-4 control-label">Annotations</label>
                     <div class="container">
                         <div class="form-horizontal row">
@@ -127,10 +135,11 @@
                         </div>
                     </div>
                 </fieldset>
+                -->
 
                 <div class="form-group">
                     <div class="col-md-8">
-                        <button id="ok-button"    name="ok-button"    class="btn btn-primary">OK</button>
+                        <button id="save-button"  name="save-button"  class="btn btn-primary">Save</button>
                         <button id="reset-button" name="reset-button" class="btn btn-warning">Reset</button>
                     </div>
                 </div>

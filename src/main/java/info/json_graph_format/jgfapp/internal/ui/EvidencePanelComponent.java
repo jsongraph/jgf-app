@@ -2,6 +2,7 @@ package info.json_graph_format.jgfapp.internal.ui;
 
 import info.json_graph_format.jgfapp.api.BELEvidenceMapper;
 import info.json_graph_format.jgfapp.api.model.Evidence;
+import org.cytoscape.application.CyApplicationManager;
 import org.cytoscape.application.swing.CytoPanelComponent;
 import org.cytoscape.application.swing.CytoPanelName;
 import org.cytoscape.model.*;
@@ -11,14 +12,12 @@ import org.cytoscape.model.events.RowsSetListener;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Optional;
+import java.util.*;
 
 import static info.json_graph_format.jgfapp.api.util.TableUtility.getTable;
 import static info.json_graph_format.jgfapp.internal.Constants.EDGE_SUID;
 import static info.json_graph_format.jgfapp.internal.Constants.NETWORK_SUID;
+import static info.json_graph_format.jgfapp.internal.Constants.SELECTED;
 import static java.util.Arrays.asList;
 
 /**
@@ -34,16 +33,19 @@ import static java.util.Arrays.asList;
  */
 public class EvidencePanelComponent implements CytoPanelComponent, RowsSetListener {
 
-    private EvidencePanel evidencePanel;
     private final BELEvidenceMapper belEvidenceMapper;
     private final CyTableManager tableManager;
     private final CyNetworkManager networkManager;
+    private final CyApplicationManager appManager;
+    private EvidencePanel evidencePanel;
 
     public EvidencePanelComponent(BELEvidenceMapper belEvidenceMapper,
-                                  CyTableManager tableManager, CyNetworkManager networkManager) {
+                                  CyTableManager tableManager, CyNetworkManager networkManager,
+                                  CyApplicationManager appManager) {
         this.belEvidenceMapper = belEvidenceMapper;
         this.tableManager = tableManager;
         this.networkManager = networkManager;
+        this.appManager = appManager;
     }
 
     /**
@@ -78,8 +80,18 @@ public class EvidencePanelComponent implements CytoPanelComponent, RowsSetListen
         return null;
     }
 
-    public void createEvidence(Long networkSUID, Long edgeSUID) {
-        new EvidenceCreateWindow(networkSUID, edgeSUID);
+    public void createEvidence() {
+        final CyTable evTable = getTable("BEL.Evidence", tableManager);
+        if (evTable == null) return;
+
+        final CyNetwork network = appManager.getCurrentNetwork();
+
+        Optional<CyEdge> edge = CyTableUtil.
+                getEdgesInState(network, SELECTED, true).stream().findFirst();
+        if (edge.isPresent()) {
+            CyEdge theEdge = edge.get();
+            new EvidenceCreateWindow(this, evTable, network, theEdge);
+        }
     }
 
     public void editEvidence(Evidence evidence) {
@@ -125,6 +137,26 @@ public class EvidencePanelComponent implements CytoPanelComponent, RowsSetListen
         }
     }
 
+    public void refresh(CyEdge cyE) {
+        CyTable evTable = getTable("BEL.Evidence", tableManager);
+        if (evTable == null) return;
+
+        Collection<CyRow> evidenceRows = evTable.getMatchingRows(EDGE_SUID, cyE.getSUID());
+        if (!evidenceRows.isEmpty()) {
+            CyRow row = evidenceRows.iterator().next();
+            Long networkSUID = row.get(NETWORK_SUID, Long.class);
+            CyNetwork cyN = networkManager.getNetwork(networkSUID);
+            if (cyN == null) return;
+            CyEdge edge = cyN.getEdge(row.get(EDGE_SUID, Long.class));
+            if (edge == null) return;
+
+            Evidence[] evidences = belEvidenceMapper.mapFromTable(edge, evTable);
+            evidencePanel.update(asList(evidences), this);
+        } else {
+            evidencePanel.update(new ArrayList<>(), this);
+        }
+    }
+
     /**
      * {@inheritDoc}
      */
@@ -161,5 +193,4 @@ public class EvidencePanelComponent implements CytoPanelComponent, RowsSetListen
             evidencePanel.update(new ArrayList<>(), this);
         }
     }
-
 }

@@ -119,6 +119,44 @@ public class BELEvidenceMapperImpl implements BELEvidenceMapper {
         }
     }
 
+    public void mapToTable(CyNetwork cyN, CyEdge cyE, Evidence evidence, CyTable table) {
+        if (cyN == null) throw new NullPointerException("CyN cannot be null");
+        if (cyE == null) throw new NullPointerException("edge cannot be null");
+        if (evidence == null) throw new NullPointerException("evidence cannot be null");
+        if (table == null) throw new NullPointerException("table cannot be null");
+
+        CyRow networkRow = cyN.getRow(cyN);
+        String networkName = networkRow.get(CyNetwork.NAME, String.class);
+        CyRow row = table.getRow(SUIDFactory.getNextSUID());
+
+        row.set(NETWORK_SUID, cyN.getSUID());
+        row.set(NETWORK_NAME, networkName);
+        row.set(EDGE_SUID, cyE.getSUID());
+        row.set(BEL_STATEMENT, evidence.belStatement);
+        row.set(SUMMARY_TEXT, evidence.summaryText);
+
+        if (evidence.citation != null) {
+            row.set(CITATION_TYPE, evidence.citation.type);
+            row.set(CITATION_ID, evidence.citation.id);
+            row.set(CITATION_NAME, evidence.citation.name);
+        }
+
+        if (evidence.biologicalContext != null) {
+            // create any annotation columns that do not already exist
+            BiologicalContext bc = evidence.biologicalContext;
+            for (String varyingKey : bc.variedAnnotations.keySet()) {
+                getOrCreateColumn(varyingKey, String.class, false, table);
+            }
+
+            // set annotation values
+            row.set(SPECIES, bc.speciesCommonName);
+            Map<String, Object> varying = bc.variedAnnotations;
+            for (Entry<String, Object> entry : varying.entrySet()) {
+                row.set(entry.getKey(), getOrEmptyString(entry.getKey(), varying));
+            }
+        }
+    }
+
     /**
      * {@inheritDoc}
      */

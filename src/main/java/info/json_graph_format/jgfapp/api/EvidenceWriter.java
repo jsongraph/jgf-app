@@ -8,7 +8,7 @@ import java.io.OutputStream;
 
 public interface EvidenceWriter {
 
-    public void write(Evidence evidence, OutputStream output) throws IOException;
+    void write(Evidence evidence, OutputStream output) throws IOException;
 
-    public String serialize(Evidence evidence) throws JsonProcessingException;
+    String serialize(Evidence evidence) throws JsonProcessingException;
 }

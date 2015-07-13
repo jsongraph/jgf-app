@@ -119,6 +119,12 @@ public class Constants {
      */
     public static final String SPECIES = "species";
 
+    /**
+     * Name of the cytoscape column holding the selected status
+     * ({@code boolean}) of the row.
+     */
+    public static final String SELECTED = "selected";
+
     private Constants() {
         // static accessors only
     }

@@ -45,9 +45,7 @@ public abstract class HTMLPanel extends JFXPanel {
      * @throws InterruptedException
      */
     protected Object callJavascript(String jsCommand) throws ExecutionException, InterruptedException {
-        FutureTask future = new FutureTask(() -> {
-            return webEngine.executeScript(jsCommand);
-        });
+        FutureTask future = new FutureTask(() -> webEngine.executeScript(jsCommand));
         Platform.runLater(future);
         return future.get();
     }
