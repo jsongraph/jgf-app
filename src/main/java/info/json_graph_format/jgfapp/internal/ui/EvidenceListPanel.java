@@ -9,6 +9,8 @@ import org.w3c.dom.events.EventTarget;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.function.BiFunction;
+import java.util.function.Consumer;
 import java.util.function.Function;
 
 import static java.lang.String.valueOf;
@@ -17,7 +19,7 @@ public class EvidenceListPanel extends HTMLPanel {
 
     private EvidencePanelComponent evidenceComponent;
 
-    public EvidenceListPanel() {
+    public EvidenceListPanel(String s, Float fudgeFactor) {
         super("/form-html/list.html");
     }
 
@@ -43,15 +45,16 @@ public class EvidenceListPanel extends HTMLPanel {
             }
 
             // Curry mapTableRow, can now apply toEvidence with arity 1.
-            final Function<Element, Function<Evidence, Element>> mapFunc = parent -> evidence -> mapTableRow(parent, evidence);
-            final Function<Evidence, Element> toEvidence = mapFunc.apply(tableBody);
+            // Look ma, *less* ceremony!
+            final Function<Document, Function<Evidence, Element>> mapFunc = document -> (evidence -> mapTableRow(document, evidence));
+            final Function<Evidence, Element> toEvidenceAnd = mapFunc.apply(doc);
+            Consumer<Element> addToTableBody = tableBody::appendChild;
 
-            evidences.stream().map(toEvidence).forEach(tableBody::appendChild);
+            /* hey */ evidences.stream().map(toEvidenceAnd).forEach(addToTableBody);
         });
     }
 
-    private Element mapTableRow(Element tableBody, Evidence evidence) {
-        Document doc = tableBody.getOwnerDocument();
+    private Element mapTableRow(Document doc, Evidence evidence) {
         Element tr = doc.createElement("tr");
         tr.appendChild(createElementWithText(doc, "td", evidence.belStatement));
         tr.appendChild(createElementWithText(doc, "td", evidence.citation.id));
