@@ -9,7 +9,6 @@ import org.w3c.dom.events.EventTarget;
 
 import java.util.List;
 import java.util.Objects;
-import java.util.function.BiFunction;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
@@ -19,7 +18,7 @@ public class EvidenceListPanel extends HTMLPanel {
 
     private EvidencePanelComponent evidenceComponent;
 
-    public EvidenceListPanel(String s, Float fudgeFactor) {
+    public EvidenceListPanel() {
         super("/form-html/list.html");
     }
 
@@ -62,8 +61,6 @@ public class EvidenceListPanel extends HTMLPanel {
 
         Element editButton = createEditButton(doc, evidence);
         ((EventTarget) editButton).addEventListener("click", evt -> {
-            String evidenceId = ((Element) evt.getCurrentTarget()).getAttribute("evidence-id");
-            System.out.println("Edit evidence: " + evidenceId);
             evidenceComponent.editEvidence(evidence);
         }, false);
         tr.appendChild(createElementWithChild(doc, "td", editButton));

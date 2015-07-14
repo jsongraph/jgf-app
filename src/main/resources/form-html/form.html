@@ -1,150 +1,210 @@
-<!doctype html>
 <html xmlns="http:www.w3.org/1999/xhtml">
-    <head>
-        <meta charset="UTF-8">
-        <title>Create evidence</title>
-        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
-        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" />
 
-        <script type="text/javascript">
-            function reset() {
-                var form = document.getElementById("evidence-form");
-                form.reset();
+<head>
+    <meta charset="UTF-8">
+    <title>Create evidence</title>
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" />
+
+    <script type="text/javascript">
+        function reset() {
+            var form = document.getElementById("evidence-form");
+            form.reset();
+        }
+
+        function readFormAsJSON() {
+            var bel_statement = document.getElementById('bel-statement');
+            var citation_type = document.getElementById('citation-type');
+            var citation_id   = document.getElementById('citation-id');
+            var citation_name = document.getElementById('citation-name');
+            var summary_text  = document.getElementById('summary-text');
+
+            var evidence = {
+                bel_statement: bel_statement.value,
+                citation: {
+                    type: citation_type.value,
+                    id:   citation_id.value,
+                    name: citation_name.value
+                },
+                summary_text:  summary_text.value
             }
 
-            function readFormAsJSON() {
-                var bel_statement = document.getElementById('bel-statement');
-                var citation_id   = document.getElementById('citation-id');
-                var citation_name = document.getElementById('citation-name');
-                var summary_text  = document.getElementById('summary-text');
+            return JSON.stringify(evidence);
+        }
 
-                var evidence = {
-                    bel_statement: bel_statement.value,
-                    citation: {
-                        id:   citation_id.value,
-                        name: citation_name.value
-                    },
-                    summary_text:  summary_text.value
-                }
+        function populateForm() {
+            var evidenceJSON = document.getElementById('evidence-json').childNodes[0].nodeValue;
+            var evidence     = JSON.parse(evidenceJSON);
 
-                return JSON.stringify(evidence);
-            }
+            var bel_statement   = document.getElementById('bel-statement');
+            bel_statement.value = evidence.bel_statement;
 
-            function populateForm() {
-                var evidenceJSON = document.getElementById('evidence-json').childNodes[0].nodeValue;
-                var evidence     = JSON.parse(evidenceJSON);
+            var citation_type   = document.getElementById('citation-type');
+            citation_type.value = evidence.citation.type;
 
-                var bel_statement   = document.getElementById('bel-statement');
-                bel_statement.value = evidence.bel_statement;
+            var citation_id     = document.getElementById('citation-id');
+            citation_id.value   = evidence.citation.id;
 
-                var citation_id     = document.getElementById('citation-id');
-                citation_id.value   = evidence.citation.id;
+            var citation_name   = document.getElementById('citation-name');
+            citation_name.value = evidence.citation.name;
 
-                var citation_name   = document.getElementById('citation-name');
-                citation_name.value = evidence.citation.name;
+            var summary_text    = document.getElementById('summary-text');
+            summary_text.value  = evidence.summary_text;
+        }
+    </script>
+</head>
 
-                var summary_text    = document.getElementById('summary-text');
-                summary_text.value  = evidence.summary_text;
-            }
-        </script>
-    </head>
-    <body>
-        <form id="evidence-form" class="form-horizontal">
-            <fieldset>
-                <fieldset>
-                    <legend>BEL Statement</legend>
-                    <div class="form-group">
-                        <label class="col-md-4 control-label" for="bel-statement"></label>
-                        <div class="col-md-8">
-                            <input id="bel-statement" name="bel-statement" placeholder="Subject Relationship Object" class="form-control input-md" required="" type="text">
-                            <span class="help-block">i.e. p(HGNC:AKT1) -> bp(MESHPP:Apoptosis)</span>
-                        </div>
-                    </div>
-                </fieldset>
+<body>
+<form id="evidence-form" class="form-horizontal">
+    <fieldset>
+        <fieldset>
+            <legend>BEL Statement</legend>
+            <div class="form-group">
+                <label class="col-md-2 control-label" for="bel-statement"></label>
+                <div class="col-md-8">
+                    <input id="bel-statement" name="bel-statement" placeholder="Subject Relationship Object" class="form-control input-md" required="" type="text">
+                    <span class="help-block">i.e. p(HGNC:AKT1) -> bp(MESHPP:Apoptosis)</span>
+                </div>
+            </div>
+        </fieldset>
 
-                <fieldset>
-                    <legend>Citation</legend>
-                    <div class="form-group">
-                        <label class="col-md-4 control-label" for="citation-id">PubMed ID</label>
-                        <div class="col-md-8">
-                            <input id="citation-id" name="citation-id" placeholder="PubMed identifier" class="form-control input-md" required="" type="text">
-                            <span class="help-block">i.e. 9202001</span>
-                        </div>
-                        <label class="col-md-4 control-label" for="citation-name">Name</label>
-                        <div class="col-md-8">
-                            <input id="citation-name" name="citation-name" placeholder="PubMed reference name" class="form-control input-md" required="" type="text">
-                            <span class="help-block">i.e. J Biol Chem. 1997 Jul 4;272(27):16917-23.</span>
-                        </div>
-                    </div>
-                </fieldset>
+        <fieldset>
+            <legend>Citation</legend>
+            <div class="form-group">
+                <label class="col-md-2 control-label" for="citation-type">Type</label>
+                <div class="col-md-8">
+                    <select id="citation-type" name="citation-type" class="form-control">
+                        <option value="PubMed">PubMed</option>
+                        <option value="Book">Book</option>
+                        <option value="Journal">Journal</option>
+                        <option value="Online Resource">Online Resource</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <span class="help-block">Fixed set of citation types</span>
+                </div>
+            </div>
 
-                <fieldset>
-                    <legend>Annotation</legend>
-                    <div class="form-group">
-                        <label class="col-md-4 control-label" for="summary-text">Summary Text</label>
-                        <div class="col-md-4">
-                            <textarea class="form-control" id="summary-text" name="summary-text"></textarea>
-                        </div>
-                    </div>
+            <div class="form-group">
+                <label class="col-md-2 control-label" for="citation-id">ID</label>
+                <div class="col-md-8">
+                    <input id="citation-id" name="citation-id" placeholder="Identifier" class="form-control input-md" required="" type="text">
+                    <span class="help-block">i.e. 9202001</span>
+                </div>
+            </div>
 
-                    <!--
-                    <label class="col-md-4 control-label">Annotations</label>
-                    <div class="container">
-                        <div class="form-horizontal row">
-                            <div class="control-group" id="annotation-fields">
-                                <div class="controls">
-                                    <div class="entry input-group col-md-4 form-group row">
-                                        <div class="col-md-10">
-                                            <input class="form-control" name="annotation_names[]" type="text" placeholder="Name" />
-                                        </div>
-                                        <div class="col-md-10">
-                                            <input class="form-control" name="annotation_values[]" type="text" placeholder="Value" />
-                                        </div>
-                                        <span class="input-group-btn">
-                                            <button class="btn btn-success btn-add" type="button">
-                                                <span class="glyphicon glyphicon-plus"></span>
-                                            </button>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            <div class="form-group">
+                <label class="col-md-2 control-label" for="citation-name">Name</label>
+                <div class="col-md-8">
+                    <input id="citation-name" name="citation-name" placeholder="Name" class="form-control input-md" required="" type="text">
+                    <span class="help-block">i.e. J Biol Chem. 1997 Jul 4;272(27):16917-23.</span>
+                </div>
+            </div>
+        </fieldset>
 
-                    <label class="col-md-4 control-label">Metadata</label>
-                    <div class="container">
-                        <div class="form-horizontal row">
-                            <div class="control-group" id="metadata-fields">
-                                <div class="controls">
-                                    <div class="entry input-group col-md-4 form-group row">
-                                        <div class="col-md-10">
-                                            <input class="form-control" name="metadata_names[]" type="text" placeholder="Name" />
-                                        </div>
-                                        <div class="col-md-10">
-                                            <input class="form-control" name="metadata_values[]" type="text" placeholder="Value" />
-                                        </div>
-                                        <span class="input-group-btn">
-                                            <button class="btn btn-success btn-add" type="button">
-                                                <span class="glyphicon glyphicon-plus"></span>
-                                            </button>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </fieldset>
-                -->
+        <fieldset>
+            <legend>Summary Text</legend>
+            <div class="form-group">
+                <label class="col-md-2 control-label" for="summary-text"></label>
+                <div class="col-md-6">
+                    <textarea class="form-control" rows="5" id="summary-text" name="summary-text"></textarea>
+                </div>
+            </div>
+        </fieldset>
 
-                <div class="form-group">
-                    <div class="col-md-8">
-                        <button id="save-button"  name="save-button"  class="btn btn-primary">Save</button>
-                        <button id="reset-button" name="reset-button" class="btn btn-warning">Reset</button>
+        <fieldset>
+            <legend>Annotation</legend>
+
+            <div class="container">
+                <div class="row clearfix">
+                    <div class="col-md-18 column">
+                        <table class="table table-bordered table-hover" id="annotations">
+                            <col style="width:25%">
+                            <col style="width:60%">
+                            <col style="width:15%">
+                            <thead>
+                            <tr>
+                                <th>
+                                    Name
+                                </th>
+                                <th>
+                                    Value
+                                </th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr id='annotations_template'>
+                                <td>
+                                    <input type="text" name='annotation_name' placeholder='Keyword (i.e. Disease, Cell, Tissue)' class="form-control" />
+                                </td>
+                                <td>
+                                    <input type="text" name='annotation_value' placeholder='Value (i.e. Lung, Carcinoma)' class="form-control" />
+                                </td>
+                                <td>
+                                    <button name="annotation_add" class='btn btn-success glyphicon glyphicon-plus row-add'></button>
+                                    <button name="annotation_delete" class='btn btn-danger glyphicon glyphicon-remove row-remove'></button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
-            </fieldset>
-        </form>
-    </body>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Metadata</legend>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-20 column">
+                        <table class="table table-bordered table-hover" id="metadatas">
+                            <col style="width:25%">
+                            <col style="width:60%">
+                            <col style="width:15%">
+                            <thead>
+                            <tr>
+                                <th>
+                                    Name
+                                </th>
+                                <th>
+                                    Value
+                                </th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr id='metadatas_template'>
+                                <td>
+                                    <input type="text" name='metadata_name' placeholder='Name (i.e. Id, Date, Creator)' class="form-control" />
+                                </td>
+                                <td>
+                                    <input type="text" name='metadata_value' placeholder='Value (i.e. 321321, 2015-07-14, dpncab)' class="form-control" />
+                                </td>
+                                <td>
+                                    <button name="annotation_add" class='btn btn-success glyphicon glyphicon-plus row-add'></button>
+                                    <button name="annotation_delete" class='btn btn-danger glyphicon glyphicon-remove row-remove'></button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+
+        <div class="form-group">
+            <div class="col-md-8">
+                <button id="save-button" name="save-button" class="btn btn-primary">Save</button>
+                <button id="reset-button" name="reset-button" class="btn btn-warning">Reset</button>
+            </div>
+        </div>
+    </fieldset>
+</form>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+</body>
+
 </html>
 
 <!-- vim: ft=html sw=4 ts=4 sts=4 expandtab -->
