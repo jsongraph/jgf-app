@@ -8,14 +8,11 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
-import netscape.javascript.JSObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.FutureTask;
 
 public abstract class HTMLPanel extends JFXPanel {
 
@@ -35,21 +32,6 @@ public abstract class HTMLPanel extends JFXPanel {
      */
     protected abstract void onDocumentLoaded(WebEngine webEngine);
 
-    /**
-     * Executes the {@link String jsCommand} within the context of the loaded
-     * document.
-     *
-     * @param jsCommand {@link String} javascript command (i.e. {@code create();})
-     * @return the {@link Object} response from javascript
-     * @throws ExecutionException
-     * @throws InterruptedException
-     */
-    protected Object callJavascript(String jsCommand) throws ExecutionException, InterruptedException {
-        FutureTask future = new FutureTask(() -> webEngine.executeScript(jsCommand));
-        Platform.runLater(future);
-        return future.get();
-    }
-
     protected void createUI() {
         WebView browser = new WebView();
         ZoomingPane zpane = new ZoomingPane(browser);
@@ -59,13 +41,6 @@ public abstract class HTMLPanel extends JFXPanel {
         webEngine.getLoadWorker().stateProperty().addListener(
                 (ObservableValue<? extends Worker.State> ov, Worker.State oldState, Worker.State newState) -> {
                     if (newState == Worker.State.SUCCEEDED) {
-                        JSObject window = (JSObject) webEngine.executeScript("window");
-                        window.setMember("java", new Logger());
-                        webEngine.executeScript("console.log = function(message) {\n" +
-                                                "    java.log(message);\n" +
-                                                "};"
-                        );
-
                         onDocumentLoaded(webEngine);
                     }
                 }
