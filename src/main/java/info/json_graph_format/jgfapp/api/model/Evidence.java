@@ -3,6 +3,8 @@ package info.json_graph_format.jgfapp.api.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.util.Map;
+
 /**
  * {@link Evidence} represents the "evidence" definition from the
  * BEL JSON graph schema.
@@ -27,4 +29,7 @@ public class Evidence {
 
     @JsonProperty("summary_text")
     public String summaryText;
+
+    @JsonProperty("metadata")
+    public Map<String, Object> metadata;
 }

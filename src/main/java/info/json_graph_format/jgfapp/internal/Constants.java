@@ -117,7 +117,7 @@ public class Constants {
      * Name of the cytoscape column holding the species in the
      * {@link Constants#BEL_EVIDENCE_TABLE}: {@value}
      */
-    public static final String SPECIES = "species";
+    public static final String SPECIES = "experiment_context_species";
 
     /**
      * Name of the cytoscape column holding the selected status

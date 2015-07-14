@@ -6,6 +6,7 @@ import org.cytoscape.model.*;
 
 import java.util.*;
 import java.util.Map.Entry;
+import java.util.stream.Collectors;
 
 import static info.json_graph_format.jgfapp.api.util.FormatUtility.getOrEmptyString;
 import static info.json_graph_format.jgfapp.api.util.FormatUtility.getOrZero;
@@ -51,6 +52,7 @@ public class BELEvidenceMapperImpl implements BELEvidenceMapper {
                 citation.name = getOrEmptyString("name", citationMap);
             }
             ev.citation = citation;
+
             BiologicalContext context = new BiologicalContext();
             @SuppressWarnings("unchecked")
             Map<String, Object> contextMap = (Map<String, Object>) evMap.get("biological_context");
@@ -62,8 +64,17 @@ public class BELEvidenceMapperImpl implements BELEvidenceMapper {
                 for (String key : varying) {
                     context.variedAnnotations.put(key, contextMap.get(key));
                 }
-                ev.biologicalContext = context;
             }
+            ev.biologicalContext = context;
+
+            Map<String, Object> metadata = new HashMap<>();
+            @SuppressWarnings("unchecked")
+            Map<String, Object> metadataMap = (Map<String, Object>) evMap.get("metadata");
+            if (metadataMap != null) {
+                metadata.putAll(metadataMap);
+            }
+            ev.metadata = metadata;
+
             evidenceList.add(ev);
         }
 
@@ -104,17 +115,26 @@ public class BELEvidenceMapperImpl implements BELEvidenceMapper {
         }
 
         if (evidence.biologicalContext != null) {
-            // create any annotation columns that do not already exist
             BiologicalContext bc = evidence.biologicalContext;
-            for (String varyingKey : bc.variedAnnotations.keySet()) {
-                getOrCreateColumn(varyingKey, String.class, false, table);
+            Map<String, Object> reIndexed = bc.variedAnnotations.
+                    entrySet().
+                    stream().
+                    collect(
+                            Collectors.toMap(
+                                    entry -> "experiment_context_" + entry.getKey(),
+                                    Entry::getValue
+                            )
+                    );
+
+            // create any annotation columns that do not already exist
+            for (String key : reIndexed.keySet()) {
+                getOrCreateColumn(key, String.class, false, table);
             }
 
             // set annotation values
             row.set(SPECIES, bc.speciesCommonName);
-            Map<String, Object> varying = bc.variedAnnotations;
-            for (Entry<String, Object> entry : varying.entrySet()) {
-                row.set(entry.getKey(), getOrEmptyString(entry.getKey(), varying));
+            for (Entry<String, Object> entry : reIndexed.entrySet()) {
+                row.set(entry.getKey(), getOrEmptyString(entry.getKey(), reIndexed));
             }
         }
     }

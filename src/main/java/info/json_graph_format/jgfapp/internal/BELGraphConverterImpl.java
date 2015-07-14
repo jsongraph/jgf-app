@@ -85,13 +85,13 @@ public class BELGraphConverterImpl implements GraphConverter {
         network.getDefaultNodeTable().createColumn(X_COORD, Double.class, true);
         network.getDefaultNodeTable().createColumn(Y_COORD, Double.class, true);
         network.getDefaultNodeTable().createColumn(Z_COORD, Double.class, true);
-        Map<String, CyNode> createdNodes = new HashMap<String, CyNode>();
+        Map<String, CyNode> createdNodes = new HashMap<>();
         if (hasItems(graph.nodes)) {
             Map<String, CyColumn> columns = inferColumns(
                     network.getDefaultNodeTable(),
                     graph.nodes.toArray(new Node[graph.nodes.size()]));
 
-            Map<CyRow, List<Double>> nodeCoordinates = new LinkedHashMap<CyRow, List<Double>>();
+            Map<CyRow, List<Double>> nodeCoordinates = new LinkedHashMap<>();
             for (Node n : graph.nodes) {
                 final CyNode cyNode = network.addNode();
                 n.cyNode = cyNode;
@@ -169,7 +169,7 @@ public class BELGraphConverterImpl implements GraphConverter {
     private static Map<String, CyColumn> inferColumns(CyTable table, MetadataProvider... items) {
         // combine metadata together...
         Map<String, Collection<Object>> combinedMetadata =
-                new HashMap<String, Collection<Object>>(items.length);
+                new HashMap<>(items.length);
         for (MetadataProvider item : items) {
             Map<String, Object> metadata = item.getMetadata();
             if (metadata == null) continue;
@@ -177,7 +177,7 @@ public class BELGraphConverterImpl implements GraphConverter {
             for (Entry<String, Object> e : metadata.entrySet()) {
                 Collection<Object> combinedValues = combinedMetadata.get(e.getKey());
                 if (combinedValues == null) {
-                    combinedValues = new ArrayList<Object>();
+                    combinedValues = new ArrayList<>();
                     combinedMetadata.put(e.getKey(), combinedValues);
                 }
                 combinedValues.add(e.getValue());
@@ -185,7 +185,7 @@ public class BELGraphConverterImpl implements GraphConverter {
         }
 
         // ...infer Cytoscape column for each metadata key / domain
-        Map<String, CyColumn> columns = new HashMap<String, CyColumn>(combinedMetadata.size());
+        Map<String, CyColumn> columns = new HashMap<>(combinedMetadata.size());
         for (Entry<String, Collection<Object>> e : combinedMetadata.entrySet()) {
             String name = e.getKey();
             CyColumn column = getOrCreateColumnByPrototypes(name, e.getValue(), false, table);
