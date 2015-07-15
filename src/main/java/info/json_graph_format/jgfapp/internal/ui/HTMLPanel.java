@@ -8,6 +8,8 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -31,6 +33,26 @@ public abstract class HTMLPanel extends JFXPanel {
      * @param webEngine {@link WebEngine}
      */
     protected abstract void onDocumentLoaded(WebEngine webEngine);
+
+    protected static Element createElementWithText(Document doc, String tag, String textContent) {
+        Element el = doc.createElement(tag);
+        el.setTextContent(textContent);
+        return el;
+    }
+
+    protected static Element createElementWithChild(Document doc, String tag, Element child) {
+        Element el = doc.createElement(tag);
+        el.appendChild(child);
+        return el;
+    }
+
+    protected static Element createInput(Document doc, String type, String name, String value) {
+        Element el = doc.createElement("input");
+        el.setAttribute("type", type);
+        el.setAttribute("name", name);
+        el.setAttribute("values", value);
+        return el;
+    }
 
     protected void createUI() {
         WebView browser = new WebView();

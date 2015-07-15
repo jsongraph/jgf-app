@@ -77,26 +77,6 @@ public class EvidenceListPanel extends HTMLPanel {
         return tr;
     }
 
-    private static Element createElementWithText(Document doc, String tag, String textContent) {
-        Element el = doc.createElement(tag);
-        el.setTextContent(textContent);
-        return el;
-    }
-
-    private static Element createElementWithChild(Document doc, String tag, Element child) {
-        Element el = doc.createElement(tag);
-        el.appendChild(child);
-        return el;
-    }
-
-    private static Element createInput(Document doc, String type, String name, String value) {
-        Element el = doc.createElement("input");
-        el.setAttribute("type", type);
-        el.setAttribute("name", name);
-        el.setAttribute("values", value);
-        return el;
-    }
-
     private static Element createEditButton(Document doc, Evidence evidence) {
         Element button = doc.createElement("button");
         button.setAttribute("evidence-id", valueOf(evidence.evidenceId));

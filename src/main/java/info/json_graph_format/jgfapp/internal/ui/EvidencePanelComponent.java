@@ -84,13 +84,13 @@ public class EvidencePanelComponent implements CytoPanelComponent, RowsSetListen
         final CyTable evTable = getTable("BEL.Evidence", tableManager);
         if (evTable == null) return;
 
-        final CyNetwork network = appManager.getCurrentNetwork();
+        final CyNetwork cyN = appManager.getCurrentNetwork();
 
-        Optional<CyEdge> edge = CyTableUtil.
-                getEdgesInState(network, SELECTED, true).stream().findFirst();
-        if (edge.isPresent()) {
-            CyEdge theEdge = edge.get();
-            new EvidenceCreateWindow(this, evTable, network, theEdge);
+        Optional<CyEdge> cyE = CyTableUtil.
+                getEdgesInState(cyN, SELECTED, true).stream().findFirst();
+        if (cyE.isPresent()) {
+            CyEdge theEdge = cyE.get();
+            new EvidenceCreateWindow(this, evTable, cyN, theEdge);
         }
     }
 

@@ -12,7 +12,6 @@ import javafx.scene.web.WebEngine;
 import org.cytoscape.model.CyEdge;
 import org.cytoscape.model.CyNetwork;
 import org.cytoscape.model.CyTable;
-import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.events.EventTarget;
 import org.w3c.dom.html.HTMLDocument;
@@ -80,12 +79,6 @@ public class EvidenceEditPanel extends HTMLPanel {
             }
             webEngine.executeScript("reset();");
         }, false);
-    }
-
-    private static Element createElementWithText(Document doc, String tag, String textContent) {
-        Element el = doc.createElement(tag);
-        el.setTextContent(textContent);
-        return el;
     }
 
     private Evidence convertEvidence() {
