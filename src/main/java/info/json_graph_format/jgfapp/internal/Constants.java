@@ -4,6 +4,7 @@ import org.cytoscape.model.CyColumn;
 import org.cytoscape.model.CyNetwork;
 import org.cytoscape.view.vizmap.VisualStyle;
 
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
@@ -15,6 +16,27 @@ import static java.util.Arrays.asList;
  * {@link Constants} defines constant parameters central to the app configuration.
  */
 public class Constants {
+
+    public enum BELJGFSchema {
+        VERSION_2_0("2.0", "/bel-json-graph-2.0.schema.json"),
+        VERSION_1_0("1.0", "/bel-json-graph-1.0.schema.json");
+
+        public final String version;
+        public final String resourcePath;
+
+        BELJGFSchema(String version, String resourcePath) {
+            this.version = version;
+            this.resourcePath = resourcePath;
+        }
+    }
+    /**
+     * Defines the BELJGF schemas supported by this application.
+     */
+    public static final Map<String, String> BELJGF_SCHEMAS = new HashMap<>();
+    static {
+        BELJGF_SCHEMAS.put("1.0", "/bel-json-graph-1.0.schema.json");
+        BELJGF_SCHEMAS.put("2.0", "/bel-json-graph-2.0.schema.json");
+    }
 
     /**
      * Classpath for style resource: {@value}

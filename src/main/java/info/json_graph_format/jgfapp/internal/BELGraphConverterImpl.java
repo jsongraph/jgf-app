@@ -11,6 +11,7 @@ import java.util.*;
 import java.util.Map.Entry;
 
 import static info.json_graph_format.jgfapp.api.util.FormatUtility.translateCoordinates;
+import static info.json_graph_format.jgfapp.api.util.TableUtility.getOrCreateColumn;
 import static info.json_graph_format.jgfapp.api.util.TableUtility.getOrCreateColumnByPrototypes;
 import static info.json_graph_format.jgfapp.api.util.TableUtility.setColumnValue;
 import static info.json_graph_format.jgfapp.api.util.Utility.*;
@@ -67,8 +68,12 @@ public class BELGraphConverterImpl implements GraphConverter {
         Map<String, Object> metadata = graph.metadata;
         final CyRow row = network.getRow(network);
 
+        CyTable networkTable = network.getDefaultNetworkTable();
+        CyColumn beljgfColumn = getOrCreateColumn("BELJGF Version", String.class, true, networkTable);
+        row.set(beljgfColumn.getName(), graph.beljgfVersion);
+
         if (metadata != null) {
-            Map<String, CyColumn> columns = inferColumns(network.getDefaultNetworkTable(), graph);
+            Map<String, CyColumn> columns = inferColumns(networkTable, graph);
             for (Entry<String, Object> metadataEntry : metadata.entrySet()) {
                 String name = metadataEntry.getKey();
                 Object value = metadataEntry.getValue();

@@ -30,14 +30,20 @@ public class Graph implements MetadataProvider {
     @JsonProperty("metadata")
     public Map<String, Object> metadata;
 
+    @Override
+    public Map<String, Object> getMetadata() {
+        return metadata;
+    }
+
     /**
      * Reference to {@link CyNetwork} used for easy association.
      */
     @JsonIgnore
     public CyNetwork cyNetwork;
 
-    @Override
-    public Map<String, Object> getMetadata() {
-        return metadata;
-    }
+    /**
+     * Refers to the BEL JGF version that this graph validated against.
+     */
+    @JsonIgnore
+    public String beljgfVersion;
 }

@@ -15,6 +15,8 @@ import info.json_graph_format.jgfapp.api.model.Graph;
 import info.json_graph_format.jgfapp.api.model.Root;
 
 import java.io.*;
+import java.util.Arrays;
+import java.util.stream.Stream;
 
 /**
  * {@link GraphReaderImpl} implements {@link info.json_graph_format.jgfapp.api.GraphReader} to provide
@@ -68,11 +70,24 @@ public class GraphReaderImpl implements GraphReader {
 
         JsonNode json = _readJSON(input);
 
-        ProcessingReport report = _validate(json);
-
+        // Try validation with 2.0; fallback to 1.0.
+        ProcessingReport report = _validate(json, Constants.BELJGFSchema.VERSION_2_0);
         if (report.isSuccess()) {
-            return new GraphsWithValidation(_readGraph(json), report);
+            Graph[] graphs = _readGraph(json);
+            Arrays.stream(graphs).
+                    forEach(graph -> graph.beljgfVersion = Constants.BELJGFSchema.VERSION_2_0.version);
+            return new GraphsWithValidation(graphs, report);
         }
+
+        report = _validate(json, Constants.BELJGFSchema.VERSION_1_0);
+        if (report.isSuccess()) {
+            Graph[] graphs = _readGraph(json);
+            Arrays.stream(graphs).
+                    forEach(graph -> graph.beljgfVersion = Constants.BELJGFSchema.VERSION_1_0.version);
+            return new GraphsWithValidation(graphs, report);
+        }
+
+        // Unsuccessful validation; Only includes failure messages for 1.0.
         return new GraphsWithValidation(new Graph[0], report);
     }
 
@@ -88,11 +103,17 @@ public class GraphReaderImpl implements GraphReader {
 
         JsonNode json = _readJSON(new FileInputStream(input));
 
-        ProcessingReport report = _validate(json);
+        // Try validation with 2.0; fallback to 1.0.
+        ProcessingReport report = _validate(json, Constants.BELJGFSchema.VERSION_2_0);
+        if (!report.isSuccess()) {
+            report = _validate(json, Constants.BELJGFSchema.VERSION_1_0);
+        }
 
         if (report.isSuccess()) {
             return new GraphsWithValidation(_readGraph(json), report);
         }
+
+        // Unsuccessful validation; Only includes failure messages for 1.0.
         return new GraphsWithValidation(new Graph[0], report);
     }
 
@@ -108,8 +129,8 @@ public class GraphReaderImpl implements GraphReader {
         return mapper.writeValueAsString(node);
     }
 
-    protected ProcessingReport _validate(JsonNode json) throws IOException {
-        final JsonNode belSchema = JsonLoader.fromResource("/bel-json-graph.schema.json");
+    protected ProcessingReport _validate(JsonNode json, Constants.BELJGFSchema beljgfSchema) throws IOException {
+        final JsonNode belSchema = JsonLoader.fromResource(beljgfSchema.resourcePath);
         final JsonSchemaFactory factory = JsonSchemaFactory.byDefault();
         final JsonSchema schema;
         try {
