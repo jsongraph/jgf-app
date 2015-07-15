@@ -9,7 +9,6 @@
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
     <script type="text/javascript">
-        console.log('before TableManager def');
         var TableManager = function(tableId, rowTag) {
             var mgr = {};
             mgr.tableId = tableId;
@@ -79,7 +78,6 @@
 
             return mgr;
         }
-        console.log('after TableManager def');
 
         function reset() {
             var form = document.getElementById("evidence-form");
@@ -123,30 +121,54 @@
         }
 
         function populateForm() {
-            var evidenceJSON = document.getElementById('evidence-json').childNodes[0].nodeValue;
-            var evidence     = JSON.parse(evidenceJSON);
+            var evidenceJSON       = document.getElementById('evidence-json').childNodes[0].nodeValue;
+            var evidence           = JSON.parse(evidenceJSON);
 
-            var bel_statement   = document.getElementById('bel-statement');
-            bel_statement.value = evidence.bel_statement;
+            var belStatement       = document.getElementById('bel-statement');
+            belStatement.value     = evidence.bel_statement;
 
-            var citation_type   = document.getElementById('citation-type');
-            citation_type.value = evidence.citation.type;
+            var citationType       = document.getElementById('citation-type');
+            citationType.value     = evidence.citation.type;
 
-            var citation_id     = document.getElementById('citation-id');
-            citation_id.value   = evidence.citation.id;
+            var citationId         = document.getElementById('citation-id');
+            citationId.value       = evidence.citation.id;
 
-            var citation_name   = document.getElementById('citation-name');
-            citation_name.value = evidence.citation.name;
+            var citationName       = document.getElementById('citation-name');
+            citationName.value     = evidence.citation.name;
 
-            var summary_text    = document.getElementById('summary-text');
-            summary_text.value  = evidence.summary_text;
+            var summaryText        = document.getElementById('summary-text');
+            summaryText.value      = evidence.summary_text;
+
+            var experimentContext = evidence.experiment_context;
+            Object.getOwnPropertyNames(experimentContext).
+                sort(function(str1, str2) {
+                    return  (str1 || "").toLowerCase().localeCompare((str2 || "").toLowerCase());
+                }).
+                reverse().
+                forEach(function(name, idx, array) {
+                    window.experimentContextTableManager.prependRow({
+                        name:  name.slice('experiment_context_'.length),
+                        value: experimentContext[name]
+                    });
+                });
+
+            var metadata = evidence.metadata;
+            Object.getOwnPropertyNames(metadata).
+                sort(function(str1, str2) {
+                    return  (str1 || "").toLowerCase().localeCompare((str2 || "").toLowerCase());
+                }).
+                reverse().
+                forEach(function(name, idx, array) {
+                    window.metadataTableManager.prependRow({
+                        name:  name.slice('metadata_'.length),
+                        value: metadata[name]
+                    });
+                });
         }
 
         $(document).ready(function() {
-            console.log('document ready...');
             window.experimentContextTableManager = new TableManager('experiment_contexts', 'experiment_context');
             window.metadataTableManager          = new TableManager('metadatas',   'metadata');
-            console.log('created table managers.');
         });
     </script>
 </head>
