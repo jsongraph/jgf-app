@@ -24,8 +24,8 @@ public class Evidence {
     @JsonProperty("citation")
     public Citation citation;
 
-    @JsonProperty("biological_context")
-    public BiologicalContext biologicalContext;
+    @JsonProperty("experiment_context")
+    public Map<String, Object> experimentContext;
 
     @JsonProperty("summary_text")
     public String summaryText;

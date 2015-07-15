@@ -41,16 +41,4 @@ public class ZoomingPane extends Pane {
                 pos.getHpos(),
                 pos.getVpos());
     }
-
-    public final Double getZoomFactor() {
-        return zoomFactor.get();
-    }
-
-    public final void setZoomFactor(Double zoomFactor) {
-        this.zoomFactor.set(zoomFactor);
-    }
-
-    public final DoubleProperty zoomFactorProperty() {
-        return zoomFactor;
-    }
 }

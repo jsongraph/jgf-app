@@ -48,9 +48,6 @@ public class GraphsWithValidation {
 
         GraphsWithValidation that = (GraphsWithValidation) o;
 
-        if (!Arrays.equals(graphs, that.graphs)) return false;
-        if (!validationReport.equals(that.validationReport)) return false;
-
-        return true;
+        return Arrays.equals(graphs, that.graphs) && validationReport.equals(that.validationReport);
     }
 }

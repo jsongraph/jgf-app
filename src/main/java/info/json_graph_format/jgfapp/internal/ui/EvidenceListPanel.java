@@ -60,9 +60,8 @@ public class EvidenceListPanel extends HTMLPanel {
         tr.appendChild(createElementWithText(doc, "td", evidence.citation.name));
 
         Element editButton = createEditButton(doc, evidence);
-        ((EventTarget) editButton).addEventListener("click", evt -> {
-            evidenceComponent.editEvidence(evidence);
-        }, false);
+        ((EventTarget) editButton).addEventListener("click",
+                evt -> evidenceComponent.editEvidence(evidence), false);
         tr.appendChild(createElementWithChild(doc, "td", editButton));
 
         Element deleteButton = createDeleteButton(doc, evidence);

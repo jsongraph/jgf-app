@@ -7,8 +7,6 @@ import org.cytoscape.model.CyEdge;
 import org.cytoscape.model.CyNetwork;
 import org.cytoscape.model.CyTable;
 
-import java.util.Optional;
-
 /**
  * {@link BELEvidenceMapper} handles {@link Evidence} conversions.
  */
@@ -23,7 +21,7 @@ public interface BELEvidenceMapper {
      * @throws java.lang.NullPointerException if {@code graph} or {@code edge} is
      *                                        {@code null}
      */
-    public Evidence[] mapEdgeToEvidence(Graph graph, Edge edge);
+    Evidence[] mapEdgeToEvidence(Graph graph, Edge edge);
 
     /**
      * Map an {@link Evidence} object to a {@link CyTable table}.
@@ -46,7 +44,7 @@ public interface BELEvidenceMapper {
      *                                  {@link Graph#cyNetwork} is {@code null} or the {@code edge}'s
      *                                  {@link Edge#cyEdge} is {@code null}
      */
-    public void mapToTable(Graph graph, Edge edge, Evidence evidence, CyTable table);
+    void mapToTable(Graph graph, Edge edge, Evidence evidence, CyTable table);
 
     /**
      * Map an {@link Evidence} object to a {@link CyTable table}.
@@ -65,7 +63,7 @@ public interface BELEvidenceMapper {
      *                                  {@link Graph#cyNetwork} is {@code null} or the {@code edge}'s
      *                                  {@link Edge#cyEdge} is {@code null}
      */
-    public void mapToTable(Long suid, CyNetwork cyN, CyEdge cyE, Evidence evidence, CyTable table);
+    void mapToTable(Long suid, CyNetwork cyN, CyEdge cyE, Evidence evidence, CyTable table);
 
     /**
      * Maps an {@link Edge edge} of the {@link CyTable table} to an array of
@@ -75,5 +73,5 @@ public interface BELEvidenceMapper {
      * @param table the {@link CyTable}; cannot be {@code null}
      * @return the {@link Evidence} array; will not be {@code null} but may be empty
      */
-    public Evidence[] mapFromTable(CyEdge edge, CyTable table);
+    Evidence[] mapFromTable(CyEdge edge, CyTable table);
 }

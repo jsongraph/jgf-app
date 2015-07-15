@@ -24,7 +24,7 @@ public interface GraphReader {
      * @throws IOException                    when an IO error occurs reading from {@code input}
      * @throws java.lang.NullPointerException when {@code input} is {@code null}
      */
-    public Graph[] read(InputStream input) throws IOException;
+    Graph[] read(InputStream input) throws IOException;
 
     /**
      * Returns an array of {@link Graph} from a <em>JSON Graph Format</em>-encoded
@@ -39,7 +39,7 @@ public interface GraphReader {
      * @throws java.io.FileNotFoundException  when {@code input} does not exist or
      *                                        cannot be read
      */
-    public Graph[] read(File input) throws IOException;
+    Graph[] read(File input) throws IOException;
 
     /**
      * Returns a {@link GraphsWithValidation} object from a
@@ -59,7 +59,7 @@ public interface GraphReader {
      * @throws IOException                    when an IO error occurs reading from {@code input}
      * @throws java.lang.NullPointerException when {@code input} is {@code null}
      */
-    public GraphsWithValidation validatingRead(InputStream input) throws IOException;
+    GraphsWithValidation validatingRead(InputStream input) throws IOException;
 
     /**
      * Returns a {@link GraphsWithValidation} object from a
@@ -81,5 +81,5 @@ public interface GraphReader {
      * @throws java.io.FileNotFoundException  when {@code input} does not exist or
      *                                        cannot be read
      */
-    public GraphsWithValidation validatingRead(File input) throws IOException;
+    GraphsWithValidation validatingRead(File input) throws IOException;
 }

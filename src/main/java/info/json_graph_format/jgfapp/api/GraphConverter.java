@@ -16,7 +16,7 @@ public interface GraphConverter {
      * @return a {@link CyNetwork} or {@code null} if {@code graph} is
      * {@code null}
      */
-    public CyNetwork convert(Graph graph);
+    CyNetwork convert(Graph graph);
 
     /**
      * Converts a {@link CyNetwork cytoscape network} into a {@link Graph graph}.
@@ -25,5 +25,5 @@ public interface GraphConverter {
      * @return a {@link Graph} or {@code null} if {@code network} is
      * {@code null}
      */
-    public Graph convert(CyNetwork network);
+    Graph convert(CyNetwork network);
 }

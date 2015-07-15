@@ -41,6 +41,16 @@ public abstract class HTMLPanel extends JFXPanel {
         webEngine.getLoadWorker().stateProperty().addListener(
                 (ObservableValue<? extends Worker.State> ov, Worker.State oldState, Worker.State newState) -> {
                     if (newState == Worker.State.SUCCEEDED) {
+                        // XXX Enable this for logging in javascript.
+                        // Will need to add netscape.javascript to tools/cytoscape/framework/etc/jre.properties
+
+//                        JSObject window = (JSObject) webEngine.executeScript("window");
+//                        window.setMember("java", new Logger());
+//                        webEngine.executeScript("console.log = function(message) {\n" +
+//                                                "    java.log(message);\n" +
+//                                                "};"
+//                        );
+
                         onDocumentLoaded(webEngine);
                     }
                 }

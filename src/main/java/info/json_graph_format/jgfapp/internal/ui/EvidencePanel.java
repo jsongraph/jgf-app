@@ -14,7 +14,7 @@ import java.util.List;
  * cytoscape {@link CyEdge}.
  * <br><br>
  * The interface can be updated to show new {@link Evidence} objects by calling
- * the {@link EvidencePanel#update(java.util.List)} method.
+ * the {@link EvidencePanel#update(List, EvidencePanelComponent)} method.
  */
 class EvidencePanel extends JPanel {
 

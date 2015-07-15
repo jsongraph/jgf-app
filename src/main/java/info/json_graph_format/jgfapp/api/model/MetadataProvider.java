@@ -4,5 +4,5 @@ import java.util.Map;
 
 public interface MetadataProvider {
 
-    public Map<String, Object> getMetadata();
+    Map<String, Object> getMetadata();
 }

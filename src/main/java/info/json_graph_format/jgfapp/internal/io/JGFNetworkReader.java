@@ -63,10 +63,8 @@ public class JGFNetworkReader extends AbstractCyNetworkReader {
                             CyTableManager tableMgr, VisualMappingManager visMgr, CyEventHelper eventHelper) {
         super(inputStream, networkViewFactory, networkFactory, networkMgr, rootNetworkMgr);
 
-        if (inputStream == null) throw new NullPointerException("inputStream cannot be null");
         if (inputName == null) throw new NullPointerException("inputName cannot be null");
         if (appMgr == null) throw new NullPointerException("appMgr cannot be null");
-        if (networkMgr == null) throw new NullPointerException("networkMgr cannot be null");
         this.inputStream = inputStream;
         this.inputName = inputName;
         this.graphReader = graphReader;
@@ -88,30 +86,27 @@ public class JGFNetworkReader extends AbstractCyNetworkReader {
     public CyNetworkView buildCyNetworkView(CyNetwork network) {
         final CyNetworkView view = cyNetworkViewFactory.createNetworkView(network);
 
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                // find the style we would like to apply...
-                VisualStyle style = StyleUtility.findVisualStyleByTitle(APPLIED_VISUAL_STYLE, visMgr);
+        SwingUtilities.invokeLater(() -> {
+            // find the style we would like to apply...
+            VisualStyle style = StyleUtility.findVisualStyleByTitle(APPLIED_VISUAL_STYLE, visMgr);
 
-                // ...return if view or style do not exist
-                if (view == null || style == null) return;
+            // ...return if view or style do not exist
+            if (view == null || style == null) return;
 
-                // ...wait for view to be active before setting visual style
-                try {
-                    Thread.sleep(500);
-                } catch (InterruptedException e) {
-                }
-                Set<CyNetworkView> views = networkViewMgr.getNetworkViewSet();
+            // ...wait for view to be active before setting visual style
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException ignored) {
+            }
+            Set<CyNetworkView> views = networkViewMgr.getNetworkViewSet();
 
-                if (views.contains(view)) {
-                    // ...then set visual style and fit network content in window
-                    eventHelper.flushPayloadEvents();
-                    visMgr.setVisualStyle(style, view);
-                    style.apply(view);
-                    view.fitContent();
-                    view.updateView();
-                }
+            if (views.contains(view)) {
+                // ...then set visual style and fit network content in window
+                eventHelper.flushPayloadEvents();
+                visMgr.setVisualStyle(style, view);
+                style.apply(view);
+                view.fitContent();
+                view.updateView();
             }
         });
 
@@ -162,12 +157,9 @@ public class JGFNetworkReader extends AbstractCyNetworkReader {
         final GraphsWithValidation gv = graphReader.validatingRead(inputStream);
         final ProcessingReport report = gv.getValidationReport();
         if (!report.isSuccess()) {
-            SwingUtilities.invokeLater(new Runnable() {
-                @Override
-                public void run() {
-                    String msg = format("Schema validation error: \n\n%s", getSchemaMessages(report));
-                    JOptionPane.showMessageDialog(null, msg, "Validation Error", JOptionPane.ERROR_MESSAGE);
-                }
+            SwingUtilities.invokeLater(() -> {
+                String msg = format("Schema validation error: \n\n%s", getSchemaMessages(report));
+                JOptionPane.showMessageDialog(null, msg, "Validation Error", JOptionPane.ERROR_MESSAGE);
             });
 
             String msg = format("Schema validation error, details in Task History: %s", getSchemaMessages(report));
@@ -183,7 +175,7 @@ public class JGFNetworkReader extends AbstractCyNetworkReader {
      * @return array of {@link CyNetwork}
      */
     protected CyNetwork[] mapNetworks(Graph[] graphs) {
-        List<CyNetwork> cyNetworks = new ArrayList<CyNetwork>();
+        List<CyNetwork> cyNetworks = new ArrayList<>();
         for (Graph graph : graphs) {
             cyNetworks.add(belGraphConverter.convert(graph));
         }
@@ -204,7 +196,6 @@ public class JGFNetworkReader extends AbstractCyNetworkReader {
         tbl.createColumn(CITATION_ID, String.class, false);
         tbl.createColumn(CITATION_NAME, String.class, false);
         tbl.createColumn(SUMMARY_TEXT, String.class, false);
-        tbl.createColumn(SPECIES, String.class, false);
         return tbl;
     }
 

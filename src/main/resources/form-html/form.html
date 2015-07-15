@@ -9,6 +9,7 @@
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
     <script type="text/javascript">
+        console.log('before TableManager def');
         var TableManager = function(tableId, rowTag) {
             var mgr = {};
             mgr.tableId = tableId;
@@ -48,6 +49,25 @@
                 });
             }
 
+            mgr.getRows = function() {
+                var table = $("#" + mgr.tableId);
+                return table.
+                    find('tr[title="' + mgr.rowTag + '"]').
+                    map(function(index, element) {
+                        return mgr.getRowData(element);
+                    }).
+                    get();
+            }
+
+            mgr.getRowData = function(row) {
+                var input_name  = mgr.rowTag + "_name";
+                var input_value = mgr.rowTag + "_value";
+                return {
+                    name:  $(row).find('input[name="' + input_name + '"]').val(),
+                    value: $(row).find('input[name="' + input_value + '"]').val(),
+                };
+            }
+
             mgr.setRowData = function(row, obj) {
                 Object.getOwnPropertyNames(obj).forEach(function(name, idx, array) {
                     row.find('input[name="' + mgr.rowTag + '_' + name + '"]').val(obj[name]);
@@ -59,6 +79,7 @@
 
             return mgr;
         }
+        console.log('after TableManager def');
 
         function reset() {
             var form = document.getElementById("evidence-form");
@@ -73,13 +94,29 @@
             var summary_text  = document.getElementById('summary-text');
 
             var evidence = {
-                bel_statement: bel_statement.value,
+                bel_statement:      bel_statement.value,
                 citation: {
                     type: citation_type.value,
                     id:   citation_id.value,
                     name: citation_name.value
                 },
-                summary_text:  summary_text.value
+                summary_text:       summary_text.value,
+                experiment_context: window.experimentContextTableManager.getRows().
+                                        filter(function(item) {
+                                            return item.name.trim() && item.value.trim();
+                                        }).
+                                        reduce(function(resultObject, item) {
+                                            resultObject[item.name] = item.value;
+                                            return resultObject;
+                                        }, {}),
+                metadata:           window.metadataTableManager.getRows().
+                                        filter(function(item) {
+                                            return item.name.trim() && item.value.trim();
+                                        }).
+                                        reduce(function(resultObject, item) {
+                                            resultObject[item.name] = item.value;
+                                            return resultObject;
+                                        }, {})
             }
 
             return JSON.stringify(evidence);
@@ -106,17 +143,10 @@
         }
 
         $(document).ready(function() {
-            var ExperimentContextManager = new TableManager('experiment_contexts', 'experiment_context');
-            var MetadataTableManager     = new TableManager('metadatas',   'metadata');
-
-            ExperimentContextManager.prependRow({
-                "name":  "Tissue",
-                "value": "Lung"
-            });
-            MetadataTableManager.prependRow({
-                "name":  "Creator",
-                "value": "dpncab"
-            });
+            console.log('document ready...');
+            window.experimentContextTableManager = new TableManager('experiment_contexts', 'experiment_context');
+            window.metadataTableManager          = new TableManager('metadatas',   'metadata');
+            console.log('created table managers.');
         });
     </script>
 </head>
