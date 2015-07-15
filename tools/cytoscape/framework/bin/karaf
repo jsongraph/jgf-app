@@ -283,10 +283,10 @@ setupDefaults() {
         # Check some easily accessible MIN/MAX params for JVM mem usage
         #
         if [ "x$JAVA_PERM_MEM" != "x" ]; then
-            DEFAULT_JAVA_OPTS="$DEFAULT_JAVA_OPTS -XX:PermSize=$JAVA_PERM_MEM"
+            DEFAULT_JAVA_OPTS="$DEFAULT_JAVA_OPTS"
         fi
         if [ "x$JAVA_MAX_PERM_MEM" != "x" ]; then
-            DEFAULT_JAVA_OPTS="$DEFAULT_JAVA_OPTS -XX:MaxPermSize=$JAVA_MAX_PERM_MEM"
+            DEFAULT_JAVA_OPTS="$DEFAULT_JAVA_OPTS"
         fi
         DEFAULT_JAVA_OPTS="-server $DEFAULT_JAVA_OPTS -Dcom.sun.management.jmxremote"
     elif [ "$JVM_VENDOR" = "IBM" ]; then
