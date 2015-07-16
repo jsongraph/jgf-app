@@ -1,9 +1,6 @@
 package info.json_graph_format.jgfapp.internal;
 
-import info.json_graph_format.jgfapp.api.BELEvidenceMapper;
-import info.json_graph_format.jgfapp.api.GraphConverter;
-import info.json_graph_format.jgfapp.api.GraphReader;
-import info.json_graph_format.jgfapp.api.JGFApp;
+import info.json_graph_format.jgfapp.api.*;
 import info.json_graph_format.jgfapp.api.util.StyleUtility;
 import info.json_graph_format.jgfapp.internal.io.JGFFileFilter;
 import info.json_graph_format.jgfapp.internal.io.JGFNetworkReaderFactory;
@@ -105,7 +102,8 @@ public class CyActivator extends AbstractCyActivator {
 
         // API implementations
         final GraphReader graphReader = new GraphReaderImpl();
-        final GraphConverter belGraphConverter = new BELGraphConverterImpl(cyNetworkFactory);
+        final GraphWriter graphWriter = new GraphWriterImpl();
+        final GraphConverter graphConverter = new BELGraphConverterImpl(cyNetworkFactory);
         final BELEvidenceMapper belEvidenceMapper = new BELEvidenceMapperImpl();
 
         // register reader
@@ -113,14 +111,15 @@ public class CyActivator extends AbstractCyActivator {
         final JGFNetworkReaderFactory jgfReaderFactory = new JGFNetworkReaderFactory(
                 jgfFileFilter, appMgr, cyNetworkViewFactory, cyNetworkFactory,
                 cyNetworkManager, cyNetworkViewManager, cyRootNetworkManager, cyTableFactory,
-                cyTableManager, visMgr, eventHelper, graphReader, belGraphConverter,
+                cyTableManager, visMgr, eventHelper, graphReader, graphConverter,
                 belEvidenceMapper);
         final Properties jgfNetworkReaderFactoryProps = new Properties();
         jgfNetworkReaderFactoryProps.put(ID, "JGFNetworkReaderFactory");
         registerService(bc, jgfReaderFactory, InputStreamTaskFactory.class, jgfNetworkReaderFactoryProps);
 
         // register writer
-        final JGFNetworkWriterFactory jgfWriterFactory = new JGFNetworkWriterFactory(jgfFileFilter);
+        final JGFNetworkWriterFactory jgfWriterFactory = new JGFNetworkWriterFactory(
+                jgfFileFilter, graphConverter, graphWriter);
         final Properties jgfNetworkWriterFactoryProps = new Properties();
         jgfNetworkWriterFactoryProps.put(ID, "JGFNetworkWriterFactory");
         registerAllServices(bc, jgfWriterFactory, jgfNetworkWriterFactoryProps);

@@ -2,6 +2,7 @@ package info.json_graph_format.jgfapp.api.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 import org.cytoscape.model.CyNetwork;
 
 import java.util.List;
@@ -10,6 +11,7 @@ import java.util.Map;
 /**
  * {@link Graph} represents the "graph" definition from the JSON graph schema.
  */
+@JsonRootName("graph")
 public class Graph implements MetadataProvider {
 
     @JsonProperty("type")

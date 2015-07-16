@@ -16,7 +16,6 @@ import info.json_graph_format.jgfapp.api.model.Root;
 
 import java.io.*;
 import java.util.Arrays;
-import java.util.stream.Stream;
 
 /**
  * {@link GraphReaderImpl} implements {@link info.json_graph_format.jgfapp.api.GraphReader} to provide

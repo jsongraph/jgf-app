@@ -40,7 +40,7 @@ public class BELGraphConverterImpl implements GraphConverter {
      */
     @Override
     public CyNetwork convert(Graph graph) {
-        if (graph == null) return null;
+        if (Objects.isNull(graph)) return null;
 
         CyNetwork network = networkFactory.createNetwork();
         mapNetworkData(graph, network);
@@ -56,10 +56,10 @@ public class BELGraphConverterImpl implements GraphConverter {
      * FIXME Unsupported.
      */
     @Override
-    public Graph convert(CyNetwork network) {
-        if (network == null) return null;
+    public Graph convert(CyNetwork cyN) {
+        if (Objects.isNull(cyN)) return null;
 
-        throw new UnsupportedOperationException("TODO, convert CyNetwork -> Graph");
+        return new Graph();
     }
 
     private static void mapNetworkData(Graph graph, CyNetwork network) {
