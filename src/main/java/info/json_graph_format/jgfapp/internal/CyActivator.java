@@ -7,6 +7,7 @@ import info.json_graph_format.jgfapp.api.JGFApp;
 import info.json_graph_format.jgfapp.api.util.StyleUtility;
 import info.json_graph_format.jgfapp.internal.io.JGFFileFilter;
 import info.json_graph_format.jgfapp.internal.io.JGFNetworkReaderFactory;
+import info.json_graph_format.jgfapp.internal.io.JGFNetworkWriterFactory;
 import info.json_graph_format.jgfapp.internal.listeners.SessionListener;
 import info.json_graph_format.jgfapp.internal.ui.About;
 import info.json_graph_format.jgfapp.internal.ui.EvidencePanelComponent;
@@ -107,16 +108,22 @@ public class CyActivator extends AbstractCyActivator {
         final GraphConverter belGraphConverter = new BELGraphConverterImpl(cyNetworkFactory);
         final BELEvidenceMapper belEvidenceMapper = new BELEvidenceMapperImpl();
 
-        // register readers
-        final CyFileFilter jgfReaderFilter = new JGFFileFilter(streamUtil);
+        // register reader
+        final CyFileFilter jgfFileFilter = new JGFFileFilter(streamUtil);
         final JGFNetworkReaderFactory jgfReaderFactory = new JGFNetworkReaderFactory(
-                jgfReaderFilter, appMgr, cyNetworkViewFactory, cyNetworkFactory,
+                jgfFileFilter, appMgr, cyNetworkViewFactory, cyNetworkFactory,
                 cyNetworkManager, cyNetworkViewManager, cyRootNetworkManager, cyTableFactory,
                 cyTableManager, visMgr, eventHelper, graphReader, belGraphConverter,
                 belEvidenceMapper);
         final Properties jgfNetworkReaderFactoryProps = new Properties();
         jgfNetworkReaderFactoryProps.put(ID, "JGFNetworkReaderFactory");
         registerService(bc, jgfReaderFactory, InputStreamTaskFactory.class, jgfNetworkReaderFactoryProps);
+
+        // register writer
+        final JGFNetworkWriterFactory jgfWriterFactory = new JGFNetworkWriterFactory(jgfFileFilter);
+        final Properties jgfNetworkWriterFactoryProps = new Properties();
+        jgfNetworkWriterFactoryProps.put(ID, "JGFNetworkWriterFactory");
+        registerAllServices(bc, jgfWriterFactory, jgfNetworkWriterFactoryProps);
 
         // register listeners
         final Properties evidenceProps = new Properties();

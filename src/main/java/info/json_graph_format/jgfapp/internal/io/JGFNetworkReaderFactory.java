@@ -79,7 +79,7 @@ public class JGFNetworkReaderFactory implements InputStreamTaskFactory {
     @Override
     public TaskIterator createTaskIterator(InputStream is, String inputName) {
         return new TaskIterator(
-                new JGFNetworkReader(is, inputName, graphReader, belGraphConverter,
+                new JGFReader(is, inputName, graphReader, belGraphConverter,
                         belEvidenceMapper, appMgr, cyNetworkViewFactory,
                         cyNetworkFactory, cyNetworkManager, cyNetworkViewManager,
                         cyRootNetworkManager, cyTableFactory, cyTableManager,

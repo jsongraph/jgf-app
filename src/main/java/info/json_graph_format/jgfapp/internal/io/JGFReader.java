@@ -35,11 +35,11 @@ import static info.json_graph_format.jgfapp.internal.Constants.*;
 import static java.lang.String.format;
 
 /**
- * {@link JGFNetworkReader} implements a {@link CyNetworkReader} to allow creation
+ * {@link JGFReader} implements a {@link CyNetworkReader} to allow creation
  * of {@link CyNetwork networks} and {@link CyNetworkView views} from BEL JSON
  * {@link Graph graphs}.
  */
-public class JGFNetworkReader extends AbstractCyNetworkReader {
+public class JGFReader extends AbstractCyNetworkReader {
 
     protected final InputStream inputStream;
     protected final String inputName;
@@ -54,13 +54,13 @@ public class JGFNetworkReader extends AbstractCyNetworkReader {
     protected final BELEvidenceMapper belEvidenceMapper;
     protected final CyNetworkViewManager networkViewMgr;
 
-    public JGFNetworkReader(InputStream inputStream, String inputName,
-                            GraphReader graphReader, GraphConverter belGraphConverter,
-                            BELEvidenceMapper belEvidenceMapper, CyApplicationManager appMgr,
-                            CyNetworkViewFactory networkViewFactory, CyNetworkFactory networkFactory,
-                            CyNetworkManager networkMgr, CyNetworkViewManager networkViewMgr,
-                            CyRootNetworkManager rootNetworkMgr, CyTableFactory tableFactory,
-                            CyTableManager tableMgr, VisualMappingManager visMgr, CyEventHelper eventHelper) {
+    public JGFReader(InputStream inputStream, String inputName,
+                     GraphReader graphReader, GraphConverter belGraphConverter,
+                     BELEvidenceMapper belEvidenceMapper, CyApplicationManager appMgr,
+                     CyNetworkViewFactory networkViewFactory, CyNetworkFactory networkFactory,
+                     CyNetworkManager networkMgr, CyNetworkViewManager networkViewMgr,
+                     CyRootNetworkManager rootNetworkMgr, CyTableFactory tableFactory,
+                     CyTableManager tableMgr, VisualMappingManager visMgr, CyEventHelper eventHelper) {
         super(inputStream, networkViewFactory, networkFactory, networkMgr, rootNetworkMgr);
 
         if (inputName == null) throw new NullPointerException("inputName cannot be null");
