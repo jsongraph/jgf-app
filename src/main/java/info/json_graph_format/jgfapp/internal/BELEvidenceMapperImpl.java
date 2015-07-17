@@ -1,7 +1,10 @@
 package info.json_graph_format.jgfapp.internal;
 
 import info.json_graph_format.jgfapp.api.BELEvidenceMapper;
-import info.json_graph_format.jgfapp.api.model.*;
+import info.json_graph_format.jgfapp.api.model.Citation;
+import info.json_graph_format.jgfapp.api.model.Edge;
+import info.json_graph_format.jgfapp.api.model.Evidence;
+import info.json_graph_format.jgfapp.api.model.Graph;
 import org.cytoscape.model.*;
 
 import java.util.*;

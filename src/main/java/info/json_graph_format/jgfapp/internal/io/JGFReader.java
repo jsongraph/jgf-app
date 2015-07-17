@@ -25,7 +25,9 @@ import org.cytoscape.work.TaskMonitor;
 import javax.swing.*;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
 import static info.json_graph_format.jgfapp.api.util.FormatUtility.getSchemaMessages;
 import static info.json_graph_format.jgfapp.api.util.TableUtility.getTable;

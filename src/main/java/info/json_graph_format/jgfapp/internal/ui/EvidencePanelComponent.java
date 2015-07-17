@@ -12,12 +12,13 @@ import org.cytoscape.model.events.RowsSetListener;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Optional;
 
 import static info.json_graph_format.jgfapp.api.util.TableUtility.getTable;
-import static info.json_graph_format.jgfapp.internal.Constants.EDGE_SUID;
-import static info.json_graph_format.jgfapp.internal.Constants.NETWORK_SUID;
-import static info.json_graph_format.jgfapp.internal.Constants.SELECTED;
+import static info.json_graph_format.jgfapp.internal.Constants.*;
 import static java.util.Arrays.asList;
 
 /**

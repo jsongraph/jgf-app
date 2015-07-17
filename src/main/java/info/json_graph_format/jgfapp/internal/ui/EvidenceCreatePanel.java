@@ -10,14 +10,16 @@ import info.json_graph_format.jgfapp.internal.BELEvidenceMapperImpl;
 import info.json_graph_format.jgfapp.internal.EvidenceReaderImpl;
 import info.json_graph_format.jgfapp.internal.EvidenceWriterImpl;
 import javafx.scene.web.WebEngine;
-import org.cytoscape.model.*;
+import org.cytoscape.model.CyColumn;
+import org.cytoscape.model.CyEdge;
+import org.cytoscape.model.CyNetwork;
+import org.cytoscape.model.CyTable;
 import org.w3c.dom.Element;
 import org.w3c.dom.events.EventTarget;
 import org.w3c.dom.html.HTMLDocument;
 import org.w3c.dom.html.HTMLElement;
 
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.Objects;
 import java.util.function.Function;
 
