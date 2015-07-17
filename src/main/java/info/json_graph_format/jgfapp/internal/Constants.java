@@ -214,6 +214,14 @@ public class Constants {
         return column -> ! FIXED_EVIDENCE_COLUMNS.contains(column.getName());
     }
 
+    public static Predicate<CyColumn> dynamicExperimentContextColumns() {
+        return column -> column.getName().startsWith("experiment_context_");
+    }
+
+    public static Predicate<CyColumn> dynamicMetadataColumns() {
+        return column -> column.getName().startsWith("metadata_");
+    }
+
     public static Predicate<Map.Entry<String, Object>> experimentContextEntries() {
         return entry -> entry.getKey().startsWith("experiment_context_");
     }

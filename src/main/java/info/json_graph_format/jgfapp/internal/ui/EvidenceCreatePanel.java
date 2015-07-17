@@ -19,8 +19,12 @@ import org.w3c.dom.html.HTMLElement;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Objects;
+import java.util.function.Function;
 
+import static info.json_graph_format.jgfapp.internal.Constants.dynamicExperimentContextColumns;
+import static info.json_graph_format.jgfapp.internal.Constants.dynamicMetadataColumns;
 import static java.lang.String.format;
+import static java.util.stream.Collectors.toMap;
 
 public class EvidenceCreatePanel extends HTMLPanel {
 
@@ -37,7 +41,7 @@ public class EvidenceCreatePanel extends HTMLPanel {
         this.evTable      = evTable;
         this.cyN          = cyN;
         this.cyE          = cyE;
-        this.evidenceJSON = createNewEvidenceJSON(cyN, cyE);
+        this.evidenceJSON = createNewEvidenceJSON(cyN, cyE, evTable);
     }
 
     @Override
@@ -82,7 +86,7 @@ public class EvidenceCreatePanel extends HTMLPanel {
         }
     }
 
-    private static String createNewEvidenceJSON(CyNetwork cyN, CyEdge cyE) {
+    private static String createNewEvidenceJSON(CyNetwork cyN, CyEdge cyE, CyTable evTable) {
         try {
             Evidence evidence = new Evidence();
             String source   = cyN.getDefaultNodeTable().getRow(cyE.getSource().getSUID()).get("name", String.class);
@@ -91,8 +95,20 @@ public class EvidenceCreatePanel extends HTMLPanel {
             evidence.belStatement      = format("%s %s %s", source, relation, target);
             evidence.citation          = new Citation();
             evidence.summaryText       = "";
-            evidence.experimentContext = new HashMap<>();
-            evidence.metadata          = new HashMap<>();
+
+            evidence.experimentContext =
+                    evTable.getColumns().
+                        stream().
+                        filter(dynamicExperimentContextColumns()).
+                        map(CyColumn::getName).
+                        collect(toMap(Function.<String>identity(), s -> ""));
+
+            evidence.metadata =
+                    evTable.getColumns().
+                            stream().
+                            filter(dynamicMetadataColumns()).
+                            map(CyColumn::getName).
+                            collect(toMap(Function.<String>identity(), s -> ""));
 
             EvidenceWriter evidenceWriter = new EvidenceWriterImpl();
             return evidenceWriter.serialize(evidence);
