@@ -1,5 +1,6 @@
 package info.json_graph_format.jgfapp.internal;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
@@ -18,8 +19,13 @@ public class GraphWriterImpl implements GraphWriter {
         jsonFactory = new JsonFactory();
         mapper = new ObjectMapper();
         mapper.enable(SerializationFeature.WRAP_ROOT_VALUE);
+        mapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
+        mapper.enable(SerializationFeature.INDENT_OUTPUT);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void write(Graph graph, Writer writer) throws IOException {
         mapper.writeValue(writer, graph);

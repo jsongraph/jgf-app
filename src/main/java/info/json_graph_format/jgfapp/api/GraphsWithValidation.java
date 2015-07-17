@@ -20,10 +20,6 @@ public class GraphsWithValidation {
         this.validationReport = validationReport;
     }
 
-    public boolean validatedSuccessful() {
-        return validationReport.isSuccess();
-    }
-
     public Graph[] getGraphs() {
         return graphs;
     }

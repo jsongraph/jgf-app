@@ -25,9 +25,7 @@ import org.cytoscape.work.TaskMonitor;
 import javax.swing.*;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 import static info.json_graph_format.jgfapp.api.util.FormatUtility.getSchemaMessages;
 import static info.json_graph_format.jgfapp.api.util.TableUtility.getTable;
@@ -200,13 +198,42 @@ public class JGFReader extends AbstractCyNetworkReader {
     }
 
     protected void mapGraphsToEvidenceTable(Graph[] graphs, CyTable table) {
+//        List<Evidence> allEvidence = Arrays.stream(graphs).
+//                flatMap(g -> g.edges.stream()).
+//                flatMap(edge -> Arrays.stream(belEvidenceMapper.mapEdgeToEvidence(edge))).
+//                collect(toList());
+//        Map<String, Class> experimentContextValueClasses = determineTypes(allEvidence, e -> e.experimentContext);
+//        Map<String, Class> metadataValueClasses          = determineTypes(allEvidence, e -> e.metadata);
+
         for (Graph graph : graphs) {
             for (Edge edge : graph.edges) {
-                Evidence[] evidences = belEvidenceMapper.mapEdgeToEvidence(graph, edge);
+                Evidence[] evidences = belEvidenceMapper.mapEdgeToEvidence(edge);
                 for (Evidence ev : evidences) {
                     belEvidenceMapper.mapToTable(graph, edge, ev, table);
                 }
             }
         }
     }
+
+//    private static Map<String, Class> determineTypes(List<Evidence> evidence,
+//                                                     Function<Evidence, Map<String, Object>> mappingFunction) {
+//        Map<String, Class> classMap = new HashMap<>();
+//        for (Evidence ev : evidence) {
+//            Map<String, Object> data = mappingFunction.apply(ev);
+//            for (Map.Entry<String, Object> entry : data.entrySet()) {
+//                String key = entry.getKey();
+//                Class<?> klass = entry.getValue().getClass();
+//
+//                Class<?> recordedClass = classMap.get(key);
+//                if (recordedClass == null) {
+//                    classMap.put(key, klass);
+//                } else {
+//                    if (!klass.equals(recordedClass)) {
+//                        classMap.put(key, String.class);
+//                    }
+//                }
+//            }
+//        }
+//        return classMap;
+//    }
 }

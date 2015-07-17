@@ -15,13 +15,11 @@ public interface BELEvidenceMapper {
     /**
      * Maps an {@link Edge edge} to an array of {@link Evidence} objects.
      *
-     * @param graph the {@link Graph}; cannot be {@code null}
      * @param edge  the {@link Edge}; cannot be {@code null}
      * @return the {@link Evidence} array; will not be {@code null} but may be empty
-     * @throws java.lang.NullPointerException if {@code graph} or {@code edge} is
-     *                                        {@code null}
+     * @throws java.lang.NullPointerException if {@code edge} is {@code null}
      */
-    Evidence[] mapEdgeToEvidence(Graph graph, Edge edge);
+    Evidence[] mapEdgeToEvidence(Edge edge);
 
     /**
      * Map an {@link Evidence} object to a {@link CyTable table}.

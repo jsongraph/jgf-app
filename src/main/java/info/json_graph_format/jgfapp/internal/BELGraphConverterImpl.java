@@ -1,20 +1,20 @@
 package info.json_graph_format.jgfapp.internal;
 
+import info.json_graph_format.jgfapp.api.BELEvidenceMapper;
 import info.json_graph_format.jgfapp.api.GraphConverter;
-import info.json_graph_format.jgfapp.api.model.Edge;
-import info.json_graph_format.jgfapp.api.model.Graph;
-import info.json_graph_format.jgfapp.api.model.MetadataProvider;
-import info.json_graph_format.jgfapp.api.model.Node;
+import info.json_graph_format.jgfapp.api.model.*;
 import org.cytoscape.model.*;
 
 import java.util.*;
 import java.util.Map.Entry;
+import java.util.function.Function;
 
 import static info.json_graph_format.jgfapp.api.util.FormatUtility.translateCoordinates;
-import static info.json_graph_format.jgfapp.api.util.TableUtility.getOrCreateColumn;
-import static info.json_graph_format.jgfapp.api.util.TableUtility.getOrCreateColumnByPrototypes;
-import static info.json_graph_format.jgfapp.api.util.TableUtility.setColumnValue;
+import static info.json_graph_format.jgfapp.api.util.TableUtility.*;
 import static info.json_graph_format.jgfapp.api.util.Utility.*;
+import static info.json_graph_format.jgfapp.internal.Constants.*;
+import static java.util.stream.Collectors.toList;
+import static java.util.stream.Collectors.toMap;
 
 /**
  * {@link BELGraphConverterImpl} implements a {@link GraphConverter} that converts
@@ -27,12 +27,19 @@ public class BELGraphConverterImpl implements GraphConverter {
     private static final String Y_COORD = "y coordinate";
     private static final String Z_COORD = "z coordinate";
 
-    private final CyNetworkFactory networkFactory;
+    private final CyNetworkFactory  networkFactory;
+    private final BELEvidenceMapper belEvidenceMapper;
+    private final CyTableManager cyTableManager;
 
-    public BELGraphConverterImpl(CyNetworkFactory networkFactory) {
-        if (networkFactory == null)
-            throw new NullPointerException("networkFactory cannot be null");
-        this.networkFactory = networkFactory;
+    public BELGraphConverterImpl(CyNetworkFactory networkFactory, BELEvidenceMapper belEvidenceMapper,
+                                 CyTableManager cyTableManager) {
+        Objects.requireNonNull(networkFactory, "networkFactory cannot be null");
+        Objects.requireNonNull(belEvidenceMapper, "belEvidenceMapper cannot be null");
+        Objects.requireNonNull(cyTableManager, "cyTableManager cannot be null");
+
+        this.networkFactory    = networkFactory;
+        this.belEvidenceMapper = belEvidenceMapper;
+        this.cyTableManager    = cyTableManager;
     }
 
     /**
@@ -52,14 +59,26 @@ public class BELGraphConverterImpl implements GraphConverter {
 
     /**
      * {@inheritDoc}
-     * <br><br>
-     * FIXME Unsupported.
      */
     @Override
     public Graph convert(CyNetwork cyN) {
         if (Objects.isNull(cyN)) return null;
 
-        return new Graph();
+        CyTable evTable = getTable(BEL_EVIDENCE_TABLE, cyTableManager);
+        CyRow cyNRow = cyN.getRow(cyN);
+
+        Graph g = new Graph();
+        g.directed = true;
+        g.label = cyNRow.get(NAME, String.class);
+        g.metadata = cyNRow.getAllValues().entrySet().
+                stream().
+                filter(dynamiceNetworkEntries()).
+                collect(toMap(Entry::getKey, Entry::getValue));
+
+        g.nodes = cyN.getNodeList().stream().map(toJGFNode(cyN)).collect(toList());
+        g.edges = cyN.getEdgeList().stream().map(toJGFEdge(cyN, belEvidenceMapper, evTable)).collect(toList());
+
+        return g;
     }
 
     private static void mapNetworkData(Graph graph, CyNetwork network) {
@@ -198,5 +217,73 @@ public class BELGraphConverterImpl implements GraphConverter {
         }
 
         return columns;
+    }
+
+    private static Function<CyNode, Node> toJGFNode(final CyNetwork cyN) {
+        return (CyNode cyNode) -> {
+            CyRow cyNodeRow = cyN.getRow(cyNode);
+
+            Node jgfNode     = new Node();
+            jgfNode.id       = cyNodeRow.get(NAME, String.class);
+            jgfNode.label    = cyNodeRow.get(NAME, String.class);
+            jgfNode.metadata =
+                    cyNodeRow.getAllValues().entrySet().
+                            stream().
+                            filter(dynamiceNodeEntries()).
+                            collect(
+                                    HashMap::new,
+                                    (Map<String, Object> map, Map.Entry<String, Object> entry) -> map.put(entry.getKey(), entry.getValue()),
+                                    Map::putAll);
+
+            return jgfNode;
+        };
+    }
+
+    private static Function<CyEdge, Edge> toJGFEdge(final CyNetwork cyN, BELEvidenceMapper evidenceMapper,
+                                                    CyTable evidenceTable) {
+        return (CyEdge cyEdge) -> {
+            CyRow cyEdgeRow = cyN.getRow(cyEdge);
+
+
+            Edge jgfEdge     = new Edge();
+            jgfEdge.label    = cyEdgeRow.get(NAME, String.class);
+            jgfEdge.source   = cyN.getRow(cyEdge.getSource()).get(NAME, String.class);
+            jgfEdge.target   = cyN.getRow(cyEdge.getTarget()).get(NAME, String.class);
+            jgfEdge.relation = cyEdgeRow.get("interaction", String.class);
+            jgfEdge.metadata =
+                    cyEdgeRow.getAllValues().entrySet().
+                            stream().
+                            filter(dynamiceEdgeEntries()).
+                            collect(
+                                    HashMap::new,
+                                    (Map<String, Object> map, Map.Entry<String, Object> entry) -> map.put(entry.getKey(), entry.getValue()),
+                                    Map::putAll);
+
+            Evidence[] evidenceArray = evidenceMapper.mapFromTable(cyEdge, evidenceTable);
+            evidenceArray = Arrays.
+                    stream(evidenceArray).
+                    map(evidence -> {
+
+                evidence.experimentContext = evidence.experimentContext.entrySet().
+                        stream().
+                        collect(
+                                HashMap::new,
+                                (Map<String, Object> map, Map.Entry<String, Object> entry) ->
+                                        map.put(entry.getKey().replaceFirst("^experiment_context_", ""), entry.getValue()),
+                                Map::putAll);
+
+                evidence.metadata = evidence.metadata.entrySet().
+                        stream().
+                        collect(
+                                HashMap::new,
+                                (Map<String, Object> map, Map.Entry<String, Object> entry) ->
+                                        map.put(entry.getKey().replaceFirst("^metadata_", ""), entry.getValue()),
+                                Map::putAll);
+                return evidence;
+            }).toArray(Evidence[]::new);
+            jgfEdge.metadata.put("evidences", evidenceArray);
+
+            return jgfEdge;
+        };
     }
 }

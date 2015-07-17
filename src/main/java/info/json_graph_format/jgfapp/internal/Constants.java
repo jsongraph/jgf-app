@@ -4,11 +4,10 @@ import org.cytoscape.model.CyColumn;
 import org.cytoscape.model.CyNetwork;
 import org.cytoscape.view.vizmap.VisualStyle;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
+import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.stream.Collector;
 
 import static java.util.Arrays.asList;
 
@@ -105,6 +104,18 @@ public class Constants {
     public static final String NETWORK_NAME = "network name";
 
     /**
+     * Name of the cytoscape column holding the name for the
+     * {@link org.cytoscape.model.CyIdentifiable}: {@value}
+     */
+    public static final String NAME = "name";
+
+    /**
+     * Name of the cytoscape column holding the shared name for the
+     * {@link org.cytoscape.model.CyIdentifiable}: {@value}
+     */
+    public static final String SHARED_NAME = "shared name";
+
+    /**
      * Name of the cytoscape column holding the edge identifier in the
      * {@link Constants#BEL_EVIDENCE_TABLE}: {@value}
      * <br><br>
@@ -150,6 +161,22 @@ public class Constants {
     public static final String SELECTED = "selected";
 
     /**
+     * Name of the cytoscape column holding the annotations list for the
+     * {@link org.cytoscape.model.CyNetwork}: {@value}
+     */
+    public static final String __ANNOTATIONS = "__Annotations";
+
+    /**
+     * Name of the cytoscape column holding the interaction: {@value}
+     */
+    public static final String INTERACTION = "interaction";
+
+    /**
+     * Name of the cytoscape column holding the shared interaction: {@value}
+     */
+    public static final String SHARED_INTERACTION = "shared interaction";
+
+    /**
      * The fixed columns that are part of the Evidence Table. This
      * allows one to determine the dynamic columns within the
      * experiment context and metadata sections.
@@ -159,7 +186,31 @@ public class Constants {
                     BEL_STATEMENT, SUMMARY_TEXT, CITATION_ID, CITATION_NAME,
                     CITATION_TYPE));
 
-    public static Predicate<CyColumn> dynamicColumns() {
+    public static final Set<String> FIXED_NETWORK_COLUMNS = new HashSet<>(
+            asList(CyNetwork.SUID, SELECTED, NAME, SHARED_NAME, __ANNOTATIONS)
+    );
+
+    public static final Set<String> FIXED_NODE_COLUMNS = new HashSet<>(
+            asList(CyNetwork.SUID, SELECTED, NAME, SHARED_NAME)
+    );
+
+    public static final Set<String> FIXED_EDGE_COLUMNS = new HashSet<>(
+            asList(CyNetwork.SUID, SELECTED, NAME, SHARED_NAME, INTERACTION, SHARED_INTERACTION)
+    );
+
+    public static Predicate<Map.Entry<String, Object>> dynamiceNetworkEntries() {
+        return entry -> ! FIXED_NETWORK_COLUMNS.contains(entry.getKey());
+    }
+
+    public static Predicate<Map.Entry<String, Object>> dynamiceNodeEntries() {
+        return entry -> ! FIXED_NODE_COLUMNS.contains(entry.getKey());
+    }
+
+    public static Predicate<Map.Entry<String, Object>> dynamiceEdgeEntries() {
+        return entry -> ! FIXED_EDGE_COLUMNS.contains(entry.getKey());
+    }
+
+    public static Predicate<CyColumn> dynamicEvidenceColumns() {
         return column -> ! FIXED_EVIDENCE_COLUMNS.contains(column.getName());
     }
 
@@ -171,12 +222,16 @@ public class Constants {
         return entry -> entry.getKey().startsWith("metadata_");
     }
 
-    public static Predicate<CyColumn> experimentContextColumns() {
-        return column -> column.getName().startsWith("experiment_context_");
-    }
-
-    public static Predicate<CyColumn> metadataColumn() {
-        return column -> column.getName().startsWith("metadata_");
+    public static <T> Collector<T, List<T>, List<T>> toImmutableList() {
+        return Collector.of(
+                ArrayList::new,
+                List::add,
+                (left, right) -> {
+                    left.addAll(right);
+                    return left;
+                },
+                Collections::unmodifiableList
+        );
     }
 
     private Constants() {

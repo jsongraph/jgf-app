@@ -103,8 +103,8 @@ public class CyActivator extends AbstractCyActivator {
         // API implementations
         final GraphReader graphReader = new GraphReaderImpl();
         final GraphWriter graphWriter = new GraphWriterImpl();
-        final GraphConverter graphConverter = new BELGraphConverterImpl(cyNetworkFactory);
         final BELEvidenceMapper belEvidenceMapper = new BELEvidenceMapperImpl();
+        final GraphConverter graphConverter = new BELGraphConverterImpl(cyNetworkFactory, belEvidenceMapper, cyTableManager);
 
         // register reader
         final CyFileFilter jgfFileFilter = new JGFFileFilter(streamUtil);

@@ -9,11 +9,9 @@ import java.util.Map.Entry;
 import java.util.stream.Collectors;
 
 import static info.json_graph_format.jgfapp.api.util.FormatUtility.getOrEmptyString;
-import static info.json_graph_format.jgfapp.api.util.FormatUtility.getOrZero;
 import static info.json_graph_format.jgfapp.api.util.TableUtility.getOrCreateColumn;
 import static info.json_graph_format.jgfapp.api.util.Utility.typedList;
 import static info.json_graph_format.jgfapp.internal.Constants.*;
-import static java.util.Arrays.asList;
 
 /**
  * {@link BELEvidenceMapperImpl} implements a {@link BELEvidenceMapper} to
@@ -25,8 +23,7 @@ public class BELEvidenceMapperImpl implements BELEvidenceMapper {
      * {@inheritDoc}
      */
     @Override
-    public Evidence[] mapEdgeToEvidence(Graph graph, Edge edge) {
-        if (graph == null) throw new NullPointerException("graph cannot be null");
+    public Evidence[] mapEdgeToEvidence(Edge edge) {
         if (edge == null) throw new NullPointerException("edge cannot be null");
 
         if (edge.metadata == null) return new Evidence[0];
@@ -57,13 +54,7 @@ public class BELEvidenceMapperImpl implements BELEvidenceMapper {
             @SuppressWarnings("unchecked")
             Map<String, Object> contextMap = (Map<String, Object>) evMap.get("experiment_context");
             if (contextMap != null) {
-                context.put("species_common_name", getOrEmptyString("species_common_name", contextMap));
-                context.put("ncbi_tax_id", getOrZero("ncbi_tax_id", contextMap));
-                Set<String> varying = new HashSet<>(contextMap.keySet());
-                varying.removeAll(asList("species_common_name", "ncbi_tax_id"));
-                for (String key : varying) {
-                    context.put(key, contextMap.get(key));
-                }
+                context.putAll(contextMap);
             }
             ev.experimentContext = context;
 
@@ -125,7 +116,7 @@ public class BELEvidenceMapperImpl implements BELEvidenceMapper {
         // unset dynamic columns (e.g. experiment context and metadata columns)
         table.getColumns().
                 stream().
-                filter(dynamicColumns()).
+                filter(dynamicEvidenceColumns()).
                 map(CyColumn::getName).
                 forEach(s -> row.set(s, null));
 
