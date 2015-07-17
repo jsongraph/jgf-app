@@ -10,6 +10,8 @@ import org.cytoscape.model.CyTableManager;
 
 import javax.annotation.Nullable;
 import java.util.*;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 import static com.google.common.base.Predicates.*;
 import static info.json_graph_format.jgfapp.api.util.Utility.noItems;
@@ -24,7 +26,7 @@ public class TableUtility {
     private static final Collection<Class<?>> SUPPORTED_TYPES;
 
     static {
-        SUPPORTED_TYPES = new ArrayList<Class<?>>();
+        SUPPORTED_TYPES = new ArrayList<>();
         SUPPORTED_TYPES.add(Boolean.class);
         SUPPORTED_TYPES.add(Double.class);
         SUPPORTED_TYPES.add(Float.class);
@@ -51,7 +53,7 @@ public class TableUtility {
                     }).filter(and(notNull(), not(assignableFrom(Map.class))));
 
             if (Iterables.all(types, assignableFrom(Collection.class))) {
-                Collection<Collection<Object>> all = new ArrayList<Collection<Object>>();
+                Collection<Collection<Object>> all = new ArrayList<>();
                 for (Object o : prototypes) {
                     all.add((Collection<Object>) o);
                 }
@@ -166,7 +168,8 @@ public class TableUtility {
                 row.set(name, ((Float) value).doubleValue());
             else if (value instanceof String) {
                 try {
-                    Double.parseDouble(value.toString());
+                    Double doubleValue = Double.valueOf((String) value);
+                    row.set(name, doubleValue);
                 } catch (NumberFormatException e) {
                     // string value does not represent a double
                     String fmt = "value of type %s cannot be converted to %s";
@@ -217,22 +220,22 @@ public class TableUtility {
             type = String.class;
         } else {
             // flatten collections, map prototypes to classes, and filter for non-null objects...
-            Iterable<Class<?>> types = FluentIterable.from(
-                    Iterables.concat(prototypes)).
-                    transform(new Function<Object, Class<?>>() {
-                        @Nullable
-                        public Class<?> apply(@Nullable Object o) {
-                            return (o == null) ? null : o.getClass();
-                        }
-                    }).filter(and(notNull(), not(assignableFrom(Map.class))));
+            Iterator<Class<?>> classIterator = prototypes.
+                    stream().
+                    filter(Objects::nonNull).
+                    flatMap(Collection::stream).
+                    map(Object::getClass).
+                    filter(Objects::nonNull).
+                    filter(((Predicate<Class<?>>) Map.class::isAssignableFrom).negate()).
+                    collect(Collectors.toList()).
+                    iterator();
 
             // ...reduce to representative type for all prototypes
-            Iterator<Class<?>> it = types.iterator();
-            if (!it.hasNext()) return null;
+            if (!classIterator.hasNext()) return null;
 
-            type = it.next();
-            while (it.hasNext()) {
-                Class<?> nextType = it.next();
+            type = classIterator.next();
+            while (classIterator.hasNext()) {
+                Class<?> nextType = classIterator.next();
                 // skip; no further work needed
                 if (type == nextType) continue;
 
