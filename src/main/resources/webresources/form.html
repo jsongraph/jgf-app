@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Create evidence</title>
-    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" />
-    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <link   href="<<ROOT>>/bootstrap-3.3.5.css" rel="stylesheet" />
+    <link   href="<<ROOT>>/font-awesome-3.2.1.css" rel="stylesheet" />
+    <script  src="<<ROOT>>/jquery-1.11.0.js"></script>
+<!--    <script  src="<<ROOT>>/bootstrap-3.3.2.js"></script>   -->
 
     <script type="text/javascript">
         var TableManager = function(tableId, rowTag) {
@@ -260,8 +260,8 @@
                                     <input type="text" name="experiment_context_value" placeholder="Value (i.e. Lung, Carcinoma)" class="form-control" />
                                 </td>
                                 <td>
-                                    <button name="experiment_context_add" class="btn btn-success glyphicon glyphicon-plus row-add"></button>
-                                    <button name="experiment_context_delete" class="btn btn-danger glyphicon glyphicon-remove row-remove"></button>
+                                    <button name="experiment_context_add" class="btn btn-success">+</button>
+                                    <button name="experiment_context_delete" class="btn btn-danger">-</button>
                                 </td>
                             </tr>
                             </tbody>
@@ -301,8 +301,8 @@
                                     <input type="text" name="metadata_value" placeholder="Value (i.e. 321321, 2015-07-14, dpncab)" class="form-control" />
                                 </td>
                                 <td>
-                                    <button name="metadata_add" class="btn btn-success glyphicon glyphicon-plus row-add"></button>
-                                    <button name="metadata_delete" class="btn btn-danger glyphicon glyphicon-remove row-remove"></button>
+                                    <button name="metadata_add" class="btn btn-success">+</button>
+                                    <button name="metadata_delete" class="btn btn-danger">-</button>
                                 </td>
                             </tr>
                             </tbody>

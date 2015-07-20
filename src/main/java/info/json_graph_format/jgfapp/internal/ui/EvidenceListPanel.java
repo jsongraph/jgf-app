@@ -5,6 +5,7 @@ import javafx.application.Platform;
 import javafx.scene.web.WebEngine;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import org.w3c.dom.events.EventListener;
 import org.w3c.dom.events.EventTarget;
 
 import java.util.List;
@@ -17,26 +18,36 @@ import static java.lang.String.valueOf;
 public class EvidenceListPanel extends HTMLPanel {
 
     private EvidencePanelComponent evidenceComponent;
+    private EventListener createClickEvent;
 
     public EvidenceListPanel() {
-        super("/form-html/list.html");
+        super("list.html");
+
     }
 
     @Override
     protected void onDocumentLoaded(WebEngine webEngine) {
-        Element createButton = webEngine.getDocument().getElementById("create-button");
-        ((EventTarget) createButton).addEventListener("click", evt -> {
-            if (!Objects.equals(((Element) evt.getCurrentTarget()).getTagName(), "BUTTON")) {
-                return;
-            }
-            evidenceComponent.createEvidence();
-        }, false);
+        // All elements bind in the update method.
     }
 
     public void update(final List<Evidence> evidences, EvidencePanelComponent evidenceComponent) {
         this.evidenceComponent = evidenceComponent;
         Platform.runLater(() -> {
             Document doc = webEngine.getDocument();
+
+            // Bind to create-button once and lazily. HTML document was null when binding
+            // in onDocumentLoaded.
+            if (createClickEvent == null) {
+                Element createButton = doc.getElementById("create-button");
+                createClickEvent = evt -> {
+                    if (!Objects.equals(((Element) evt.getCurrentTarget()).getTagName(), "BUTTON")) {
+                        return;
+                    }
+                    evidenceComponent.createEvidence();
+                };
+                ((EventTarget) createButton).addEventListener("click", createClickEvent, false);
+            }
+
             Element evidenceTable = doc.getElementById("evidence-table");
             Element tableBody = (Element) evidenceTable.getElementsByTagName("tbody").item(0);
             while (tableBody.hasChildNodes()) {
@@ -82,12 +93,7 @@ public class EvidenceListPanel extends HTMLPanel {
         button.setAttribute("evidence-id", valueOf(evidence.evidenceId));
         button.setAttribute("type", "button");
         button.setAttribute("class", "btn btn-info");
-        button.setAttribute("aria-label", "Edit");
-
-        Element span = doc.createElement("span");
-        span.setAttribute("class", "glyphicon glyphicon-pencil");
-        span.setAttribute("aria-hidden", "true");
-        button.appendChild(span);
+        button.setTextContent("Edit");
 
         return button;
     }
@@ -97,12 +103,7 @@ public class EvidenceListPanel extends HTMLPanel {
         button.setAttribute("evidence-id", valueOf(evidence.evidenceId));
         button.setAttribute("type", "button");
         button.setAttribute("class", "btn btn-danger");
-        button.setAttribute("aria-label", "Delete");
-
-        Element span = doc.createElement("span");
-        span.setAttribute("class", "glyphicon glyphicon-minus");
-        span.setAttribute("aria-hidden", "true");
-        button.appendChild(span);
+        button.setTextContent("Delete");
 
         return button;
     }

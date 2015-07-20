@@ -32,6 +32,7 @@ import org.cytoscape.view.vizmap.VisualMappingManager;
 import org.osgi.framework.BundleContext;
 
 import java.awt.event.ActionEvent;
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
@@ -65,6 +66,8 @@ import static org.cytoscape.work.ServiceProperties.*;
  */
 public class CyActivator extends AbstractCyActivator {
 
+    public static WebResources webResources;
+
     /**
      * This is the {@code start} method, which sets up your app. The
      * {@code BundleContext} object allows you to communicate with the OSGi
@@ -80,6 +83,13 @@ public class CyActivator extends AbstractCyActivator {
      */
     @Override
     public void start(BundleContext bc) throws Exception {
+
+        // copy web resources to file system
+        try {
+            webResources = new WebResources();
+        } catch (IOException ex) {
+            throw new RuntimeException("Unable to load web resources to filesystem.", ex);
+        }
 
         // reference services
         final StreamUtil streamUtil = getService(bc, StreamUtil.class);

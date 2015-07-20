@@ -1,5 +1,6 @@
 package info.json_graph_format.jgfapp.internal.ui;
 
+import info.json_graph_format.jgfapp.internal.CyActivator;
 import javafx.application.Platform;
 import javafx.beans.value.ObservableValue;
 import javafx.concurrent.Worker;
@@ -21,8 +22,8 @@ public abstract class HTMLPanel extends JFXPanel {
     private String htmlContent;
     protected WebEngine webEngine;
 
-    protected HTMLPanel(String location) {
-        htmlContent = read(HTMLPanel.class.getResourceAsStream(location));
+    protected HTMLPanel(String name) {
+        htmlContent = CyActivator.webResources.getHTML(name);
         Platform.runLater(this::createUI);
     }
 
@@ -73,7 +74,7 @@ public abstract class HTMLPanel extends JFXPanel {
 //                                                "};"
 //                        );
 
-                        onDocumentLoaded(webEngine);
+                        Platform.runLater(() -> onDocumentLoaded(webEngine));
                     }
                 }
         );

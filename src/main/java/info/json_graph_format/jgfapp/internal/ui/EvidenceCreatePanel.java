@@ -37,7 +37,7 @@ public class EvidenceCreatePanel extends HTMLPanel {
     private final String evidenceJSON;
 
     public EvidenceCreatePanel(EvidencePanelComponent evComponent, CyTable evTable, CyNetwork cyN, CyEdge cyE) {
-        super("/form-html/form.html");
+        super("form.html");
 
         this.evComponent  = evComponent;
         this.evTable      = evTable;
@@ -48,6 +48,8 @@ public class EvidenceCreatePanel extends HTMLPanel {
 
     @Override
     protected void onDocumentLoaded(WebEngine webEngine) {
+        if (webEngine.getDocument() == null) return;
+
         HTMLElement htmlBody = ((HTMLDocument) webEngine.getDocument()).getBody();
         Element pEvidence = createElementWithText(webEngine.getDocument(), "p", evidenceJSON);
         pEvidence.setAttribute("id", "evidence-json");

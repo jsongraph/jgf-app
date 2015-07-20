@@ -25,11 +25,11 @@ import static java.util.Arrays.asList;
  * {@link EvidencePanelComponent} defines a {@link CytoPanelComponent} tab for
  * the cytoscape <em>Results Panel</em>.
  * <br><br>
- * The {@link EvidencePanel} provides the user interface for this
+ * The {@link EvidenceListPanel} provides the user interface for this
  * {@link CytoPanelComponent}.
  * <br><br>
  * The {@link EvidencePanelComponent#handleEvent(org.cytoscape.model.events.RowsSetEvent)}
- * method will call {@link EvidencePanel#update(java.util.List, EvidencePanelComponent)} when an
+ * method will call {@link EvidenceListPanel#update(java.util.List, EvidencePanelComponent)} when an
  * {@link CyEdge edge} is clicked.
  */
 public class EvidencePanelComponent implements CytoPanelComponent, RowsSetListener {
@@ -38,7 +38,7 @@ public class EvidencePanelComponent implements CytoPanelComponent, RowsSetListen
     private final CyTableManager tableManager;
     private final CyNetworkManager networkManager;
     private final CyApplicationManager appManager;
-    private EvidencePanel evidencePanel;
+    private EvidenceListPanel evidenceListPanel;
 
     public EvidencePanelComponent(BELEvidenceMapper belEvidenceMapper,
                                   CyTableManager tableManager, CyNetworkManager networkManager,
@@ -54,7 +54,7 @@ public class EvidencePanelComponent implements CytoPanelComponent, RowsSetListen
      */
     @Override
     public Component getComponent() {
-        return evidencePanel = new EvidencePanel();
+        return evidenceListPanel = new EvidenceListPanel();
     }
 
     /**
@@ -134,7 +134,7 @@ public class EvidencePanelComponent implements CytoPanelComponent, RowsSetListen
 
             // find remaining evidence and update panel
             Evidence[] evidences = belEvidenceMapper.mapFromTable(edge, evTable);
-            evidencePanel.update(asList(evidences), this);
+            evidenceListPanel.update(asList(evidences), this);
         }
     }
 
@@ -152,9 +152,9 @@ public class EvidencePanelComponent implements CytoPanelComponent, RowsSetListen
             if (edge == null) return;
 
             Evidence[] evidences = belEvidenceMapper.mapFromTable(edge, evTable);
-            evidencePanel.update(asList(evidences), this);
+            evidenceListPanel.update(asList(evidences), this);
         } else {
-            evidencePanel.update(new ArrayList<>(), this);
+            evidenceListPanel.update(new ArrayList<>(), this);
         }
     }
 
@@ -189,9 +189,9 @@ public class EvidencePanelComponent implements CytoPanelComponent, RowsSetListen
             if (edge == null) return;
 
             Evidence[] evidences = belEvidenceMapper.mapFromTable(edge, evTable);
-            evidencePanel.update(asList(evidences), this);
+            evidenceListPanel.update(asList(evidences), this);
         } else {
-            evidencePanel.update(new ArrayList<>(), this);
+            evidenceListPanel.update(new ArrayList<>(), this);
         }
     }
 }
