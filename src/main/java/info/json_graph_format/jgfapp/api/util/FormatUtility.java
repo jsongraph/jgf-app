@@ -77,9 +77,7 @@ public class FormatUtility {
     }
 
     /**
-     * Return a point (x,y,z) in an absolute coordinate space. If the original x,y point is a relative percentage
-     * then they are translated to absolute positioning according to Cytoscape, otherwise they are passed through
-     * as is.
+     * Return a point (x,y,z) in an absolute coordinate space.
      *
      * @param point the {@link Collection} of points (x,y,z) as a {@link List} of {@link Double}
      * @return absolute coordinate {@link List}; {@code null} if {@code points} is {@code null};
@@ -87,15 +85,6 @@ public class FormatUtility {
      */
     public static List<Double> absoluteCoordinates(List<Double> point, int width, int height, double multiplier) {
         if (point == null) return null;
-
-        // Determine if x,y coordinates are likely absolute...
-        boolean absolute = point.
-                stream().
-                limit(2).
-                allMatch(coordinate -> coordinate == null || coordinate >= 1.0);
-
-        // Return original point if it's absolute.
-        if (absolute) return point;
 
         // Calculate absolute coordinates given relative.
         Double x = null, y = null, z = null;
@@ -106,9 +95,8 @@ public class FormatUtility {
     }
 
     /**
-     * Return a point (x,y,z) in a relative coordinate space. If the original x,y point is likely using an absolute
-     * coordinate space then they are translated to relative positioning according to Cytoscape, otherwise they are
-     * passed through as is.
+     * Return a point (x,y,z) in a relative coordinate space.
+     * as is.
      *
      * @param point the {@link Collection} of points (x,y,z) as a {@link List} of {@link Double}
      * @return relative coordinate {@link List}; {@code null} if {@code points} is {@code null};
@@ -116,15 +104,6 @@ public class FormatUtility {
      */
     public static List<Double> relativeCoordinates(List<Double> point, int width, int height, double multiplier) {
         if (point == null) return null;
-
-        // Determine if x,y coordinates are relative...
-        boolean relative = point.
-                stream().
-                limit(2).
-                allMatch(coordinate -> coordinate == null || coordinate >= 0.0 && coordinate <= 1.0);
-
-        // Return original point if it's relative.
-        if (relative) return point;
 
         // Calculate relative coordinates given absolute.
         Double x = null, y = null, z = null;
