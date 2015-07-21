@@ -4,15 +4,20 @@ import info.json_graph_format.jgfapp.api.BELEvidenceMapper;
 import info.json_graph_format.jgfapp.api.GraphConverter;
 import info.json_graph_format.jgfapp.api.model.*;
 import org.cytoscape.model.*;
+import org.cytoscape.view.model.CyNetworkView;
+import org.cytoscape.view.model.View;
+import org.cytoscape.view.presentation.property.BasicVisualLexicon;
 
 import java.util.*;
 import java.util.Map.Entry;
 import java.util.function.Function;
 
-import static info.json_graph_format.jgfapp.api.util.FormatUtility.translateCoordinates;
+import static info.json_graph_format.jgfapp.api.util.FormatUtility.absoluteCoordinates;
+import static info.json_graph_format.jgfapp.api.util.FormatUtility.relativeCoordinates;
 import static info.json_graph_format.jgfapp.api.util.TableUtility.*;
 import static info.json_graph_format.jgfapp.api.util.Utility.*;
 import static info.json_graph_format.jgfapp.internal.Constants.*;
+import static java.util.Arrays.asList;
 import static java.util.stream.Collectors.toList;
 import static java.util.stream.Collectors.toMap;
 
@@ -23,9 +28,12 @@ import static java.util.stream.Collectors.toMap;
  */
 public class BELGraphConverterImpl implements GraphConverter {
 
-    private static final String X_COORD = "x coordinate";
-    private static final String Y_COORD = "y coordinate";
-    private static final String Z_COORD = "z coordinate";
+    private static final String X_COORD                  = "x coordinate";
+    private static final String Y_COORD                  = "y coordinate";
+    private static final String Z_COORD                  = "z coordinate";
+    private static final int DEFAULT_NETWORK_VIEW_WIDTH  = 480;
+    private static final int DEFAULT_NETWORK_VIEW_HEIGHT = 370;
+    private static final int DEFAULT_MULTIPLIER          = 3;
 
     private final CyNetworkFactory  networkFactory;
     private final BELEvidenceMapper belEvidenceMapper;
@@ -61,7 +69,7 @@ public class BELGraphConverterImpl implements GraphConverter {
      * {@inheritDoc}
      */
     @Override
-    public Graph convert(CyNetwork cyN) {
+    public Graph convert(CyNetwork cyN, CyNetworkView cyNv) {
         if (Objects.isNull(cyN)) return null;
 
         CyTable evTable = getTable(BEL_EVIDENCE_TABLE, cyTableManager);
@@ -75,7 +83,7 @@ public class BELGraphConverterImpl implements GraphConverter {
                 filter(dynamiceNetworkEntries()).
                 collect(toMap(Entry::getKey, Entry::getValue));
 
-        g.nodes = cyN.getNodeList().stream().map(toJGFNode(cyN)).collect(toList());
+        g.nodes = cyN.getNodeList().stream().map(toJGFNode(cyN, cyNv)).collect(toList());
         g.edges = cyN.getEdgeList().stream().map(toJGFEdge(cyN, belEvidenceMapper, evTable)).collect(toList());
 
         return g;
@@ -137,7 +145,12 @@ public class BELGraphConverterImpl implements GraphConverter {
                         Object coords = n.metadata.get("coordinate");
                         if (coords != null && (coords instanceof List)) {
                             List<Double> coordinates = typedList((List) coords, Double.class);
-                            nodeCoordinates.put(row, coordinates);
+                            nodeCoordinates.put(row,
+                                    absoluteCoordinates(coordinates,
+                                            DEFAULT_NETWORK_VIEW_WIDTH,
+                                            DEFAULT_NETWORK_VIEW_HEIGHT,
+                                            DEFAULT_MULTIPLIER)
+                            );
                         }
                     }
                 }
@@ -145,15 +158,13 @@ public class BELGraphConverterImpl implements GraphConverter {
                 createdNodes.put(n.id, cyNode);
             }
 
-            List<List<Double>> translateCoordinates = translateCoordinates(nodeCoordinates.values());
-            CyRow[] rows = nodeCoordinates.keySet().toArray(new CyRow[nodeCoordinates.size()]);
-            for (int i = 0; i < rows.length; i++) {
-                CyRow row = rows[i];
-                List<Double> coord = translateCoordinates.get(i);
-                if (coord.size() > 0) row.set(X_COORD, coord.get(0));
-                if (coord.size() > 1) row.set(Y_COORD, coord.get(1));
-                if (coord.size() > 2) row.set(Z_COORD, coord.get(2));
-            }
+            nodeCoordinates.entrySet().stream().forEach(entry -> {
+                CyRow row          = entry.getKey();
+                List<Double> point = entry.getValue();
+                if (point.size() > 0) row.set(X_COORD, point.get(0));
+                if (point.size() > 1) row.set(Y_COORD, point.get(1));
+                if (point.size() > 2) row.set(Z_COORD, point.get(2));
+            });
         }
 
         return createdNodes;
@@ -219,7 +230,7 @@ public class BELGraphConverterImpl implements GraphConverter {
         return columns;
     }
 
-    private static Function<CyNode, Node> toJGFNode(final CyNetwork cyN) {
+    private static Function<CyNode, Node> toJGFNode(final CyNetwork cyN, final CyNetworkView cyNv) {
         return (CyNode cyNode) -> {
             CyRow cyNodeRow = cyN.getRow(cyNode);
 
@@ -234,6 +245,24 @@ public class BELGraphConverterImpl implements GraphConverter {
                                     HashMap::new,
                                     (Map<String, Object> map, Map.Entry<String, Object> entry) -> map.put(entry.getKey(), entry.getValue()),
                                     Map::putAll);
+
+            if (cyNv != null) {
+                Optional.ofNullable(cyNv.getNodeView(cyNode)).ifPresent(nodeView ->
+                        jgfNode.metadata.put("coordinate", relativeCoordinates(
+                        asList(
+                                nodeView.getVisualProperty(BasicVisualLexicon.NODE_X_LOCATION),
+                                nodeView.getVisualProperty(BasicVisualLexicon.NODE_Y_LOCATION),
+                                nodeView.getVisualProperty(BasicVisualLexicon.NODE_Z_LOCATION)
+                        ),
+                        DEFAULT_NETWORK_VIEW_WIDTH, DEFAULT_NETWORK_VIEW_HEIGHT, DEFAULT_MULTIPLIER)));
+            } else {
+                jgfNode.metadata.remove("coordinate");
+            }
+
+            // Remove Cytoscape-mapped coordinate columns
+            jgfNode.metadata.remove(X_COORD);
+            jgfNode.metadata.remove(Y_COORD);
+            jgfNode.metadata.remove(Z_COORD);
 
             return jgfNode;
         };

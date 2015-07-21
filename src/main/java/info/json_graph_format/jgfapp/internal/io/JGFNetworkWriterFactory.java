@@ -25,12 +25,12 @@ public class JGFNetworkWriterFactory implements CyNetworkViewWriterFactory {
 
     @Override
     public CyWriter createWriter(OutputStream output, CyNetworkView cyNv) {
-        return new JGFWriter(output, cyNv.getModel(), graphConverter, graphWriter);
+        return new JGFWriter(output, cyNv.getModel(), cyNv, graphConverter, graphWriter);
     }
 
     @Override
     public CyWriter createWriter(OutputStream output, CyNetwork cyN) {
-        return new JGFWriter(output, cyN, graphConverter, graphWriter);
+        return new JGFWriter(output, cyN, null, graphConverter, graphWriter);
     }
 
     @Override
