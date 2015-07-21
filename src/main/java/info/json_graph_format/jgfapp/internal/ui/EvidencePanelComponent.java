@@ -54,7 +54,7 @@ public class EvidencePanelComponent implements CytoPanelComponent, RowsSetListen
      */
     @Override
     public Component getComponent() {
-        return evidenceListPanel = new EvidenceListPanel();
+        return this.evidenceListPanel = new EvidenceListPanel();
     }
 
     /**

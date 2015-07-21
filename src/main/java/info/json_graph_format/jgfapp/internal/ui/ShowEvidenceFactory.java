@@ -13,7 +13,11 @@ import org.cytoscape.view.model.CyNetworkView;
 import org.cytoscape.view.model.View;
 import org.cytoscape.work.TaskIterator;
 
+import javax.swing.*;
+import java.awt.*;
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.Optional;
 
 import static info.json_graph_format.jgfapp.api.util.TableUtility.getTable;
 import static info.json_graph_format.jgfapp.api.util.Utility.hasItems;
@@ -37,8 +41,7 @@ public class ShowEvidenceFactory implements EdgeViewTaskFactory {
     public TaskIterator createTaskIterator(View<CyEdge> view, CyNetworkView networkView) {
         CytoPanel eastPanel = swingApplication.getCytoPanel(CytoPanelName.EAST);
         eastPanel.setState(CytoPanelState.DOCK);
-        int index = eastPanel.indexOfComponent(evidencePanelComponent.getComponent());
-        eastPanel.setSelectedIndex(index);
+        selectEvidenceListPanel(eastPanel);
 
         return new TaskIterator(new NoOpTask());
     }
@@ -51,5 +54,24 @@ public class ShowEvidenceFactory implements EdgeViewTaskFactory {
 
         Collection<CyRow> rows = evTable.getMatchingRows(EDGE_SUID, suid);
         return hasItems(rows);
+    }
+
+    private void selectEvidenceListPanel(CytoPanel eastPanel) {
+        // find tabs
+        Optional<JTabbedPane> tabs = Arrays.stream(((JPanel) eastPanel).getComponents()).
+                filter(component -> component instanceof JTabbedPane).
+                map(component -> (JTabbedPane) component).
+                findFirst();
+        if (!tabs.isPresent()) return;
+
+        // find evidence list panel
+        JTabbedPane tabPane = tabs.get();
+        Optional<EvidenceListPanel> evidenceList = Arrays.stream(tabPane.getComponents()).
+                filter(component -> component instanceof EvidenceListPanel).
+                map(component -> (EvidenceListPanel) component).
+                findFirst();
+        if (!evidenceList.isPresent()) return;
+
+        tabPane.setSelectedComponent(evidenceList.get());
     }
 }
