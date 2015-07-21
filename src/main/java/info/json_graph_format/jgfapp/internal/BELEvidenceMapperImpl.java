@@ -9,7 +9,6 @@ import org.cytoscape.model.*;
 
 import java.util.*;
 import java.util.Map.Entry;
-import java.util.stream.Collectors;
 
 import static info.json_graph_format.jgfapp.api.util.FormatUtility.getOrEmptyString;
 import static info.json_graph_format.jgfapp.api.util.TableUtility.getOrCreateColumn;
@@ -128,10 +127,10 @@ public class BELEvidenceMapperImpl implements BELEvidenceMapper {
                     entrySet().
                     stream().
                     collect(
-                            Collectors.toMap(
-                                    entry -> "experiment_context_" + entry.getKey(),
-                                    Entry::getValue
-                            )
+                        HashMap::new,
+                        (Map<String, Object> map, Map.Entry<String, Object> entry) ->
+                                map.put("experiment_context_" + entry.getKey(), entry.getValue()),
+                        Map::putAll
                     );
 
             // create any experiment context columns that do not already exist
@@ -150,10 +149,10 @@ public class BELEvidenceMapperImpl implements BELEvidenceMapper {
                     entrySet().
                     stream().
                     collect(
-                            Collectors.toMap(
-                                    entry -> "metadata_" + entry.getKey(),
-                                    Entry::getValue
-                            )
+                            HashMap::new,
+                            (Map<String, Object> map, Map.Entry<String, Object> entry) ->
+                                    map.put("metadata_" + entry.getKey(), entry.getValue()),
+                            Map::putAll
                     );
 
             // create any metadata columns that do not already exist
