@@ -5,7 +5,6 @@ import info.json_graph_format.jgfapp.api.GraphConverter;
 import info.json_graph_format.jgfapp.api.model.*;
 import org.cytoscape.model.*;
 import org.cytoscape.view.model.CyNetworkView;
-import org.cytoscape.view.model.View;
 import org.cytoscape.view.presentation.property.BasicVisualLexicon;
 
 import java.util.*;
@@ -288,7 +287,7 @@ public class BELGraphConverterImpl implements GraphConverter {
                                     (Map<String, Object> map, Map.Entry<String, Object> entry) -> map.put(entry.getKey(), entry.getValue()),
                                     Map::putAll);
 
-            Evidence[] evidenceArray = evidenceMapper.mapFromTable(cyEdge, evidenceTable);
+            Evidence[] evidenceArray = evidenceTable == null ? new Evidence[0] : evidenceMapper.mapFromTable(cyEdge, evidenceTable);
             evidenceArray = Arrays.
                     stream(evidenceArray).
                     map(evidence -> {
